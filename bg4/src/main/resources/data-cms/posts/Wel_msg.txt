@@ -6,7 +6,7 @@
 "pgn_lnk_txt":"more info",
 "pgn_lnk_href":"",
 "pvs_lnk_ic":"true",
-"pvs_lnk_href":"",
+"pvs_lnk_href":"?event=EV_INST",
 "pvs_lnk_txt":"back",
 
 

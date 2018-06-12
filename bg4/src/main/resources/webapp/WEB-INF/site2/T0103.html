@@ -61,63 +61,7 @@
 		<div class="row" style="background-color:white;">
 			<div class="col-lg-3  col-md-3 col-sm-4 col-xs-12">
 				<div id="menu" style="background:url(https://upload.wikimedia.org/wikipedia/commons/1/19/07182012Sesion_campus_redes_sociales047.jpg')">
-				<div id="menu2" style="Opacity:0.9">
 				
-				
-						<ul>
-							<lh> <a th:text="Home" style="cursor: pointer;" th:href= "${menu.home_link_ref}"></a> </lh>	
-							<lh> <a th:text="About" style="cursor: pointer;" th:href= "${menu.about_link_ref}"></a> </lh>
-						</ul>
-						
-						<ul>
-							<lh> <h2 style="color:antiquewhite">Liberal Education</h2> <hr></hr></lh>
-						</ul>
-						
-						<div th:each="link : ${menu.MENU_LINKS_CONT_ZN}">
-							<ul>	
-								<lh> <a th:text="${link.link_title}" style="cursor: pointer;" href="/home/A01T"></a> </lh>					
-								<div th:each="sublink : ${link.MENU_SUBLINKS_ZN}">
-								<li  th:id="${sublink.link_id}"><a th:text="${sublink.link_title}" style="cursor: pointer;" th:href="${sublink.link_href}" onclick=""></a></li>						
-								</div>
-							</ul>
-						</div>
-						<ul>
-							<lh> <h2 style="color:antiquewhite">Resources</h2> <hr></hr></lh>
-						</ul>
-						
-						<div th:each="link : ${menu.MENU_LINKS_FORM_FLW_ZN}">
-							<ul>	
-								<lh> <a th:text="${link.link_title}" style="cursor: pointer;" href="/home/A01T"></a> </lh>					
-								<div th:each="sublink : ${link.MENU_SUBLINKS_ZN}">
-								<li  th:id="${sublink.link_id}"><a th:text="${sublink.link_title}" style="cursor: pointer;" th:href="${sublink.link_href}" onclick=""></a></li>						
-								</div>
-							</ul>
-						</div>
-					
-						
-					
-						
-							
-						<ul>
-							<lh>
-							<a>Links</a></lh>
-							<li><a style="cursor: pointer;" onclick="return form_action_load('','pages','curriculum','view',0);">CBSE</a></li>
-							<li><a style="cursor: pointer;" href="http://www.cisce.org/" target="_blank">ICSE | ISC Syllabus</a></li>
-							<li><a style="cursor: pointer;" href="http://www.aacu.org/" target="_blank">AACU</a></li>
-							<li><a style="cursor: pointer;" href="/admin/metrics">Login</a></li>
-						</ul>
-					
-						<ul><lh> </lh></ul>
-						<ul><lh> </lh></ul>
-						<ul><lh> </lh></ul>
-						<ul><lh> </lh></ul>
-						<ul><lh> </lh></ul>
-						<ul><lh> </lh></ul>
-						<ul><lh> </lh></ul>
-						<ul><lh> </lh></ul>
-						<ul><lh> </lh></ul><ul><lh> </lh></ul><ul><lh> </lh></ul><ul><lh> </lh></ul>
-					</div>
-					
  				<div id="pageId" th:utext="${message.sh_msg}"> 				
  				</div>
  				
@@ -159,15 +103,11 @@
 							</div>
 						</div>
 						<ul class="pager">
-							<li class="next"><a th:href="${message.pgn_lnk_ic}" style="background-color: gold;">
-								<div th:utext="${message.pgn_lnk_txt}"></div>
+							<li class="next"><a href="?event=EV_PVS" style="background-color: gold;">
+								<div text="More Info"></div>
 							</a></li>
 						</ul>
-						<ul class="pager">
-							<li class="next"><a href="?event=EV_INST" style="background-color: gold;">
-								<div> "Click for instructions"</div>
-							</a></li>
-						</ul>
+
 					</div>
 				</div>
 				<div class="col-lg-2  col-md-1 col-sm-12">

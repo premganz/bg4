@@ -1,27 +1,28 @@
 abrev  for domain demo	
-demo	demo
-page	pg
-content	cont
-menu	menu
-link	lnk
-navigation	nav
-landing	land
-home	hom
-running matter	runm
-paragraph	para
-welcome	wel
-message	msg
-pagination	pgn
-title	ttl
-sub	sub
-long	long
-text	txt
-short	sh
-form	form
-flow	flw
-meta	meta
-info	info
-table	tbl
-description	desc
-previous	pvs
-commit	cmt
+demo,demo
+page,pg
+content,cont
+menu,menu
+link,lnk
+navigation,nav
+landing,land
+home,hom
+running matter,runm
+paragraph,para
+welcome,wel
+message,msg
+pagination,pgn
+title,ttl
+sub,sub
+long,long
+text,txt
+short,sh
+form,form
+flow,flw
+meta,meta
+info,info
+table,tbl
+description,desc
+previous,pvs
+commit,cmt
+instruction,inst

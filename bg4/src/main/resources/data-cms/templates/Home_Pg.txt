@@ -7,14 +7,19 @@
 			"link_title": "Demo Trx Switch",
 			"MENU_SUBLINKS_ZN":  [
 					{
-						"link_id": "C01",
+						"link_id": "C03",
 						"link_href": "../../trx/T02/Wel_msg",
-						"link_title": "Switch to empty trx"			
+						"link_title": "Switch to Empty TRX"			
 					},
 					{
 						"link_id": "C02",
 						"link_href": "?event=EV_DTL",
 						"link_title": "Get to an overview Page"			
+					},
+					{
+						"link_id": "C02",
+						"link_href": "?event=EV_DTL",
+						"link_title": "Dummy Link"			
 					}
 				]			
 		
