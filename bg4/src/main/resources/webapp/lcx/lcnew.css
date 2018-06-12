@@ -1,0 +1,108 @@
+
+
+#menu{	
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	padding-right:5px;
+	background-color: #6a843c;
+	/*background-image: url(../lcx/lanes-bg.png);
+	background-repeat: repeat-y;*/
+}
+#menu lh a {
+	color: white;
+	height: auto;
+	display: block;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	padding-left: 0px;
+	font-weight: bold;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	/*cursor: pointer;*/
+	width: auto;
+	text-decoration: none;
+	font-size: 18px;
+}
+#menu lh a:hover{
+	color: #000000 !important;
+	background-color: #9ffd06;
+	width: auto;
+	display: block;
+	font-weight: bold;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	width: auto;
+}
+
+
+
+
+#menu ul{
+	width: auto;
+	padding-bottom: 10px;
+}
+#menu li{
+	list-style-type: none;
+	font-size: 15px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	display: block;
+	padding-left: 0px;
+	width: auto;
+	line-height: 1.2em;
+	height: auto;
+}
+#menu li a{
+	color: #deffc5;
+	height: auto;
+	display: block;
+	padding-left: auto;	
+	font-weight: normal;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	/*cursor: pointer;*/
+	width: auto;
+	text-decoration: none;
+	padding-right: 0px;
+}
+#menu li a:hover{
+	color: #000000 !important;
+	background-color: #9ffd06;
+	width: auto;
+	display: block;
+	font-weight: normal;
+	width: auto;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+.active a {
+	color: #deffc5 !important;
+	background-color: #000;
+	width: auto;
+	display: block;
+	font-weight: bold;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+#footer {
+	background-image: url("../images/bg-body.jpg");
+	background-repeat: repeat-y;
+	border-bottom: 10px solid #000000;
+	bottom: 0;
+	float: left;
+	
+}
+
+highlight{
+	color: #000000 !important;
+	background-color: #9ffd06;
+	width: auto;
+	display: block;
+	font-weight: bold;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	width: auto;
+}

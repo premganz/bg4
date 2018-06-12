@@ -1,0 +1,44 @@
+{
+	"home_link_ref": "More on this",
+	"about_link_ref": "More on this",
+	"MENU_LINKS_IDEA_ZN": [
+		{
+			
+			"link_title": "Demo Trx Switch",
+			"MENU_SUBLINKS_ZN": [
+					{
+						"link_id": "C01",
+						"link_href": "../trx/C01/C01T",
+						"link_title": "Switch to a Content Page"			
+					},
+					{
+						"link_id": "C02",
+						"link_href": "../trx/C01/C01T",
+						"link_title": "Switch to a menu page same trx"			
+					}
+				]			
+		
+		}
+	],
+	"MENU_LINKS_AUDIENCE_ZN": [
+		{
+			
+			"link_title": "Liberal Education",
+			"MENU_SUBLINKS_ZN": [
+					{
+						"link_id": "C01",
+						"link_href": "../trx/C01/C01T",
+						"link_title": "What is Liberal Education"			
+					},
+					{
+						"link_id": "C02",
+						"link_href": "../trx/C01/C01T",
+						"link_title": "More In Depth"			
+					}
+				]			
+		
+		}
+	],
+	
+	"list_pagination_ic": "1"
+}

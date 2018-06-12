@@ -1,0 +1,30 @@
+{
+"long_msg":"a table  based text message",
+"ttl":"welcomPage",
+"sub_ttl":"subtitle",
+"pgn_lnk_ic":"true",
+"pgn_lnk_txt":"more info",
+"pgn_lnk_href":"",
+"pvs_lnk_ic":"true",
+"pvs_lnk_href":"?event=EV_PVS",
+"pvs_lnk_txt":"back",
+
+"MSG_META_INFO_TBL":[
+{"author":"prem",
+"date":"jun11"
+}
+],
+"MSG_LNK_TBL":[
+{"href":"prem",
+"txt":"jun11",
+"desc":"a long description"
+},
+{"href":"prem",
+"txt":"jun11",
+"desc":"a long description"
+}
+
+
+]
+
+}

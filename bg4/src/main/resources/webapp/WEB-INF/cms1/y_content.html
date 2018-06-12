@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>y_content</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+<script type="text/javascript">
+        tinymce.init({
+        	  plugins: "image",
+              image_list: [ 
+                  {title: 'My image 1', value: 'http://www.tinymce.com/my1.gif'}, 
+                  {title: 'My image 2', value: 'http://www.moxiecode.com/my2.gif'} 
+              ],             
+            selector: "#mytextarea",
+            content_css : "/css/clean-blog.min.css" 
+            
+        });
+       
+        
+        
+    </script>
+<!-- Bootstrap Core CSS -->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"></link>
+
+<!-- Custom CSS -->
+<link th:href="@{/css/clean-blog.min.css}" rel="stylesheet"></link>
+
+<!-- Custom Fonts -->
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"></link>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'></link>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+	rel='stylesheet' type='text/css'></link>
+
+</head>
+
+<body>
+<script>
+    var greet='';
+		
+		$(document).ready(function(){
+		$("#fetch1").click(function(){
+		    $.ajax(
+		    	{url: "editTemplate?fileName="+ $("#fileselect").val(),
+		    			async: false, 
+		    			 dataType: 'json',
+		    	success: function(result){
+		    		$("#mytextarea_template").val(JSONstringify(result));
+		    		$("#fileName").prop("background-color", "PINK");
+		    	}
+		    	});
+		   
+		});
+		});
+		
+		
+		function JSONstringify(json) {
+		    if (typeof json != 'string') {
+		        json = JSON.stringify(json, undefined, '\t');
+		    }
+
+		
+		   
+		    return json;
+		}
+		
+	
+		
+	</script>
+	 
+	
+	<div class="metadata" >
+	<table ><tr>
+	<td><h2>Template Controls</h2></td>
+	<td>
+	
+                <ul >
+                    <li>
+                        <a href="/home">Home</a>
+                    </li>
+                     <li>
+                        <a href="/admin/metrics">Back</a>
+                    </li>                 
+                </ul>
+           
+           </td>
+	</tr>
+	</table>
+	</div>
+	<div class="metadata">
+	<table>
+	<tr>
+	<td>	Fetch Existing Post:	</td>
+	<td>	<button  id="fetch1">Fetch</button>	</td>
+	</tr>
+	</table>
+	
+	<form id="form1" action="#" th:action="@{../admin/submitContentTemplate}" method="post" onsubmit="return confirm('Are you sure?');">
+			<!-- <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> -->
+				<table>
+					<tr>
+						<td>
+							
+							<p>
+							<select id="fileselect" >
+								<div th:each="link : ${files}">
+								<option th:text="${link}" ></option>					
+								</div>
+							</select>
+							</p>
+							<div th:utext="${content.formErrors}"></div>
+							
+								<p>FileName : <input id="fileName" th:name="input" th:field="${content.id}" maxlength="100" /></p>
+																					
+						</td>
+						<td><br></br> <button  id="fetch" onClick="loadContent()">Post</button></td>
+						
+					</tr>
+				</table>
+			
+		<div class="container">
+			<div class="row">
+				<p>					
+					<textarea id="mytextarea_template" spellcheck="false" th:field="*{content.htmlContent}" cols="80" rows="40"></textarea>
+					<br></br> <input type="submit" id="doUpdate" name="_eventId_updateData" value="POST" onclick="return confirm('Are you sure you want to save?');"/>
+				</p>
+
+			</div>
+		</div>
+	</form>
+	</div>
+	
+</body>
+</html>

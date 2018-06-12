@@ -1,0 +1,5 @@
+{
+"message":"this is a flat file containing a welcome message",
+"meta":"author=prem"
+
+}

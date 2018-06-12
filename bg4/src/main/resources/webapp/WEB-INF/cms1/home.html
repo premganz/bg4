@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
+<body>
+<div class="metadata" >
+	<table ><tr>
+	<td><h2>Post Controls</h2></td>
+	<td>
+	
+                <ul >
+                    <li>
+                        <a href="/home">Home</a>
+                    </li>
+                     <li>
+                        <a href="/admin/metrics">Back</a>
+                    </li>                 
+                </ul>
+           
+           </td>
+	</tr>
+	</table>
+	
+<h1>ADMIN AREA</h1>
+
+
+<p>Logged in</p>
+
+<p>Server time: <span th:text="${serverTime}"></span></p>
+
+<p>Admin Menu</p>
+<ul>
+    <li th:each="item : ${someItems}" th:text="${item}"></li>
+</ul>
+
+<p>Echo Service</p>
+<div th:if="${echoService == null}">
+    <p>No, echo service is null.</p>
+</div>
+<div th:if="${echoService != null}">
+    <p>Yes: sending "echo": got <span th:text="${echoService.echo('echo')}"></span></p>
+</div>
+
+<p>Message from the dummy service?:</p>
+
+<div th:if="${dummyService == null}">
+    <p>No, dummy service is null.</p>
+</div>
+<div th:if="${dummyService != null}">
+    <p>Yes: <span th:text="${dummyService.getMessage()}"></span></p>
+</div>
+
+<p><a href="../static.txt">A static file.</a></p>
+
+<p><a href="../metrics">Yammer Metrics</a></p>
+
+<p><a href="../admin">Admin (admin/password)</a></p>
+
+<p><a href="../admin/debug">Debug1</a></p>
+<div class="container" >
+<p><a href="../admin/entry">Posts</a></p>
+<p><a href="../admin/entryTemplate">Templates</a></p>
+
+<a href="http://info.flagcounter.com/WsKx"><img src="http://s05.flagcounter.com/count2/WsKx/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></img></a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+"long_msg":"this is a flat file containing a welcome message",
+"ttl":"welcomPage",
+"sub_ttl":"subtitle",
+"pgn_lnk_ic":"true",
+"pgn_lnk_txt":"more info",
+"pgn_lnk_href":"",
+"pvs_lnk_ic":"true",
+"pvs_lnk_href":"",
+"pvs_lnk_txt":"back",
+
+
+"sh_msg":"this is a short msg",
+
+"MSG_META_INFO_TBL":[
+{"author":"prem",
+"date":"jun11"
+}
+],
+"MSG_LNK_TBL":[
+{"href":"prem",
+"txt":"jun11",
+"desc":"a long description"
+}
+
+]
+
+}
