@@ -69,7 +69,7 @@ public class DelegatingController{
 	}
 	
 	@RequestMapping(value="/trx/{trxId}/FORM", method = RequestMethod.POST)
-	 public String submitContact(final Forms form, 
+	 public String submitContact(final Forms content, final Forms form, 
 			 final BindingResult bindingResult, HttpSession session,final ModelMap modelMap,HttpServletRequest request,
 			 @PathVariable String trxId)			
 				 {		

@@ -15,6 +15,16 @@ public class TrxInfo {
 	HttpSession session;	
 	
 	
+	public HttpSession getSession() {
+		return session;
+	}
+
+
+	public void setSession(HttpSession session) {
+		this.session = session;
+	}
+
+
 	public Object get(ScopeVar var){
 		if(var.scope.equals(Scope.REQ)){
 			return ((Map<ScopeVar,Object>)session.getAttribute("info_req")).get(var);
@@ -58,6 +68,18 @@ public class TrxInfo {
 		((ModelMap)info_req.get(AbstractToolkit.SV_MODEL)).addAttribute(key, value);
 		
 	}
+	public void addToFormMap(String key, Object value){
+		Forms forms = new Forms();
+		LinkedHashMap<String,String> formMap = new LinkedHashMap<String,String>();
+		formMap.put("usr_city", "MDU");
+		forms.setForm(formMap);
+		LinkedHashMap<String,Object> map = new LinkedHashMap<String,Object>();
+		map.put("forms",value);
+		((ModelMap)info_req.get(AbstractToolkit.SV_MODEL)).addAttribute(key, value);
+		
+	}
+	
+		
 	public StateInfo getState(){
 		return ((StateInfo)info_trx.get(AbstractToolkit.SV_STATE));
 	}

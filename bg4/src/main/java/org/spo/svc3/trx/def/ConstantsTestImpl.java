@@ -9,12 +9,12 @@ public class ConstantsTestImpl implements Constants {
 		if(!System.getProperty("os.name").startsWith("Windows")){
 			return "/usr/local/share/data-cms/lc";
 		}else{
-			return "C:\\Users\\premganesh\\eclipse-workspace\\bg4\\src\\main\\resources\\data-cms\\";
+			return "C:\\Users\\premganesh\\git\\bg4\\bg4\\src\\main\\resources\\data-cms";
 		}
 	}
 
 	public String getLandingPage() {
-		return "trx/T01/Wel_msg";
+		return "trx/T03/Wel_msg";
 	}
 
 	public int getPortNumber() {
