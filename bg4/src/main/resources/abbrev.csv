@@ -1,4 +1,4 @@
-abrev  for domain demo	
+"abrev  for domain demo	",
 demo,demo
 page,pg
 content,cont
@@ -26,3 +26,13 @@ description,desc
 previous,pvs
 commit,cmt
 instruction,inst
+,
+label,lbl
+name,nm
+event,ev
+scientific,sci
+method,mtd
+incomplete,icmp
+concept,cpt
+guide,gde
+recent,new

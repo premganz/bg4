@@ -4,7 +4,7 @@
     <attribute nl_exp="humility" how="a project running for finite time">
       <does nl_exp="Inspiration" onBelief="There are desirable actions that arise in the right environment">
         <intent nl_exp="create a right environment">
-          <strategy id="abt" nl_exp="being honest and clear">
+          <strategy id="abt" nl_exp="being honest and clear, some kind of a charter">
             <theme nl_exp="about us">
               <visit nl_exp="why this is zeigteist">
                 <domain id="abt_zei" nl_exp="contemproary issues with knowledge and justifying intervention">
@@ -26,6 +26,12 @@
                     <action type="tactical_pub" nl_exp="Embracing contradictions-why selfless love is good, loosing ego is good"></action>
                   </action>
                 </domain>
+                <domain id="abt_just" nl_exp="Justifying this enterprise howsoever humble">
+                  <action nl_exp="Is progress disrupted by suggesting alternates to adversarial search"></action>
+                  <action nl_exp="Slowing down adversarial Search and Transforming it to other modes">
+                    <query natural_question="what is the science behind the slow down logic?" nl_exp="link::"></query>
+                  </action>
+                </domain>
               </visit>
               <visit nl_exp="what this is not">
                 <domain id="abt_not" nl_exp="churches and cults">
@@ -39,6 +45,31 @@
                 <domain id="abt_cmp" nl_exp="campus">
                   <action type="critical_pub" nl_exp="Why University towns make sense"></action>
                   <action type="critical_pub" nl_exp="Recursive Human structures make sense"></action>
+                </domain>
+              </visit>
+            </theme>
+          </strategy>
+          <strategy id="theo" nl_exp="An analytical discipline to appreciate intervention, a tree of theories to base our program">
+            <theme nl_exp="Information Theory as our chosen analytic field">
+              <visit nl_exp="A Metaphysical Overview">
+                <domain id="theo_meta" nl_exp="Entropy and Thermodynamics">
+                  <action type="tactic_pub" nl_exp="Energy Problem"></action>
+                  <action type="tactic_pub" nl_exp="Structure and life"></action>
+                  <action type="tactic_pub" nl_exp="Countering Entropy by internalization, recursion"></action>
+                  <action type="tactic_pub" nl_exp="Entropy as Intelligence"></action>
+                  <action type="tactic_pub" nl_exp="Alternate courses to Evolution, transforms and virtue (slowing down)"></action>
+                </domain>
+              </visit>
+              <visit nl_exp="Information Theory ontology">
+                <domain nl_exp="Information Theory">
+                  <action type="tactic_pub" nl_exp="Computing as universal"></action>
+                  <action type="tactic_pub" nl_exp="Computing hardness and limitation"></action>
+                  <action type="tactic_pub" nl_exp="Possible Pitfalls under the influence of computing"></action>
+                  <action type="crit_pub" nl_exp="Education as being over and above information"></action>
+                  <action type="crit_pub" nl_exp="Wickedness, complexity and politics"></action>
+                </domain>
+                <domain nl_exp="Where our epistemology ends and which belief we happily embrace">
+                  <action type="crit_pub" nl_exp="The idea of love, truth and beauty"></action>
                 </domain>
               </visit>
             </theme>
@@ -98,7 +129,9 @@
                 <domain id="aes_zen" nl_exp="Zen, Harmony and Resignation">
                   <action nl_exp="How east appreciated uncertainty"></action>
                   <action nl_exp="Hermeneutic or Natural Truths"></action>
-                  <action nl_exp="Pessimism and the Survival Question"></action>
+                  <action nl_exp="Pessimism and the Survival Question">
+                    <query natural_question="are we endangering future of humanity?" nl_exp="link::abt_just"></query>
+                  </action>
                 </domain>
                 <domain id="aes_tru" nl_exp="Critical Truth Discovery">
                   <action nl_exp="Intuition as path to critical truth">
@@ -184,7 +217,9 @@
             <action nl_exp="How schools can cope with new idea (rather old one)">
               <evidence type="newsFeed"></evidence>
             </action>
-            <action nl_exp="Tradition of liberal education- Rousseau, Greeks"></action>
+            <action nl_exp="Tradition of liberal education- Rousseau, Greeks">
+              <query natural_question="how can liberal education free us from human condition in science?" nl_exp="link::abt_meta"></query>
+            </action>
             <action nl_exp="Being Future Ready"></action>
           </domain>
 
