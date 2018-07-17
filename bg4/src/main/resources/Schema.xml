@@ -28,6 +28,7 @@
                 </domain>
                 <domain id="abt_just" nl_exp="Justifying this enterprise howsoever humble">
                   <action nl_exp="Is progress disrupted by suggesting alternates to adversarial search"></action>
+                  <action nl_exp="Is statistical computing misleading, or atleast need critques (norvig Chomsky debates)"></action>
                   <action nl_exp="Slowing down adversarial Search and Transforming it to other modes">
                     <query natural_question="what is the science behind the slow down logic?" nl_exp="link::"></query>
                   </action>
@@ -45,6 +46,11 @@
                 <domain id="abt_cmp" nl_exp="campus">
                   <action type="critical_pub" nl_exp="Why University towns make sense"></action>
                   <action type="critical_pub" nl_exp="Recursive Human structures make sense"></action>
+                </domain>
+                <domain id="abt_fnd" nl_exp="founding ideas">
+                  <action type="critical_pub" nl_exp="A critical institution that is best defined as Nostalgic"></action>
+                  <action type="critical_pub" nl_exp="embracing the contradition of scinetific method and its incompleteness"></action>
+                  <action type="critical_pub" nl_exp="Recursion of Chomsky and Complexity of Churchman"></action>
                 </domain>
               </visit>
             </theme>
@@ -65,6 +71,12 @@
                   <action type="tactic_pub" nl_exp="Computing as universal"></action>
                   <action type="tactic_pub" nl_exp="Computing hardness and limitation"></action>
                   <action type="tactic_pub" nl_exp="Possible Pitfalls under the influence of computing"></action>
+                  <action type="tactic_pub" nl_exp="Inevitability of Compression and recursion as compression"></action>
+                  <action type="tactic_pub" nl_exp="Computer as transducer, as language"></action>
+                  <action type="tactic_pub" nl_exp="Meaning, Control and Experience in terms of knowledge"></action>
+                  <action type="tactic_pub" nl_exp="Computing as phenomenon or as an Experiment- the choice"></action>
+                </domain>
+                <domain nl_exp="Human Agency in this ontology">
                   <action type="crit_pub" nl_exp="Education as being over and above information"></action>
                   <action type="crit_pub" nl_exp="Wickedness, complexity and politics"></action>
                 </domain>
@@ -195,36 +207,45 @@
       </does>
 
       <does nl_exp="Administer_Campaigns">
-        <strategy nl_exp="Education Domain Local Work"></strategy>
-        <visit nl_exp="soliciting audience">
-          <domain nl_exp="Appeal to Teachers">
-            <action nl_exp="What is liberal education or critical education">
-              <evidence type="newsFeed" nl_exp="American Colleges association"></evidence>
-              <evidence type="testimonials" nl_exp="results of our experience with institutions"></evidence>
-            </action>
-            <action nl_exp="Will it suit India">
-              <evidence type="newsFeed"></evidence>
-              <evidence type="testimonials" nl_exp="results of our experience with institutions"></evidence>
-            </action>
-            <action nl_exp="How Approached in Indian Context, tactics like quizzes science clubs">
-              <evidence type="newsFeed"></evidence>
-              <query natural_question="why no concrete schemes are possible" nl_exp="link::oblique approach and acceptance of organic quality of knowledge"></query>
-            </action>
-            <action nl_exp="Student Perspective">
-              <evidence type="newsFeed"></evidence>
-            </action>
-            <action nl_exp="Parental Concerns"></action>
-            <action nl_exp="How schools can cope with new idea (rather old one)">
-              <evidence type="newsFeed"></evidence>
-            </action>
-            <action nl_exp="Tradition of liberal education- Rousseau, Greeks">
-              <query natural_question="how can liberal education free us from human condition in science?" nl_exp="link::abt_meta"></query>
-            </action>
-            <action nl_exp="Being Future Ready"></action>
-          </domain>
-
-        </visit>
-
+        <strategy nl_exp="Education Domain Local Work">
+          <visit nl_exp="soliciting audience">
+            <domain nl_exp="Appeal to Teachers">
+              <action nl_exp="What is liberal education or critical education">
+                <evidence type="newsFeed" nl_exp="American Colleges association"></evidence>
+                <evidence type="testimonials" nl_exp="results of our experience with institutions"></evidence>
+              </action>
+              <action nl_exp="Will it suit India">
+                <evidence type="newsFeed"></evidence>
+                <evidence type="testimonials" nl_exp="results of our experience with institutions"></evidence>
+              </action>
+              <action nl_exp="How Approached in Indian Context, tactics like quizzes science clubs">
+                <evidence type="newsFeed"></evidence>
+                <query natural_question="why no concrete schemes are possible" nl_exp="link::oblique approach and acceptance of organic quality of knowledge"></query>
+              </action>
+              <action nl_exp="Student Perspective">
+                <evidence type="newsFeed"></evidence>
+              </action>
+              <action nl_exp="Parental Concerns"></action>
+              <action nl_exp="How schools can cope with new idea (rather old one)">
+                <evidence type="newsFeed"></evidence>
+              </action>
+              <action nl_exp="Tradition of liberal education- Rousseau, Greeks">
+                <query natural_question="how can liberal education free us from human condition in science?" nl_exp="link::abt_meta"></query>
+              </action>
+              <action nl_exp="Being Future Ready"></action>
+            </domain>
+          </visit>
+        </strategy>
+        <strategy nl_exp="Computing Critical Publication">
+          <visit nl_exp="Overview of principles and beliefs in computing">
+            <domain nl_exp="softComputing">
+              <action nl_exp="Critical View of Machine learning systems"></action>
+              <action nl_exp="Critical View of Cognitive Systems, nature of cognition"></action>
+              <action nl_exp="theory of networks, zero trx networks critical view"></action>
+              <action nl_exp="Critical view of nudge and self balancing systems, control problems"></action>
+            </domain>
+          </visit>
+        </strategy>
       </does>
     </attribute>
   </role>
