@@ -29,6 +29,7 @@
   xmlns CDATA #FIXED ''
   how CDATA #IMPLIED
   nl CDATA #REQUIRED
+  lbl CDATA #IMPLIED
   onBelief CDATA #IMPLIED>
 
 <!ELEMENT intent (strategy)+>
@@ -45,17 +46,20 @@
 <!ELEMENT theme (visit)+>
 <!ATTLIST theme
   xmlns CDATA #FIXED ''
+  lbl CDATA #REQUIRED
   nl CDATA #REQUIRED>
 
 <!ELEMENT visit (domain+,(action,query)?)>
 <!ATTLIST visit
   xmlns CDATA #FIXED ''
+  lbl CDATA #IMPLIED
   nl CDATA #REQUIRED>
 
 <!ELEMENT domain (evidence*,(action|query)*)>
 <!ATTLIST domain
   xmlns CDATA #FIXED ''
   id CDATA #IMPLIED
+  lbl CDATA #IMPLIED
   nl CDATA #IMPLIED
   nl CDATA #IMPLIED>
 
@@ -76,6 +80,7 @@
 <!ATTLIST action
   xmlns CDATA #FIXED ''
   id ID #IMPLIED
+  lbl CDATA #IMPLIED
   nl CDATA #REQUIRED  
   type NMTOKEN #IMPLIED>
   
@@ -84,10 +89,10 @@
 <vsn id="root_version_1" nl="The scientific method and its incompleteness appreciated and interpreted into context">
   <role nl="A critical agent">
     <attribute nl="humility" how="a project running for finite time">
-      <does nl="Inspiration" onBelief="There are desirable actions that arise in the right environment">
+      <does nl="Inspiration" lbl="Inspiration" onBelief="There are desirable actions that arise in the right environment">
         <intent nl="create a right environment">
-          <strategy id="abt" nl="being honest and clear, some kind of a charter">
-            <theme nl="about us">
+          <strategy id="abt"  nl="being honest and clear, some kind of a charter">
+            <theme lbl="Our Intent- About Us" nl="about us">
               <visit nl="why this is zeigteist">
                 <domain id="abt_zei" nl="contemproary issues with knowledge and justifying intervention">
                   <action type="crt" nl="Why scientific method is endangered from time to time"></action>
@@ -139,8 +144,8 @@
             </theme>
           </strategy>
           <strategy id="theo" nl="An analytical discipline to appreciate intervention, a tree of theories to base our program">
-            <theme nl="Information Theory as our chosen analytical field">
-              <visit nl="A Metaphysical Overview">
+            <theme lbl="Information Sciences Research" nl="Information Theory as our chosen analytical field">
+              <visit lbl="A MetaPhysical Overview" nl="A Metaphysical Overview">
                 <domain id="theo_meta" nl="Entropy and Thermodynamics">
                   <action type="tct" nl="Energy Problem"></action>
                   <action type="tct" nl="Structure and life"></action>
@@ -170,8 +175,8 @@
             </theme>
             </strategy>
             <strategy id="disc" nl="Being more with the discipline than pure revelation">
-              <theme nl="Literature Review">
-                <visit nl="Sciences">
+              <theme lbl="Supporting Literature" nl="Literature Review">
+                <visit lbl="Our Scientific Basis" nl="Sciences">
                   <domain nl="Computing">
                     <action type="tct" nl="Review of Chomsky's Work"></action>
                     <action type="tct" nl="Norvig- Chomsky debate"></action>
@@ -192,8 +197,8 @@
             </strategy>
 
             <strategy id="sci" nl="Intellectual Reflection of Aesthetics">
-              <theme nl="appreciating the scientific method">
-                <visit nl="reflect on its tradition">
+              <theme lbl= "The Scientific Method and its Wisdom" nl="appreciating the scientific method in its symmetry and incompleteness">
+                <visit nl="Appreciate the Scientific method and its tradition">
                   <domain nl="history of European enlightenment">
                     <evidence type="newsfeed" nl="extLinks:Books on European Enlightenment"></evidence>
                     <evidence type="story" nl="link::Stories in Educational Campaigns"></evidence>
@@ -224,7 +229,7 @@
             </strategy>
 
             <strategy id="aes" nl="Spiritual Reflection of Aesthetics">
-              <theme nl="Incompleteness of the Scientific Method">
+              <theme lbl="Scientific Incompleteness and its Beauty"  nl="Incompleteness of the Scientific Method">
                 <visit nl="Appreciating Incompleteness in the right spirit">
                   <domain id="" nl="the timeless mood over uncertainty">
                     <evidence type="newsfeed" nl="extLinks:news on how IT might get dangerous"></evidence>
@@ -274,9 +279,10 @@
         </intent>
       </does>
 
-      <does nl="Form Campaigns" how="Run Campaigns" onBelief="There is a teleos to nurture right environment">
+      <does lbl="Nature of our Campaigns" nl="Form Campaigns" how="Run Campaigns" onBelief="There is a teleos to nurture right environment">
       <intent nl="Can be humble promotor of certain actions, not as a sweeping campaign, more like how we take care of friends">
         <strategy nl="Define Campaigns well">
+        <theme lbl="Campaigns Overview" nl="A Walkthrough of our campaigns" >
           <visit nl="Out of the Blue picks of campaigns">
             <domain nl="Conception of campagins: Intellectual and Aesthetic Reflection in discussions as Hymns">
               <query natural_question="how are campaigns chosen?" nl="link::abt_camp"></query>
@@ -308,13 +314,16 @@
               <action nl="Mode of Influence and relationship"></action>
             </domain>
           </visit>
+          </theme>
         </strategy>
+       
         </intent>
       </does>
 
-      <does nl="Administer_Campaigns">
+      <does lbl="Active Campaigns" nl="Administer_Campaigns">
       <intent nl="administer campaigns, though of small scale and personal, in a rigid and record based manner, like crew logs">
         <strategy nl="Education Domain Local Work">
+        <theme lbl="Educational Campaign" nl="Liberal Education">
           <visit nl="soliciting audience">
             <domain nl="Appeal to Teachers">
               <action nl="What is liberal education or critical education">
@@ -342,6 +351,7 @@
               <action nl="Being Future Ready"></action>
             </domain>
           </visit>
+          </theme>
         </strategy>
         <strategy nl="Computing Critical Publication">
           <visit nl="Overview of principles and beliefs in computing">
