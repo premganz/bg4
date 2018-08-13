@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages>
+  <page type="homepage">
+    <section type="sidemenu">
+      <menu id="menu_hom">
+        <link id="permAll" type="perm" navType="static">
+          <link id="lnk_perm_hom" type="toPage" lbl="Home"></link>
+          <link id="lnk_perm_abt" type="about" lbl="About"></link>
+        </link>
+        <link id="idea_hom" type="cluster" lbl="Idea">
+          <link id="lnk_grp_imp_sci_mtd_hm" type="group" lbl="The Scientific Method">
+            <link id="lnk_gde_sci_mtd_1" type="guide" lbl="Tradition - of Rationalism">
+              <page id="gde_sci_mtd_1_trd" type="guidePage">
+                <section type="menu">
+                  <menu type="copy" src="menu_hom">
+                    <include>
+                    <item id="permAll" exclude=""/>
+                    <item id="idea_hom" exclude="::allSublinks"/>
+                   
+                    </include>
+                  </menu>
+
+                </section>
+                <section type="main">
+                  <cnt type="summary" res="sum_sci_mtd_trd" />
+                  <cnt type="recent" res="new_cnt_itm_lst" />
+                  <cnt type="recent" res="new_cnt_cmt_lst" />
+                </section>
+
+
+              </page>
+
+
+
+            </link>
+            <link id="lnk_gde_sci_mtd_2" type="guide" lbl="Theory - philosophy of science" />
+            <link id="lnk_gde_sci_mtd_3" type="guide" lbl="Debates - wicked problems et al" />
+            <link id="lnk_gde_sci_mtd_4" type="guide" lbl="State of the Literature" />
+          </link>
+          <link id="lnk_grp_imp_sci_mtd_icmp_hm" type="group" lbl="Its Incompleteness">
+            <link id="lnk_gde_sci_icmp_1" type="guide" lbl="Tradition-of Romanticism " />
+            <link id="lnk_gde_sci_icmp_2" type="guide" lbl="Theory-the why question" />
+            <link id="lnk_gde_sci_icmp_3" type="guide" lbl="Debates - entropy et al." />
+            <link id="lnk_gde_sci_icmp_4" type="guide" lbl="State of the Literature" />
+          </link>
+        </link>
+
+        <link type="cluster" lbl="Implemented into Context">
+          <link id="lnk_grp_impl_ctx" type="group" navType="pageEvent" lbl="Why Implementation">
+            <link type="toPage" ev="">
+            </link>
+          </link>
+        </link>
+        <homepage>
+
+
+
+        </homepage>
+
+
+      </menu>
+
+
+
+    </section>
+
+
+
+  </page>
+</pages>

@@ -1,0 +1,645 @@
+{
+   "@id": "1",
+   "@nl_exp": "The scientific method and its incompleteness appreciated and interpreted into context",
+   "role": {
+      "@nl_exp": "A critical agent",
+      "attribute": {
+         "@nl_exp": "humility",
+         "@how": "a project running for finite time",
+         "does": [
+            {
+               "@nl_exp": "Inspiration",
+               "@onBelief": "There are desirable actions that arise in the right environment",
+               "intent": {
+                  "@nl_exp": "create a right environment",
+                  "strategy": [
+                     {
+                        "@id": "abt",
+                        "@nl_exp": "being honest and clear, some kind of a charter",
+                        "theme": {
+                           "@nl_exp": "about us",
+                           "visit": [
+                              {
+                                 "@nl_exp": "why this is zeigteist",
+                                 "domain": [
+                                    {
+                                       "@id": "abt_zei",
+                                       "@nl_exp": "contemproary issues with knowledge and justifying intervention",
+                                       "action": [
+                                          {
+                                             "@nl_exp": "Why scientific method is endangered from time to time"
+                                          },
+                                          {
+                                             "@nl_exp": "Teleos is probably manifest at this point to reflect on humanism"
+                                          },
+                                          {
+                                             "@nl_exp": "Defend the zeigteist from determisitic points",
+                                             "action": [
+                                                {
+                                                   "@nl_exp": "Uncertainty Principles in Science"
+                                                },
+                                                {
+                                                   "@nl_exp": "Knowledge as a whole with Culture"
+                                                },
+                                                {
+                                                   "@nl_exp": "Domain Transforms and Thermodynamic Interpretations"
+                                                }
+                                             ]
+                                          },
+                                          {
+                                             "@nl_exp": "Defend the zeigteist from spiritual points",
+                                             "action": [
+                                                {
+                                                   "@nl_exp": "Aesthetics in Scientific Realism"
+                                                },
+                                                {
+                                                   "@nl_exp": "Normative Intent in Instrumentalism"
+                                                },
+                                                {
+                                                   "@nl_exp": "Importance of Agency and Action"
+                                                },
+                                                {
+                                                   "@nl_exp": "Why analysis is the only epistemological possibility to appreciate teleos"
+                                                }
+                                             ]
+                                          },
+                                          {
+                                             "@nl_exp": "There is no way to defend the zeigtiest but never mind",
+                                             "action": [
+                                                {
+                                                   "@nl_exp": "Epistemological limits and hence presenting pieces of ideas"
+                                                },
+                                                {
+                                                   "@nl_exp": "Circular truth of zeigteist - teleos and presence of supreme order"
+                                                },
+                                                {
+                                                   "@nl_exp": "Embracing contradictions-why selfless love is good, loosing ego is good"
+                                                }
+                                             ]
+                                          }
+                                       ]
+                                    },
+                                    {
+                                       "@id": "abt_just",
+                                       "@nl_exp": "Justifying this enterprise howsoever humble",
+                                       "action": [
+                                          {
+                                             "@nl_exp": "Is progress disrupted by suggesting alternates to adversarial search"
+                                          },
+                                          {
+                                             "@nl_exp": "Is statistical computing misleading, or atleast need critques (norvig Chomsky debates)"
+                                          },
+                                          {
+                                             "@nl_exp": "Slowing down adversarial Search and Transforming it to other modes",
+                                             "query": {
+                                                "@natural_question": "what is the science behind the slow down logic?",
+                                                "@nl_exp": "link::"
+                                             }
+                                          }
+                                       ]
+                                    }
+                                 ]
+                              },
+                              {
+                                 "@nl_exp": "what this is not",
+                                 "domain": {
+                                    "@id": "abt_not",
+                                    "@nl_exp": "churches and cults",
+                                    "action": [
+                                       {
+                                          "@nl_exp": "Why ideas are not going to be final"
+                                       },
+                                       {
+                                          "@nl_exp": "Campaigns to align with humility"
+                                       }
+                                    ],
+                                    "query": {
+                                       "@natural_question": "And what are those compaigns?",
+                                       "@nl_exp": "link::to campaigns list"
+                                    }
+                                 }
+                              },
+                              {
+                                 "@nl_exp": "what this is probably",
+                                 "domain": [
+                                    {
+                                       "@id": "abt_cmp",
+                                       "@nl_exp": "campus",
+                                       "action": [
+                                          {
+                                             "@nl_exp": "Why University towns make sense"
+                                          },
+                                          {
+                                             "@nl_exp": "Recursive Human structures make sense"
+                                          }
+                                       ]
+                                    },
+                                    {
+                                       "@id": "abt_fnd",
+                                       "@nl_exp": "founding ideas",
+                                       "action": [
+                                          {
+                                             "@nl_exp": "A critical institution that is best defined as Nostalgic"
+                                          },
+                                          {
+                                             "@nl_exp": "embracing the contradition of scinetific method and its incompleteness"
+                                          },
+                                          {
+                                             "@nl_exp": "Recursion of Chomsky and Complexity of Churchman"
+                                          }
+                                       ]
+                                    }
+                                 ]
+                              }
+                           ]
+                        }
+                     },
+                     {
+                        "@id": "theo",
+                        "@nl_exp": "An analytical discipline to appreciate intervention, a tree of theories to base our program",
+                        "theme": {
+                           "@nl_exp": "Information Theory as our chosen analytic field",
+                           "visit": [
+                              {
+                                 "@nl_exp": "A Metaphysical Overview",
+                                 "domain": {
+                                    "@id": "theo_meta",
+                                    "@nl_exp": "Entropy and Thermodynamics",
+                                    "action": [
+                                       {
+                                          "@nl_exp": "Energy Problem"
+                                       },
+                                       {
+                                          "@nl_exp": "Structure and life"
+                                       },
+                                       {
+                                          "@nl_exp": "Countering Entropy by internalization, recursion"
+                                       },
+                                       {
+                                          "@nl_exp": "Entropy as Intelligence"
+                                       },
+                                       {
+                                          "@nl_exp": "Alternate courses to Evolution, transforms and virtue (slowing down)"
+                                       }
+                                    ]
+                                 }
+                              },
+                              {
+                                 "@nl_exp": "Information Theory ontology",
+                                 "domain": [
+                                    {
+                                       "@nl_exp": "Information Theory",
+                                       "action": [
+                                          {
+                                             "@nl_exp": "Computing as universal"
+                                          },
+                                          {
+                                             "@nl_exp": "Computing hardness and limitation"
+                                          },
+                                          {
+                                             "@nl_exp": "Possible Pitfalls under the influence of computing"
+                                          },
+                                          {
+                                             "@nl_exp": "Inevitability of Compression and recursion as compression"
+                                          },
+                                          {
+                                             "@nl_exp": "Computer as transducer, as language"
+                                          },
+                                          {
+                                             "@nl_exp": "Meaning, Control and Experience in terms of knowledge"
+                                          },
+                                          {
+                                             "@nl_exp": "Computing as phenomenon or as an Experiment- the choice"
+                                          }
+                                       ]
+                                    },
+                                    {
+                                       "@nl_exp": "Human Agency in this ontology",
+                                       "action": [
+                                          {
+                                             "@nl_exp": "Education as being over and above information"
+                                          },
+                                          {
+                                             "@nl_exp": "Wickedness, complexity and politics"
+                                          }
+                                       ]
+                                    },
+                                    {
+                                       "@nl_exp": "Where our epistemology ends and which belief we happily embrace",
+                                       "action": {
+                                          "@nl_exp": "The idea of love, truth and beauty"
+                                       }
+                                    }
+                                 ]
+                              }
+                           ]
+                        }
+                     },
+                     {
+                        "@id": "sci",
+                        "@nl_exp": "Intellectual Reflection of Aesthetics",
+                        "theme": {
+                           "@nl_exp": "appreciating the scientific method",
+                           "visit": [
+                              {
+                                 "@nl_exp": "reflect on its tradition",
+                                 "domain": [
+                                    {
+                                       "@nl_exp": "history of European enlightenment",
+                                       "evidence": [
+                                          {
+                                             "@nl_exp": "extLinks:Books on European Enlightenment"
+                                          },
+                                          {
+                                             "@nl_exp": "link::Stories in Educational Campaigns"
+                                          },
+                                          {
+                                             "@nl_exp": "extLinks::Open Source Literature"
+                                          }
+                                       ],
+                                       "action": [
+                                          {
+                                             "@nl_exp": "the state of nature and the redemption"
+                                          },
+                                          {
+                                             "@nl_exp": "Avoiding Eurocentric views"
+                                          }
+                                       ]
+                                    },
+                                    {
+                                       "@nl_exp": "history of worldwide science",
+                                       "action": {
+                                          "@nl_exp": "Human Progress is Universal and convergant"
+                                       }
+                                    }
+                                 ]
+                              },
+                              {
+                                 "@nl_exp": "ruminate on its wisdom",
+                                 "domain": [
+                                    {
+                                       "@nl_exp": "understanding the experiment, observe, model cycle",
+                                       "action": [
+                                          {
+                                             "@nl_exp": "on intrinsic merits with respect to human psyche"
+                                          },
+                                          {
+                                             "@id": "sci_mtd_at1",
+                                             "@nl_exp": "on how analysis is meritorious but could be illusiorily fogged"
+                                          },
+                                          {
+                                             "@nl_exp": "suggesting post modernity's illusion with being fluidic",
+                                             "query": {
+                                                "@nl_exp": "link to:: Why Zeigteist"
+                                             }
+                                          },
+                                          {
+                                             "@nl_exp": "the boredom with scientific method how handled",
+                                             "query": {
+                                                "@nl_exp": "link to:: Deterministic defense to Zeigteist"
+                                             }
+                                          }
+                                       ]
+                                    },
+                                    {
+                                       "@nl_exp": "history of worldwide science"
+                                    }
+                                 ],
+                                 "action": {
+                                    "@nl_exp": "Ancient Indian and Arabic scientific themes"
+                                 },
+                                 "query": {
+                                    "@natural_question": "is no science good?",
+                                    "@nl_exp": "link::how zen is good :: aes_zen_1"
+                                 }
+                              }
+                           ]
+                        }
+                     },
+                     {
+                        "@id": "aes",
+                        "@nl_exp": "Spiritual Reflection of Aesthetics",
+                        "theme": {
+                           "@nl_exp": "Incompleteness of the Scientific Method",
+                           "visit": {
+                              "@nl_exp": "Appreciating Incompleteness in the right spirit",
+                              "domain": [
+                                 {
+                                    "@id": "",
+                                    "@nl": "the timeless mood over uncertainty",
+                                    "evidence": [
+                                       {
+                                          "@nl_exp": "extLinks:news on how IT might get dangerous"
+                                       },
+                                       {
+                                          "@nl_exp": "link::Stories in the campaigns"
+                                       },
+                                       {
+                                          "@nl_exp": "extLinks::Open Source Literature"
+                                       }
+                                    ],
+                                    "action": [
+                                       {
+                                          "@nl_exp": "did the ancients (science guys ) accept the incompleteness",
+                                          "query": {
+                                             "@natural_question": "how it could be got wrong?link::sci_mtd_at1",
+                                             "@nl_exp": "link to the modern illusion"
+                                          }
+                                       },
+                                       {
+                                          "@nl_exp": "Modern stance on uncertainty"
+                                       },
+                                       {
+                                          "@nl_exp": "Uncertainty Celebrated in Agile, Soft Computing",
+                                          "query": [
+                                             {
+                                                "@natural_question": "whats wrong?link::sci_mtd_at1",
+                                                "@nl_exp": "link to the modern illusion"
+                                             },
+                                             {
+                                                "@natural_question": "was it done right?link::?",
+                                                "@nl_exp": "link to eastern idea of scientific method"
+                                             }
+                                          ]
+                                       },
+                                       {
+                                          "@nl_exp": "Uncertainty Celebrated in Culture",
+                                          "query": {
+                                             "@natural_question": "whats wrong?link::sci_mtd_at1",
+                                             "@nl_exp": "link to the modern illusion"
+                                          }
+                                       }
+                                    ]
+                                 },
+                                 {
+                                    "@id": "aes_zen",
+                                    "@nl_exp": "Zen, Harmony and Resignation",
+                                    "action": [
+                                       {
+                                          "@nl_exp": "How east appreciated uncertainty"
+                                       },
+                                       {
+                                          "@nl_exp": "Hermeneutic or Natural Truths"
+                                       },
+                                       {
+                                          "@nl_exp": "Pessimism and the Survival Question",
+                                          "query": {
+                                             "@natural_question": "are we endangering future of humanity?",
+                                             "@nl_exp": "link::abt_just"
+                                          }
+                                       }
+                                    ]
+                                 },
+                                 {
+                                    "@id": "aes_tru",
+                                    "@nl_exp": "Critical Truth Discovery",
+                                    "action": [
+                                       {
+                                          "@nl_exp": "Intuition as path to critical truth",
+                                          "query": {
+                                             "@natural_question": "do we do it?",
+                                             "@nl_exp": "link::abt_"
+                                          }
+                                       },
+                                       {
+                                          "@nl_exp": "Why judges and doctors are revered"
+                                       },
+                                       {
+                                          "@nl_exp": "Chivalry and Romanticism"
+                                       },
+                                       {
+                                          "@nl_exp": "Gandhian Theme"
+                                       },
+                                       {
+                                          "@nl_exp": "Endearing Flicks and Works of Literature"
+                                       },
+                                       {
+                                          "@nl_exp": "Natural World, Aesthetics and Right to live"
+                                       }
+                                    ]
+                                 },
+                                 {
+                                    "@id": "aes_agt",
+                                    "@nl_exp": "Agency and Intentionality",
+                                    "action": [
+                                       {
+                                          "@nl_exp": "Human Organizations as Transforms"
+                                       },
+                                       {
+                                          "@nl_exp": "Intentional Communities Critical Examination"
+                                       },
+                                       {
+                                          "@nl_exp": "Fighting Evolution and the Exponent"
+                                       },
+                                       {
+                                          "@nl_exp": "Why the fight and is it winnable?"
+                                       },
+                                       {
+                                          "@nl_exp": "Extended Agency and how retention of agency is faith",
+                                          "query": {
+                                             "@natural_question": "how to embrace contradiction",
+                                             "@nl_exp": "link::abt_zei"
+                                          }
+                                       }
+                                    ]
+                                 }
+                              ]
+                           }
+                        }
+                     }
+                  ]
+               }
+            },
+            {
+               "@nl_exp": "Form Campaigns",
+               "@how": "Run Campaigns",
+               "@onBelief": "There is a teleos to nurture right environment",
+               "strategy": {
+                  "@nl_exp": "Define Campaigns well",
+                  "visit": [
+                     {
+                        "@nl_exp": "Out of the Blue picks of campaigns",
+                        "domain": [
+                           {
+                              "@nl_exp": "Conception of campagins: Intellectual and Aesthetic Reflection in discussions as Hymns",
+                              "query": {
+                                 "@natural_question": "how are campaigns chosen?",
+                                 "@nl_exp": "link::abt_camp"
+                              },
+                              "action": [
+                                 {
+                                    "@nl_exp": "Why running campaigns are hymns, dynamic balance finding by action"
+                                 },
+                                 {
+                                    "@nl_exp": "Humility, Symmetry and Tradition",
+                                    "action": [
+                                       {
+                                          "@nl_exp": "Education as liberal education"
+                                       },
+                                       {
+                                          "@nl_exp": "Formal Publication, respecting Ivory Towers"
+                                       },
+                                       {
+                                          "@nl_exp": "Risk Consulting for Soft Computing Strategies"
+                                       }
+                                    ]
+                                 },
+                                 {
+                                    "@nl_exp": "Aesthetics, Romanticism, Empathy and Teleos",
+                                    "action": [
+                                       {
+                                          "@nl_exp": "SubUrban Planning"
+                                       },
+                                       {
+                                          "@nl_exp": "Environment Friendly Policy consulting"
+                                       },
+                                       {
+                                          "@nl_exp": "Post Modern Medicine"
+                                       },
+                                       {
+                                          "@nl_exp": "On the Frontier science to compensate for our criticla views"
+                                       }
+                                    ]
+                                 }
+                              ]
+                           },
+                           {
+                              "@nl_exp": "Legally Frame Campaigns",
+                              "action": [
+                                 {
+                                    "@nl_exp": "Volunteering, funds and Profits"
+                                 },
+                                 {
+                                    "@nl_exp": "Liabilities and Rights"
+                                 }
+                              ]
+                           }
+                        ]
+                     },
+                     {
+                        "@nl_exp": "Rationale",
+                        "domain": {
+                           "@nl_exp": "Powering the Campaigns",
+                           "action": [
+                              {
+                                 "@nl_exp": "Campaign Themes explained, Overarching values provided"
+                              },
+                              {
+                                 "@nl_exp": "RoadMap and scale"
+                              },
+                              {
+                                 "@nl_exp": "Face to Face preference over Web Modes",
+                                 "query": {
+                                    "@natural_question": "why orthodoxy?",
+                                    "@nl_exp": "lnk:abt_zei: why we respect ivory towers"
+                                 }
+                              },
+                              {
+                                 "@nl_exp": "Mode of Influence and relationship"
+                              }
+                           ]
+                        }
+                     }
+                  ]
+               }
+            },
+            {
+               "@nl_exp": "Administer_Campaigns",
+               "strategy": [
+                  {
+                     "@nl_exp": "Education Domain Local Work",
+                     "visit": {
+                        "@nl_exp": "soliciting audience",
+                        "domain": {
+                           "@nl_exp": "Appeal to Teachers",
+                           "action": [
+                              {
+                                 "@nl_exp": "What is liberal education or critical education",
+                                 "evidence": [
+                                    {
+                                       "@nl_exp": "American Colleges association"
+                                    },
+                                    {
+                                       "@nl_exp": "results of our experience with institutions"
+                                    }
+                                 ]
+                              },
+                              {
+                                 "@nl_exp": "Will it suit India",
+                                 "evidence": [
+                                    {
+                                       "@nl_exp": "results of our experience with institutions"
+                                    }
+                                 ]
+                              },
+                              {
+                                 "@nl_exp": "How Approached in Indian Context, tactics like quizzes science clubs",
+                                 "evidence": [],
+                                 "query": {
+                                    "@natural_question": "why no concrete schemes are possible",
+                                    "@nl_exp": "link::oblique approach and acceptance of organic quality of knowledge"
+                                 }
+                              },
+                              {
+                                 "@nl_exp": "Student Perspective",
+                                 "evidence": []
+                              },
+                              {
+                                 "@nl_exp": "Parental Concerns"
+                              },
+                              {
+                                 "@nl_exp": "How schools can cope with new idea (rather old one)",
+                                 "evidence": []
+                              },
+                              {
+                                 "@nl_exp": "Tradition of liberal education- Rousseau, Greeks",
+                                 "query": {
+                                    "@natural_question": "how can liberal education free us from human condition in science?",
+                                    "@nl_exp": "link::abt_meta"
+                                 }
+                              },
+                              {
+                                 "@nl_exp": "Being Future Ready"
+                              }
+                           ]
+                        }
+                     }
+                  },
+                  {
+                     "@nl_exp": "Computing Critical Publication",
+                     "visit": {
+                        "@nl_exp": "Overview of principles and beliefs in computing",
+                        "domain": {
+                           "@nl_exp": "softComputing",
+                           "action": [
+                              {
+                                 "@nl_exp": "Critical View of Machine learning systems"
+                              },
+                              {
+                                 "@nl_exp": "Critical View of Cognitive Systems, nature of cognition"
+                              },
+                              {
+                                 "@nl_exp": "theory of networks, zero trx networks critical view"
+                              },
+                              {
+                                 "@nl_exp": "Critical view of nudge and self balancing systems, control problems"
+                              }
+                           ]
+                        }
+                     }
+                  }
+               ]
+            }
+         ]
+      }
+   },
+   "as": {
+      "@nl_exp": "",
+      "does": {
+         "@nl_exp": "campaigns"
+      },
+      "goal": {
+         "@nl_exp": "Appreciate the Sceintific Method"
+      }
+   }
+}

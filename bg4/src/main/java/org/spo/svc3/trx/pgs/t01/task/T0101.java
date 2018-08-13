@@ -29,8 +29,11 @@ public class T0101 extends AbstractTask {
 	@Override
 	public NavEvent initTask(String dataId, TrxInfo info) throws Exception {
 
-
 		String dataId_Content= dataId;//Here dataId represents the template incoming because it is mostly a set of links in this page wiht a small intro
+		
+		
+		
+		
 		String response="";
 		String response_content="";
 

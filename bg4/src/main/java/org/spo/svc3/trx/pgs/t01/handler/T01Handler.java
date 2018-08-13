@@ -2,10 +2,10 @@ package org.spo.svc3.trx.pgs.t01.handler;
 
 import org.spo.ifs3.dsl.controller.AbstractHandler;
 import org.spo.ifs3.dsl.controller.DSLConstants.EventType;
-import org.spo.ifs3.dsl.controller.NavEvent;
 import org.spo.svc3.trx.pgs.t01.task.T0101;
 import org.spo.svc3.trx.pgs.t01.task.T0102;
 import org.spo.svc3.trx.pgs.t01.task.T0103;
+import org.spo.ifs3.dsl.controller.NavEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
