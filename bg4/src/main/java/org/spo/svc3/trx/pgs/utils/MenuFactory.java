@@ -12,19 +12,20 @@ import javax.xml.xpath.XPathFactory;
 
 import org.spo.ifs3.template.web.Constants;
 import org.spo.svc3.trx.def.ConstantsTestImpl;
+import org.spo.svc3.trx.pgs.itf.HomeItf;
 import org.spo.svc3.trx.pgs.mdl.Menu;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class MenuUtil {
+public class MenuFactory {
 //	@Autowired
 //	Constants constants;
-	Document doc;
+	static Document doc;
 	Constants constants = new ConstantsTestImpl();
 	
 	
-	public  MenuUtil() throws Exception{
+	public  MenuFactory() throws Exception{
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		//docFactory.setNamespaceAware(true);
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -32,7 +33,7 @@ public class MenuUtil {
 	}
 	
 	
-	public NodeList getByQuery(String expression) throws Exception{
+	public  NodeList getByQuery(String expression) throws Exception{
 		
 		//"//Worksheet[@Name=\"" +sheetName+"\"]/Table/Row[1]/Cell"
 		XPath xpath = XPathFactory.newInstance().newXPath();
@@ -46,7 +47,7 @@ public class MenuUtil {
 	
 
 	
-	public List<Menu> getSubMenuList(String expression) throws Exception{
+	public  List<Menu> getSubMenuList(String expression) throws Exception{
 		XPath xpath = XPathFactory.newInstance().newXPath();
 		XPathExpression expr = xpath.compile(expression);
 		Object result = expr.evaluate(doc, XPathConstants.NODESET);
@@ -54,7 +55,8 @@ public class MenuUtil {
 		List<Menu> menuList = new ArrayList<Menu>();
 		for(int i  = 0;i <headerNodes.getLength();i++){
 			Node itemNode = headerNodes.item(i);
-			String menuLbl = itemNode.getAttributes().getNamedItem("nl").getTextContent();
+			String menuLbl = itemNode.getAttributes().getNamedItem("lbl").getTextContent();
+			String dataId = itemNode.getAttributes().getNamedItem("nl").getTextContent().replaceAll(" ", "_");
 			Menu subMenu = new Menu();
 			subMenu.setLabel(menuLbl);
 			menuList.add(subMenu);
@@ -64,16 +66,21 @@ public class MenuUtil {
 	}
 	
 	
-	public Menu homePageMenu() throws Exception{
+	public  Menu homePageMenu() throws Exception{
 		Menu menu = new Menu();
 		menu.setLabel("Home");
 		List<Menu> menuList = getSubMenuList("//does");
 		for(Menu m1:menuList) {
+			m1.setLevelCd("does");
 			String lbl = m1.getLabel();
 			List<Menu> menuListL2 = getSubMenuList("//does[@nl=\""+lbl+"\"]/intent/strategy/theme");
 			for(Menu m2:menuListL2) {
+				m2.setLevelCd("theme");
 				String lbl2 = m2.getLabel();
 				List<Menu> menuListL3 = getSubMenuList("//does[@nl=\""+lbl+"\"]/intent/strategy/theme[@nl=\""+lbl2+"\"]/visit");
+				for(Menu m3:menuListL3) {
+					m3.setLevelCd("visit");
+				}
 				m2.setSubMenuItems(menuListL3);
 			}
 			m1.setSubMenuItems(menuListL2);
@@ -84,5 +91,51 @@ public class MenuUtil {
 	}
 	
 	
+	public  Menu deriveQueryMenu(String actionPageId) throws Exception{
+		Menu menu = new Menu();
+		menu.setLabel("Home");
+		List<Menu> menuList = getSubMenuList("//action[@nl=\""+actionPageId+"\"]/query");
+		for(Menu m1:menuList) {
+			m1.setLevelCd("does");
+			String lbl = m1.getLabel();
+			List<Menu> menuListL2 = getSubMenuList("//does[@nl=\""+lbl+"\"]/intent/strategy/theme");
+			for(Menu m2:menuListL2) {
+				m2.setLevelCd("theme");
+				String lbl2 = m2.getLabel();
+				List<Menu> menuListL3 = getSubMenuList("//does[@nl=\""+lbl+"\"]/intent/strategy/theme[@nl=\""+lbl2+"\"]/visit");
+				for(Menu m3:menuListL3) {
+					m3.setLevelCd("visit");
+				}
+				m2.setSubMenuItems(menuListL3);
+			}
+			m1.setSubMenuItems(menuListL2);
+		}
+		menu.setSubMenuItems(menuList);
+		System.out.println(menu);
+		return menu;
+	}
+	
+	
+	
+	
+//	public static HomeItf getJsonFragFrmXml() throws Exception{
+//		HomeItf pg = new HomeItf();
+//		pg.setHomePageContentId("home_welcome");
+//		
+//		List<Menu> menuList = getSubMenuList("//does");
+//		for(Menu m1:menuList) {
+//			String lbl = m1.getLabel();
+//			List<Menu> menuListL2 = getSubMenuList("//does[@nl=\""+lbl+"\"]/intent/strategy/theme");
+//			for(Menu m2:menuListL2) {
+//				String lbl2 = m2.getLabel();
+//				List<Menu> menuListL3 = getSubMenuList("//does[@nl=\""+lbl+"\"]/intent/strategy/theme[@nl=\""+lbl2+"\"]/visit");
+//				m2.setSubMenuItems(menuListL3);
+//			}
+//			m1.setSubMenuItems(menuListL2);
+//		}
+//		menu.setSubMenuItems(menuList);
+//		System.out.println(menu);
+//		return null;
+//	}
 	
 }

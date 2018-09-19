@@ -1,16 +1,18 @@
 package org.spo.svc3.trx.def;
 
 import org.spo.ifs3.template.web.Constants;
+import org.spo.svc3.config.AppConstants;
 import org.springframework.stereotype.Component;
 @Component
 public class ConstantsTestImpl implements Constants {
 
 	public String getRepoPath() {
 		if(!System.getProperty("os.name").startsWith("Windows")){
-			return "/usr/local/share/data-cms/lc";
+			AppConstants.cmsDir= "/usr/local/share/data-cms/lc";
 		}else{
-			return "C:\\Users\\premganesh\\git\\bg4\\bg4\\src\\main\\resources\\data-cms";
+			AppConstants.cmsDir= "C:\\Users\\premganesh\\git\\bg4\\bg4\\src\\main\\resources\\data-cms\\cms1";
 		}
+		return AppConstants.cmsDir;
 	}
 
 	public String getLandingPage() {

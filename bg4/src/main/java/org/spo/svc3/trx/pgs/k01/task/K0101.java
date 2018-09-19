@@ -9,10 +9,13 @@ import org.spo.cms3.svc.SocketConnector;
 import org.spo.ifs3.dsl.controller.NavEvent;
 import org.spo.ifs3.dsl.controller.TrxInfo;
 import org.spo.ifs3.dsl.model.AbstractTask;
+import org.spo.svc3.trx.pgs.mdl.HomePage;
+import org.spo.svc3.trx.pgs.mdl.Menu;
 import org.spo.svc3.trx.pgs.t01.cmd.Home_pg;
 import org.spo.svc3.trx.pgs.t01.cmd.Wel_msg;
 import org.spo.svc3.trx.pgs.t01.toolkit.T01Toolkit;
 import org.spo.svc3.trx.pgs.t02.handler.T02Handler;
+import org.spo.svc3.trx.pgs.utils.MenuFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -33,16 +36,19 @@ public class K0101 extends AbstractTask {
 	
 	@Override
 	public NavEvent initTask(String dataId, TrxInfo info) throws Exception {
-
-		String response = svc.readUpPage("templates", "Home_pg");//Menu
-		Gson gson = new Gson();
-		Type typ = new TypeToken<Home_pg>(){}.getType();//FIXME right now only string works
-		String response_content = svc.readUpPage("posts", "Wel_msg_trx2");
-		typ = new TypeToken<Wel_msg>(){}.getType();//FIXME right now only string works
-		Wel_msg cmd= gson.fromJson(response_content,typ);		
-		info.addToModelMap("message",cmd);
-		System.out.println(cmd.toString());
-		info.put(T01Toolkit.SV_T02_CONTENT_OVV, cmd);
+		
+		HomePage hom = new HomePage();
+		hom.setWelcomeContentCode(dataId);
+		Menu sideBarMenu = new MenuFactory().homePageMenu();
+		hom.setSideBarMenu(sideBarMenu);
+		String response_content = svc.readUpPage("camp_edu/camp_website", "A_Brief_Brouchure");
+		hom.setWelcomeContent(response_content);
+		hom.setSubTitle("Hello");
+		hom.getActionPageSet().setShowMoreInfoButton(true);
+		info.addToModelMap("message",hom);
+		
+		System.out.println(hom.toString());
+		info.put(T01Toolkit.SV_T02_CONTENT_OVV, hom);
 
 		return T02Handler.EV_INIT_01;
 	}
