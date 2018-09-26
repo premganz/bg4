@@ -43,73 +43,138 @@
 
 <body>
 	<div class="blackbody">
-	<header class="intro-header">
-		<div class="container-fluid" style="padding-left:0px">
-			<div class="row" >
-				<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 ">
-					<div class="site-heading">
-						<h1>leafy campus</h1>
-						<hr class="small"></hr>
-						<span class="subheading" th:text="${hom.subTitle}"></span>
+		<header class="intro-header">
+			<div class="container-fluid" style="padding-left: 0px">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 ">
+						<div class="site-heading">
+							<h1>leafy campus</h1>
+							<hr class="small"></hr>
+							<span class="subheading" th:text="${hom.subTitle}"></span>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</header>
-	
-	<div class="container-fluid" style="padding-left:0px">
-		<div class="row" style="background-color:white;">
-			<div class="col-lg-3  col-md-3 col-sm-4 col-xs-12">
-				<div id="menu" style="background:url(https://upload.wikimedia.org/wikipedia/commons/1/19/07182012Sesion_campus_redes_sociales047.jpg')">
-				<div id="menu2" style="Opacity:0.9">
-						<ul>
-							<lh> <h2 style="color:antiquewhite">Liberal Education</h2> <hr></hr></lh>
-						</ul>
+		</header>
 
-							<div th:each="link : ${hom.sideBarMenu.subMenuList}">
+		<div class="container-fluid" style="padding-left: 0px">
+			<div class="row" style="background-color: white;">
+				<div class="col-lg-3  col-md-3 col-sm-4 col-xs-12">
+					<div id="menu"
+						style="background: url(https :// upload.wikimedia.org/ wikipedia/ commons/ 1/ 19/ 07182012Sesion_campus_redes_sociales047 .jpg ')">
+						<div id="menu2" style="Opacity: 0.9">
+							<ul>
+								<lh> <a th:text="Home" style="cursor: pointer;" th:href="${hom.homePageLink}"></a> </lh>
+								<lh> <a th:text="About" style="cursor: pointer;" th:href="${hom.aboutPageLink}"></a> </lh>
+							</ul>
+							<ul>
+								<lh>
+								<h2 style="color: antiquewhite">Ideas</h2>
+								<hr></hr>
+								</lh>
+							</ul>
+
+							<div th:each="link : ${hom.sideBarMenu}">
 								<ul>
-									<lh> <a th:text="${link.label}" style="cursor: pointer;" th:href="${link.levelCd}/${link.dataId}"></a> </lh>
-									<div th:each="sublink : ${link.subMenuList}">
-										<li th:id="${sublink.label}"><a th:text="${sublink.label}" style="cursor: pointer;" th:href="${sublink.levelCd}/${sublink.dataId}"
+									<lh> <a th:text="${link.lbl}" style="cursor: pointer;" th:href="${link.levelCd}+'__' + ${link.id}"></a> </lh>
+									<div  th:each="sublink : ${link.subMenuItems}">
+										<li th:id="${sublink.id}"><a th:text="''+${sublink.lbl}" style="cursor: pointer;" th:href="${sublink.levelCd}+${sublink.id}"
 											onclick=""></a></li>
+										<div class="subMenu" th:each="sublink2 : ${sublink.subMenuItems}">
+											<li th:id="${sublink2.id}"> <a th:text="''+${sublink2.lbl}" style="cursor: pointer;"
+												th:href="${sublink2.levelCd}+${sublink2.id}" onclick=""></a></li>
+											<div class="subMenu2" th:each="sublink3 : ${sublink2.subMenuItems}">
+												<li th:id="${sublink3.id}"> <a th:text="''+${sublink3.lbl}" style="cursor: pointer;"
+													th:href="'?EVENT='+${sublink3.levelCd}+'~'+${sublink3.id}" onclick=""></a></li>
+											</div>
+										</div>
 									</div>
 								</ul>
 							</div>
 							<ul>
-							<lh> <h2 style="color:antiquewhite">Resources</h2> <hr></hr></lh>
+								<lh>
+								<h2 style="color: antiquewhite">Resources</h2>
+								<hr></hr>
+								</lh>
+							</ul>
+							<ul>
+								<lh>
+								<h2 style="color: antiquewhite">Campaigns</h2>
+								<hr></hr>
+								</lh>
+							</ul>
+						</div>
+
+						<ul>
+							<lh> <a>Links</a></lh>
+							<li><a style="cursor: pointer;" onclick="return form_action_load('','pages','curriculum','view',0);">CBSE</a></li>
+							<li><a style="cursor: pointer;" href="http://www.cisce.org/" target="_blank">ICSE | ISC Syllabus</a></li>
+							<li><a style="cursor: pointer;" href="http://www.aacu.org/" target="_blank">AACU</a></li>
+							<li><a style="cursor: pointer;" href="/admin/metrics">Login</a></li>
 						</ul>
+
+						<ul>
+							<lh> </lh>
+						</ul>
+						<ul>
+							<lh> </lh>
+						</ul>
+						<ul>
+							<lh> </lh>
+						</ul>
+						<ul>
+							<lh> </lh>
+						</ul>
+						<ul>
+							<lh> </lh>
+						</ul>
+						<ul>
+							<lh> </lh>
+						</ul>
+						<ul>
+							<lh> </lh>
+						</ul>
+						<ul>
+							<lh> </lh>
+						</ul>
+						<ul>
+							<lh> </lh>
+						</ul>
+						<ul>
+							<lh> </lh>
+						</ul>
+						<ul>
+							<lh> </lh>
+						</ul>
+						<ul>
+							<lh> </lh>
+						</ul>
+
+
 					</div>
-					
- 				<div id="pageId" th:utext="${hom.welcomeContent}"> 				
- 				</div>
- 				
-				
-				</div>
 				</div>
 				<div class="col-lg-7  col-md-8 col-sm-8 ">
 					<div class="container1" style="border-right-color: yellow;">
-						<div th:utext="${message.long_msg}"></div>
-						
+						<div th:utext="${hom.welcomeContent}"></div>
+
 					</div>
 
-				
+
 					<!-- Main Content -->
 					<div class="container1">
-						
-						<h2>
-							
-						</h2>
+
+						<h2></h2>
 						<hr></hr>
-						<div class="row1" th:each="link : ${message.MSG_META_INFO_TBL}" >
+						<div class="row1" th:each="link : ${hom.newsItems}">
 
 							<div class="post-preview">
-								<a th:href="${link.author}">
-									<h3 th:text="${link.author}" style="font-weight: bold;color: #337ab7;"></h3>
-									<h4 class="post-subtitle" th:text="${link.date}"></h4>
+								<a th:href="${link.metaInfo}">
+									<h3 th:text="${link.description}" style="font-weight: bold; color: #337ab7;"></h3>
+									<h4 class="post-subtitle" th:text="${link.metaInfo}"></h4>
 								</a>
 								<p class="post-meta">
 								<h5>
-									Posted by <a th:href="${message.long_msg}">Admin</a>
+									Posted by <a th:href="${link.label}">Admin</a>
 								</h5>
 								<p th:text="${link.date}"></p>
 								</p>
@@ -119,72 +184,64 @@
 							</div>
 						</div>
 						<ul class="pager">
-							<li class="next"><a th:href="${message.pgn_lnk_ic}" style="background-color: gold;">
-								<div th:utext="${message.pgn_lnk_txt}"></div>
+							<li class="next"><a th:href="${hom.exploreMoreLinkIc_1}" style="background-color: gold;">
+									<div th:utext="${hom.exploreMoreLinkTxt_1}"></div>
 							</a></li>
 						</ul>
 						<ul class="pager">
 							<li class="next"><a href="?event=EV_INST" style="background-color: gold;">
-								<div> "Click for instructions"</div>
+									<div>"Click for instructions"</div>
 							</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-2  col-md-1 col-sm-12">
-						<H3>News</H3>
-						<div class="row" th:each="link : ${message.MSG_LNK_TBL}">
-		
-				<div class="footnote" >	
-					<a th:href="${link.href}"	 target="_blank">
-						<p  th:text="${link.txt}"></p>
-						<p class="post-subtitle" th:text="${link.desc}"></p>
-					</a>
-					<p class="post-meta">
-						Posted by <a th:href="${message.long_msg}">Admin</a>
-						
+					<!-- <div class="newsColumn" style="background-color:#b1d41a78;"> -->
+					<p>
+					<H3>News</H3>
 					</p>
-				
-				<hr></hr>			
-				
+					<div class="row" th:each="link : ${hom.newsItems}">
+						<div class="footnote">
+							<a th:href="${link.href}" target="_blank">
+								<p th:text="${link.label}"></p>
+								<p class="post-subtitle" th:text="${link.label}"></p>
+							</a>
+							<p class="post-meta">
+								Posted by <a th:href="${link.label}">Admin</a>
+							</p>
+							<hr></hr>
+						</div>
+					</div>
+					<a style="cursor: pointer; font-size: 12px; text-decoration: underline;" onclick="return form_action_load('','pages','news','view',0);">More
+						News</a>
+					<!-- </div> -->
+				</div>
+			</div>
+
+			<div class="row">
+				<div id="footer">
+					<!-- Footer start -->
+					<p class="footnote">
+						<br></br> &copy; Leafy Campus Organization, Chennai <br></br> Powered by Bootstrap, supports most devices. Feel free to Zoomin/out and see
+						page respond with appropriate styles.<br></br> Image Credits:Wikimedia Foundation.
+					</p>
+					<!-- Footer end -->
+				</div>
 			</div>
 		</div>
-						<a style="cursor: pointer; font-size: 12px; text-decoration: underline;" onclick="return form_action_load('','pages','news','view',0);">More
-							News</a>
-				</div>
-			
-		</div>
-		
-		<div class="row">		
-		<div id="footer">
-			<!-- Footer start -->
-			<p class="footnote">
-			<br></br>
-				&copy; Leafy Campus Organization, Chennai <br></br> Powered by Bootstrap, supports most devices. Feel free to Zoomin/out and see page respond with appropriate styles.<br></br>
-				Image Credits:Wikimedia Foundation. 
-			</p>
-			<!-- Footer end -->
-		</div>
-		</div>
-	</div>
-	
-	
+
+
 		<script type="text/javascript">
-				
-		$(document).ready(function() {
-			var pageId = $('#pageId').text();
-			$('#'+pageId).css(
-				{
-					'background-color':'#f6aa00',
-					'color':'#9ffd06'
-					
-				}	
-				);	
-		});
-		
-		
-			
-				</script>
-				<style type="text/css" media="screen">
+			$(document).ready(function() {
+				var pageId = $('#pageId').text();
+				$('#' + pageId).css({
+					'background-color' : '#f6aa00',
+					'color' : '#9ffd06'
+
+				});
+			});
+		</script>
+		<style type="text/css" media="screen">
 #quotes {
 	margin: 0;
 	position: relative;
@@ -205,9 +262,9 @@
 	margin-right: 10px;
 }
 </style>
-	
 
-</div>
+
+	</div>
 
 </body>
 

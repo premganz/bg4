@@ -1,7 +1,5 @@
 package org.spo.svc3.trx.pgs.k01.task;
 
-import java.lang.reflect.Type;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spo.cms3.svc.PageService;
@@ -11,16 +9,12 @@ import org.spo.ifs3.dsl.controller.TrxInfo;
 import org.spo.ifs3.dsl.model.AbstractTask;
 import org.spo.svc3.trx.pgs.mdl.HomePage;
 import org.spo.svc3.trx.pgs.mdl.Menu;
-import org.spo.svc3.trx.pgs.t01.cmd.Home_pg;
-import org.spo.svc3.trx.pgs.t01.cmd.Wel_msg;
 import org.spo.svc3.trx.pgs.t01.toolkit.T01Toolkit;
 import org.spo.svc3.trx.pgs.t02.handler.T02Handler;
 import org.spo.svc3.trx.pgs.utils.MenuFactory;
+import org.spo.svc3.trx.pgs.utils.PageFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 @Component
 public class K0101 extends AbstractTask {
@@ -36,19 +30,21 @@ public class K0101 extends AbstractTask {
 	
 	@Override
 	public NavEvent initTask(String dataId, TrxInfo info) throws Exception {
-		
-		HomePage hom = new HomePage();
-		hom.setWelcomeContentCode(dataId);
-		Menu sideBarMenu = new MenuFactory().homePageMenu();
-		hom.setSideBarMenu(sideBarMenu);
+
+		HomePage page = new HomePage();
+
+		page.setSubTitle("Welcome Page");
+
 		String response_content = svc.readUpPage("camp_edu/camp_website", "A_Brief_Brouchure");
-		hom.setWelcomeContent(response_content);
-		hom.setSubTitle("Hello");
-		hom.getActionPageSet().setShowMoreInfoButton(true);
-		info.addToModelMap("message",hom);
+		page.setWelcomeContent(response_content);
 		
-		System.out.println(hom.toString());
-		info.put(T01Toolkit.SV_T02_CONTENT_OVV, hom);
+		Menu sideBarMenu = new MenuFactory().homePageMenu();
+		page.setSubTitle("hello");
+		page.setSideBarMenu(sideBarMenu);
+		info.addToModelMap("hom",page);
+
+		System.out.println(page.toString());
+		info.put(T01Toolkit.SV_T02_CONTENT_OVV, page);
 
 		return T02Handler.EV_INIT_01;
 	}

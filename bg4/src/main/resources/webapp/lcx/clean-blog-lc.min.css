@@ -73,10 +73,10 @@ hr.small {
 	color: #404040;
 	background-color:black;
 	/*background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Campus_MIT.jpg/1024px-Campus_MIT.jpg');*/
-	/*background-image:url('https://upload.wikimedia.org/wikipedia/commons/1/19/07182012Sesion_campus_redes_sociales047.jpg');*/
-	background-image:url('../img/lc-home-bg3.jpg');
+	background-image:url('https://upload.wikimedia.org/wikipedia/commons/1/19/07182012Sesion_campus_redes_sociales047.jpg');
+	/* background-image:url('../img/lc-home-bg3.jpg'); */
 	/*background-image:url('http://www.t5eiitm.org/wp-content/uploads/2013/07/Weather.jpg');*/
-	/*background-size:contain;*/	
+	background-size:contain;	
 	/*background: no-repeat center center;*/
 	
 }
@@ -442,6 +442,7 @@ form .row:first-child .floating-label-form-group {
 	line-height: 12px;
 	border-bottom:1px;
 	line-height: 1.5;
+	padding-left: 25px;	
 	color: white;
 	/*padding-left: 25px;*/	
 }
@@ -463,7 +464,11 @@ form .row:first-child .floating-label-form-group {
 }
 
 
-
+.newsColumn{
+	padding-right:0px;
+	padding-left:0px;
+	
+}
 
 ::-moz-selection {
 	color: #fff;

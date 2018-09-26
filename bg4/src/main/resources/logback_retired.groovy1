@@ -24,11 +24,11 @@ appender("STDOUT", ConsoleAppender) {
 logger("org.springframework", ERROR)
 
 /* Quieten Thymeleaf. */
-logger("org.thymeleaf", INFO)
+logger("org.thymeleaf", DEBUG)
 
 /* Jetty can be really noisy on a shaded jar. */
-logger("org.eclipse.jetty.webapp.WebAppClassLoader", INFO)
-logger("org.eclipse.jetty.util.resource.JarResource", INFO)
+logger("org.eclipse.jetty.webapp.WebAppClassLoader", DEBUG)
+logger("org.eclipse.jetty.util.resource.JarResource", DEBUG)
 
 /* Quieten Jetty in general. */
 logger("org.eclipse", ERROR);

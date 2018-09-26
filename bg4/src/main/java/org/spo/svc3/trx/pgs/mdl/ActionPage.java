@@ -1,11 +1,12 @@
 package org.spo.svc3.trx.pgs.mdl;
 
-public class ActionPageSet {
+public class ActionPage {
 	
 	private String mainContentId;
 	private boolean showMoreInfoButton;
 	private Menu queryLinks;
 	private Menu newsLinks;
+	
 	public String getMainContentId() {
 		return mainContentId;
 	}

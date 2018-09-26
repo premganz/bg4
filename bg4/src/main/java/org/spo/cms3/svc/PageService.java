@@ -11,9 +11,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.spo.ifs3.template.web.Constants;
+import org.spo.svc3.trx.pgs.k01.task.K0101;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 
 
 @Component
@@ -22,17 +28,21 @@ public class PageService {
 	private Constants constants;
 
 	//private String dataRootDir ;
+	private Log log = LogFactory.getLog(this.getClass().getName());
+	private static final Logger logger = LoggerFactory.getLogger(PageService.class);
 	
 	public PageService(String rootDir){
 	}
-	
-	
+
+
 	public PageService(){
 	}
-	
-boolean testMode=false;
+
+	boolean testMode=false;
 	public String readUpPage(String scenario, String pageName){
 		File f = null;
+		log.debug("attempting to read page ");
+		logger.error("attempting to read page "+constants.getRepoPath()+"/"+scenario+"/"+pageName+".txt");
 		if(scenario!=null){
 			f= new File(constants.getRepoPath()+"/"+scenario+"/"+pageName+".txt");
 		}else{
@@ -40,45 +50,45 @@ boolean testMode=false;
 		}
 		return readUpPageUtils(f);
 	}
-	
-	
 
-	
+
+
+
 	public void writePage(String fileName, String content){
 		File f = null;
 		StringBuffer buf = new StringBuffer();
 		URL resourceUrl = getClass().getResource("/posts/HelloWorld.html");
-		
-		
+
+
 		BufferedWriter writerBuf = null;
 		System.out.println("writing to file "+constants.getRepoPath()+"/"+fileName+".txt");
-			f= new File(constants.getRepoPath()+"/"+fileName+".txt");
-			FileWriter writer;
+		f= new File(constants.getRepoPath()+"/"+fileName+".txt");
+		FileWriter writer;
+		try {
+			writer= new FileWriter(f);
+			writerBuf = new BufferedWriter(writer);
+
+			writerBuf.write(content);
+
+
+		} catch (IOException e1) {
+			buf.append("FILE not found");
+			e1.printStackTrace();
+		}
+		finally{
 			try {
-				writer= new FileWriter(f);
-				 writerBuf = new BufferedWriter(writer);
-				
-					writerBuf.write(content);
-					
-				
-			} catch (IOException e1) {
-				buf.append("FILE not found");
-				e1.printStackTrace();
+				writerBuf.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+				buf.append("ERROR");
 			}
-			finally{
-				try {
-					writerBuf.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-					buf.append("ERROR");
-				}
-			}
-	
-		
+		}
+
+
 	}
-	
+
 	public List<String> readUpPageList(String scenario, String pageName){
-		
+
 		File f = null;
 		ArrayList<String> resultList = new ArrayList<String>();
 		URL resourceUrl = getClass().getResource("/"+scenario+"/"+pageName+".txt");
@@ -93,7 +103,7 @@ boolean testMode=false;
 				resultList.add(line);
 				line = readerBuf.readLine();
 			}
-			
+
 		} catch (Exception  e) {
 			e.printStackTrace();
 		}
@@ -105,30 +115,30 @@ boolean testMode=false;
 		String folderName=constants.getRepoPath()+"/"+"templates/";
 		File folder = new File(folderName);
 		File[] listOfFiles = folder.listFiles();
-		    for (int i = 0; i < listOfFiles.length; i++) {
-		      if (listOfFiles[i].isFile()) {
-		    	  File f = new File(folderName+listOfFiles[i].getName());
-		           System.out.println("File " + listOfFiles[i].getName());
-		        buf.append(readUpPageUtils(f));
-		        buf.append('\n'+"++++++EOF++++++: "+f.getName()+'\n');
-		      } 
-		    }
-		    buf.append("++++++SECTION++++++: POSTS");
-		    folderName = constants.getRepoPath()+"/"+"posts/";
-		    folder = new File(folderName);
-			listOfFiles = folder.listFiles();
-			    for (int i = 0; i < listOfFiles.length; i++) {
-			      if (listOfFiles[i].isFile()) {
-			    	  File f = new File(folderName+listOfFiles[i].getName());
-			           System.out.println("File " + listOfFiles[i].getName());
-			        buf.append(readUpPageUtils(f));
-			        buf.append('\n'+"++++++EOF++++++: "+f.getName()+'\n');
-			      } 
-			    }
-				return buf.toString();
-		
+		for (int i = 0; i < listOfFiles.length; i++) {
+			if (listOfFiles[i].isFile()) {
+				File f = new File(folderName+listOfFiles[i].getName());
+				System.out.println("File " + listOfFiles[i].getName());
+				buf.append(readUpPageUtils(f));
+				buf.append('\n'+"++++++EOF++++++: "+f.getName()+'\n');
+			} 
+		}
+		buf.append("++++++SECTION++++++: POSTS");
+		folderName = constants.getRepoPath()+"/"+"posts/";
+		folder = new File(folderName);
+		listOfFiles = folder.listFiles();
+		for (int i = 0; i < listOfFiles.length; i++) {
+			if (listOfFiles[i].isFile()) {
+				File f = new File(folderName+listOfFiles[i].getName());
+				System.out.println("File " + listOfFiles[i].getName());
+				buf.append(readUpPageUtils(f));
+				buf.append('\n'+"++++++EOF++++++: "+f.getName()+'\n');
+			} 
+		}
+		return buf.toString();
+
 	}
-	
+
 	public List<String> readFileCatalog(String scenario){
 		File f = null;
 		ArrayList<String> resultList = new ArrayList<String>();
@@ -142,47 +152,47 @@ boolean testMode=false;
 		}
 		return resultList;
 	}
-	
-	
+
+
 	private String readUpPageUtils(File f){
-		
+
 		StringBuffer buf = new StringBuffer();
-			FileReader reader;
+		FileReader reader;
+		try {
+			reader = new FileReader(f);
+			BufferedReader readerBuf = new BufferedReader(reader);
 			try {
-				reader = new FileReader(f);
-				BufferedReader readerBuf = new BufferedReader(reader);
+				System.out.println("Trying to read path : "+f.getAbsolutePath()+"name: "+f.getName());
+				String line = readerBuf.readLine();
+				while(line!=null){
+					buf.append(line);
+					//buf.append("</br>");
+					line = readerBuf.readLine();
+				}
+
+			} catch (Exception  e) {
+				e.printStackTrace();
+				buf.append("ERROR");
+			}finally{
 				try {
-					System.out.println("Trying to read path : "+f.getAbsolutePath()+"name: "+f.getName());
-					String line = readerBuf.readLine();
-					while(line!=null){
-						buf.append(line);
-						//buf.append("</br>");
-						line = readerBuf.readLine();
-					}
-					
-				} catch (Exception  e) {
+					readerBuf.close();
+				} catch (IOException e) {
 					e.printStackTrace();
 					buf.append("ERROR");
-				}finally{
-					try {
-						readerBuf.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-						buf.append("ERROR");
-					}
 				}
-			} catch (FileNotFoundException e1) {
-				buf.append("FILE not found");
-				e1.printStackTrace();
 			}
-		
-			
+		} catch (FileNotFoundException e1) {
+			buf.append("FILE not found");
+			e1.printStackTrace();
+		}
+
+
 		if(buf.toString().isEmpty()){
 			buf.append("BLANK");
 			buf.append("***EOL***");
 		}
-				return buf.toString();
-		
+		return buf.toString();
+
 	}
 
 
@@ -198,8 +208,8 @@ boolean testMode=false;
 
 
 
-	
-	
-	
-	
+
+
+
+
 }

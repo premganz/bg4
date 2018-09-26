@@ -6,6 +6,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.spo.svc3.config.AppConstants;
+import org.spo.svc3.trx.pgs.mdl.Menu;
 import org.spo.svc3.trx.pgs.utils.CmsUtils;
 import org.spo.svc3.trx.pgs.utils.MenuFactory;
 
@@ -22,8 +23,8 @@ public  class TestUtils {
 	public void testMenuUtils()  throws Exception{
 		
 		MenuFactory menuUtil = new MenuFactory();
-		menuUtil.homePageMenu();
-		
+		Menu menu = menuUtil.homePageMenu();
+		System.out.println("test done");
 		
 		
 		
