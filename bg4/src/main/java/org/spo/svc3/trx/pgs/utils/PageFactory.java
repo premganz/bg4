@@ -1,7 +1,7 @@
 package org.spo.svc3.trx.pgs.utils;
 
 import org.spo.cms3.svc.PageService;
-import org.spo.svc3.trx.pgs.mdl.ActionPage;
+import org.spo.svc3.trx.pgs.mdl.ActionAssembly;
 import org.spo.svc3.trx.pgs.mdl.HomePage;
 import org.spo.svc3.trx.pgs.mdl.Menu;
 import org.w3c.dom.NodeList;
@@ -30,7 +30,7 @@ public class PageFactory {
 	public void getContentPage(String key) throws Exception{
 		
 
-		ActionPage embeddedPage = new ActionPage();
+		ActionAssembly embeddedPage = new ActionAssembly();
 		NodeList nodeList = new MenuFactory().getByQuery("//");
 		
 	}

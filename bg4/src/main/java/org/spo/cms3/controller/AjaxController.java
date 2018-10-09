@@ -34,11 +34,34 @@ public class AjaxController {
 	private SocketConnector connector=new SocketConnector();
 	
 	 @RequestMapping(value = "ajax/entry", method = RequestMethod.GET)
+	 public String getDoesList(Locale locale, Model model) {
+		 PostContent content1 = new PostContent();
+		 content1.setHtmlContent("hello");
+		 model.addAttribute("content", content1);
+		 List<String> list = svc.readFileCatalog("does");
+		 Collections.sort(list);		 
+		 model.addAttribute("files",list);
+		 return "cms1/x_content";
+	 }
+	 
+	 @RequestMapping(value = "ajax/domainList", method = RequestMethod.GET)
 	 public String home(Locale locale, Model model) {
 		 PostContent content1 = new PostContent();
 		 content1.setHtmlContent("hello");
 		 model.addAttribute("content", content1);
-		 List<String> list = svc.readFileCatalog("posts");
+		 List<String> list = svc.readFileCatalog("does");
+		 Collections.sort(list);		 
+		 model.addAttribute("files",list);
+		 return "cms1/x_content";
+	 }
+	 
+	 @RequestMapping(value = "ajax/doesList", method = RequestMethod.GET)
+	 public String getListLevel1(Locale locale, Model model) {
+		 PostContent content1 = new PostContent();
+		 content1.setHtmlContent("hello");
+		 model.addAttribute("content", content1);
+		 
+		 List<String> list = svc.readFileCatalog((String)model.asMap().get("doesCode"), null);
 		 Collections.sort(list);		 
 		 model.addAttribute("files",list);
 		 return "cms1/x_content";

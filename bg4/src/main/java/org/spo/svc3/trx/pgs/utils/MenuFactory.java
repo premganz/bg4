@@ -77,15 +77,7 @@ public class MenuFactory {
 	
 //	public  Menu homePageMenu() throws Exception{
 //		Menu menu = new Menu();
-//		Map<String, Menu> menuMap = new LinkedHashMap<String,Menu>();
-//		menuMap.put("insp", homePageMenuDoes("insp"));
-//		menuMap.put("compExp", homePageMenuDoes("compExp"));
-//		menuMap.put("compCrit", homePageMenuDoes("compCrit"));
-//		menuMap.put("sciMethod", homePageMenuDoes("sciMethod"));
-//		menuMap.put("campMeta", homePageMenuDoes("campMeta"));
-//		menuMap.put("compEnum", homePageMenuDoes("campEnum"));
-//		menu = homePageMenuDoes("\\*");
-//		menu.setSubMenuByKey(menuMap);
+//		List<Menu> menuList = getSubMenuList("//role");
 //		System.out.println(menu);
 //		return menu;
 //	}
@@ -97,56 +89,62 @@ public class MenuFactory {
 		menu.setLbl("Home");
 		menu.setClickable(false);
 		menu.setLevelCd("nonClickable");
-		List<Menu> menuList = getSubMenuList("//does");
-		for(Menu m1:menuList) {
-			m1.setLevelCd("does");
-			String nl = m1.getNl();
-			List<Menu> menuListL2 = getSubMenuList("//does[@nl=\""+nl+"\"]/intent/strategy/theme");
-			for(Menu m2:menuListL2) {
-				m2.setLevelCd("theme");
-				String nl2 = m2.getNl();
-				List<Menu> menuListL3 = getSubMenuList("//does[@nl=\""+nl+"\"]/intent/strategy/theme[@nl=\""+nl2+"\"]/visit");
-				for(Menu m3:menuListL3) {
-					m3.setLevelCd("visit");
+		List<Menu> menuList = getSubMenuList("//role");
+		for(Menu m0:menuList) {
+			m0.setLevelCd("role");
+			String lbl = m0.getLbl();
+			List<Menu> menuList0 = getSubMenuList("//role[@lbl=\""+lbl+"\"]/attribute/does");
+			for(Menu m1:menuList0) {
+				m1.setLevelCd("does");
+				String nl = m1.getNl();
+				List<Menu> menuListL2 = getSubMenuList("//does[@nl=\""+nl+"\"]/intent/strategy/theme");
+				for(Menu m2:menuListL2) {
+					m2.setLevelCd("theme");
+					String nl2 = m2.getNl();
+					List<Menu> menuListL3 = getSubMenuList("//does[@nl=\""+nl+"\"]/intent/strategy/theme[@nl=\""+nl2+"\"]/visit");
+					for(Menu m3:menuListL3) {
+						m3.setLevelCd("visit");
+					}
+					m2.setSubMenuItems(menuListL3);
 				}
-				m2.setSubMenuItems(menuListL3);
+				m1.setSubMenuItems(menuListL2);
 			}
-			m1.setSubMenuItems(menuListL2);
+			m0.setSubMenuItems(menuList0);
 		}
 		menu.setSubMenuItems(menuList);
-//		System.out.println(menu);
+		System.out.println(menu);
 		return menu;
 	}
 	
 	
 	
 	
-	public  Menu homePageMenuDoes(String id) throws Exception{
-		Menu menu = new Menu();
-		menu.setNl("Home");
-		menu.setLbl("Home");
-		menu.setClickable(false);
-		menu.setLevelCd("nonClickable");
-		List<Menu> menuList = getSubMenuList("//does[@id=\""+id+"\"]");
-		for(Menu m1:menuList) {
-			m1.setLevelCd("does");
-			String nl = m1.getNl();
-			List<Menu> menuListL2 = getSubMenuList("//does[@nl=\""+nl+"\"]/intent/strategy/theme");
-			for(Menu m2:menuListL2) {
-				m2.setLevelCd("theme");
-				String nl2 = m2.getNl();
-				List<Menu> menuListL3 = getSubMenuList("//does[@nl=\""+nl+"\"]/intent/strategy/theme[@nl=\""+nl2+"\"]/visit");
-				for(Menu m3:menuListL3) {
-					m3.setLevelCd("visit");
-				}
-				m2.setSubMenuItems(menuListL3);
-			}
-			m1.setSubMenuItems(menuListL2);
-		}
-		menu.setSubMenuItems(menuList);
-//		System.out.println(menu);
-		return menu;
-	}
+//	public  Menu homePageMenuDoes(String id) throws Exception{
+//		Menu menu = new Menu();
+//		menu.setNl("Home");
+//		menu.setLbl("Home");
+//		menu.setClickable(false);
+//		menu.setLevelCd("nonClickable");
+//		List<Menu> menuList = getSubMenuList("//does[@id=\""+id+"\"]");
+//		for(Menu m1:menuList) {
+//			m1.setLevelCd("does");
+//			String nl = m1.getNl();
+//			List<Menu> menuListL2 = getSubMenuList("//does[@nl=\""+nl+"\"]/intent/strategy/theme");
+//			for(Menu m2:menuListL2) {
+//				m2.setLevelCd("theme");
+//				String nl2 = m2.getNl();
+//				List<Menu> menuListL3 = getSubMenuList("//does[@nl=\""+nl+"\"]/intent/strategy/theme[@nl=\""+nl2+"\"]/visit");
+//				for(Menu m3:menuListL3) {
+//					m3.setLevelCd("visit");
+//				}
+//				m2.setSubMenuItems(menuListL3);
+//			}
+//			m1.setSubMenuItems(menuListL2);
+//		}
+//		menu.setSubMenuItems(menuList);
+////		System.out.println(menu);
+//		return menu;
+//	}
 	
 	
 	

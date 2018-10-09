@@ -16,7 +16,7 @@ public class ConstantsTestImpl implements Constants {
 	}
 
 	public String getLandingPage() {
-		return "trx/K01/Msg_01";
+		return "trx/K01/NullId";
 	}
 
 	public int getPortNumber() {

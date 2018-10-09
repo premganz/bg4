@@ -14,11 +14,6 @@ public class Menu {
 	private String levelCd;  //this is for nesting
 	private boolean isClickable=true;
 	private List<Menu> subMenuItems= new ArrayList<Menu>();
-	private Map<String, Menu> subMenuByKey = new LinkedHashMap<String,Menu>();
-	
-	private Menu getSubListByKey(String key) {
-		return subMenuByKey.get(key);
-	}
 	
 	
 	//does, theme, visit
@@ -105,15 +100,6 @@ public class Menu {
 	
 	
 	
-	public Map<String, Menu> getSubMenuByKey() {
-		return subMenuByKey;
-	}
-
-
-	public void setSubMenuByKey(Map<String, Menu> subMenuByKey) {
-		this.subMenuByKey = subMenuByKey;
-	}
-
 
 	@Override
 	public String toString() {

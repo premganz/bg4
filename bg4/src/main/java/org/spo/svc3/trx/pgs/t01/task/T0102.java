@@ -62,19 +62,19 @@ public class T0102 extends AbstractTask {
 	}
 
 	@Override
-	public NavEvent processViewEvent(String event, TrxInfo info) {
+	public NavEvent processViewEvent(String event, String dataId, TrxInfo info) {
 		if(event.startsWith("EV_DTL")){
-			String dataId = event.replaceAll("EV_DTL_","");
+			 dataId = event.replaceAll("EV_DTL_","");
 			NavEvent navEvent = T01Handler.EV_REFRESH_CONTENT;
 			navEvent.dataId=dataId;
 			return navEvent;
 		}if(event.startsWith("EV_PVS")){
-			String dataId = "Wel_msg";
+			 dataId = "Wel_msg";
 			NavEvent navEvent = T01Handler.EV_PVS;
 			navEvent.dataId=dataId;
 			return navEvent;
 		}else if(event.startsWith("EV_SUB_LAND")){
-			String dataId = event.replaceAll("EV_SUB_LAND_","");
+			 dataId = event.replaceAll("EV_SUB_LAND_","");
 			NavEvent navEvent = T01Handler.EV_REFRESH_NEW_SUB_LAND;
 			navEvent.dataId=dataId;
 			return navEvent;

@@ -53,9 +53,6 @@ public abstract class AbstractHandler {
 			Gson gson = new Gson();
 			Type typ1 = new TypeToken<Map<String, String>>(){}.getType();
 			String json = gson.toJson(map,typ1);
-			
-			
-			
 			navevent=taskChannel.get(info.getState().taskId).processViewResult(navevent.dataId, json,info);
 
 		}
@@ -63,7 +60,7 @@ public abstract class AbstractHandler {
 			navevent=taskChannel.get(navevent.getTaskId()).initTask(navevent.dataId, info);
 		}
 		if(navevent.getEventType().equals(EventType.PROCESSEVENT)){
-			navevent=taskChannel.get(info.getState().taskId).processViewEvent(navevent.getEventId(), info);
+			navevent=taskChannel.get(info.getState().taskId).processViewEvent(navevent.getEventId(),navevent.dataId, info);
 		}
 		NavEvent navevent1=NavEvent.blend(info.getState().lastEvent,navevent );
 		return navevent1;
@@ -114,7 +111,7 @@ public abstract class AbstractHandler {
 				return handleOutBound(returnEvent,request,info);
 
 			}else{
-				NavEvent navevent2=NavEvent.create(EventType.PROCESSEVENT,pageEvent);
+				NavEvent navevent2=NavEvent.create(EventType.PROCESSEVENT,pageEvent, dataId);
 				NavEvent navevent1 = NavEvent.blend(info.getState().lastEvent,navevent2);		
 				NavEvent returnEvent= handleInBound(navevent1, info);
 				return handleOutBound(returnEvent,request,info);

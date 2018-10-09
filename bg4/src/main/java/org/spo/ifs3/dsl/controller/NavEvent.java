@@ -35,19 +35,21 @@ public class NavEvent {
 		this.eventType=eventType;
 	}
 	
-	public static NavEvent create(DSLConstants.EventType type, String param){
+	public static NavEvent create(DSLConstants.EventType type, String param, String dataId){
 		NavEvent event = new NavEvent(type);
 		if((type.equals(DSLConstants.EventType.REFRESHPAGE)||type.equals(DSLConstants.EventType.TASKSET))){
 			event.taskId=param;	
 		}else if(type.equals(DSLConstants.EventType.PROCESSEVENT)){
 			event.eventId=param;
+			event.dataId=dataId;
 		}else{
 			event.trxId=param;
 		}
 		return event;		
 	}
-	
-public static NavEvent blend(NavEvent eventIn, NavEvent event){
+	public static NavEvent create(DSLConstants.EventType type, String param){return create(type,param,null);}
+
+	public static NavEvent blend(NavEvent eventIn, NavEvent event){
 		
 		
 		if(eventIn!=null){

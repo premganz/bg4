@@ -39,7 +39,7 @@ public class T0302 extends AbstractTask {
 	}
 
 	@Override
-	public NavEvent processViewEvent(String event, TrxInfo info) {
+	public NavEvent processViewEvent(String event, String data, TrxInfo info) {
 		if(event.startsWith("EV_LOGIN")){
 			String dataId = event.replaceAll("EV_LOGIN_","");
 			NavEvent navEvent = T03Handler.EV_NAV_MENU;

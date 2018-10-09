@@ -16,7 +16,7 @@ import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spo.ifs3.template.web.Constants;
-import org.spo.svc3.trx.pgs.k01.task.K0101;
+import org.spo.svc3.trx.pgs.mdl.ActionAssembly;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,11 +26,20 @@ import org.springframework.stereotype.Component;
 public class PageService {
 	@Autowired
 	private Constants constants;
+	String filePath;
+	String fullPathMeta;
+
+	{
+
+		filePath=constants.getRepoPath();
+		
+	}
+
 
 	//private String dataRootDir ;
 	private Log log = LogFactory.getLog(this.getClass().getName());
 	private static final Logger logger = LoggerFactory.getLogger(PageService.class);
-	
+
 	public PageService(String rootDir){
 	}
 
@@ -38,16 +47,23 @@ public class PageService {
 	public PageService(){
 	}
 
+
+
 	boolean testMode=false;
+	//scenario = doesDir/domainDir
 	public String readUpPage(String scenario, String pageName){
 		File f = null;
 		log.debug("attempting to read page ");
-		logger.error("attempting to read page "+constants.getRepoPath()+"/"+scenario+"/"+pageName+".txt");
-		if(scenario!=null){
-			f= new File(constants.getRepoPath()+"/"+scenario+"/"+pageName+".txt");
-		}else{
-			f= new File(constants.getRepoPath()+"/"+pageName+".txt");
-		}
+		logger.error("attempting to read page "+filePath+"/"+scenario+"/"+pageName+".txt");
+		return readUpPageUtils(f);
+	}
+
+	public String readUpPage(ActionAssembly assem){
+		File f = null;
+		String path=constants.getRepoPath()+"/"+assem.getDoesCode()+"/"+assem.getDomainCode()+"/"+assem.getActionCode()+".txt";
+		log.debug("attempting to read page ");
+		logger.error("attempting to read page "+ path);
+		f= new File(path);
 		return readUpPageUtils(f);
 	}
 
@@ -58,8 +74,6 @@ public class PageService {
 		File f = null;
 		StringBuffer buf = new StringBuffer();
 		URL resourceUrl = getClass().getResource("/posts/HelloWorld.html");
-
-
 		BufferedWriter writerBuf = null;
 		System.out.println("writing to file "+constants.getRepoPath()+"/"+fileName+".txt");
 		f= new File(constants.getRepoPath()+"/"+fileName+".txt");
@@ -87,6 +101,26 @@ public class PageService {
 
 	}
 
+	
+	public List<String> getListBoxes(String does, String theme) throws Exception{
+
+		ArrayList<String> resultList = new ArrayList<String>();
+		String resourcePath="";
+		if(theme!=null) {
+			resourcePath=filePath+"/"+does+"/"+theme;
+		}else {
+			resourcePath=filePath+"/"+does;
+		}
+
+		File[] fileArray = new File(resourcePath).listFiles();
+		for(File f1:fileArray) {
+			resultList.add(f1.getName());
+		}
+		return resultList;
+	}
+	
+	
+	
 	public List<String> readUpPageList(String scenario, String pageName){
 
 		File f = null;
@@ -112,7 +146,7 @@ public class PageService {
 
 	public String dumpFilesData(){
 		StringBuffer buf = new StringBuffer();
-		String folderName=constants.getRepoPath()+"/"+"templates/";
+		String folderName=constants.getRepoPath()+"/"+"augment/";
 		File folder = new File(folderName);
 		File[] listOfFiles = folder.listFiles();
 		for (int i = 0; i < listOfFiles.length; i++) {
@@ -124,7 +158,7 @@ public class PageService {
 			} 
 		}
 		buf.append("++++++SECTION++++++: POSTS");
-		folderName = constants.getRepoPath()+"/"+"posts/";
+		folderName = constants.getRepoPath()+"/"+"content/";
 		folder = new File(folderName);
 		listOfFiles = folder.listFiles();
 		for (int i = 0; i < listOfFiles.length; i++) {
@@ -139,16 +173,20 @@ public class PageService {
 
 	}
 
-	public List<String> readFileCatalog(String scenario){
+	public List<String> readFileCatalog(String does, String theme){
 		File f = null;
-		ArrayList<String> resultList = new ArrayList<String>();
-		f= new File(constants.getRepoPath()+"/"+scenario);
 
-		File[] filesList = f.listFiles();
-		for (File file : filesList) {		
-			if (file.isFile() && !file.getName().endsWith("_meta.txt")) {				
-				resultList.add(file.getName().replaceAll(".txt",""));
-			}
+		ArrayList<String> resultList = new ArrayList<String>();
+		String resourcePath="";
+		if(theme!=null) {
+			resourcePath=filePath+"/"+does+"/"+theme;
+		}else {
+			resourcePath=filePath+"/"+does;
+		}
+
+		File[] fileArray = new File(resourcePath).listFiles();
+		for(File f1:fileArray) {
+			resultList.add(f1.getName());
 		}
 		return resultList;
 	}

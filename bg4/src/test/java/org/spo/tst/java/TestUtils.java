@@ -30,7 +30,7 @@ public  class TestUtils {
 		
 	}
 	
-	@Test
+//	@Test //RUN VERY CAREFULLY
 	public void testCmsUtils()  throws Exception{
 		
 		CmsUtils cmsUtil = new CmsUtils();

@@ -30,7 +30,8 @@ public class CmsUtils {
 	public static Document doc;
 	
 	Constants constants = new ConstantsTestImpl();
-	String cmsDir = AppConstants.cmsDir+"/";
+	String cmsDir = constants.getRepoPath()+"/"+"content"+"/";
+	String cmsMetaDir = constants.getRepoPath()+"/augment/";
 	Log log = LogFactory.getLog(CmsUtils.class);
 
 	public  CmsUtils() throws Exception{
@@ -42,25 +43,37 @@ public class CmsUtils {
 
 	}
 
+	//Run once to create folders
 	public  void organizeFolders() {
 		String xquery= "//vsn" ;
 		try {
-			organizeFoldersHelper1 (util_queryHelper1(xquery),"","");
+			organizeFoldersHelper1 (util_queryHelper1(xquery),"","", false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	//Run once to create folders
+		public  void organizeFoldersMeta() {
+			String xquery= "//vsn" ;
+			try {
+				organizeFoldersHelper1 (util_queryHelper1(xquery),"","", true);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
-	private  void organizeFoldersHelper1(Element node, String currentStrategyDir, String currentDomainDir) throws Exception {
+	private  void organizeFoldersHelper1(Element node, String currentStrategyDir, String currentDomainDir, boolean isMeta) throws Exception {
 		// do something with the current node instead of System.out
+		String cmsPath = isMeta?cmsDir:cmsMetaDir;
+		String extn = isMeta?".txt":"_augm.txt";
 		System.out.println(node.getNodeName());
 		NodeList nodeList = node.getChildNodes();
 		for (int i = 0; i < nodeList.getLength(); i++) {
 			Node currentNode = nodeList.item(i);
 			if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
-				if(currentNode.getNodeName().equals("strategy")) {
+				if(currentNode.getNodeName().equals("does")) {
 					currentStrategyDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
-					File dir = new File (cmsDir+currentStrategyDir);
+					File dir = new File (cmsPath+currentStrategyDir);
 					if(!dir.exists()) {
 						log.debug("creating dir "+dir.getAbsolutePath());
 						dir.mkdirs();
@@ -74,7 +87,7 @@ public class CmsUtils {
 					}
 				}
 				if(currentNode.getNodeName().equals("action")) {
-					File file = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentNode.getAttributes().getNamedItem("nl").getTextContent().replaceAll(" ", "_")+".txt");
+					File file = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentNode.getAttributes().getNamedItem("nl").getTextContent().replaceAll(" ", "_")+extn);
 					if(!file.exists()) {
 						log.debug("creating file "+file.getName());
 						file.createNewFile();
@@ -84,7 +97,7 @@ public class CmsUtils {
 //					continue;
 //				} 
 				if(currentNode.hasChildNodes()) {
-					organizeFoldersHelper1((Element)currentNode, currentStrategyDir, currentDomainDir);
+					organizeFoldersHelper1((Element)currentNode, currentStrategyDir, currentDomainDir, isMeta);
 				}
 			}
 		}
@@ -138,8 +151,6 @@ public class CmsUtils {
 	
 	
 	public Element util_queryHelper1(String xquery) throws Exception{
-		
-
 		XPathFactory factory = XPathFactory.newInstance();
 		XPath xpath = factory.newXPath();
 		//		xquery= "//page[@name='AbstractHomePage']" ;

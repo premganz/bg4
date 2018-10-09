@@ -61,7 +61,7 @@ public class T0103 extends AbstractTask {
 	}
 
 	@Override
-	public NavEvent processViewEvent(String event, TrxInfo info) {
+	public NavEvent processViewEvent(String event, String data, TrxInfo info) {
 		if(event.startsWith("EV_DTL")){
 			String dataId = event.replaceAll("EV_DTL_","");
 			NavEvent navEvent = T01Handler.EV_REFRESH_CONTENT;

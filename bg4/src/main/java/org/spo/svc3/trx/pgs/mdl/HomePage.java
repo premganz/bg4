@@ -10,7 +10,7 @@ public class HomePage extends GuidePage {
 	private String welcomeContent;
 	private String subTitle;
 	
-	private ActionPage actionPageEmbedded;
+	private ActionAssembly actionPageEmbedded;
 	private List<ExtLink> newsItems=new ArrayList<ExtLink>();
 	
 	private boolean exploreMoreLinkIc_1;
@@ -47,11 +47,11 @@ public class HomePage extends GuidePage {
 		this.newsItems = newsItems;
 	}
 
-	public ActionPage getActionPageEmbedded() {
+	public ActionAssembly getActionPageEmbedded() {
 		return actionPageEmbedded;
 	}
 
-	public void setActionPageEmbedded(ActionPage actionPageEmbedded) {
+	public void setActionPageEmbedded(ActionAssembly actionPageEmbedded) {
 		this.actionPageEmbedded = actionPageEmbedded;
 	}
 

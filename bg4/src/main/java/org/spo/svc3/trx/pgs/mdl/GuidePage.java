@@ -5,8 +5,27 @@ import java.util.List;
 
 public class GuidePage extends ContentPage{
 
-String briefIntroId;
-List<ContentPage> landingForContentPages;
+
+
+private Menu sideBarMenu;
+private String welcomeContent;
+private String subTitle;
+
+private ActionAssembly actionPageEmbedded;
+private List<ExtLink> newsItems=new ArrayList<ExtLink>();
+private List<ExtLink> permaLinks=new ArrayList<ExtLink>();
+
+
+private List<ExtLink> actionLinks=new ArrayList<ExtLink>();
+
+
+
+private boolean exploreMoreLinkIc_1;
+private String exploreMoreLinkTxt_1;
+
+private ExtLink homePageLink;
+private ExtLink aboutPageLink;
+
 
 
 

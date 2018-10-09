@@ -63,50 +63,38 @@
 					<div id="menu"
 						style="background: url(https :// upload.wikimedia.org/ wikipedia/ commons/ 1/ 19/ 07182012Sesion_campus_redes_sociales047 .jpg ')">
 						<div id="menu2" style="Opacity: 0.9">
-							<ul>
-								<lh> <a th:text="Home" style="cursor: pointer;" th:href="${hom.homePageLink}"></a> </lh>
-								<lh> <a th:text="About" style="cursor: pointer;" th:href="${hom.aboutPageLink}"></a> </lh>
-							</ul>
-							<ul>
-								<lh>
-								<h2 style="color: antiquewhite">Ideas</h2>
-								<hr></hr>
-								</lh>
-							</ul>
+							
 
 							<div th:each="link : ${hom.sideBarMenu}">
 								<ul>
 									<lh> <a th:text="${link.lbl}" style="cursor: pointer;" th:href="${link.levelCd}+'__' + ${link.id}"></a> </lh>
-									<div  th:each="sublink : ${link.subMenuItems}">
-										<li th:id="${sublink.id}"><a th:text="''+${sublink.lbl}" style="cursor: pointer;" th:href="${sublink.levelCd}+${sublink.id}"
-											onclick=""></a></li>
-										<div class="subMenu" th:each="sublink2 : ${sublink.subMenuItems}">
-											<li th:id="${sublink2.id}"> <a th:text="''+${sublink2.lbl}" style="cursor: pointer;"
-												th:href="${sublink2.levelCd}+${sublink2.id}" onclick=""></a></li>
-											<div class="subMenu2" th:each="sublink3 : ${sublink2.subMenuItems}">
-												<li th:id="${sublink3.id}"> <a th:text="''+${sublink3.lbl}" style="cursor: pointer;"
-													th:href="'?EVENT='+${sublink3.levelCd}+'~'+${sublink3.id}" onclick=""></a></li>
+									<div th:each="headerLink : ${link.subMenuItems}">
+										<lh>
+										<h2 style="color: antiquewhite">
+										<div th:text="${headerLink.lbl}"></div>
+										</h2>
+										<hr></hr>
+										</lh>
+										<div th:each="sublink : ${headerLink.subMenuItems}">
+											<li th:id="${sublink.id}"><a th:text="''+${sublink.lbl}" style="cursor: pointer;" th:href="${sublink.levelCd}+${sublink.id}"
+												onclick=""></a></li>
+											<div class="subMenu" th:each="sublink2 : ${sublink.subMenuItems}">
+												<li th:id="${sublink2.id}"><a th:text="''+${sublink2.lbl}" style="cursor: pointer;"
+													th:href="${sublink2.levelCd}+'__'+${sublink2.id}+'?event=EV_'+${sublink2.levelCd}" onclick=""></a></li>
+												<!-- <div class="subMenu2" th:each="sublink3 : ${sublink2.subMenuItems}">
+													<li th:id="${sublink3.id}"><a th:text="''+${sublink3.lbl}" style="cursor: pointer;"
+														th:href="'?EVENT='+${sublink3.levelCd}+'~'+${sublink3.id}" onclick=""></a></li>
+												</div> -->
 											</div>
 										</div>
 									</div>
 								</ul>
 							</div>
-							<ul>
-								<lh>
-								<h2 style="color: antiquewhite">Resources</h2>
-								<hr></hr>
-								</lh>
-							</ul>
-							<ul>
-								<lh>
-								<h2 style="color: antiquewhite">Campaigns</h2>
-								<hr></hr>
-								</lh>
-							</ul>
+							
 						</div>
 
 						<ul>
-							<lh> <a>Links</a></lh>
+							<lh> <a>Perma Links</a></lh>
 							<li><a style="cursor: pointer;" onclick="return form_action_load('','pages','curriculum','view',0);">CBSE</a></li>
 							<li><a style="cursor: pointer;" href="http://www.cisce.org/" target="_blank">ICSE | ISC Syllabus</a></li>
 							<li><a style="cursor: pointer;" href="http://www.aacu.org/" target="_blank">AACU</a></li>
@@ -122,24 +110,7 @@
 						<ul>
 							<lh> </lh>
 						</ul>
-						<ul>
-							<lh> </lh>
-						</ul>
-						<ul>
-							<lh> </lh>
-						</ul>
-						<ul>
-							<lh> </lh>
-						</ul>
-						<ul>
-							<lh> </lh>
-						</ul>
-						<ul>
-							<lh> </lh>
-						</ul>
-						<ul>
-							<lh> </lh>
-						</ul>
+					
 						<ul>
 							<lh> </lh>
 						</ul>
@@ -153,7 +124,7 @@
 
 					</div>
 				</div>
-				<div class="col-lg-7  col-md-8 col-sm-8 ">
+				<div class="col-lg-7  col-md-8 col-sm-8 col-xs-12">
 					<div class="container1" style="border-right-color: yellow;">
 						<div th:utext="${hom.welcomeContent}"></div>
 
@@ -195,7 +166,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-lg-2  col-md-1 col-sm-12">
+				<div class="col-lg-2  col-md-1 col-sm-1 col-xs-12">
 					<!-- <div class="newsColumn" style="background-color:#b1d41a78;"> -->
 					<p>
 					<H3>News</H3>

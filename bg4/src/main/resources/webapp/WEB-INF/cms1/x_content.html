@@ -110,14 +110,31 @@
 						<td>
 							<p>
 							<select id="fileselect" >
-								<div th:each="link : ${files}">
+								<div th:each="link : ${files1}">
 								<option th:text="${link}" ></option>					
 								</div>
 							</select>
 							</p>
 							 <h5><div th:utext="${content.formErrors}"></div></h5>
 							
-								<p>FileName : <input id="fileName" th:name="input" th:field="${content.id}" maxlength="100" />Meta : <input id="fileMeta" th:name="input" th:field="*{content.meta}" maxlength="500" /></p>
+								<p>FileName L1 : <input id="fileName" th:name="input" th:field="${content.id}" maxlength="100" />Meta : <input id="fileMeta" th:name="input" th:field="*{content.meta}" maxlength="500" /></p>
+																					
+						</td>
+						<td><br></br> <button  id="fetch" onClick="loadContent()">Post</button></td>
+						
+					</tr>
+					<tr>
+						<td>
+							<p>
+							<select id="fileselect" >
+								<div th:each="link : ${files2}">
+								<option th:text="${link}" ></option>					
+								</div>
+							</select>
+							</p>
+							 <h5><div th:utext="${content.formErrors}"></div></h5>
+							
+								<p>FileName L2: <input id="fileName" th:name="input" th:field="${content.id}" maxlength="100" />Meta : <input id="fileMeta" th:name="input" th:field="*{content.meta}" maxlength="500" /></p>
 																					
 						</td>
 						<td><br></br> <button  id="fetch" onClick="loadContent()">Post</button></td>
