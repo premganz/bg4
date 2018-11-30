@@ -37,14 +37,14 @@ public class T0101 extends AbstractTask {
 		String response="";
 		String response_content="";
 
-		response = svc.readUpPage("templates", "Home_pg");//Menu
+		response = svc.readUpPage( "Home_pg");//Menu
 		Gson gson = new Gson();
 		
 		Type typ = new TypeToken<Home_pg>(){}.getType();//FIXME right now only string works
 		Home_pg cmd_menu= gson.fromJson(response,typ);	
 		
 		try{
-			response_content = svc.readUpPage("posts", dataId_Content);
+			response_content = svc.readUpPage( dataId_Content);
 			typ = new TypeToken<Wel_msg>(){}.getType();//FIXME right now only string works
 			Wel_msg cmd= gson.fromJson(response_content,typ);		
 			
