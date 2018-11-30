@@ -50,7 +50,7 @@
 						<div class="site-heading">
 							<h1>leafy campus</h1>
 							<hr class="small"></hr>
-							<span class="subheading" th:text="${hom.subTitle}"></span>
+							<span class="subheading" th:text="${theme.subTitle}"></span>
 						</div>
 					</div>
 				</div>
@@ -65,7 +65,7 @@
 						<div id="menu2" style="Opacity: 0.9">
 							
 
-							<div th:each="link : ${hom.sideBarMenu}">
+							<div th:each="link : ${theme.sideBarMenu}">
 								<ul>
 									<lh> <a th:text="${link.lbl}" style="cursor: pointer;" th:href="${link.levelCd}+'__' + ${link.id}"></a> </lh>
 									<div th:each="headerLink : ${link.subMenuItems}">
@@ -126,7 +126,7 @@
 				</div>
 				<div class="col-lg-7  col-md-8 col-sm-8 col-xs-12">
 					<div class="container1" style="border-right-color: yellow;">
-						<div th:utext="${hom.welcomeContent}"></div>
+						<div th:utext="${theme.welcomeContent}"></div>
 
 					</div>
 
@@ -136,7 +136,7 @@
 
 						<h2></h2>
 						<hr></hr>
-						<div class="row1" th:each="link : ${hom.newsItems}">
+						<div class="row1" th:each="link : ${theme.newsItems}">
 
 							<div class="post-preview">
 								<a th:href="${link.metaInfo}">
@@ -155,8 +155,8 @@
 							</div>
 						</div>
 						<ul class="pager">
-							<li class="next"><a th:href="${hom.exploreMoreLinkIc_1}" style="background-color: gold;">
-									<div th:utext="${hom.exploreMoreLinkTxt_1}"></div>
+							<li class="next"><a th:href="${theme.exploreMoreLinkIc_1}" style="background-color: gold;">
+									<div th:utext="${theme.exploreMoreLinkTxt_1}"></div>
 							</a></li>
 						</ul>
 						<ul class="pager">
@@ -171,7 +171,7 @@
 					<p>
 					<H3>News</H3>
 					</p>
-					<div class="row" th:each="link : ${hom.newsItems}">
+					<div class="row" th:each="link : ${theme.newsItems}">
 						<div class="footnote">
 							<a th:href="${link.href}" target="_blank">
 								<p th:text="${link.label}"></p>

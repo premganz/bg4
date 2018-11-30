@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE application SYSTEM "..\schema\AppNavModel.dtd"> -->
+<!DOCTYPE application [
+<!-- nl= natural language expression id= unique id -->
+<!ELEMENT vsn (role)+>
+<!ATTLIST vsn
+  xmlns CDATA #FIXED ''
+  id CDATA #REQUIRED
+  aka CDATA #REQUIRED
+  path CDATA #REQUIRED
+  nl CDATA #REQUIRED>
+
+<!ELEMENT role (attribute)>
+<!ATTLIST role
+  xmlns CDATA #FIXED ''
+  lbl CDATA #REQUIRED
+  nl CDATA #REQUIRED>
+
+<!ELEMENT attribute (does)+>
+<!ATTLIST attribute
+  xmlns CDATA #FIXED ''
+  how CDATA #REQUIRED
+  nl NMTOKEN #REQUIRED>
+
+<!ELEMENT goal EMPTY>
+<!ATTLIST goal
+  xmlns CDATA #FIXED ''
+  nl CDATA #REQUIRED>
+
+<!ELEMENT does (intent)>
+<!ATTLIST does
+  xmlns CDATA #FIXED ''
+  how CDATA #IMPLIED
+  nl CDATA #REQUIRED
+  id ID #REQUIRED
+  lbl CDATA #IMPLIED
+  onBelief CDATA #IMPLIED>
+
+<!ELEMENT intent (strategy)+>
+<!ATTLIST intent
+  xmlns CDATA #FIXED ''
+  nl CDATA #REQUIRED>
+
+<!ELEMENT strategy (theme+|visit+)>
+<!ATTLIST strategy
+  xmlns CDATA #FIXED ''
+  id ID #REQUIRED
+  nl CDATA #REQUIRED>
+
+<!ELEMENT theme (visit)+>
+<!ATTLIST theme
+  xmlns CDATA #FIXED ''
+  lbl CDATA #REQUIRED
+  nl CDATA #REQUIRED>
+
+<!ELEMENT visit (domain+,(action,query)?)>
+<!ATTLIST visit
+  xmlns CDATA #FIXED ''
+  lbl CDATA #IMPLIED
+  nl CDATA #REQUIRED>
+
+<!ELEMENT domain (evidence*,(action|query)*)>
+<!ATTLIST domain
+  xmlns CDATA #FIXED ''
+  id CDATA #REQUIRED
+  lbl CDATA #IMPLIED
+  nl CDATA #IMPLIED
+  nl CDATA #IMPLIED>
+
+<!ELEMENT evidence EMPTY>
+<!ATTLIST evidence
+  xmlns CDATA #FIXED ''
+  nl CDATA #IMPLIED
+  type NMTOKEN #REQUIRED>
+
+<!ELEMENT query EMPTY>
+<!ATTLIST query
+  xmlns CDATA #FIXED ''
+  natural_question CDATA #IMPLIED
+  nl CDATA #REQUIRED
+  type NMTOKEN #IMPLIED>
+
+<!ELEMENT action (action*,evidence*,query*)>
+<!ATTLIST action
+  xmlns CDATA #FIXED ''
+  id ID #IMPLIED
+  lbl CDATA #IMPLIED
+  nl CDATA #REQUIRED  
+  type NMTOKEN #IMPLIED>
+  
+]>
+<!-- action type c = critical publication, type t = tactical publication -->
+<vsn id="root_version_2" nl="Reviving Modernism"
+  aka="Modernist revival- celebrating the certainty of the scientific method and the life space provided by its incompleteness. 
+Interpreting this into contexts as long running projects"
+  path="implies Romanticism over conservative modernsit values, critical of postmodernism, which implies optimism on the human condition and faith">
+  <role lbl="Inspiration" nl="An inside club - a campus - a critical, romantic agent">
+    <attribute nl="humility" how="a project running for finite time">
+      <does id="about" lbl="Modernist Revival and Scientific Realism" nl="Defending the Idea of Modernist Revival, Scientific Realism" onBelief="There are desirable actions that arise in the right environment">
+        <intent nl="create an optimal environment">
+          <strategy id="abt" nl="being honest and clear, some kind of a charter">
+            <theme lbl="Our Intent- About Us" nl="about us">
+              <visit lbl="Why this Project" nl="Why this is zeigteist">
+                <domain id="abt_why" lbl="" nl="contemproary issues with knowledge and justifying intervention">
+                  <action type="crt" nl="Why Projects like this should exist"></action>
+                </domain>
+                <domain id="abt_justif" nl="justifying modernity, science and Objective truths">
+                  <action type="crt" nl="Why the scientific method and modernity should be preserved">
+                    <query natural_question="Is scientific Method then holy?" nl="link::abt_zei_spr_1"></query>
+                  </action>
+                  <action type="crt" nl="Post Modernist, open loop crisis"></action>
+                  <action type="crt" nl="Formalisms are comfortable, non intrusive"></action>
+                  <action type="tct" nl="Holism, thinking science with culture- and never acting on such paradigm"></action>
+                  <action type="tct" nl="Domain Transforms and Thermodynamic Interpretations"></action>
+                </domain>
+                <domain id="abt_zei_normative" nl="Defend the zeigteist from normative points">
+                  <action type="tct" nl="Uncertainty Principles in Science-Undecidability provides lifespaces"></action>
+                  <action type="tct" nl="Aesthetics in Scientific Realism"></action>
+                  <action type="tct" nl="Normative Intent in Instrumentalism"></action>
+                  <action type="tct" nl="Importance of Agency and Action"></action>
+                  <action type="tct" nl="Why analysis is the only epistemological possibility to appreciate teleos"></action>
+                </domain>
+                <domain id="abt_zei_intui" nl="There is no way to defend the zeigtiest but never mind">
+                  <action type="tct" nl="Epistemological limits and hence presenting pieces of ideas for Intuitive Embrace"></action>
+                  <action type="tct" nl="Circular truth of zeigteist - teleos and presence of supreme order"></action>
+                  <action type="tct" nl="Embracing contradictions-why selfless love is good, loosing ego is good"></action>
+                </domain>
+                <domain id="abt_zei_humble" nl="Justifying this enterprise howsoever humble">
+                  <action nl="Is progress disrupted by modernist nostalgia"></action>
+                  <action nl="Is statistical computing misleading, or atleast need critques (norvig Chomsky debates)"></action>
+                  <action nl="Slowing down adversarial Search and Transforming it to other modes">
+                    <query natural_question="what is the science behind the slow down logic?" nl="link::"></query>
+                  </action>
+                </domain>
+              </visit>
+            </theme>
+            </strategy>
+        </intent>
+      </does>
+    </attribute>
+  </role>
+</vsn>

@@ -26,15 +26,10 @@ import org.springframework.stereotype.Component;
 public class PageService {
 	@Autowired
 	private Constants constants;
-	String filePath;
+//	String filePath;
 	String fullPathMeta;
 
-	{
-
-		filePath=constants.getRepoPath();
-		
-	}
-
+	
 
 	//private String dataRootDir ;
 	private Log log = LogFactory.getLog(this.getClass().getName());
@@ -51,16 +46,28 @@ public class PageService {
 
 	boolean testMode=false;
 	//scenario = doesDir/domainDir
-	public String readUpPage(String scenario, String pageName){
-		File f = null;
+	@Deprecated
+	public String readUpPage(String pageName){
+		String fileNameWithPath=constants.getRepoPath()+"/"+pageName+".txt";
+		File f = new File(fileNameWithPath);
 		log.debug("attempting to read page ");
-		logger.error("attempting to read page "+filePath+"/"+scenario+"/"+pageName+".txt");
+		logger.error("attempting to read page "+fileNameWithPath);
 		return readUpPageUtils(f);
 	}
+	@Deprecated
+	public String readUpPage(String scenario, String pageName){
+		return readUpPage(pageName);
+	}
 
-	public String readUpPage(ActionAssembly assem){
+	public String readUpPage(ActionAssembly assem, boolean isContent){
 		File f = null;
-		String path=constants.getRepoPath()+"/"+assem.getDoesCode()+"/"+assem.getDomainCode()+"/"+assem.getActionCode()+".txt";
+		String pathPrefix;
+		if(isContent) {
+			pathPrefix=constants.getRepoPath()+"/content";
+		}else {
+			pathPrefix=constants.getRepoPath()+"/augment";
+		}
+		String path=pathPrefix+"/"+assem.getDoesCode()+"/"+assem.getDomainCode()+"/"+assem.getActionCode()+".txt";
 		log.debug("attempting to read page ");
 		logger.error("attempting to read page "+ path);
 		f= new File(path);
@@ -107,9 +114,9 @@ public class PageService {
 		ArrayList<String> resultList = new ArrayList<String>();
 		String resourcePath="";
 		if(theme!=null) {
-			resourcePath=filePath+"/"+does+"/"+theme;
+			resourcePath=constants.getRepoPath()+"/"+does+"/"+theme;
 		}else {
-			resourcePath=filePath+"/"+does;
+			resourcePath=constants.getRepoPath()+"/"+does;
 		}
 
 		File[] fileArray = new File(resourcePath).listFiles();
@@ -179,9 +186,9 @@ public class PageService {
 		ArrayList<String> resultList = new ArrayList<String>();
 		String resourcePath="";
 		if(theme!=null) {
-			resourcePath=filePath+"/"+does+"/"+theme;
+			resourcePath=constants.getRepoPath()+"/"+does+"/"+theme;
 		}else {
-			resourcePath=filePath+"/"+does;
+			resourcePath=constants.getRepoPath()+"/"+does;
 		}
 
 		File[] fileArray = new File(resourcePath).listFiles();
@@ -190,7 +197,39 @@ public class PageService {
 		}
 		return resultList;
 	}
+	
+	public List<String> getDoesList(){
+		ArrayList<String> resultList = new ArrayList<String>();
+		String resourcePath="";
+		resourcePath=constants.getRepoPath()+"/content/";
+		File[] fileArray = new File(resourcePath).listFiles();
+		for(File f1:fileArray) {
+			resultList.add(f1.getName());
+		}
+		return resultList;
+	}
 
+	public List<String> getThemeList(String does){
+		ArrayList<String> resultList = new ArrayList<String>();
+		String resourcePath="";
+		resourcePath=constants.getRepoPath()+"/content/"+"/"+does+"/";
+		File[] fileArray = new File(resourcePath).listFiles();
+		for(File f1:fileArray) {
+			resultList.add(f1.getName());
+		}
+		return resultList;
+	}
+
+	public List<String> getArticlesList(String does, String theme){
+		ArrayList<String> resultList = new ArrayList<String>();
+		String resourcePath="";
+		resourcePath=constants.getRepoPath()+"/content/"+"/"+does+"/"+"/"+theme+"/";
+		File[] fileArray = new File(resourcePath).listFiles();
+		for(File f1:fileArray) {
+			resultList.add(f1.getName());
+		}
+		return resultList;
+	}
 
 	private String readUpPageUtils(File f){
 

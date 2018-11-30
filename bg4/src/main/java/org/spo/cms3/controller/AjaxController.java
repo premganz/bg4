@@ -4,6 +4,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spo.cms3.model.QMessage;
@@ -14,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,36 +29,46 @@ public class AjaxController {
 
 	@Autowired
 	public PageService svc;
-    private static final Logger logger = LoggerFactory
-            .getLogger(AjaxController.class);
+    private static final Logger logger = LoggerFactory.getLogger(AjaxController.class);
 
-   
- 
+
     
 	private SocketConnector connector=new SocketConnector();
 	
-	 @RequestMapping(value = "ajax/entry", method = RequestMethod.GET)
+	 @RequestMapping(value = "admin/ajax/does", method = RequestMethod.GET)
 	 public String getDoesList(Locale locale, Model model) {
 		 PostContent content1 = new PostContent();
 		 content1.setHtmlContent("hello");
 		 model.addAttribute("content", content1);
-		 List<String> list = svc.readFileCatalog("does");
+		 List<String> list = svc.getDoesList();
 		 Collections.sort(list);		 
 		 model.addAttribute("files",list);
 		 return "cms1/x_content";
 	 }
 	 
-	 @RequestMapping(value = "ajax/domainList", method = RequestMethod.GET)
-	 public String home(Locale locale, Model model) {
-		 PostContent content1 = new PostContent();
-		 content1.setHtmlContent("hello");
-		 model.addAttribute("content", content1);
-		 List<String> list = svc.readFileCatalog("does");
-		 Collections.sort(list);		 
-		 model.addAttribute("files",list);
-		 return "cms1/x_content";
+	 @ResponseBody
+	 @RequestMapping(value = "admin/ajax/themes/{doesId}", method = RequestMethod.GET)
+	 public String getThemeList(Locale locale, Model model,@PathVariable String doesId) {
+
+		 List<String> list = svc.getThemeList(doesId);
+		 StringBuffer htmlContent = new StringBuffer();
+		 for(String option:list) {
+			 htmlContent.append("<option> "+option+"</option>");
+		 }
+		 return htmlContent.toString();
 	 }
-	 
+
+	 @ResponseBody
+	 @RequestMapping(value = "admin/ajax/articles/{doesId}/{themeId}", method = RequestMethod.GET)
+	 public String getThemeArticlesList(Locale locale, Model model,@PathVariable String doesId,@PathVariable String themeId) {
+		 List<String> list = svc.getArticlesList(doesId,themeId);
+		 StringBuffer htmlContent = new StringBuffer();
+		 for(String option:list) {
+			 htmlContent.append("<option> "+option+"</option>");
+		 }
+		 return htmlContent.toString();
+	 }
+
 	 @RequestMapping(value = "ajax/doesList", method = RequestMethod.GET)
 	 public String getListLevel1(Locale locale, Model model) {
 		 PostContent content1 = new PostContent();
@@ -67,16 +81,16 @@ public class AjaxController {
 		 return "cms1/x_content";
 	 }
 	 
-	 @RequestMapping(value = "ajax/entryTemplate", method = RequestMethod.GET)
-	 public String homeTemplate(Locale locale, Model model) {
-		 PostContent content1 = new PostContent();
-		 content1.setHtmlContent("hello");
-		 model.addAttribute("content", content1);
-		 List<String> list = svc.readFileCatalog("templates");
-		 Collections.sort(list);		 
-		 model.addAttribute("files",list);
-		 return "cms1/y_content";
-	 }
+//	 @RequestMapping(value = "ajax/entryTemplate", method = RequestMethod.GET)
+//	 public String homeTemplate(Locale locale, Model model) {
+//		 PostContent content1 = new PostContent();
+//		 content1.setHtmlContent("hello");
+//		 model.addAttribute("content", content1);
+//		 List<String> list = svc.readFileCatalog("templates");
+//		 Collections.sort(list);		 
+//		 model.addAttribute("files",list);
+//		 return "cms1/y_content";
+//	 }
 	 
 	 
 	 //MEthod unused
@@ -135,8 +149,8 @@ public class AjaxController {
 				
 				String response ="<p>blank reply</p>";
 				try {		
-					response = svc.readUpPage("posts", "PRD2");
-					String response_meta = svc.readUpPage("posts", "PRD2");
+					response = svc.readUpPage( "PRD2");
+					String response_meta = svc.readUpPage( "PRD2");
 					//response = connector.getResponse(message);
 					//TextMessage reply = sender.simpleSend(message.toString()); 
 					//response=reply.getText();
@@ -171,7 +185,7 @@ public class AjaxController {
 				message.setMeta(metaValue);
 				String response ="<p>blank reply</p>";
 				try {		
-					response = svc.readUpPage("templates", metaValue);
+					response = svc.readUpPage(metaValue);
 					//response = connector.getResponse(message);
 					//TextMessage reply = sender.simpleSend(message.toString()); 
 					//response=reply.getText();
