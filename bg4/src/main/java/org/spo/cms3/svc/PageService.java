@@ -65,7 +65,7 @@ public class PageService {
 		if(isContent) {
 			pathPrefix=constants.getRepoPath()+"/content";
 		}else {
-			pathPrefix=constants.getRepoPath()+"/augment";
+			pathPrefix=constants.getRepoPath()+"/content";
 		}
 		String path=pathPrefix+"/"+assem.getDoesCode()+"/"+assem.getDomainCode()+"/"+assem.getActionCode()+".txt";
 		log.debug("attempting to read page ");
@@ -75,8 +75,22 @@ public class PageService {
 	}
 
 
-
-
+	public String writePage(ActionAssembly assem, boolean isContent){
+		File f = null;
+		String pathPrefix;
+		if(isContent) {
+			pathPrefix=constants.getRepoPath()+"/content";
+		}else {
+			pathPrefix=constants.getRepoPath()+"/content";
+		}
+		String path=pathPrefix+"/"+assem.getDoesCode()+"/"+assem.getDomainCode()+"/"+assem.getActionCode()+".txt";
+		log.debug("attempting to read page ");
+		logger.error("attempting to read page "+ path);
+		f= new File(path);
+		return writePage(assem, false);
+	}
+	
+	@Deprecated
 	public void writePage(String fileName, String content){
 		File f = null;
 		StringBuffer buf = new StringBuffer();

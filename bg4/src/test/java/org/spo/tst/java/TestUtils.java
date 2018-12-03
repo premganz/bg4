@@ -30,7 +30,7 @@ public  class TestUtils {
 		
 	}
 	
-//	@Test //RUN VERY CAREFULLY
+	@Test //RUN VERY CAREFULLY
 	public void testCmsUtils()  throws Exception{
 		
 		CmsUtils cmsUtil = new CmsUtils();
@@ -39,6 +39,7 @@ public  class TestUtils {
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 //		cmsUtil.doc=docBuilder.parse("C:\\Users\\premganesh\\git\\bg4\\bg4\\src\\test\\resources\\ApplicationNavTreeModelGeneric.xml");
 		cmsUtil.organizeFolders();
+		cmsUtil.organizeFoldersMeta();
 		
 		
 		

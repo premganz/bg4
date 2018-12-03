@@ -158,14 +158,19 @@
 				<tr>
 					<td>
 						<p>
-							<select id="fileselect1">
+							<select id="fileselect1" th:field="*{content.classifLvl1}">
 								<div th:each="link : ${files}">
 									<option th:text="${link}"></option>
 								</div>
-							</select> <select id="fileselect2"  onselect="selectedFileSelect2()">
-								<option>pls wait</option>
-							</select> <select id="fileselect3"  onselect="selectedFileSelect3()">
-								<option>pls wait</option>
+							</select> 
+							<select id="fileselect2"  onselect="selectedFileSelect2()" th:field="*{content.classifLvl2}">
+								<div th:each="link : ${files}">
+									<option th:text="${link}"></option>
+								</div>
+							</select> <select id="fileselect3"  onselect="selectedFileSelect3()" th:field="*{content.mdfId}">
+								<div th:each="link : ${files}">
+									<option th:text="${link}"></option>
+								</div>
 							</select>
 						</p>
 						<h5>

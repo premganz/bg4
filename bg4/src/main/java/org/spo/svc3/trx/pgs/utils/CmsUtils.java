@@ -65,7 +65,7 @@ public class CmsUtils {
 	private  void organizeFoldersHelper1(Element node, String currentStrategyDir, String currentDomainDir, boolean isMeta) throws Exception {
 		// do something with the current node instead of System.out
 		String cmsPath = isMeta?cmsDir:cmsMetaDir;
-		String extn = isMeta?".txt":"_augm.txt";
+		String extn = isMeta?"_augm.txt":".txt";
 		System.out.println(node.getNodeName());
 		NodeList nodeList = node.getChildNodes();
 		for (int i = 0; i < nodeList.getLength(); i++) {
@@ -89,7 +89,7 @@ public class CmsUtils {
 				if(currentNode.getNodeName().equals("action")) {
 					File file = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentNode.getAttributes().getNamedItem("nl").getTextContent().replaceAll(" ", "_")+extn);
 					if(!file.exists()) {
-						log.debug("creating file "+file.getName());
+						log.debug("creating file "+file.getAbsolutePath());
 						file.createNewFile();
 					}
 				}

@@ -218,13 +218,13 @@ public class CMSContentPageController {
 			message.setContent(content.getHtmlContent());
 			message.setMeta(content.getMeta());
 			String response ="";
-			try {
-				svc.writePage("posts/"+content.getId(), content.getHtmlContent());
-				svc.writePage("posts/"+content.getId()+"_meta", content.getMeta());
-				//response = connector.getResponse(message);
-				//TextMessage reply = sender.simpleSend(message.toString()); 
-				//response=reply.getText();
-				
+			ActionAssembly a= new ActionAssembly();
+			String doesName=content.getClassifLvl1();
+			String themeName=content.getClassifLvl2();
+			String fileName=content.getId().isEmpty()?content.getMdfId():content.getId();
+			a.setCodes(doesName, themeName, fileName);
+			try {		
+				response = svc.writePage( a, false);	
 			} catch (Exception e) {			
 				e.printStackTrace();
 			}
