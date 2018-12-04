@@ -11,7 +11,9 @@ import org.spo.svc3.trx.pgs.k01.handler.K01Handler;
 import org.spo.svc3.trx.pgs.k01.toolkit.K01Toolkit;
 import org.spo.svc3.trx.pgs.mdl.ActionAssembly;
 import org.spo.svc3.trx.pgs.mdl.HomePage;
+import org.spo.svc3.trx.pgs.mdl.Menu;
 import org.spo.svc3.trx.pgs.utils.CmsUtils;
+import org.spo.svc3.trx.pgs.utils.MenuFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Element;
@@ -32,19 +34,21 @@ public class K0102 extends AbstractTask {
 	public NavEvent initTask(String dataId, TrxInfo info) throws Exception {
 		ActionAssembly aa = new ActionAssembly();
 		
-		HomePage page =(HomePage)info.get(K01Toolkit.SV_K01_CONTENT_OVV);
+		HomePage page =new HomePage();
+		Menu sideBarMenu = new MenuFactory().getThemeMenu(dataId.replaceAll("_", " "), (String)info.get(K01Toolkit.SV_K01_DOES_CODE));
+		page.setSideBarMenu(sideBarMenu);
 		page.setSubTitle("THEME LANDING");
 		CmsUtils utils = new CmsUtils();
 		String xquery="//theme[@nl='"+dataId.replaceAll("_", " ")+ "']/../../..";
 //		String xquery= "//does/intent/strategy/theme[@nl='"+ dataId.replaceAll("_", " ")+ "']" ;
 		Element doesElement = utils.util_queryHelper1(xquery);		
-		String doesCode = doesElement.getAttribute("nl").replaceAll(" ", "_");
+		String doesCode = doesElement.getAttribute("id").replaceAll(" ", "_");
 		
 		xquery= "//theme[@nl='"+ dataId.replaceAll("_", " " )+ "']/visit[1]/domain[1]" ;
 		Element domainElement = utils.util_queryHelper1(xquery);
-		String domainCode = domainElement.getAttribute("nl");
+		String domainCode = domainElement.getAttribute("id");
 		
-		xquery= "//domain[@nl='"+ domainCode+ "']/action[1]" ;
+		xquery= "//domain[@id='"+ domainCode+ "']/action[1]" ;
 		Element actionElement = utils.util_queryHelper1(xquery);
 		String actionCode = actionElement .getAttribute("nl");
 		
@@ -52,14 +56,29 @@ public class K0102 extends AbstractTask {
 		aa.setDomainCode(domainCode.replaceAll(" ", "_"));
 		aa.setActionCode(actionCode.replaceAll(" ", "_"));
 		
+		info.put(K01Toolkit.SV_K01_THEME_CONTENT, page);
 		info.addToModelMap("theme",page);
 		return K01Handler.EV_INIT_02;
 	}
 
 	@Override
 	public NavEvent processViewEvent(String event, String dataId,TrxInfo info) {
-		info.addToModelMap("hom",info.get(K01Toolkit.SV_K01_CONTENT_OVV));
+		info.addToModelMap("theme",info.get(K01Toolkit.SV_K01_THEME_CONTENT));
+
+		if(event.startsWith("EV_theme")){
+			dataId = dataId.replaceAll("theme__","");
+			NavEvent navEvent = K01Handler.EV_SWITCH_THEME_LAND;
+			navEvent.dataId=dataId;
+			return navEvent;
+		}
+		else if(event.startsWith("EV_does")){
+			dataId = dataId.replaceAll("does__","");
+			NavEvent navEvent = K01Handler.EV_SWITCH_DOES_LAND;
+			navEvent.dataId=dataId;
+			return navEvent;
+		}
 		return K01Handler.EV_INIT_02;
+	
 	}
 
 	@Override

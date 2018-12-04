@@ -121,6 +121,26 @@ Interpreting this into contexts as long running projects"
                   <action nl="Pragmatism overrun- Basic human comfort and values trampled- extreme health suffering, safety issues"></action>
                   <action nl="Pragmatism overrun- Broadly utilitarian policies and computing"></action>
                 </domain>
+                <domain id="abt_zei_principles" nl="Principles we stand for">
+                  <action nl="Activism-All monocultures are bad"></action>
+                  <action nl="Virtue-True liberation from human condition arises from virtue- constructivism and patience"></action>
+                  <action nl="Constructivism-Peace and Love involves constructivist acknowledgement as conduit to liberal domains"></action>
+                  <action nl="An eye for beauty-The village blacksmith style dutifulness and the hippie style liberation"></action>
+                  <action nl="Epistemology-Rigour in knowledge and fervour in political validations"></action>
+                  <action nl="Reflective Agency-Constructivism by Education"></action>
+                  <action nl="Counterculture- by Peaceful demonstration"></action>
+                  <action nl="Faith of a benevolent maker-Optimism of human condition"></action>
+                  <action nl="Willing to loose the agency to generalize-Complex recursive structures better than flat ideas"></action>
+                </domain>
+                <domain id="abt_zei_intui" nl="An appeal to intuition">
+                  <action nl="Circular truth of zeigteist - teleos and presence of supreme order"></action>
+                  <action nl="Embracing contradictions-why selfless love is good, loosing ego is good"></action>
+                </domain>
+                <domain id="abt_zei_humble" nl="Justifying this enterprise howsoever humble">
+                  <action nl="Be Wary of disrupting status quo-Is progress disrupted by modernist nostalgia"></action>
+                  <action nl="Be non final- Turn on, tune in, drop out"></action>
+                  <action nl="Have Peace- Never be more cruel than necessary"></action>
+                </domain>
               </visit>
             </theme>
             <theme nl="What we do?" lbl="What we Do, why are we here?">
@@ -130,13 +150,430 @@ Interpreting this into contexts as long running projects"
                   <action nl="GetTogether, Act and Inspire-We hold inside meetings, we live in some campus sharing our belief, not attempting to directly express it"></action>
                 </domain>
               </visit>
+              <visit nl="We Research - Publish">
+                <domain id="abt_thinktank" nl="the think tank">
+                  <action nl="Ivory Towers-Conservative, rigourous, discipline bound publication"></action>
+                  <action nl="Critique-Prefer Critical material over useful ones "></action>
+                  <action nl="Positivist-We reflect on the beauty of scientific realism"></action>
+                  <action nl="Normative-We think normatively, on the instrumental value of scientific realism"></action>
+                  <action nl="Define Major Range-Our areas are primarily Informaiton sciences and Educational Epistemology"></action>
+                  <action nl="Define Minor Range-Our other areas are environmentalism, urban planning, technology tools innovation,Medical Research"></action>
+                </domain>
+              </visit>
+              <visit nl="We Campaign">
+                <domain id="abt_actionGroup" nl="the Action Group">
+                  <action nl="We Act like an NGO"></action>
+                  <action nl="We administer and regulate our campaigns -see does:campAdmin"></action>
+                  <action nl="We propagandize our campaigns -see does:campProp"></action>
+                </domain>
+              </visit>
             </theme>
           </strategy>
         </intent>
       </does>
-       <does id="campaign_propoganda" lbl="Active Campaigns" nl="To propogandize and reach out in connection with campaigns">
+
+      <does id="believe" nl="We simply believe as some insider club">
+        <intent nl="We put this here, to make it that there is no need to be expressive always">
+          <strategy nl="To record here the beliefs" id="s">
+            <theme lbl="More on the Belief" nl="All Beliefs deserve peaceful demonstration, which we do here">
+              <visit nl="what this is not">
+                <domain id="abt_whatsnot" nl="churches and cults">
+                  <action nl="Not Churches cults or for profit organization"></action>
+                </domain>
+              </visit>
+              <visit nl="Organization as a club">
+                <domain id="abt_campus" nl="Theme of the Campus">
+                  <action nl="Why University towns make sense"></action>
+                  <action nl="Recursive Human structures make sense"></action>
+                </domain>
+                <domain id="abt_literature" nl="Literature">
+                  <action nl="Respecting the formalisms of Chomsky, preferring algorithms as midway between math and normative world"></action>
+                  <action nl="Respecting the non technical fix for wicked domains-Churchman, Rittel and Malthus"></action>
+                  <action nl="View points of Judea Pearl, Bill Gates and Hawking"></action>
+                  <action nl="Science as pillar of enlightment- Cartesian tradition of goodness and soul"></action>
+                  <action nl="The way of the east- of rituals, harmony as arising naturally in the meantime"></action>
+                  <action nl="Zen-intuition"></action>
+                </domain>
+                <domain id="abt_critical_lit" nl="Critical Literature">
+                  <action nl="Bauman on Modernity"></action>
+                  <action nl="Frankfurt school of critical studies"></action>
+                  <action nl="Rousseauian Romantic Schools on rejecting objectivism"></action>
+                  <action nl="Conservatism (in preserving modernity) as regressive"></action>
+                  <action nl="Are preservational, ideological cults needed-qm"></action>
+                </domain>
+              </visit>
+            </theme>
+          </strategy>
+        </intent>
+      </does>
+    </attribute>
+  </role>
+  <role lbl="Publications" nl="A ThinkTank">
+    <attribute nl="Rigour" how="Do not publish sensational things, publish critical ideas derived from expository ones">
+      <does id="publish_expository_research" nl="Publish on Techniques in Information Sciences" onBelief="Techniques complementing inspiration can defer the tragedy of the commons indefinitely">
+        <intent nl="To help visitors to initiate conversations and engage in further research along these topics in order to distribute these techniques as part of the mission">
+          <strategy id="infosci" nl="Providing a Resource base for approaching Information Theory">
+            <theme lbl="Expository Essays in Epistemology " nl="Epistemology">
+              <visit lbl="Epistemology-Knowledge and Information" nl="A Metaphysical Overview">
+                <domain id="pub_info_meta" nl="Entropy and Thermodynamics">
+                  <action nl="Energy Problem"></action>
+                  <action nl="Structure and life"></action>
+                  <action nl="Nature of Machines"></action>
+                  <essay nl="Entropy as Intelligence"></essay>
+                  <essay nl="the seven unsolvable, undecidable problems"></essay>
+                </domain>
+              </visit>
+              <visit nl="Information and Knowledge">
+                <domain id="pub_epi" nl="Epistemology of the formal domain">
+                  <action nl="Nature of Formal Knowledge "></action>
+                  <action nl="Nature of Rhetorically expressed Knowledge"></action>
+                  <action nl="Inevitability of Compression and recursion as compression"></action>
+                  <essay nl="Computer as transducer, as language, a theorem generator"></essay>
+                  <essay nl="Mathematical Realism"></essay>
+                  <essay nl="Recursion in nature, the structure-pseudorandomness dilemma"></essay>
+                </domain>
+              </visit>
+              <visit nl="Constructivism in Civilization">
+                <domain id="pub_epi_struct_org" nl="Constructivism explained">
+                  <action nl="Domain Transforms"></action>
+                  <action nl="Oppossitional, composite structure of society"></action>
+                  <action nl="The Firm and the Government"></action>
+                  <essay nl="Mueller's arms of civilization and computing"></essay>
+                </domain>
+              </visit>
+              <visit nl="Epistemology-Practical Knowledge">
+                <domain id="pub_epi_pract" nl="Practical paths to knowledge">
+                  <action nl="Pragmatism as in global computing"></action>
+                  <action nl="Scientific method and open loop computing"></action>
+                </domain>
+                <domain id="pub_epi_compression" nl="Involuntary Knowledge generation">
+                  <action nl="Evolution and Compression"></action>
+                  <action nl="Transaction cost, refelxivity, wicked problems, tragedy of commons"></action>
+                </domain>
+                <domain id="pub_epi_cloud" nl="Cloud computing and its consequences">
+                  <action nl="Inevitable multiple agency"></action>
+                  <action nl="Emergence of structure-transhumanism"></action>
+                  <action nl="Deliverence by Virtue"></action>
+                </domain>
+              </visit>
+            </theme>
+            <theme lbl="Expository Essays in Information Systems Design" nl="Information Systems Modern Approaches">
+              <visit lbl="Direct Computing" nl="Direct Computing">
+                <domain id="pub_it_direct" nl="History of Direct Computing">
+                  <action nl="Political Risks and Relexivity of political theme to computing design"></action>
+                  <action nl="Wicked Problems driving Direct computing"></action>
+                </domain>
+                <domain id="pub_it_rigour_direct" nl="Rigourous idea of Direct Computing">
+                  <action nl="Local agencies, information assymetry"></action>
+                  <action nl="survivalism, the actuator switch sensor principle"></action>
+                </domain>
+                <domain id="pub_rigid_computing" nl="Normative-Business Stances">
+                  <action nl="Rigid Classical EDP Style Computing and life around modernism"></action>
+                  <action nl="Agile and OpenSource"></action>
+                  <action nl="Design based Computing, mythical man month"></action>
+                  <action nl="Businesses as Networks"></action>
+                  <action nl="Businesses as Deterministic Tools of Civilization"></action>
+                </domain>
+              </visit>
+              <visit nl="Computation and Design">
+                <domain id="info_design" nl="IT Systems Design">
+                  <action nl="Design is Political, Slack in computational determinism"></action>
+                  <action nl="Design is An Art, Liberal domain - the Antisystems- Art pour le Art"></action>
+                </domain>
+              </visit>
+            </theme>
+            <theme nl="Post Modernist Technological Approaches" lbl="">
+              <visit lbl="info_recent" nl="A descriptive (non critical view) of New age solutions">
+                <domain id="info_recent_dev" nl="Computing">
+                  <action nl="BlockChain"></action>
+                  <action nl="IOT"></action>
+                  <action nl="Digital Revolution"></action>
+                  <action nl="Machine Learning"></action>
+                  <action nl="Full Automation and Emergent Structrures"></action>
+                </domain>
+              </visit>
+            </theme>
+            <theme nl="CounterCulturist Guide in Computerized Societies" lbl="">
+              <visit lbl="count_postModern" nl="The process of entanglement">
+                <domain id="count_hist" nl="Martyrdom of Man">
+                  <action nl="State of Nature"></action>
+                  <action nl="Machines and Reflexivity"></action>
+                  <action nl="Soft Power complex"></action>
+                </domain>
+                <domain id="count_phil" nl="Philosophical examination">
+                  <action nl="East and Pessimism, West and Optimism"></action>
+                  <action nl="Evolution and Determinism"></action>
+                  <action nl="Deliverance by benevolent guidance of choices between optimism and pessimism"></action>
+                </domain>
+                <domain id="count_model" nl="Counter cultural models">
+                  <action nl="Model of social organization-political"></action>
+                  <action nl="Model of social organization-economic"></action>
+                  <action nl="Model of social organization-information and communication"></action>
+                </domain>
+              </visit>
+            </theme>
+            <theme nl="Distribute Technology and Tools" lbl="Open Source Projects in Computing">
+              <visit nl="Open Source Projects-for distribution">
+                <domain id="tech_verif_prg" nl="Software for Rigourous Verification">
+                  <action nl="SPO-Documentation"></action>
+                  <action nl="Techniques for Verifiability"></action>
+                </domain>
+                <domain id="tech_nphard_prg" nl="NP Hard ProblemsClassical Algorithms">
+                  <action nl="Heuristic Allocator"></action>
+                  <action nl="Essays on Heuristic Algorithms"></action>
+                </domain>
+                <domain id="tech_middleware" nl="connecting language paradigms">
+                  <action nl="TRS-Excel Restful Services"></action>
+                </domain>
+                <domain id="tech_server" nl="Small FootPrint Servers">
+                  <action nl="A small CMS"></action>
+                </domain>
+
+              </visit>
+              <visit nl="Technology Topics">
+                <domain id="tech_lang_java" nl="Java-Essays on New Ideas">
+                  <action nl="Dependency Injection without Spring"></action>
+                  <action nl="Java as a Functional Language"></action>
+                </domain>
+                <domain id="tech_lang_oth" nl="Integrating languages">
+                  <action nl="Groovy Templating"></action>
+                  <action nl="CPython"></action>
+                  <action nl="Hypothesis confirmation with Scala"></action>
+                </domain>
+                <domain id="tech_review" nl="Review of Technologies">
+                  <action nl="Spring Boot"></action>
+                  <action nl="R Studio"></action>
+                </domain>
+              </visit>
+            </theme>
+          </strategy>
+        </intent>
+      </does>
+      <does id="publish_specif_research" nl="Publications on Specific problems in Information tech" onBelief="Working with specific topics">
+        <intent nl="To initiate collaboration with visitors on these critical areas">
+          <strategy id="critComp" nl="Resource Base for approaching critical ideas">
+            <theme lbl="Critical Essays on AI and ML" nl="The AI Safety Issue ">
+              <visit lbl="Simulation Problem" nl="Simulation Problem">
+                <domain id="crit_crisis" nl="Computing">
+                  <action nl="Review of Turing and Church Hypothesis"></action>
+                  <action nl="Bostrom-Critique of the Simulation Argument"></action>
+                  <action nl="Are we living in a simulation-"></action>
+                </domain>
+              </visit>
+              <visit lbl="Are Techniques sufficient" nl="A critical view of New age solutions">
+                <domain id="crit_recent_tech" nl="Computing">
+                  <action nl="BlockChain"></action>
+                  <action nl="IOT"></action>
+                  <action nl="Digital Revolution"></action>
+                  <action nl="Machine Learning"></action>
+                  <action nl="Full Automation and Emergent Structrures"></action>
+                </domain>
+              </visit>
+              <visit nl="Ideas of Computing">
+                <domain id="crit_direct_comp" nl="Information Theory">
+                  <action nl="Computer as Partial recursive"></action>
+                  <action nl="Computing as experimentation"></action>
+                  <action nl="Computing as transduction"></action>
+                </domain>
+                <domain id="tech_verif_problem" nl="Meaning, verifiability and other human considerations of computing">
+                  <action nl="Alternate courses to Evolution, transforms and virtue (slowing down)"></action>
+                  <action nl="Meaning, Control and Experience in terms of knowledge"></action>
+                  <action nl="Verifiability, Blackboxes"></action>
+                  <action nl="Computing as phenomenon or as an Experiment- the choice"></action>
+                </domain>
+              </visit>
+              <visit nl="Statistical Computing">
+                <domain id="tech_stat_compute" nl="Statistical versus Logical">
+                  <action nl="Graph approach to problems"></action>
+                  <action nl="Optimization and backtracking"></action>
+                  <action nl="Specific problems like Pathology subjected to statistical computing"></action>
+                </domain>
+              </visit>
+            </theme>
+            <theme lbl="Control Problems" nl="Information and Control">
+              <visit nl="Control by domain seperation and open loop nudges">
+                <domain id="tech_stat_compute" nl="Complex systems control">
+                  <action nl="Marx and Keynes"></action>
+                  <action nl="Review of Richard Thaler's Work"></action>
+                  <action nl="Works of Tolstoy- Anna Kareinena, art as an expression of truths"></action>
+                  <action nl="REview of Chomsky-Norvig Debates"></action>
+                  <action nl="Control as expression of Meaning, control by domain transforms"></action>
+                </domain>
+              </visit>
+            </theme>
+          </strategy>
+        </intent>
+      </does>
+      <does id="publish_epistemology" nl="Epistemology and Liberal Education" onBelief="We attempt to provide a way to celebrate the mundane so that we are not lost in transhumanism">
+        <intent nl="Avoiding Transhumanism, by contentment">
+          <strategy id="epistem" nl="Understanding the limits of knowing and problem solving">
+            <theme lbl="Epistemology and Science Education" nl="Epistemology and Education">
+              <visit nl="Epistemology and the Scientific Method">
+                <domain id="epist_disc_list" nl="Disciplines Visited for the pleasure of it">
+                  <action nl="Education as being over and above information"></action>
+                  <action nl="Complexity of Representation and Existence"></action>
+                  <action nl="Problem solving limited by our ability to know if we have solved it"></action>
+                  <action nl="Verification and Synthetic truth generation as integral to agency"></action>
+                  <action nl="Nature of Mathematics"></action>
+                  <action nl="Classical Mechanics, Empiricism"></action>
+                  <action nl="Chemistry interesting topics"></action>
+                </domain>
+              </visit>
+              <visit nl="the gift of undecidable problems">
+                <domain id="epist_incompleteness_good" nl="Where our epistemology ends and which belief we happily embrace">
+                  <action nl="The idea of love, truth and beauty"></action>
+                </domain>
+              </visit>
+              <visit lbl="Humanities/Liberal Domain- problem solving methods" nl="Solving Problems while remaining humans, literature">
+                <domain id="epist_ivorytowers_softsci" nl="Management">
+                  <action nl="Soft Sciences Economics et al"></action>
+                  <action nl="Review of Churchman Work"></action>
+                  <action nl="Review of Baumann's Work"></action>
+                </domain>
+                <domain id="epist_law" nl="The domain of law">
+                  <action nl="Law and truth discovery"></action>
+                  <action nl="Law and Corporate Governance"></action>
+                  <action nl="The due process of Law"></action>
+                </domain>
+              </visit>
+            </theme>
+          </strategy>
+          <strategy id="moral_ref" nl="now that we know problem solving is constrained, we can think of moral traditions">
+            <theme nl="malthusian traditions" lbl="Malthusian tradition">
+              <visit nl="A look at the tragedy of commons and reversed positions">
+                <domain id="moral_trg_commons" nl="Tragedy of commons">
+                  <action nl="Malthus, Rittel and HArdin"></action>
+                  <action nl="Thaler et al"></action>
+                  <action nl="Inevitable Moral referral"></action>
+                </domain>
+              </visit>
+            </theme>
+          </strategy>
+          <strategy id="ivorytowers" nl="Rigourous Discipline rather than speculation and revelation as liberating">
+            <theme lbl="Celebration of the unassuming fellow- Method" nl="Methods over Dogma : Celebrating the Scientific Method">
+              <visit nl="the idea and comfort of rigour">
+                <domain id="sci_rigour" nl="Rigourous Discipline rather than speculation and revelation">
+                </domain>
+              </visit>
+            </theme>         
+            <theme lbl="The Scientific Method and its Wisdom" nl="Appreciating the scientific method in its symmetry and incompleteness">
+              <visit lbl="Tradition of the Scientific Method" nl="Appreciate the Scientific method and its tradition">
+                <domain id="sci_hist" nl="history of European enlightenment">                
+                  <action nl="the state of nature and the redemption"></action>
+                  <action nl="Avoiding Eurocentric views"></action>
+                  <action nl="Ancient Indian and Arabic scientific themes"></action>                  
+                </domain>
+                <domain id="sci_global_hist" nl="history of worldwide science">
+                  <action nl="Human Progress is Universal and convergant"></action>
+                </domain>
+              </visit>
+              <visit nl="Merits and Demerits">
+                <domain id="sci_dtl" nl="understanding the experiment, observe, model cycle">
+                  <action nl="on intrinsic merits with respect to human psyche"></action>
+                </domain>
+                <domain id="crit_sci_meth" nl="Shortcomings of the method">
+                  <action id="sci_mtd_at1" nl="Holism and Cybernetics- misplaced sympathies"></action>
+                  <action nl="the boredom with scientific pedagogy how handled"></action>
+                </domain>
+              </visit>
+              <visit nl="Incompleteness and its Aesthetics- Appreciating Incompleteness in the right spirit">
+                <domain id="sci_aesthetics_uncert" nl="the timeless mood over uncertainty">
+                  <action nl="did the ancients (science guys ) accept the incompleteness"></action>
+                  <action nl="Modern stance on uncertainty" />
+                  <action nl="Uncertainty Celebrated in Agile, Soft Computing"></action>
+                  <action nl="Uncertainty Celebrated in Culture"> </action>
+                </domain>
+                <domain id="sci_prob_solving_goodness" nl="The Spirit of the Good problem solver">
+                  <action nl="Intuition as path to critical truth"></action>
+                  <action nl="Why judges and doctors are revered"></action>
+                  <action nl="Chivalry and Romanticism"></action>
+                  <action nl="Gandhian Theme"></action>
+                  <action nl="Endearing Flicks and Works of Literature"></action>
+                  <action nl="Natural World, Aesthetics and Right to live"></action>
+                </domain>                
+              </visit>
+            </theme>
+          </strategy>
+        </intent>
+      </does>
+    </attribute>
+  </role>
+
+
+  <role lbl="Campaigns" nl="A Direct Acting Agent- By its well defined, well organized campaigns">
+    <attribute nl="unambiguity" how="run campaigns like some international agency would">
+      <does id="campaign_meta" lbl="Nature of our Campaigns" nl="Form Campaigns" how="Run Campaigns" onBelief="There is a teleos to nurture right environment">
+        <intent nl="Can be humble promotor of certain actions, not as a sweeping campaign, more like how we take care of friends">
+          <strategy id="camp_defwell" nl="Define Campaigns well">
+            <theme lbl="Campaigns Overview" nl="A Walkthrough of our campaigns">
+              <visit nl="Out of the Blue picks of campaigns">
+                <domain id="camp_defwell_howchosen" nl="Conception of campagins: Intellectual and Aesthetic Reflection in discussions as Hymns">
+                  <query natural_question="how are campaigns chosen?" nl="link::abt_camp"></query>
+                  <action nl="Why running campaigns are hymns, dynamic balance finding by action"></action>
+                  <action type="camp" nl="Humility, Symmetry and Tradition">
+                    <action type="camp_ovv" nl="Education as liberal education"></action>
+                    <action type="camp_ovv" nl="Formal Publication, respecting Ivory Towers"></action>
+                    <action type="camp_ovv" nl="Risk Consulting for Soft Computing Strategies"></action>
+                  </action>
+                  <action type="camp" nl="Aesthetics, Romanticism, Empathy and Teleos">
+                    <action type="camp_ovv" nl="SubUrban Planning"></action>
+                    <action type="camp_ovv" nl="Environment Friendly Policy consulting"></action>
+                    <action type="camp_ovv" nl="Post Modern Medicine"></action>
+                    <action type="camp_ovv" nl="On the Frontier science to compensate for our criticla views"></action>
+                  </action>
+                </domain>
+                <domain id="camp_defwell_legal" nl="Legally Frame Campaigns">
+                  <action nl="Volunteering, funds and Profits"></action>
+                  <action nl="Liabilities and Rights"></action>
+                </domain>
+              </visit>
+              <visit nl="Rationale">
+                <domain id="camp_defwell_powered" nl="Powering the Campaigns">
+                  <action nl="Campaign Themes explained, Overarching values provided"></action>
+                  <action nl="RoadMap and scale"></action>
+                  <action nl="Face to Face preference over Web Modes">
+                    <query natural_question="why orthodoxy?" nl="lnk:abt_zei: why we respect ivory towers"></query>
+                  </action>
+                  <action nl="Mode of Influence and relationship"></action>
+                </domain>
+              </visit>
+            </theme>
+          </strategy>
+        </intent>
+      </does>
+
+      <does id="campaign_propoganda" lbl="Active Campaigns" nl="To propogandize and reach out in connection with campaigns">
         <intent nl="administer campaigns, though of small scale and personal, in a rigid and record based manner, like crew logs">
           <strategy id="camp_edu" nl="Education Domain Local Work">
+            <theme lbl="School Educational Campaign" nl="Liberal Education">
+              <visit nl="soliciting audience">
+                <domain id="camp_edu_teach" nl="Appeal to Teachers">
+                  <action nl="What is liberal education or critical education">
+                    <evidence type="newsFeed" nl="American Colleges association"></evidence>
+                    <evidence type="testimonials" nl="results of our experience with institutions"></evidence>
+                  </action>
+                  <action nl="Will it suit India">
+                    <evidence type="newsFeed"></evidence>
+                    <evidence type="testimonials" nl="results of our experience with institutions"></evidence>
+                  </action>
+                  <action nl="How Approached in Indian Context, tactics like quizzes science clubs">
+                    <evidence type="newsFeed"></evidence>
+                    <query natural_question="why no concrete schemes are possible" nl="link::oblique approach and acceptance of organic quality of knowledge"></query>
+                  </action>
+                  <action nl="Student Perspective">
+                    <evidence type="newsFeed"></evidence>
+                  </action>
+                  <action nl="Parental Concerns"></action>
+                  <action nl="How schools can cope with new idea (rather old one)">
+                    <evidence type="newsFeed"></evidence>
+                  </action>
+                  <action nl="Tradition of liberal education- Rousseau, Greeks">
+                    <query natural_question="how can liberal education free us from human condition in science?" nl="link::abt_meta"></query>
+                  </action>
+                  <action nl="Being Future Ready"></action>
+                </domain>
+              </visit>
+            </theme>
             <theme nl="Run a Website" lbl="Run a Website">
               <visit nl="WelcomePage">
                 <domain id="camp_website" nl="A breif birds eye view">
@@ -153,6 +590,40 @@ Interpreting this into contexts as long running projects"
                   <action nl="Critical View of Cognitive Systems, nature of cognition"></action>
                   <action nl="theory of networks, zero trx networks critical view"></action>
                   <action nl="Critical view of nudge and self balancing systems, control problems"></action>
+                </domain>
+              </visit>
+            </theme>
+            <theme nl="Computational Discussion Groups" lbl="Contact over interested groups on similar topics">
+              <visit nl="Discussion Agenda">
+                <domain id="camp_act_compu_pub" nl="Adapting Soft computing into conventional computing">
+                  <action nl="Integrating Machine learning with classical systems"></action>
+                  <action nl="AI explainability"></action>
+                  <action nl="Autonomous networks"></action>
+                  <action nl="Transaction Cost over Networks, Nudges"></action>
+                </domain>
+              </visit>
+            </theme>
+            <theme nl="Epidemological Research Groups" lbl="Attempting breakthroughs in medicine">
+              <visit nl="Population Dynamics">
+                <domain id="camp_act_med" nl="Data Science Techniques for Medicine">
+                  <action nl="Modern Disease landscape"></action>
+                  <action nl="Diseases and Population - all diseases open to epidemological analysis"></action>
+                  <action nl="Subjectivity of Disease and experience"></action>
+                  <action nl="Wicked problems in diseases, epidemological solutions allow cultural solutions"></action>
+                </domain>
+              </visit>
+            </theme>
+            <theme nl="Develop and Distribute Modernist forms of computing" lbl="Modernist Computing, Open source projects">
+              <visit nl="Open Source Projects-for distribution">
+                <domain id="camp_opensrc_proj" nl="General Theme of open source projects">
+                  <action nl="licence and intents of open source projects"></action>
+                </domain>
+              </visit>
+            </theme>
+            <theme nl="Environmental Protection, Urban Planning" lbl="Environmental Protection, Urban Planning">
+              <visit nl="Environment">
+                <domain id="camp_envir_proj" nl="Climate Change, population challenge">
+                  <action nl="Stilling of air over Indian subcontinent"></action>
                 </domain>
               </visit>
             </theme>

@@ -75,7 +75,7 @@ public class PageService {
 	}
 
 
-	public String writePage(ActionAssembly assem, boolean isContent){
+	public String writePage(ActionAssembly assem, String contentToWrite, boolean isContent){
 		File f = null;
 		String pathPrefix;
 		if(isContent) {
@@ -83,11 +83,12 @@ public class PageService {
 		}else {
 			pathPrefix=constants.getRepoPath()+"/content";
 		}
-		String path=pathPrefix+"/"+assem.getDoesCode()+"/"+assem.getDomainCode()+"/"+assem.getActionCode()+".txt";
+		String path=pathPrefix+"/"+assem.getDoesCode()+"/"+assem.getDomainCode()+"/"+assem.getActionCode();
 		log.debug("attempting to read page ");
 		logger.error("attempting to read page "+ path);
 		f= new File(path);
-		return writePage(assem, false);
+		writePage(path,contentToWrite );
+		return "";
 	}
 	
 	@Deprecated
@@ -96,8 +97,8 @@ public class PageService {
 		StringBuffer buf = new StringBuffer();
 		URL resourceUrl = getClass().getResource("/posts/HelloWorld.html");
 		BufferedWriter writerBuf = null;
-		System.out.println("writing to file "+constants.getRepoPath()+"/"+fileName+".txt");
-		f= new File(constants.getRepoPath()+"/"+fileName+".txt");
+		System.out.println("writing to file ::"+fileName);
+		f= new File(fileName);
 		FileWriter writer;
 		try {
 			writer= new FileWriter(f);

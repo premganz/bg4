@@ -13,14 +13,16 @@ import org.spo.svc3.trx.pgs.mdl.ActionAssembly;
 import org.spo.svc3.trx.pgs.mdl.HomePage;
 import org.spo.svc3.trx.pgs.mdl.Menu;
 import org.spo.svc3.trx.pgs.t02.handler.T02Handler;
+import org.spo.svc3.trx.pgs.utils.CmsUtils;
 import org.spo.svc3.trx.pgs.utils.MenuFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.w3c.dom.Element;
 
 @Component
 public class K0101 extends AbstractTask {
 
-
+//HOme page
 
 	@Autowired
 	public PageService svc ;
@@ -34,9 +36,7 @@ public class K0101 extends AbstractTask {
 		HomePage page = new HomePage();
 		page.setSubTitle("Welcome Page");
 		ActionAssembly aa = new ActionAssembly();
-		aa.setCodes("about","abt_why","Why_Projects_like_this_should_exist");
-		info.put(K01Toolkit.SV_K01_DOES_CODE,"about");
-		info.put(K01Toolkit.SV_K01_THEME_CODE,"abt_why");
+		aa.setCodes("about","abt_justif","Domain_Transforms_and_Thermodynamic_Interpretations");
 		
 		String response_content = svc.readUpPage(aa, true);
 		page.setWelcomeContent(response_content);
@@ -45,7 +45,7 @@ public class K0101 extends AbstractTask {
 		page.setSideBarMenu(sideBarMenu);
 		info.addToModelMap("hom",page);
 		System.out.println(page.toString());
-		info.put(K01Toolkit.SV_K01_CONTENT_OVV, page);
+		info.put(K01Toolkit.SV_K01_DOES_CONTENT, page);
 		return T02Handler.EV_INIT_01;
 	}
 
@@ -59,6 +59,16 @@ public class K0101 extends AbstractTask {
 		}
 		else if(event.startsWith("EV_does")){
 			dataId = dataId.replaceAll("does__","");
+			String xquery="//does[@nl='"+dataId.replaceAll("_", " ")+ "']/../..";
+			CmsUtils utils = new CmsUtils();
+			Element roleElement=null;
+			try {
+				roleElement = utils.util_queryHelper1(xquery);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}		
+			String roleCode = roleElement.getAttribute("lbl").replaceAll(" ", "_");
+			info.put(K01Toolkit.SV_K01_ROLE_CODE, roleCode);
 			NavEvent navEvent = K01Handler.EV_SWITCH_DOES_LAND;
 			navEvent.dataId=dataId;
 			return navEvent;

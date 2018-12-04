@@ -1,12 +1,14 @@
 package org.spo.svc3.trx.pgs.utils;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
@@ -22,6 +24,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl;
 import com.sun.org.apache.xerces.internal.dom.DeferredElementImpl;
@@ -34,11 +37,20 @@ public class CmsUtils {
 	String cmsMetaDir = constants.getRepoPath()+"/augment/";
 	Log log = LogFactory.getLog(CmsUtils.class);
 
-	public  CmsUtils() throws Exception{
+	public  CmsUtils() {
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		//docFactory.setNamespaceAware(true);
-		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-		doc = docBuilder.parse(constants.getRepoPath()+"\\templates\\Schema.xml");
+		DocumentBuilder docBuilder;
+		try {
+			docBuilder = docFactory.newDocumentBuilder();
+			doc = docBuilder.parse(constants.getRepoPath()+"\\templates\\Schema.xml");
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}catch (SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 
 	}

@@ -224,7 +224,7 @@ public class CMSContentPageController {
 			String fileName=content.getId().isEmpty()?content.getMdfId():content.getId();
 			a.setCodes(doesName, themeName, fileName);
 			try {		
-				response = svc.writePage( a, false);	
+				response = svc.writePage( a, content.getHtmlContent(),false);	
 			} catch (Exception e) {			
 				e.printStackTrace();
 			}

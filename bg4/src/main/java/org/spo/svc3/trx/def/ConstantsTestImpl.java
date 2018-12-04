@@ -20,8 +20,13 @@ public class ConstantsTestImpl implements Constants {
 	}
 
 	public int getPortNumber() {
-		// TODO Auto-generated method stub
-		return 8087;
+		if(!System.getProperty("os.name").startsWith("Windows")){
+			return 80;
+		}else{
+			return 8087;
+		}
+		
+		
 	}
 
 }

@@ -117,8 +117,71 @@ public class MenuFactory {
 	}
 	
 	
+	public  Menu getDoesMenu(String doesId, String roleId) throws Exception{
+		Menu menu = new Menu();
+		menu.setNl("Home");
+		menu.setLbl("Home");
+		menu.setClickable(false);
+		menu.setLevelCd("nonClickable");
+		List<Menu> menuList = getSubMenuList("//does[@nl=\""+doesId+"\"]");
+		for(Menu m0:menuList) {
+			m0.setLevelCd("does");
+			String nl = m0.getNl();
+			List<Menu> menuList0 = getSubMenuList("//does[@nl='"+nl+ "']/intent/strategy/theme");
+			for(Menu m1:menuList0) {
+				m1.setLevelCd("theme");
+				 nl = m1.getNl();
+				List<Menu> menuListL2 = getSubMenuList("//theme[@nl='"+nl+"']/visit/domain");
+				for(Menu m2:menuListL2) {
+					m2.setLevelCd("domain");
+					String nl2 = m2.getNl();
+					List<Menu> menuListL3 = getSubMenuList("//domain[@nl=\""+nl2+"\"]");
+					for(Menu m3:menuListL3) {
+						m3.setLevelCd("action");
+					}
+					m2.setSubMenuItems(menuListL3);
+				}
+				m1.setSubMenuItems(menuListL2);
+			}
+			m0.setSubMenuItems(menuList0);
+		}
+		menu.setSubMenuItems(menuList);
+		System.out.println(menu);
+		return menu;
+	}
 	
-	
+	public  Menu getThemeMenu(String themeId, String doesId) throws Exception{
+		Menu menu = new Menu();
+		menu.setNl("Home");
+		menu.setLbl("Home");
+		menu.setClickable(false);
+		menu.setLevelCd("nonClickable");
+		List<Menu> menuList = getSubMenuList("//theme[@nl='"+themeId+ "']");
+		for(Menu m0:menuList) {
+			m0.setLevelCd("theme");
+			String nl = m0.getNl();
+			List<Menu> menuList0 = getSubMenuList("//theme[@nl='"+nl+ "']/visit/domain");
+			for(Menu m1:menuList0) {
+				m1.setLevelCd("domain");
+				String nl1 = m1.getNl();
+				List<Menu> menuListL2 = getSubMenuList("//domain[@nl='"+nl1+"']/action");
+				for(Menu m2:menuListL2) {
+					m2.setLevelCd("action");
+					String nl2 = m2.getNl();
+					List<Menu> menuListL3 =getSubMenuList("//domain[@nl='"+nl2+"']/action");
+					for(Menu m3:menuListL3) {
+						m3.setLevelCd("action");
+					}
+					m2.setSubMenuItems(menuListL3);
+				}
+				m1.setSubMenuItems(menuListL2);
+			}
+			m0.setSubMenuItems(menuList0);
+		}
+		menu.setSubMenuItems(menuList);
+		System.out.println(menu);
+		return menu;
+	}
 //	public  Menu homePageMenuDoes(String id) throws Exception{
 //		Menu menu = new Menu();
 //		menu.setNl("Home");

@@ -5,7 +5,6 @@ public class ActionAssembly {
 	private String doesCode;
 	private String domainCode;
 	private String actionCode;
-	private String actionContent; //for back and forth moving of action code document content
 	
 	
 	private boolean showMoreInfoButton;
@@ -68,22 +67,6 @@ public class ActionAssembly {
 	public void setNewsLinks(Menu newsLinks) {
 		this.newsLinks = newsLinks;
 	}
-
-
-
-
-	public String getActionContent() {
-		return actionContent;
-	}
-
-
-
-
-	public void setActionContent(String actionContent) {
-		this.actionContent = actionContent;
-	}
-
-
 
 	
 

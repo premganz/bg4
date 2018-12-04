@@ -50,7 +50,7 @@
 						<div class="site-heading">
 							<h1>leafy campus</h1>
 							<hr class="small"></hr>
-							<span class="subheading" th:text="${theme.subTitle}"></span>
+							<span class="subheading" th:text="${does.subTitle}"></span>
 						</div>
 					</div>
 				</div>
@@ -65,7 +65,7 @@
 						<div id="menu2" style="Opacity: 0.9">
 							
 
-							<div th:each="link : ${theme.sideBarMenu}">
+							<div th:each="link : ${does.sideBarMenu}">
 								<ul>
 									<lh> <a th:text="${link.lbl}" style="cursor: pointer;" th:href="${link.levelCd}+'__' + ${link.id}"></a> </lh>
 									<div th:each="headerLink : ${link.subMenuItems}">
@@ -76,7 +76,7 @@
 										<hr></hr>
 										</lh>
 										<div th:each="sublink : ${headerLink.subMenuItems}">
-											<li th:id="${sublink.id}"><a th:text="''+${sublink.lbl}" style="cursor: pointer;" th:href="${sublink.levelCd}+'__'+${sublink.id}"
+											<li th:id="${sublink.id}"><a th:text="''+${sublink.lbl}" style="cursor: pointer;" th:href="${sublink.levelCd}+'__'+${sublink.id}+'?event=EV_'+${sublink.levelCd}"
 												onclick=""></a></li>
 											<div class="subMenu" th:each="sublink2 : ${sublink.subMenuItems}">
 												<li th:id="${sublink2.id}"><a th:text="''+${sublink2.lbl}" style="cursor: pointer;"
@@ -126,7 +126,7 @@
 				</div>
 				<div class="col-lg-7  col-md-8 col-sm-8 col-xs-12">
 					<div class="container1" style="border-right-color: yellow;">
-						<div th:utext="${theme.welcomeContent}"></div>
+						<div th:utext="${does.welcomeContent}"></div>
 
 					</div>
 
@@ -136,7 +136,7 @@
 
 						<h2></h2>
 						<hr></hr>
-						<div class="row1" th:each="link : ${theme.newsItems}">
+						<div class="row1" th:each="link : ${does.newsItems}">
 
 							<div class="post-preview">
 								<a th:href="${link.metaInfo}">
@@ -155,8 +155,8 @@
 							</div>
 						</div>
 						<ul class="pager">
-							<li class="next"><a th:href="${theme.exploreMoreLinkIc_1}" style="background-color: gold;">
-									<div th:utext="${theme.exploreMoreLinkTxt_1}"></div>
+							<li class="next"><a th:href="${does.exploreMoreLinkIc_1}" style="background-color: gold;">
+									<div th:utext="${does.exploreMoreLinkTxt_1}"></div>
 							</a></li>
 						</ul>
 						<ul class="pager">
@@ -171,7 +171,7 @@
 					<p>
 					<H3>News</H3>
 					</p>
-					<div class="row" th:each="link : ${theme.newsItems}">
+					<div class="row" th:each="link : ${does.newsItems}">
 						<div class="footnote">
 							<a th:href="${link.href}" target="_blank">
 								<p th:text="${link.label}"></p>

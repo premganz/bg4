@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE application SYSTEM "..\schema\AppNavModel.dtd"> -->
+<!DOCTYPE application [
+<!-- nl= natural language expression id= unique id -->
+<!ELEMENT vsn (role)+>
+<!ATTLIST vsn
+  xmlns CDATA #FIXED ''
+  id CDATA #REQUIRED
+  aka CDATA #REQUIRED
+  path CDATA #REQUIRED
+  nl CDATA #REQUIRED>
+
+<!ELEMENT role (attribute)>
+<!ATTLIST role
+  xmlns CDATA #FIXED ''
+  lbl CDATA #REQUIRED
+  nl CDATA #REQUIRED>
+
+<!ELEMENT attribute (does)+>
+<!ATTLIST attribute
+  xmlns CDATA #FIXED ''
+  how CDATA #REQUIRED
+  nl NMTOKEN #REQUIRED>
+
+<!ELEMENT goal EMPTY>
+<!ATTLIST goal
+  xmlns CDATA #FIXED ''
+  nl CDATA #REQUIRED>
+
+<!ELEMENT does (intent)>
+<!ATTLIST does
+  xmlns CDATA #FIXED ''
+  how CDATA #IMPLIED
+  nl CDATA #REQUIRED
+  id ID #REQUIRED
+  lbl CDATA #IMPLIED
+  onBelief CDATA #IMPLIED>
+
+<!ELEMENT intent (strategy)+>
+<!ATTLIST intent
+  xmlns CDATA #FIXED ''
+  nl CDATA #REQUIRED>
+
+<!ELEMENT strategy (theme+|visit+)>
+<!ATTLIST strategy
+  xmlns CDATA #FIXED ''
+  id ID #REQUIRED
+  nl CDATA #REQUIRED>
+
+<!ELEMENT theme (visit)+>
+<!ATTLIST theme
+  xmlns CDATA #FIXED ''
+  lbl CDATA #REQUIRED
+  nl CDATA #REQUIRED>
+
+<!ELEMENT visit (domain+,(action,query)?)>
+<!ATTLIST visit
+  xmlns CDATA #FIXED ''
+  lbl CDATA #IMPLIED
+  nl CDATA #REQUIRED>
+
+<!ELEMENT domain (evidence*,(action|query)*, essay*)>
+<!ATTLIST domain
+  xmlns CDATA #FIXED ''
+  id CDATA #REQUIRED
+  lbl CDATA #IMPLIED
+  nl CDATA #IMPLIED
+  nl CDATA #IMPLIED>
+
+<!ELEMENT evidence EMPTY>
+<!ATTLIST evidence
+  xmlns CDATA #FIXED ''
+  nl CDATA #IMPLIED
+  type NMTOKEN #REQUIRED>
+
+<!ELEMENT query EMPTY>
+<!ATTLIST query
+  xmlns CDATA #FIXED ''
+  natural_question CDATA #IMPLIED
+  nl CDATA #REQUIRED
+  type NMTOKEN #IMPLIED>
+
+<!ELEMENT action (action*,evidence*,query*)>
+<!ATTLIST action
+  xmlns CDATA #FIXED ''
+  id ID #IMPLIED
+  lbl CDATA #IMPLIED
+  nl CDATA #REQUIRED  
+  type NMTOKEN #IMPLIED>
+<!ELEMENT essay EMPTY>
+<!ATTLIST essay
+  xmlns CDATA #FIXED ''
+  id ID #IMPLIED
+  lbl CDATA #IMPLIED
+  nl CDATA #REQUIRED >  
+  
+]>
+<!-- action type c = critical publication, type t = tactical publication -->
+<vsn id="root_version_3" nl="A counterculture of constructivist romanticism"
+  aka="Modernist revival- celebrating the certainty of the scientific method and the life space provided by its incompleteness. 
+Interpreting this into contexts as long running projects"
+  path="implies Romanticism built over conservative modernsit values, critical of postmodernism, which implies optimism on the human condition and faith">
+  <role lbl="Inspiration" nl="An inside club - a campus - a critical, romantic agent">
+    <attribute nl="humility" how="a project running for finite time">
+      <does id="about" nl="Defending the Idea of Modernist Revival, Scientific Realism" onBelief="There are desirable actions that arise in the right environment">
+        <intent nl="create an optimal environment of understanding with the public">
+          <strategy id="abt" nl="being honest and clear, some kind of a charter">
+            <theme lbl="Our Intent- About Us" nl="about us">
+              <visit lbl="Why this Project" nl="Why this is zeigteist">
+                <domain id="abt_why" lbl="" nl="contemproary issues with knowledge and justifying intervention">
+                  <action nl="Why Projects like this should exist, the idea of the critical organization"></action>
+                  <action nl="Heritage of critical truth examination- Descartes, Thoreau to Gandhi and Hippies"></action>
+                </domain>
+                <domain id="abt_fronts_challenge" nl="mainstream would always need to be challenged on these aspects">
+                  <action nl="The PostModernist Desconstructivist-mislead Hippie"></action>
+                  <action nl="The Cybernetics, open loop crisis"></action>
+                  <action nl="Universal and Flat Ideas- Direct and Cloud Computing"></action>
+                  <action nl="Critiques of Modernist constructivism"></action>
+                  <action nl="Destructuration-Emotionalization of issues, possible violence"></action>
+                  <action nl="Destructuration-Runaway technology embrace, anxiety over survival, transhumanism"></action>
+                  <action nl="Pragmatism overrun- Basic human comfort and values trampled- extreme health suffering, safety issues"></action>
+                  <action nl="Pragmatism overrun- Broadly utilitarian policies and computing"></action>
+                </domain>
+              </visit>
+            </theme>
+            <theme nl="What we do?" lbl="What we Do, why are we here?">
+              <visit nl="We simply believe">
+                <domain id="abt_club_belief" nl="The Club">
+                  <action nl="Simply Believe-We are simply a group which believes in some values-modernism, romanticism"></action>
+                  <action nl="GetTogether, Act and Inspire-We hold inside meetings, we live in some campus sharing our belief, not attempting to directly express it"></action>
+                </domain>
+              </visit>
+            </theme>
+          </strategy>
+        </intent>
+      </does>
+       <does id="campaign_propoganda" lbl="Active Campaigns" nl="To propogandize and reach out in connection with campaigns">
+        <intent nl="administer campaigns, though of small scale and personal, in a rigid and record based manner, like crew logs">
+          <strategy id="camp_edu" nl="Education Domain Local Work">
+            <theme nl="Run a Website" lbl="Run a Website">
+              <visit nl="WelcomePage">
+                <domain id="camp_website" nl="A breif birds eye view">
+                  <action nl="A Brief Brouchure"></action>
+                </domain>
+              </visit>
+            </theme>
+          </strategy>
+          <strategy id="camp_crit_compu" nl="Computing Critical Publication">
+            <theme nl="Critical Publication" lbl="Critical Publication">
+              <visit nl="Overview of principles and beliefs in computing">
+                <domain id="camp_crit_compu_pub" nl="softComputing">
+                  <action nl="Critical View of Machine learning systems"></action>
+                  <action nl="Critical View of Cognitive Systems, nature of cognition"></action>
+                  <action nl="theory of networks, zero trx networks critical view"></action>
+                  <action nl="Critical view of nudge and self balancing systems, control problems"></action>
+                </domain>
+              </visit>
+            </theme>
+          </strategy>
+        </intent>
+      </does>
+    </attribute>
+  </role>
+</vsn>
