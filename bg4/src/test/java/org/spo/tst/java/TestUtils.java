@@ -15,7 +15,11 @@ public  class TestUtils {
 	
 	@Before
 	public void initConstants() {
+		if(System.getProperty("os.name").equals("Windows")){
 		AppConstants.cmsDir="C:\\Users\\premganesh\\git\\bg4\\bg4\\src\\main\\resources\\data-cms";
+		}else{
+			AppConstants.cmsDir="/usr/local/share/data-cms";
+		}
 	}
 	
 	
