@@ -10,7 +10,7 @@ public class ConstantsTestImpl implements Constants {
 		if(!System.getProperty("os.name").startsWith("Windows")){
 			AppConstants.cmsDir= "/usr/local/share/data-cms/lc";
 		}else{
-			AppConstants.cmsDir= "C:\\Users\\premganesh\\git\\bg4_branch1\\bg4\\src\\main\\resources\\data-cms\\cms1";
+			AppConstants.cmsDir= "C:/Users/premganesh/git/bg4_branch1/bg4/src/main/resources/data-cms/cms1";
 		}
 		return AppConstants.cmsDir;
 	}

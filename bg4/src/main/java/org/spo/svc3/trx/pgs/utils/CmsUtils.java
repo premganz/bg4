@@ -43,7 +43,7 @@ public class CmsUtils {
 		DocumentBuilder docBuilder;
 		try {
 			docBuilder = docFactory.newDocumentBuilder();
-			doc = docBuilder.parse(constants.getRepoPath()+"\\templates\\Schema.xml");
+			doc = docBuilder.parse(constants.getRepoPath()+"/templates/Schema.xml");
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
