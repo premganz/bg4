@@ -84,10 +84,14 @@ public class CmsUtils {
 		log.debug("nodelist size is "+nodeList.getLength());
 		for (int i = 0; i < nodeList.getLength(); i++) {
 			Node currentNode = nodeList.item(i);
-			log.debug("Working on currentNode "+ currentNode.getNodeName()+":"+" and"
-					+ " attempting to write to dir "+ currentNode.getAttributes().getNamedItem("id").getTextContent()+" which is a sub directory of "+cmsDir);
+			
 			if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
+				log.debug("Working on currentNode "+ currentNode.getNodeName()+" and cmsDir is " +cmsDir);
+				
 				if(currentNode.getNodeName().equals("does")) {
+					log.debug("Working on currentNode "+ currentNode.getNodeName()+":"+" and"
+							+ " attempting to write to dir "+ currentNode.getAttributes().getNamedItem("id").getTextContent()+" which is a sub directory of "+cmsDir);
+					
 					currentStrategyDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
 					File dir = new File (cmsPath+currentStrategyDir);
 					if(!dir.exists()) {
