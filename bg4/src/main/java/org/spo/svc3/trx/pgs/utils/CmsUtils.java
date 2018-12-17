@@ -74,14 +74,18 @@ public class CmsUtils {
 			}
 		}
 
-	private  void organizeFoldersHelper1(Element node, String currentStrategyDir, String currentDomainDir, boolean isMeta) throws Exception {
+	private  void organizeFoldersHelper1(Element node, String currentStrategyDir, String currentDomainDir, boolean isMeta)  {
 		// do something with the current node instead of System.out
 		String cmsPath = isMeta?cmsDir:cmsMetaDir;
 		String extn = isMeta?"_augm.txt":".txt";
 		System.out.println(node.getNodeName());
 		NodeList nodeList = node.getChildNodes();
+		
+		log.debug("nodelist size is "+nodeList.getLength());
 		for (int i = 0; i < nodeList.getLength(); i++) {
 			Node currentNode = nodeList.item(i);
+			log.debug("Working on currentNode "+ currentNode.getNodeName()+":"+" and"
+					+ " attempting to write to dir "+ currentNode.getAttributes().getNamedItem("id").getTextContent()+" which is a sub directory of "+cmsDir);
 			if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
 				if(currentNode.getNodeName().equals("does")) {
 					currentStrategyDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
@@ -102,7 +106,11 @@ public class CmsUtils {
 					File file = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentNode.getAttributes().getNamedItem("nl").getTextContent().replaceAll(" ", "_")+extn);
 					if(!file.exists()) {
 						log.debug("creating file "+file.getAbsolutePath());
-						file.createNewFile();
+						try {
+							file.createNewFile();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
 					}
 				}
 //				if(currentNode instanceof DeferredElementImpl){
