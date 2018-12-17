@@ -123,9 +123,12 @@ public class CmsUtils {
 		String currentStrategyDir="";
 		String currentDomainDir="";
 		NodeList nodeList = node.getChildNodes();
+		log.debug("nodelist size is "+nodeList.getLength());
 		for (int i = 0; i < nodeList.getLength(); i++) {
 			Node currentNode = nodeList.item(i);
-			if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
+			log.debug("Working on currentNode "+ currentNode.getNodeName()+":"+" and"
+					+ " attempting to write to dir "+ currentNode.getAttributes().getNamedItem("id").getTextContent()+" which is a sub directory of "+cmsDir);
+			if (currentNode.getNodeType() == Node.ELEMENT_NODE) { 
 				if(currentNode.getNodeName().equals("strategy")) {
 					currentStrategyDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
 					File dir = new File (cmsDir+currentStrategyDir);
