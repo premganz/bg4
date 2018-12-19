@@ -36,7 +36,7 @@ public class K0101 extends AbstractTask {
 		HomePage page = new HomePage();
 		page.setSubTitle("Welcome Page");
 		ActionAssembly aa = new ActionAssembly();
-		aa.setCodes("about","abt_justif","Domain_Transforms_and_Thermodynamic_Interpretations");
+		aa.setCodes("publish_expository_research","pub_info_meta","Energy_Problem");
 		
 		String response_content = svc.readUpPage(aa, true);
 		page.setWelcomeContent(response_content);
