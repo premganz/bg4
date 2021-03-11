@@ -10,7 +10,7 @@ public class ConstantsTestImpl implements Constants {
 		if(!System.getProperty("os.name").startsWith("Windows")){
 			AppConstants.cmsDir= "/usr/local/share/data-cms/lc";
 		}else{
-			AppConstants.cmsDir= "C:\\Users\\premganesh\\git\\bg4\\bg4\\src\\main\\resources\\data-cms\\cms1";
+			AppConstants.cmsDir= "C:\\Users\\gs1-premg\\git\\bg4-2\\bg4\\src\\main\\resources\\data-cms\\cms1";
 		}
 		return AppConstants.cmsDir;
 	}
@@ -21,7 +21,7 @@ public class ConstantsTestImpl implements Constants {
 
 	public int getPortNumber() {
 		// TODO Auto-generated method stub
-		return 8087;
+		return 8089;
 	}
 
 }

@@ -56,22 +56,22 @@ public class Main {
             applicationContext.registerShutdownHook();
             applicationContext.register(RootConfiguration.class);
             applicationContext.refresh();
-            AnnotationConfigApplicationContext applicationContext1 = new AnnotationConfigApplicationContext();
-            applicationContext1.addApplicationListener(new ApplicationListener<ContextRefreshedEvent>() {
-               
-                public void onApplicationEvent(
-                        ContextRefreshedEvent event) {
-                    ApplicationContext ctx = event.getApplicationContext();
-                    if (ctx instanceof AnnotationConfigWebApplicationContext) {
-                        webApplicationContextInitialized = true;
-                    }
-                }
-            });
-
-    applicationContext1.registerShutdownHook();
-    
-            applicationContext1.register(org.spo.ifs3.config.RootConfiguration.class);
-            applicationContext1.refresh();
+//            AnnotationConfigApplicationContext applicationContext1 = new AnnotationConfigApplicationContext();
+//            applicationContext1.addApplicationListener(new ApplicationListener<ContextRefreshedEvent>() {
+//               
+//                public void onApplicationEvent(
+//                        ContextRefreshedEvent event) {
+//                    ApplicationContext ctx = event.getApplicationContext();
+//                    if (ctx instanceof AnnotationConfigWebApplicationContext) {
+//                        webApplicationContextInitialized = true;
+//                    }
+//                }
+//            });
+//
+//    applicationContext1.registerShutdownHook();
+//    
+//            applicationContext1.register(org.spo.ifs3.config.RootConfiguration.class);
+//            applicationContext1.refresh();
             if (!webApplicationContextInitialized) {
                 logger.error("Web application context not initialized. Exiting.");
                 System.exit(1);

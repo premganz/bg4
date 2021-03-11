@@ -2,7 +2,6 @@ package org.spo.svc3.trx.pgs.utils;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -15,16 +14,11 @@ import javax.xml.xpath.XPathFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.spo.ifs3.template.web.Constants;
-import org.spo.svc3.config.AppConstants;
 import org.spo.svc3.trx.def.ConstantsTestImpl;
-import org.spo.svc3.trx.pgs.mdl.Menu;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl;
-import com.sun.org.apache.xerces.internal.dom.DeferredElementImpl;
 
 public class CmsUtils {
 	public static Document doc;
@@ -71,7 +65,7 @@ public class CmsUtils {
 		for (int i = 0; i < nodeList.getLength(); i++) {
 			Node currentNode = nodeList.item(i);
 			if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
-				if(currentNode.getNodeName().equals("does")) {
+				if(currentNode.getNodeName().equals("major")) {
 					currentStrategyDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
 					File dir = new File (cmsPath+currentStrategyDir);
 					if(!dir.exists()) {
@@ -79,7 +73,7 @@ public class CmsUtils {
 						dir.mkdirs();
 					}
 				}
-				if(currentNode.getNodeName().equals("domain")) {
+				if(currentNode.getNodeName().equals("minor")) {
 					currentDomainDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
 					File dir = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir);
 					if(!dir.exists()) {
@@ -114,14 +108,14 @@ public class CmsUtils {
 		for (int i = 0; i < nodeList.getLength(); i++) {
 			Node currentNode = nodeList.item(i);
 			if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
-				if(currentNode.getNodeName().equals("strategy")) {
+				if(currentNode.getNodeName().equals("major")) {
 					currentStrategyDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
 					File dir = new File (cmsDir+currentStrategyDir);
 					if(!dir.exists()) {
 						dir.mkdirs();
 					}
 				}
-				if(currentNode.getNodeName().equals("domain")) {
+				if(currentNode.getNodeName().equals("minor")) {
 					currentDomainDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
 					File dir = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir);
 					if(!dir.exists()) {
@@ -161,7 +155,17 @@ public class CmsUtils {
 		node.getChildNodes();
 		return (Element)node;
 		
-		
 	}
 
+	//TODO Run with great care, will erase data.
+	public static void main(String[] args) throws Exception{
+		CmsUtils cmsUtil = new CmsUtils();
+		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+		//docFactory.setNamespaceAware(true);
+		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+//		cmsUtil.doc=docBuilder.parse("C:\\Users\\premganesh\\git\\bg4\\bg4\\src\\test\\resources\\ApplicationNavTreeModelGeneric.xml");
+		cmsUtil.organizeFolders();
+	}
+	
+	
 }

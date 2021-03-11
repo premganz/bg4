@@ -38,7 +38,7 @@ public class AjaxController {
 		 PostContent content1 = new PostContent();
 		 content1.setHtmlContent("hello");
 		 model.addAttribute("content", content1);
-		 List<String> list = svc.readFileCatalog("does");
+		 List<String> list = svc.readFileCatalog("does", null);
 		 Collections.sort(list);		 
 		 model.addAttribute("files",list);
 		 return "cms1/x_content";
@@ -49,7 +49,7 @@ public class AjaxController {
 		 PostContent content1 = new PostContent();
 		 content1.setHtmlContent("hello");
 		 model.addAttribute("content", content1);
-		 List<String> list = svc.readFileCatalog("does");
+		 List<String> list = svc.readFileCatalog("does",null);
 		 Collections.sort(list);		 
 		 model.addAttribute("files",list);
 		 return "cms1/x_content";
@@ -72,7 +72,7 @@ public class AjaxController {
 		 PostContent content1 = new PostContent();
 		 content1.setHtmlContent("hello");
 		 model.addAttribute("content", content1);
-		 List<String> list = svc.readFileCatalog("templates");
+		 List<String> list = svc.readFileCatalog("templates", null);
 		 Collections.sort(list);		 
 		 model.addAttribute("files",list);
 		 return "cms1/y_content";

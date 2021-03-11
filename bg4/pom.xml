@@ -4,8 +4,8 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.spo.svc</groupId>
-	<artifactId>bg3</artifactId>
-	<name>bg3</name>
+	<artifactId>bg4</artifactId>
+	<name>bg4</name>
 	<packaging>jar</packaging>
 	<version>b1.6.2</version>
 

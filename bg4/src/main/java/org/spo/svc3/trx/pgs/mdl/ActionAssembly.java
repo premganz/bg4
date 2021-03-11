@@ -2,8 +2,8 @@ package org.spo.svc3.trx.pgs.mdl;
 
 public class ActionAssembly {
 	
-	private String doesCode;
-	private String domainCode;
+	private String majorCode;
+	private String minorCode;
 	private String actionCode;
 	
 	
@@ -13,28 +13,49 @@ public class ActionAssembly {
 	private Menu newsLinks;
 	
 	
-	public ActionAssembly setCodes(String doesCode, String domainCode, String actionCode) {
+	public ActionAssembly setCodes(String majorCode, String minorCode, String actionCode) {
 		this.setActionCode(actionCode);;
-		this.setDomainCode(domainCode);
-		this.setDoesCode(doesCode);
+		this.setMajorCode(majorCode);
+		this.setMinorCode(minorCode);
 		return this;
 	}
 	
 	
 	
 	
-	public String getDoesCode() {
-		return doesCode;
+	
+	public String getMajorCode() {
+		return majorCode;
 	}
-	public void setDoesCode(String doesCode) {
-		this.doesCode = doesCode;
+
+
+
+
+
+	public void setMajorCode(String majorCode) {
+		this.majorCode = majorCode;
 	}
-	public String getDomainCode() {
-		return domainCode;
+
+
+
+
+
+	public String getMinorCode() {
+		return minorCode;
 	}
-	public void setDomainCode(String domainCode) {
-		this.domainCode = domainCode;
+
+
+
+
+
+	public void setMinorCode(String minorCode) {
+		this.minorCode = minorCode;
 	}
+
+
+
+
+
 	public String getActionCode() {
 		return actionCode;
 	}

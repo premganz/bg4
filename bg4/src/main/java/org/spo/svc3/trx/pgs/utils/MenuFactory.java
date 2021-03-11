@@ -89,21 +89,21 @@ public class MenuFactory {
 		menu.setLbl("Home");
 		menu.setClickable(false);
 		menu.setLevelCd("nonClickable");
-		List<Menu> menuList = getSubMenuList("//role");
+		List<Menu> menuList = getSubMenuList("//major");
 		for(Menu m0:menuList) {
-			m0.setLevelCd("role");
+			m0.setLevelCd("major");
 			String lbl = m0.getLbl();
-			List<Menu> menuList0 = getSubMenuList("//role[@lbl=\""+lbl+"\"]/attribute/does");
+			List<Menu> menuList0 = getSubMenuList("//major[@lbl=\""+lbl+"\"]/minor");
 			for(Menu m1:menuList0) {
-				m1.setLevelCd("does");
+				m1.setLevelCd("minor");
 				String nl = m1.getNl();
-				List<Menu> menuListL2 = getSubMenuList("//does[@nl=\""+nl+"\"]/intent/strategy/theme");
+				List<Menu> menuListL2 = getSubMenuList("//minor[@nl=\""+nl+"\"]/action");
 				for(Menu m2:menuListL2) {
-					m2.setLevelCd("theme");
+					m2.setLevelCd("action");
 					String nl2 = m2.getNl();
-					List<Menu> menuListL3 = getSubMenuList("//does[@nl=\""+nl+"\"]/intent/strategy/theme[@nl=\""+nl2+"\"]/visit");
+					List<Menu> menuListL3 = getSubMenuList("//major[@nl=\""+nl+"\"]/minor[@nl=\""+nl2+"\"]/article");
 					for(Menu m3:menuListL3) {
-						m3.setLevelCd("visit");
+						m3.setLevelCd("article");
 					}
 					m2.setSubMenuItems(menuListL3);
 				}

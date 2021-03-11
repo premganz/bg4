@@ -1,5 +1,7 @@
 package org.spo.svc3.trx.pgs.t02.task;
 
+import java.lang.reflect.Type;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spo.cms3.svc.PageService;
@@ -7,9 +9,15 @@ import org.spo.cms3.svc.SocketConnector;
 import org.spo.ifs3.dsl.controller.NavEvent;
 import org.spo.ifs3.dsl.controller.TrxInfo;
 import org.spo.ifs3.dsl.model.AbstractTask;
+import org.spo.svc3.trx.pgs.t01.cmd.Home_pg;
+import org.spo.svc3.trx.pgs.t01.cmd.Wel_msg;
+import org.spo.svc3.trx.pgs.t01.toolkit.T01Toolkit;
 import org.spo.svc3.trx.pgs.t02.handler.T02Handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 @Component
 public class T0201 extends AbstractTask {
@@ -26,7 +34,15 @@ public class T0201 extends AbstractTask {
 	@Override
 	public NavEvent initTask(String dataId, TrxInfo info) throws Exception {
 
-		
+		String response = svc.readUpPage("templates", "Home_pg");//Menu
+		Gson gson = new Gson();
+		Type typ = new TypeToken<Home_pg>(){}.getType();//FIXME right now only string works
+		String response_content = svc.readUpPage("posts", "Wel_msg_trx2");
+		typ = new TypeToken<Wel_msg>(){}.getType();//FIXME right now only string works
+		Wel_msg cmd= gson.fromJson(response_content,typ);		
+		info.addToModelMap("message",cmd);
+		System.out.println(cmd.toString());
+		info.put(T01Toolkit.SV_T02_CONTENT_OVV, cmd);
 
 		return T02Handler.EV_INIT_01;
 	}

@@ -32,7 +32,7 @@ public class PageService {
 
 	{
 
-		filePath=constants.getRepoPath();
+//		filePath=constants.getRepoPath();
 		
 	}
 
@@ -55,13 +55,13 @@ public class PageService {
 	public String readUpPage(String scenario, String pageName){
 		File f = null;
 		log.debug("attempting to read page ");
-		logger.error("attempting to read page "+filePath+"/"+scenario+"/"+pageName+".txt");
+		logger.error("attempting to read page "+constants.getRepoPath()+"/"+scenario+"/"+pageName+".txt");
 		return readUpPageUtils(f);
 	}
 
 	public String readUpPage(ActionAssembly assem){
 		File f = null;
-		String path=constants.getRepoPath()+"/"+assem.getDoesCode()+"/"+assem.getDomainCode()+"/"+assem.getActionCode()+".txt";
+		String path=constants.getRepoPath()+"/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+".txt";
 		log.debug("attempting to read page ");
 		logger.error("attempting to read page "+ path);
 		f= new File(path);
@@ -103,14 +103,14 @@ public class PageService {
 	}
 
 	
-	public List<String> getListBoxes(String does, String theme) throws Exception{
+	public List<String> getListBoxes(String major, String minor) throws Exception{
 
 		ArrayList<String> resultList = new ArrayList<String>();
 		String resourcePath="";
-		if(theme!=null) {
-			resourcePath=filePath+"/"+does+"/"+theme;
+		if(minor!=null) {
+			resourcePath=constants.getRepoPath()+"/"+major+"/"+minor;
 		}else {
-			resourcePath=filePath+"/"+does;
+			resourcePath=constants.getRepoPath()+"/"+major;
 		}
 
 		File[] fileArray = new File(resourcePath).listFiles();
@@ -122,28 +122,7 @@ public class PageService {
 	
 	
 	
-	public List<String> readUpPageList(String scenario, String pageName){
-
-		File f = null;
-		ArrayList<String> resultList = new ArrayList<String>();
-		URL resourceUrl = getClass().getResource("/"+scenario+"/"+pageName+".txt");
-		String resourcePath;
-		try {
-			resourcePath = resourceUrl.toURI().getPath();
-			f= new File(resourcePath);
-			FileReader reader = new FileReader(f);
-			BufferedReader readerBuf = new BufferedReader(reader);
-			String line = readerBuf.readLine();
-			while(line!=null){
-				resultList.add(line);
-				line = readerBuf.readLine();
-			}
-
-		} catch (Exception  e) {
-			e.printStackTrace();
-		}
-		return resultList;
-	}
+	
 
 	public String dumpFilesData(){
 		StringBuffer buf = new StringBuffer();
@@ -174,15 +153,15 @@ public class PageService {
 
 	}
 
-	public List<String> readFileCatalog(String does, String theme){
+	public List<String> readFileCatalog(String major, String minor){
 		File f = null;
 
 		ArrayList<String> resultList = new ArrayList<String>();
 		String resourcePath="";
-		if(theme!=null) {
-			resourcePath=filePath+"/"+does+"/"+theme;
+		if(minor!=null) {
+			resourcePath=constants.getRepoPath()+"/"+major+"/"+minor;
 		}else {
-			resourcePath=filePath+"/"+does;
+			resourcePath=constants.getRepoPath()+"/"+minor;
 		}
 
 		File[] fileArray = new File(resourcePath).listFiles();
