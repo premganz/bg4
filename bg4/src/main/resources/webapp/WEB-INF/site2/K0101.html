@@ -70,10 +70,10 @@
 									<lh> <a th:text="${link.lbl}" style="cursor: pointer;" th:href="${link.levelCd}+'__' + ${link.id}"></a> </lh>
 									<div th:each="headerLink : ${link.subMenuItems}">
 										<lh>
-										<h2 style="color: antiquewhite">
+										<h2 style="color: antiquewhite; font-size: 25px">
 										<div th:text="${headerLink.lbl}"></div>
 										</h2>
-										<hr></hr>
+										<hr style="margin-bottom: 0px;margin-top: 0px"></hr>
 										</lh>
 										<div th:each="sublink : ${headerLink.subMenuItems}">
 											<li th:id="${sublink.id}"><a th:text="''+${sublink.lbl}" style="cursor: pointer;" th:href="${sublink.levelCd}+${sublink.id}"

@@ -50,26 +50,47 @@
 ]>
 <!-- action type c = critical publication, type t = tactical publication 
 in the role of _ in humanity, doing _ 
-The LeafyCampus Science and Exploration Club
+The LeafyCampus Forum for Scholarship and Exploration
 
 major->minor>articles
 does>domain>action
 
-About > What this is about, its constitution, Motivation
+About > What this is about as a noun, its constitution, Motivation
+		Methods and Manners - Moderation and critical disposition
 
-Principles >     SCIENCE>>
+Philosophy >    
+				 CLASSICISM, DUALISM, MYSTICISM>>
+				 Philosophy as incomplete and humble 
+				 Ultimate Mysticism, methodological dualism and contextual classicism	
+				 	As much as dualism is irreductable, the decision by the human is mystical and monistic
+				 	Inspiration - It is revealed time to time and has no continuum
+				 	
+				 	Remembering C Truesdell
+				 	Reconciling Classicism with Romanticism
+				 	Renaissance as a sensation rather than an event. 
+				 	Romanticism as a complement to Classicism
+				 	Reviving Classicism as being relevant to the moment
+				 		The Scholar: A Species Threatened by Professions C. Truesdell
+				 		An Idiot’s Fugitive Essays on Science: Methods, Criticism, Training
+
+Ideals >				 
+				 
+				 SCIENCE>>
 
 					Science as an emancipatory tool
 						Science as naturalistic, redemptive, peaceful
 						Implicit ontologies (Metaphysics) in science
+						*Undecidability, Justice and free choice in science
 						
 				  EXPLORATION>>
-				  
+				  Art as free from form and explorative and expressive
+				  Exploration as physical as Scouting
 				  Exploration or open domains
 				  		Science as Descriptive, cataloguing
 				  		Particular reference to Medicine and negative utilitarianism
 				  
 				  CRITICISM>>
+				  			  
 				  
 				  Criticism of non epistemological approaches to decision
 				  		Regression, Bayesianism, Lagrangian techniques	
@@ -78,16 +99,11 @@ Principles >     SCIENCE>>
 				  		Essential Dualism of symbols and sentiment
 				  		Recursive Dualism as applied to this organization
 		  		
-		  		  LINKS>>
-		  		  				  
-				  More Articles
-				  		Cartesian Dualism and Undecidability
-				  		Positivism- Vienna Circle
-				  		Treatment of science in eastern and western spiritualism
-				  
+		  		  
+  
 				  		
 				  		
-Research 		> ML/AI
+Research  	> ML/AI
 				  Employing ML/AI as observational techniques
 				  Criticism of Information Theory and Control theory approaches
 				  
@@ -95,6 +111,14 @@ Research 		> ML/AI
 				  Privacy and Explainability
 				  Efficacy of Formal Computing Architectures 
 				  Formalization of AI/ML approaches
+				  
+				  LINKS>>
+		  		  				  
+				  More Articles
+				  		Cartesian Dualism and Undecidability
+				  		Positivism- Vienna Circle
+				  		Treatment of science in eastern and western spiritualism
+				  		Criticism of Agile and digital
 				  
 				  
 Conventions		> Scout and Scholar
@@ -109,41 +133,16 @@ Conventions		> Scout and Scholar
 
 -->
 <vsn id="root_version_3" nl="About"  aka="Leafy Campus Foundation"
-  path="Hall of Science and Exploration">
+  path="Hall of Classicism">
       <major id="abt" nl="about, motivation" lbl="About" >
                 <minor id="abt_what_why" lbl="Who and What" nl="about">
-                  <action type="ess" nl="What this is about, its constitution, Motivation"></action>
+                  <action type="ess" nl="Methods and Manners">
+                  	<article type="ess" nl="Motivation, Constitution, Methods and Manners"></article>
+                  	</action>
                 </minor>
       </major>
-      <major id="Principles" nl="Principles" lbl="Principles" >
-      		<minor id="pr_sc" lbl="Science" nl="Science">
-                <action id="pr_sc" lbl="Science as an emancipatory tool" nl="Science as an emancipatory tool">
-                 <article type="ess" nl="Science as naturalistic, redemptive, peaceful"></article>
-                 <article type="ess" nl="Implicit ontologies and Metaphysics in science"></article>
-                 </action>
-            </minor>
-            <minor id="pr_exp" lbl="Exploration" nl="Exploration">
-                 <action id="pr_exp" lbl="Exploration or open domains" nl="Exploration or open domains">
-                  <article type="ess" nl="Science as Descriptive cataloguing"></article>
-                  <article type="ess" nl="Medicine and negative utilitarianism "></article>
-                </action>
-             </minor>
-                 <minor id="pr_crt" lbl="Criticism" nl="Criticism">
-                  <action id="pr_crt" lbl="Does decision need its theory" nl="crticism">
-                  <article type="ess" nl="Regression, Bayesianism, Lagrangian techniques"></article>
-                  <article type="ess" nl="Medicine and negative utilitarianism"></article>
-                </action>
-                <action id="pr_org" lbl="Undecidability" nl="dualism">
-                  <article type="ess" nl="Essential Dualism of symbols and sentiment"></article>
-                  <article type="ess" nl="Recursive Dualism as applied to this organization"></article>
-                </action>
-                <action id="pr_oth" lbl="More Articles" nl="others">
-                  <article type="ess" nl="Cartesian Dualism and Undecidability"></article>
-                  <article type="ess" nl="Positivism- Vienna Circle"></article>
-                  <article type="ess" nl="Treatment of science in eastern and western spiritualism"></article>
-                </action>
-             </minor>
-      </major>
+      
+     
        <major id="Research" nl="Research" lbl="Research" >
       		<minor id="rs_app" lbl="Applied Research" nl="appld research">
                 <action id="rs_ai" lbl="ML/AI" nl="ml/ai">
@@ -154,6 +153,11 @@ Conventions		> Scout and Scholar
                  <article type="ess" nl="Privacy and Explainability"></article>
                  <article type="ess" nl="Efficacy of Formal Computing Architectures"></article>
                  <article type="ess" nl="Formalization of AI/ML approaches"></article>
+                 <article type="ess" nl="PSSH and Milner"></article>
+                 </action>
+             </minor>
+            <minor id="rs_crt" lbl="Critical Research" nl="crit research">
+                 <action id="rs_agile" lbl="Criticism of Agile/digital" nl="agile">
                  </action>
             </minor>
             	<minor id="rs_the" lbl="Classicism" nl="stdy research">
@@ -174,9 +178,66 @@ Conventions		> Scout and Scholar
                 <article type="ess" nl="Conservation activities"></article>
                  </action>
              </minor>
-              <minor id="cnv_miri" lbl="Machine Intelligence Research Collaboration" nl="MIRIx">   
+              <minor id="cnv_miri" lbl="MIRIx Collaboration" nl="MIRIx">   
                  <action id="cnv_miri" lbl="Machine Intelligence Research Collaboration" nl="mirix">
                  </action>
             </minor>
-      </major>		  
+      </major>	
+       <major id="Ideals" nl="Principles" lbl="Ideals" >
+      		<minor id="pr_sc" lbl="Science" nl="Science">
+                <action id="pr_sc" lbl="Science as emancipatory" nl="Science as an emancipatory tool">
+                 <article type="ess" nl="Science as naturalistic, redemptive, peaceful"></article>
+                 <article type="ess" nl="Implicit ontologies and Metaphysics in science"></article>
+                 </action>
+            </minor>
+            <minor id="pr_exp" lbl="Exploration" nl="Exploration">
+                 <action id="pr_exp" lbl="Exploration or open domains" nl="Exploration or open domains">
+                  <article type="ess" nl="Science as Descriptive cataloguing"></article>
+                  <article type="ess" nl="Medicine and negative utilitarianism "></article>
+                </action>
+             </minor>
+              <minor id="pr_crt" lbl="Criticism" nl="Criticism">
+                  <action id="pr_crt" lbl="Does decision need its theory" nl="crticism">
+                	<article type="ess" nl="Regression, Bayesianism, Lagrangian techniques"></article>
+                  	<article type="ess" nl="Medicine and negative utilitarianism"></article>
+                </action>
+                <action id="pr_org" lbl="Undecidability" nl="dualism">
+                  	<article type="ess" nl="Essential Dualism of symbols and sentiment"></article>
+                  	<article type="ess" nl="Recursive Dualism as applied to this organization"></article>
+                </action>
+                <action id="pr_oth" lbl="More Articles" nl="others">
+                  	<article type="ess" nl="Cartesian Dualism and Undecidability"></article>
+                  	<article type="ess" nl="Positivism- Vienna Circle"></article>
+                  	<article type="ess" nl="Treatment of science in eastern and western spiritualism"></article>
+                </action>
+             </minor>
+      </major>
+      <major id="Philosophy" nl="Philosophy" lbl="Philosophy" >
+                <minor id="classicism" lbl="Clacissism" nl="Clacissism">
+                  <action type="landing" nl="Renaissance Now">
+                  	 <article type="ess" nl="Clacissism as the truth of the moment"></article>
+                  	 <article type="ess" nl="Remembering Clifford Trusedell"></article>
+                  </action>
+                  <action type="landing" nl="Clacissim + Romanticism">
+                  	<article type="ess" nl="Renaissance as complementing Romanticism"></article>
+                  	 <article type="ess" nl="Humanism, Artistic Freedom"></article>
+                  </action>
+                </minor>
+                <minor id="dualism" lbl="Epistemic Dualism" nl="Epistemic Dualism">
+                 <action type="landing" nl="Holy Undecidability">
+                  	<article type="landing" nl="Dualism as irreductible for all knowledge"></article>
+                  	 <article type="ess" nl="Descartes"></article>
+                  </action>
+                </minor>
+                 <minor id="mysticism" lbl="Essential Mysticism" nl="The final one">
+                 <action type="landing" nl= "Benevolent Omnipotence">
+                  	<article type="landing" nl="Essential Root as Undescribable, closest is love"></article>
+                  	 <article type="ess" nl="Confucius on Leniency"></article>
+                  </action>
+                  <action type="landing" nl="Something before Anything">
+                  	 <article type="ess" nl="Always Something before Anything"></article>
+                  	 <article type="ess" nl="Rejection of Nihilism"></article>
+                  </action>
+                </minor>
+      </major>	  
 </vsn>
