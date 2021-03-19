@@ -76,7 +76,7 @@
 										<hr style="margin-bottom: 0px;margin-top: 0px"></hr>
 										</lh>
 										<div th:each="sublink : ${headerLink.subMenuItems}">
-											<li th:id="${sublink.id}"><a th:text="''+${sublink.lbl}" style="cursor: pointer;" th:href="${sublink.levelCd}+${sublink.id}"
+											<li th:id="${sublink.id}"><a th:text="''+${sublink.lbl}" style="cursor: pointer;" th:href="${sublink.levelCd}+'__'+${sublink.id}+'?event=EV_'+${sublink.levelCd}"
 												onclick=""></a></li>
 											<div class="subMenu" th:each="sublink2 : ${sublink.subMenuItems}">
 												<li th:id="${sublink2.id}"><a th:text="''+${sublink2.lbl}" style="cursor: pointer;"

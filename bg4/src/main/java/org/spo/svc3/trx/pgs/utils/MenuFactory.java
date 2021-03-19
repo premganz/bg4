@@ -31,7 +31,7 @@ public class MenuFactory {
 		//docFactory.setNamespaceAware(true);
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 //		doc = docBuilder.parse(constants.getRepoPath()+"\\templates\\Schema.xml");
-		doc = docBuilder.parse(constants.getRepoPath()+"\\..\\templates\\Schema.xml");
+		doc = docBuilder.parse(constants.getRepoPath()+"\\content\\Schema.xml");
 	}
 	
 	
@@ -116,6 +116,38 @@ public class MenuFactory {
 		return menu;
 	}
 	
+	public  Menu subPageMenu(String majorId) throws Exception{
+		Menu menu = new Menu();
+		menu.setNl("Home");
+		menu.setLbl("Home");
+		menu.setClickable(false);
+		menu.setLevelCd("nonClickable");
+		List<Menu> menuList = getSubMenuList("//major/minor[@nl=\""+majorId+"\"]");
+		for(Menu m0:menuList) {
+			m0.setLevelCd("minor");
+			String lbl = m0.getLbl();
+			List<Menu> menuList0 = getSubMenuList("//minor[@lbl=\""+lbl+"\"]/action");
+			for(Menu m1:menuList0) {
+				m1.setLevelCd("action");
+				String nl = m1.getNl();
+				List<Menu> menuListL2 = getSubMenuList("//action[@nl=\""+nl+"\"]/article");
+				for(Menu m2:menuListL2) {
+					m2.setLevelCd("article");
+					String nl2 = m2.getNl();
+					List<Menu> menuListL3 = getSubMenuList("//major[@nl=\""+nl+"\"]/minor[@nl=\""+nl2+"\"]/article");
+					for(Menu m3:menuListL3) {
+						m3.setLevelCd("article");
+					}
+					m2.setSubMenuItems(menuListL3);
+				}
+				m1.setSubMenuItems(menuListL2);
+			}
+			m0.setSubMenuItems(menuList0);
+		}
+		menu.setSubMenuItems(menuList);
+		System.out.println(menu);
+		return menu;
+	}
 	
 	
 	

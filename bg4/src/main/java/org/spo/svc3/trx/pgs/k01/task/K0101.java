@@ -34,7 +34,7 @@ public class K0101 extends AbstractTask {
 		HomePage page = new HomePage();
 		page.setSubTitle("Welcome Page");
 		ActionAssembly aa = new ActionAssembly();
-		aa.setCodes("about","abt_why","Why_Projects_like_this_should_exist");
+		aa.setCodes("abt","abt_what_why","Methods_and_Manners_augm");
 		String response_content = svc.readUpPage(aa);
 		page.setWelcomeContent(response_content);
 		Menu sideBarMenu = new MenuFactory().homePageMenu();
@@ -48,11 +48,33 @@ public class K0101 extends AbstractTask {
 
 	@Override
 	public NavEvent processViewEvent(String event, String dataId, TrxInfo info) {
-		if(event.startsWith("EV_theme")){
-			dataId = dataId.replaceAll("theme__","");
+		if(event.startsWith("EV_action")){
+			dataId = dataId.replaceAll("action__","");
 			NavEvent navEvent = K01Handler.EV_SWITCH_SUB_LAND;
 			navEvent.dataId=dataId;
 			return navEvent;
+		}if(event.startsWith("EV_minor")) {
+			try {
+				dataId = dataId.replaceAll("minor__","");
+				HomePage page = new HomePage();
+				page.setSubTitle("Welcome Page");
+				ActionAssembly aa = new ActionAssembly();
+				aa.setCodes("about","abt_why","Why_Projects_like_this_should_exist");
+				String response_content = svc.readUpPage(aa);
+				page.setWelcomeContent(response_content);
+				Menu sideBarMenu = new MenuFactory().subPageMenu(dataId);
+				page.setSubTitle("hello");
+				page.setSideBarMenu(sideBarMenu);
+				info.addToModelMap("hom",page);
+				System.out.println(page.toString());
+				info.put(K01Toolkit.SV_K01_CONTENT_OVV, page);
+				return T02Handler.EV_INIT_01;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+//			page.setSubTitle("hello");
+//			page.setSideBarMenu(sideBarMenu);
 		}
 		return K01Handler.EV_INIT_01;
 	}

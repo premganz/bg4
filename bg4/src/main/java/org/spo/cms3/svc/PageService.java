@@ -61,7 +61,7 @@ public class PageService {
 
 	public String readUpPage(ActionAssembly assem){
 		File f = null;
-		String path=constants.getRepoPath()+"/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+".txt";
+		String path=constants.getRepoPath()+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+".txt";
 		log.debug("attempting to read page ");
 		logger.error("attempting to read page "+ path);
 		f= new File(path);
@@ -77,7 +77,7 @@ public class PageService {
 		URL resourceUrl = getClass().getResource("/posts/HelloWorld.html");
 		BufferedWriter writerBuf = null;
 		System.out.println("writing to file "+constants.getRepoPath()+"/"+fileName+".txt");
-		f= new File(constants.getRepoPath()+"/"+fileName+".txt");
+		f= new File(constants.getRepoPath()+"/content/"+fileName);
 		FileWriter writer;
 		try {
 			writer= new FileWriter(f);
@@ -153,15 +153,18 @@ public class PageService {
 
 	}
 
-	public List<String> readFileCatalog(String major, String minor){
+	public List<String> readFileCatalog(String major, String minor, String action){
 		File f = null;
 
 		ArrayList<String> resultList = new ArrayList<String>();
 		String resourcePath="";
-		if(minor!=null) {
+		if(action!=null) {
+			resourcePath=constants.getRepoPath()+"/"+major+"/"+minor+"/"+action;
+		}
+		else if(minor!=null) {
 			resourcePath=constants.getRepoPath()+"/"+major+"/"+minor;
 		}else {
-			resourcePath=constants.getRepoPath()+"/"+minor;
+			resourcePath=constants.getRepoPath()+"/"+major;
 		}
 
 		File[] fileArray = new File(resourcePath).listFiles();

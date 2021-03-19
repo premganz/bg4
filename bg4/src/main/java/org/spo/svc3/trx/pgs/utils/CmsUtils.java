@@ -32,7 +32,7 @@ public class CmsUtils {
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		//docFactory.setNamespaceAware(true);
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-		doc = docBuilder.parse(constants.getRepoPath()+"\\templates\\Schema.xml");
+		doc = docBuilder.parse(constants.getRepoPath()+"\\content\\Schema.xml");
 		
 
 	}
@@ -59,7 +59,7 @@ public class CmsUtils {
 	private  void organizeFoldersHelper1(Element node, String currentStrategyDir, String currentDomainDir, boolean isMeta) throws Exception {
 		// do something with the current node instead of System.out
 		String cmsPath = isMeta?cmsDir:cmsMetaDir;
-		String extn = isMeta?".txt":"_augm.txt";
+		String extn = isMeta?"_augm.txt":".txt";
 		System.out.println(node.getNodeName());
 		NodeList nodeList = node.getChildNodes();
 		for (int i = 0; i < nodeList.getLength(); i++) {
@@ -163,7 +163,8 @@ public class CmsUtils {
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		//docFactory.setNamespaceAware(true);
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-//		cmsUtil.doc=docBuilder.parse("C:\\Users\\premganesh\\git\\bg4\\bg4\\src\\test\\resources\\ApplicationNavTreeModelGeneric.xml");
+		cmsUtil.doc=docBuilder.parse("C:\\Users\\gs1-premg\\git\\bg4-2\\bg4\\src\\main\\resources\\data-cms\\templates\\Schema.xml");
+//				"C:\\Users\\premganesh\\git\\bg4\\bg4\\src\\test\\resources\\ApplicationNavTreeModelGeneric.xml");
 		cmsUtil.organizeFolders();
 	}
 	

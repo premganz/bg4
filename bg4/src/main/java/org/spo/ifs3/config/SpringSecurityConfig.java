@@ -28,7 +28,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/login**").permitAll()
-                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/admin1/**").hasRole("ADMIN")//TODO FIXME revert to admin later
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()

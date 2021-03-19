@@ -4,7 +4,7 @@
 
 <title>x_content1</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/pijlljln72gb1mlk2gvsxe2d6cougamz2qopz27dtv0fa3hy/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script type="text/javascript">
         tinymce.init({
         	  plugins: "image link code table textcolor",
@@ -38,24 +38,88 @@
 <script>
     var greet='';
 		
+    var greet='';
+	$(document).ready(function(){
+	  $("#fileselect2").change(function(){
+		  var msg= 'Select  '+ $(this).attr('id')+'   '+ $(this).val();
+	  $("#myEdit").html(msg);
+	  $("#myTextArea").val("new text");
+	
+	  });
+	});
+	$(document).ready(function(){
+	$("#fileselect1").change(function(){
+	    $.ajax({
+	    	url: "http://localhost:8089/admin/list2/"+$(this).val(),async: false, 
+	    	dataType: 'json',
+	    	success: function(data,textStatus){
+	    		console.log(data);
+	        //$("#myTextArea").val(JSONstringify(data));
+	       
+	        $("#fileName").prop("background-color", "PINK");
+	       // $("#fileName").val(JSONstringify(data));
+	        //tinyMCE.get('mytextarea').setContent(JSONstringify(data));
+	        var len = data.length;
+            $("#fileselect2").empty();
+            var i = 0;            
+            var options='';
+            for (;data[i];) {
+            	console.log(data[i]);
+              options += '<option value="' + data[i]+ '">' + data[i]+ '</option>';
+              i++;
+            }
+            $("#fileselect2").html(options);
+	       //$('#fileselect2').append(['a','b']);
+	    },
+	    
+	    error:function(exception){alert('Exeption:'+exception);}
+	    
+	    });
+	   
+	});
+	});
+	
+	
+	$(document).ready(function(){
+		$("#fileselect2").change(function(){
+			console.log($("#fileselect2").val());
+		    $.ajax({
+		    	url: "http://localhost:8089/admin/list3/"+$("#fileselect1").val()+"/"+$("#fileselect2").val(),
+		    	async: false, 
+		    	dataType: 'json',
+		    	success: function(data,textStatus){
+		        var len = data.length;
+	            $("#fileselect3").empty();
+	            var i = 0;            
+	            var options='';
+	            for (;data[i];) {
+	            	console.log(data[i]);
+	              options += '<option value="' + data[i]+ '">' + data[i]+ '</option>';
+	              i++;
+	            }
+	            $("#fileselect3").html(options);
+		       //$('#fileselect2').append(['a','b']);
+		    },
+		    
+		    error:function(exception){alert('Exeption:'+exception);}
+		    
+		    });
+		   
+		});
+		});
+	
+    
 		$(document).ready(function(){
 		$("#fetch1").click(function(){
 			
 		    $.ajax(
-		    	{url: "edit?fileName="+ $("#fileselect").val(),async: false, 
+		    	{url: "http://localhost:8089/admin/content/"+$("#fileselect1").val()+"/"+$("#fileselect2").val()+"/"+$("#fileselect3").val(),async: false, 
 		    	success: function(result){
-		    		tinyMCE.activeEditor.setContent(result);
+		    		//tinyMCE.activeEditor.setContent(result);
+		    		tinyMCE.get('mytextarea').setContent(result);
 		    		$("#fileName").prop("background-color", "PINK");
 		    	}
 		    	});
-		    $.ajax(
-			    	{url: "edit?fileName="+ $("#fileselect").val()+"_meta",async: false, 
-			    	success: function(result){
-			    		$("#fileMeta").prop("value", result);
-			    		$("#fileMeta").prop("background-color", "PINK");
-			    	}
-			    });
-		   
 		});
 		});
 		
@@ -109,7 +173,7 @@
 					<tr>
 						<td>
 							<p>
-							<select id="fileselect" >
+							<select id="fileselect1" th:field="${content.path1}" >
 								<div th:each="link : ${files1}">
 								<option th:text="${link}" ></option>					
 								</div>
@@ -117,7 +181,7 @@
 							</p>
 							 <h5><div th:utext="${content.formErrors}"></div></h5>
 							
-								<p>FileName L1 : <input id="fileName" th:name="input" th:field="${content.id}" maxlength="100" />Meta : <input id="fileMeta" th:name="input" th:field="*{content.meta}" maxlength="500" /></p>
+								<p>FileName  : <input id="fileName" th:name="input" th:field="${content.id}" maxlength="100" />Meta : <input id="fileMeta" th:name="input" th:field="*{content.meta}" maxlength="500" /></p>
 																					
 						</td>
 						<td><br></br> <button  id="fetch" onClick="loadContent()">Post</button></td>
@@ -126,15 +190,19 @@
 					<tr>
 						<td>
 							<p>
-							<select id="fileselect" >
-								<div th:each="link : ${files2}">
-								<option th:text="${link}" ></option>					
-								</div>
-							</select>
+							<select name="fileselect2" id="fileselect2"  th:field="${content.path2}">
+   								 <option value="1">Please Choose</option>
+  							</select>
 							</p>
+							<p>
+							<select name="fileselect3" id="fileselect3"  th:field="${content.path3}">
+   								 <option value="1">Please Choose</option>
+  							</select>
+							</p>
+							
 							 <h5><div th:utext="${content.formErrors}"></div></h5>
 							
-								<p>FileName L2: <input id="fileName" th:name="input" th:field="${content.id}" maxlength="100" />Meta : <input id="fileMeta" th:name="input" th:field="*{content.meta}" maxlength="500" /></p>
+								
 																					
 						</td>
 						<td><br></br> <button  id="fetch" onClick="loadContent()">Post</button></td>
