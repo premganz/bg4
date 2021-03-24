@@ -31,7 +31,7 @@ public class MenuFactory {
 		//docFactory.setNamespaceAware(true);
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 //		doc = docBuilder.parse(constants.getRepoPath()+"\\templates\\Schema.xml");
-		doc = docBuilder.parse(constants.getRepoPath()+"\\content\\Schema.xml");
+		doc = docBuilder.parse(constants.getRepoPath()+"\\content\\meta\\meta-schema\\Schema_cms.xml");
 	}
 	
 	
@@ -59,15 +59,18 @@ public class MenuFactory {
 			Node itemNode = headerNodes.item(i);
 			String menuLbl = itemNode.getAttributes().getNamedItem("lbl")!=null?
 					itemNode.getAttributes().getNamedItem("lbl").getTextContent():
-						itemNode.getAttributes().getNamedItem("nl").getTextContent();
+						itemNode.getAttributes().getNamedItem("id").getTextContent();
 			
-			String nl = itemNode.getAttributes().getNamedItem("nl").getTextContent();
+			String nl = itemNode.getAttributes().getNamedItem("nl")!=null?
+					itemNode.getAttributes().getNamedItem("nl").getTextContent():						"";
+			String id = itemNode.getAttributes().getNamedItem("id").getTextContent();
 			String nlId = nl.replaceAll(" ", "_");
 			
 			Menu subMenu = new Menu();
 			subMenu.setLbl(menuLbl);
 			subMenu.setNl(nl);
 			subMenu.setNlId(nlId);
+			subMenu.setId(id);
 			menuList.add(subMenu);
 		}
 		System.out.println("processed "+expression +"  Returned "+menuList.size());
@@ -92,16 +95,16 @@ public class MenuFactory {
 		List<Menu> menuList = getSubMenuList("//major");
 		for(Menu m0:menuList) {
 			m0.setLevelCd("major");
-			String lbl = m0.getLbl();
-			List<Menu> menuList0 = getSubMenuList("//major[@lbl=\""+lbl+"\"]/minor");
+			String id = m0.getId();
+			List<Menu> menuList0 = getSubMenuList("//major[@id=\""+id+"\"]/minor");
 			for(Menu m1:menuList0) {
 				m1.setLevelCd("minor");
-				String nl = m1.getNl();
-				List<Menu> menuListL2 = getSubMenuList("//minor[@nl=\""+nl+"\"]/action");
+				String minor_id = m1.getId();
+				List<Menu> menuListL2 = getSubMenuList("//minor[@id=\""+minor_id+"\"]/action");
 				for(Menu m2:menuListL2) {
 					m2.setLevelCd("action");
-					String nl2 = m2.getNl();
-					List<Menu> menuListL3 = getSubMenuList("//major[@nl=\""+nl+"\"]/minor[@nl=\""+nl2+"\"]/article");
+					String action_id = m2.getId(); //xpath is probably incorrect
+					List<Menu> menuListL3 = getSubMenuList("//major[@id=\""+minor_id+"\"]/minor[@id=\""+action_id+"\"]/article");
 					for(Menu m3:menuListL3) {
 						m3.setLevelCd("article");
 					}
@@ -122,19 +125,19 @@ public class MenuFactory {
 		menu.setLbl("Home");
 		menu.setClickable(false);
 		menu.setLevelCd("nonClickable");
-		List<Menu> menuList = getSubMenuList("//major/minor[@nl=\""+majorId+"\"]");
+		List<Menu> menuList = getSubMenuList("//major/minor[@id=\""+majorId+"\"]/../minor");
 		for(Menu m0:menuList) {
 			m0.setLevelCd("minor");
-			String lbl = m0.getLbl();
-			List<Menu> menuList0 = getSubMenuList("//minor[@lbl=\""+lbl+"\"]/action");
+			String lbl = m0.getId();
+			List<Menu> menuList0 = getSubMenuList("//minor[@id=\""+lbl+"\"]/action");
 			for(Menu m1:menuList0) {
 				m1.setLevelCd("action");
-				String nl = m1.getNl();
-				List<Menu> menuListL2 = getSubMenuList("//action[@nl=\""+nl+"\"]/article");
+				String nl = m1.getId();
+				List<Menu> menuListL2 = getSubMenuList("//action[@id=\""+nl+"\"]/article");
 				for(Menu m2:menuListL2) {
 					m2.setLevelCd("article");
-					String nl2 = m2.getNl();
-					List<Menu> menuListL3 = getSubMenuList("//major[@nl=\""+nl+"\"]/minor[@nl=\""+nl2+"\"]/article");
+					String nl2 = m2.getId();
+					List<Menu> menuListL3 = getSubMenuList("//major[@id=\""+nl+"\"]/minor[@id=\""+nl2+"\"]/article");
 					for(Menu m3:menuListL3) {
 						m3.setLevelCd("article");
 					}
@@ -180,29 +183,29 @@ public class MenuFactory {
 	
 	
 	
-	public  Menu deriveQueryMenu(String actionPageId) throws Exception{
-		Menu menu = new Menu();
-		menu.setLbl("Home");
-		List<Menu> menuList = getSubMenuList("//action[@nl=\""+actionPageId+"\"]/query");
-		for(Menu m1:menuList) {
-			m1.setLevelCd("does");
-			String lbl = m1.getLbl();
-			List<Menu> menuListL2 = getSubMenuList("//does[@nl=\""+lbl+"\"]/intent/strategy/theme");
-			for(Menu m2:menuListL2) {
-				m2.setLevelCd("theme");
-				String lbl2 = m2.getLbl();
-				List<Menu> menuListL3 = getSubMenuList("//does[@nl=\""+lbl+"\"]/intent/strategy/theme[@nl=\""+lbl2+"\"]/visit");
-				for(Menu m3:menuListL3) {
-					m3.setLevelCd("visit");
-				}
-				m2.setSubMenuItems(menuListL3);
-			}
-			m1.setSubMenuItems(menuListL2);
-		}
-		menu.setSubMenuItems(menuList);
-		System.out.println(menu);
-		return menu;
-	}
+//	public  Menu deriveQueryMenu(String actionPageId) throws Exception{
+//		Menu menu = new Menu();
+//		menu.setLbl("Home");
+//		List<Menu> menuList = getSubMenuList("//action[@id=\""+actionPageId+"\"]/query");
+//		for(Menu m1:menuList) {
+//			m1.setLevelCd("does");
+//			String lbl = m1.getId();
+//			List<Menu> menuListL2 = getSubMenuList("//does[@id=\""+lbl+"\"]/intent/strategy/theme");
+//			for(Menu m2:menuListL2) {
+//				m2.setLevelCd("theme");
+//				String lbl2 = m2.getId();
+//				List<Menu> menuListL3 = getSubMenuList("//does[@nl=\""+lbl+"\"]/intent/strategy/theme[@nl=\""+lbl2+"\"]/visit");
+//				for(Menu m3:menuListL3) {
+//					m3.setLevelCd("visit");
+//				}
+//				m2.setSubMenuItems(menuListL3);
+//			}
+//			m1.setSubMenuItems(menuListL2);
+//		}
+//		menu.setSubMenuItems(menuList);
+//		System.out.println(menu);
+//		return menu;
+//	}
 	
 	
 	

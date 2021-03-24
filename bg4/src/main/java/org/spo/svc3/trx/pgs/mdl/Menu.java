@@ -30,7 +30,7 @@ public class Menu {
 
 
 	public String getId() {
-		return nl.replaceAll(" " , "_");
+		return id;
 	}
 
 	public void setId(String id) {

@@ -32,7 +32,7 @@ public class CmsUtils {
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		//docFactory.setNamespaceAware(true);
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-		doc = docBuilder.parse(constants.getRepoPath()+"\\content\\Schema.xml");
+		doc = docBuilder.parse(constants.getRepoPath()+"\\content\\meta\\meta-schema\\Schema_cms.xml");
 		
 
 	}
@@ -79,9 +79,17 @@ public class CmsUtils {
 					if(!dir.exists()) {
 						dir.mkdirs();
 					}
+					File indexFileMajor = new File(cmsDir+currentStrategyDir+"/index.txt");
+					if(!indexFileMajor.exists()) {
+						indexFileMajor.createNewFile();
+					}
+					File indexFileMinor = new File(cmsDir+currentStrategyDir+"/"+currentDomainDir+"/index.txt");
+					if(!indexFileMinor.exists()) {
+						indexFileMinor.createNewFile();
+					}
 				}
 				if(currentNode.getNodeName().equals("action")) {
-					File file = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentNode.getAttributes().getNamedItem("nl").getTextContent().replaceAll(" ", "_")+extn);
+					File file = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentNode.getAttributes().getNamedItem("id").getTextContent().replaceAll(" ", "_")+extn);
 					if(!file.exists()) {
 						log.debug("creating file "+file.getName());
 						file.createNewFile();
@@ -99,39 +107,40 @@ public class CmsUtils {
 	}
 
 
-	private  void organizeFoldersHelper(Node node) throws Exception {
-		// do something with the current node instead of System.out
-		System.out.println(node.getNodeName());
-		String currentStrategyDir="";
-		String currentDomainDir="";
-		NodeList nodeList = node.getChildNodes();
-		for (int i = 0; i < nodeList.getLength(); i++) {
-			Node currentNode = nodeList.item(i);
-			if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
-				if(currentNode.getNodeName().equals("major")) {
-					currentStrategyDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
-					File dir = new File (cmsDir+currentStrategyDir);
-					if(!dir.exists()) {
-						dir.mkdirs();
-					}
-				}
-				if(currentNode.getNodeName().equals("minor")) {
-					currentDomainDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
-					File dir = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir);
-					if(!dir.exists()) {
-						dir.mkdirs();
-					}
-				}
-				if(currentNode.getNodeName().equals("action")) {
-					File file = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentNode.getAttributes().getNamedItem("id").getTextContent()+".txt");
-					if(!file.exists()) {
-						file.createNewFile();
-					}
-				}
-			}
-		}
-
-	}
+//	private  void organizeFoldersHelper(Node node) throws Exception {
+//		// do something with the current node instead of System.out
+//		System.out.println(node.getNodeName());
+//		String currentStrategyDir="";
+//		String currentDomainDir="";
+//		NodeList nodeList = node.getChildNodes();
+//		for (int i = 0; i < nodeList.getLength(); i++) {
+//			Node currentNode = nodeList.item(i);
+//			if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
+//				if(currentNode.getNodeName().equals("major")) {
+//					currentStrategyDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
+//					File dir = new File (cmsDir+currentStrategyDir);
+//					if(!dir.exists()) {
+//						dir.mkdirs();
+//					}
+//					
+//				}
+//				if(currentNode.getNodeName().equals("minor")) {
+//					currentDomainDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
+//					File dir = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir);
+//					if(!dir.exists()) {
+//						dir.mkdirs();
+//					}
+//				}
+//				if(currentNode.getNodeName().equals("action")) {
+//					File file = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentNode.getAttributes().getNamedItem("id").getTextContent()+".txt");
+//					if(!file.exists()) {
+//						file.createNewFile();
+//					}
+//				}
+//			}
+//		}
+//
+//	}
 
 
 	public NodeList util_queryHelper(String expression) throws Exception{
@@ -163,9 +172,10 @@ public class CmsUtils {
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		//docFactory.setNamespaceAware(true);
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-		cmsUtil.doc=docBuilder.parse("C:\\Users\\gs1-premg\\git\\bg4-2\\bg4\\src\\main\\resources\\data-cms\\templates\\Schema.xml");
+//		cmsUtil.doc=docBuilder.parse("C:\\Users\\gs1-premg\\git\\bg4-2\\bg4\\src\\main\\resources\\data-cms\\cms1\\content\\Schema_cms.xml");
 //				"C:\\Users\\premganesh\\git\\bg4\\bg4\\src\\test\\resources\\ApplicationNavTreeModelGeneric.xml");
 		cmsUtil.organizeFolders();
+//		cmsUtil.organizeFoldersMeta();
 	}
 	
 	

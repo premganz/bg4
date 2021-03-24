@@ -14,6 +14,7 @@ import org.spo.svc3.trx.pgs.mdl.HomePage;
 import org.spo.svc3.trx.pgs.mdl.Menu;
 import org.spo.svc3.trx.pgs.t02.handler.T02Handler;
 import org.spo.svc3.trx.pgs.utils.MenuFactory;
+import org.spo.svc3.trx.pgs.utils.SchemaQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -56,10 +57,12 @@ public class K0101 extends AbstractTask {
 		}if(event.startsWith("EV_minor")) {
 			try {
 				dataId = dataId.replaceAll("minor__","");
+				
 				HomePage page = new HomePage();
 				page.setSubTitle("Welcome Page");
 				ActionAssembly aa = new ActionAssembly();
-				aa.setCodes("about","abt_why","Why_Projects_like_this_should_exist");
+				SchemaQuery schemaQuery = new SchemaQuery();
+				aa=schemaQuery.getMinorLandingPage(dataId);
 				String response_content = svc.readUpPage(aa);
 				page.setWelcomeContent(response_content);
 				Menu sideBarMenu = new MenuFactory().subPageMenu(dataId);
