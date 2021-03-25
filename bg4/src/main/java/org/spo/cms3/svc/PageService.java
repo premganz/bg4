@@ -17,6 +17,7 @@ import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spo.ifs3.template.web.Constants;
+import org.spo.svc3.config.AppConstants;
 import org.spo.svc3.trx.pgs.mdl.ActionAssembly;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -61,42 +62,109 @@ public class PageService {
 
 	public String readUpPage(ActionAssembly assem){
 		File f = null;
-		String path=constants.getRepoPath()+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+"."+assem.getExtension();
+		String repoPath=constants.getRepoPath();
+		String path=repoPath+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+"."+assem.getExtension();
 		log.debug("attempting to read page ");
 		logger.error("attempting to read page "+ path);
 		f= new File(path);
-		return readUpPageUtils(f);
+		String bufContent = readUpPageUtils(f);
+		String contentToReturn = "";
+		if(bufContent.contains(AppConstants.CONTENT_SEPERATOR)) {
+			contentToReturn = bufContent.split(AppConstants.CONTENT_SEPERATOR)[0];	
+		}else {
+			contentToReturn = bufContent;
+		}
+		return contentToReturn;
+	}
+	public String readUpMeta(ActionAssembly assem){
+		File f = null;
+		String repoPath=constants.getRepoPath();
+		String path=repoPath+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+"."+assem.getExtension();
+		log.debug("attempting to read page ");
+		logger.error("attempting to read page "+ path);
+		f= new File(path);
+		String bufContent = readUpPageUtils(f);
+		String contentToReturn = "";
+		if(bufContent.contains(AppConstants.CONTENT_SEPERATOR) && bufContent.split(AppConstants.CONTENT_SEPERATOR).length>1) {
+			contentToReturn = bufContent.split(AppConstants.CONTENT_SEPERATOR)[1];	
+		}else {
+			contentToReturn = bufContent;
+		}
+		return contentToReturn;
 	}
 
+	
+	
+	public String readUpPageStaging(ActionAssembly assem){
+		File f = null;
+		String repoPath=constants.getRepoPath();
+		repoPath=constants.getRepoPath().replaceAll("cms1", "cms-staging");
+		String path=repoPath+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+"."+assem.getExtension();
+		log.debug("attempting to read page ");
+		logger.error("attempting to read page "+ path);
+		f= new File(path);
+		String bufContent = readUpPageUtils(f);
+		String contentToReturn = "";
+		if(bufContent.contains(AppConstants.CONTENT_SEPERATOR)) {
+			contentToReturn = bufContent.split(AppConstants.CONTENT_SEPERATOR)[0];	
+		}else {
+			contentToReturn = bufContent;
+		}
+		return contentToReturn;
+	}
+	
+	public String readUpPageStagingMeta(ActionAssembly assem){
+		File f = null;
+		String repoPath=constants.getRepoPath();
+		repoPath=constants.getRepoPath().replaceAll("cms1", "cms-staging");
+		String path=repoPath+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+"."+assem.getExtension();
+		log.debug("attempting to read page ");
+		logger.error("attempting to read page "+ path);
+		f= new File(path);
+		String bufContent = readUpPageUtils(f);
+		String contentToReturn = "";
+		if(bufContent.contains(AppConstants.CONTENT_SEPERATOR) && bufContent.split(AppConstants.CONTENT_SEPERATOR).length>1) {
+			contentToReturn = bufContent.split(AppConstants.CONTENT_SEPERATOR)[1];	
+		}else {
+			contentToReturn = bufContent;
+		}
+		return contentToReturn;
+	}
+	
 	public void createFile(ActionAssembly assem){
 		File f = null;
 		String path=constants.getRepoPath()+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+"."+assem.getExtension();
+		String staging_path=constants.getRepoPath().replaceAll("cms1", "cms-staging")+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+"."+assem.getExtension();
 		log.debug("attempting to read page ");
 		logger.error("attempting to create page "+ path);
-		f= new File(path);
-		if(f.exists()) return;
-		
+		f= new File(path);File f_staging = new File(path);
 		try {
+			if(!f.exists()) 
 			f.createNewFile();
+			if(!f_staging.exists())
+			f_staging.createNewFile();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 
-	public void writePage(String fileName, String content){
+	public void writePage(String fileName, String content, String metaContent, boolean publishNow){
 		File f = null;
 		StringBuffer buf = new StringBuffer();
 		URL resourceUrl = getClass().getResource("/posts/HelloWorld.html");
 		BufferedWriter writerBuf = null;
+		String repoPath=constants.getRepoPath();
+		if(!publishNow) {
+			repoPath=constants.getRepoPath().replaceAll("cms1", "cms-staging");
+		}
 		System.out.println("writing to file "+constants.getRepoPath()+"/"+fileName+".txt");
-		f= new File(constants.getRepoPath()+"/content/"+fileName);
+		f= new File(repoPath+"/content/"+fileName);
 		FileWriter writer;
 		try {
 			writer= new FileWriter(f);
 			writerBuf = new BufferedWriter(writer);
-
-			writerBuf.write(content);
+			writerBuf.write(content+AppConstants.CONTENT_SEPERATOR+metaContent);
 
 
 		} catch (IOException e1) {
@@ -225,7 +293,8 @@ public class PageService {
 			buf.append("BLANK");
 			buf.append("***EOL***");
 		}
-		return buf.toString();
+		String bufContent = buf.toString();
+		return bufContent;
 
 	}
 

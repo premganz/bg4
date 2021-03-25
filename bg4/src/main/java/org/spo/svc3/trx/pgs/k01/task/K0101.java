@@ -38,7 +38,7 @@ public class K0101 extends AbstractTask {
 		page.setWelcomeContent(response_content);
 		Menu sideBarMenu = new MenuFactory().homePageMenu();
 //		page.setSubTitle("Forum for Scholarship and Exploration");
-		page.setSubTitle("A Classical Criticism of Contemproary Engineering");
+		page.setSubTitle("Classical Criticism of Contemproary Engineering");
 		page.setSideBarMenu(sideBarMenu);
 		info.addToModelMap("hom",page);
 		System.out.println(page.toString());
@@ -55,7 +55,6 @@ public class K0101 extends AbstractTask {
 			return navEvent;
 		}if(event.startsWith("EV_minor")) {
 			try {
-				
 				dataId = dataId.replaceAll("minor__","");
 				K01Toolkit.setMinorCode(info, dataId);
 				return K01Handler.EV_MINOR_PAGE;

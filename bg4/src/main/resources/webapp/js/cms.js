@@ -72,12 +72,9 @@
 		});
 		});
 	
-	$(document).ready(function(){
-		$("#fileselect3").click(function(){});
-		});
     
 		$(document).ready(function(){
-		$("#fetch1").click(fetchFunction);
+		$("#fetch1").click(fetchStaged);
 		});
 		
 		var fetchFunction=function(){
@@ -91,6 +88,27 @@
 		    		$("#fileName").prop("background-color", "PINK");
 		    	}
 		    	});
+		}
+		var fetchStaged=function(){
+			
+		    $.ajax(
+		    	{url: "http://localhost:8089/admin/contentStaging/"+$("#fileselect1").val()+"/"+$("#fileselect2").val()+"/"+$("#fileselect3").val(),async: false, 
+		    	success: function(result){
+		    		console.log(result);
+		    		//tinyMCE.activeEditor.setContent(result);
+		    		tinyMCE.get('mytextarea').setContent(result);
+		    		$("#fileName").prop("background-color", "PINK");
+		    	}
+		    	});
+		    $.ajax(
+			    	{url: "http://localhost:8089/admin/contentStagingMeta/"+$("#fileselect1").val()+"/"+$("#fileselect2").val()+"/"+$("#fileselect3").val(),async: false, 
+			    	success: function(result){
+			    		console.log(result);
+			    		//tinyMCE.activeEditor.setContent(result);
+			    		$("#mytextarea3").val(result);
+			    	}
+			    	});
+		    
 		}
 		
 		$(document).ready(function(){

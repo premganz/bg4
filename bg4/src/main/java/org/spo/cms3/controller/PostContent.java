@@ -9,9 +9,18 @@ public class PostContent {
 	private String path1;
 	private String path2;
 	private String path3;
+	private boolean publishReady;
 	
 	/**MAnually Added**/
 	private Map<String,String> metaMap;
+
+	public boolean getPublishReady() {
+		return publishReady;
+	}
+
+	public void setPublishReady(boolean publishReady) {
+		this.publishReady = publishReady;
+	}
 
 	private String id;
 	private String formErrors;
@@ -92,6 +101,8 @@ public class PostContent {
 	public void setPath3(String path3) {
 		this.path3 = path3;
 	}
+
+	
 
 
 
