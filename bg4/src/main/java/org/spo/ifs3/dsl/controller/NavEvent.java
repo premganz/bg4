@@ -8,6 +8,7 @@ public class NavEvent {
 	private String trxId;//target trx
 	private String eventId;//target event mostly for triggering an event from the page.
 	private String taskId;//target task
+	@Deprecated
 	public String dataId;//data key for the trx
 	public NavEvent previousEvent;
 	public String url;

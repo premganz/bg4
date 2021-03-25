@@ -1,6 +1,5 @@
 package org.spo.cms3.controller;
 
-import java.io.File;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -12,6 +11,7 @@ import org.spo.cms3.svc.PageService;
 import org.spo.cms3.svc.SocketConnector;
 import org.spo.ifs3.template.web.Constants;
 import org.spo.svc3.trx.pgs.mdl.ActionAssembly;
+import org.spo.svc3.trx.pgs.utils.CmsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +20,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
@@ -34,7 +33,8 @@ public class CMSContentPageController {
     private static final Logger logger = LoggerFactory
             .getLogger(CMSContentPageController.class);
 
-   
+   @Autowired
+   public CmsUtils cmsUtils;
  
     
 	private SocketConnector connector=new SocketConnector();
@@ -77,77 +77,93 @@ public class CMSContentPageController {
 		 assem.setCodes(topic, topic2, article);
 		 return svc.readUpPage(assem);
 	 }
+	 @ResponseBody
+	 @RequestMapping(value = "admin/content/fetchTemplate", method = RequestMethod.GET)
+	 public String fetchTemplate(Locale locale, Model model) {
+		 ActionAssembly assem = new ActionAssembly();
+		 assem.setCodes("meta", "meta-schema", "Schema_cms").setExtension("xml");		 
+		 return cmsUtils.formatXml(svc.readUpPage(assem));
+	 }
 	
 	 @ResponseBody
-	 @RequestMapping(value="admin/edit",   params={"fileName"})
-	 public String editContent(
-		        final PostContent content, final BindingResult bindingResult, final ModelMap model,
-		        @RequestParam(value="fileName", required=false) String fileName 
-		       ) {
-		    if (bindingResult.hasErrors()) {
-		        return "seedstartermng";
-		    }
-		    
-		    System.out.println(content.getHtmlContent());
-		   // this.seedStarterService.add(seedStarter);
-		        logger.info("Searching "+fileName  );
-		        QMessage message = new QMessage();
-				message.setHandler("fetch");
-				//message.setContent(content.getHtmlContent());
-				
-				String response ="<p>blank reply</p>";
-				try {		
-					response = svc.readUpPage("posts", fileName);
-					String response_meta = svc.readUpPage("posts", fileName+"");
-					//response = connector.getResponse(message);
-					//TextMessage reply = sender.simpleSend(message.toString()); 
-					//response=reply.getText();
-					content.setHtmlContent(response);
-					content.setMeta(response_meta);
-				} catch (Exception e) {			
-					e.printStackTrace();
-				}
-			
-			response=response.equals("")?"<p>blank reply</p>":response;
-		    model.clear();
-		    model.addAttribute("content", message);
-		    return response ;
-		}
-	
+	 @RequestMapping(value = "admin/content/createFile/{topic}/{topic2}/{fileName}", method = RequestMethod.GET)
+	 public String createFile(Locale locale, Model model, @PathVariable String topic, @PathVariable String topic2, @PathVariable String fileName) {
+		 ActionAssembly assem = new ActionAssembly();
+		 assem.setCodes(topic, topic2, fileName);
+		 svc.createFile(assem);
+		 return "done";
+	 }
 	 
+//	 @ResponseBody
+//	 @RequestMapping(value="admin/edit",   params={"fileName"})
+//	 public String editContent(
+//		        final PostContent content, final BindingResult bindingResult, final ModelMap model,
+//		        @RequestParam(value="fileName", required=false) String fileName 
+//		       ) {
+//		    if (bindingResult.hasErrors()) {
+//		        return "seedstartermng";
+//		    }
+//		    
+//		    System.out.println(content.getHtmlContent());
+//		   // this.seedStarterService.add(seedStarter);
+//		        logger.info("Searching "+fileName  );
+//		        QMessage message = new QMessage();
+//				message.setHandler("fetch");
+//				//message.setContent(content.getHtmlContent());
+//				
+//				String response ="<p>blank reply</p>";
+//				try {		
+//					response = svc.readUpPage("posts", fileName);
+//					String response_meta = svc.readUpPage("posts", fileName+"");
+//					//response = connector.getResponse(message);
+//					//TextMessage reply = sender.simpleSend(message.toString()); 
+//					//response=reply.getText();
+//					content.setHtmlContent(response);
+//					content.setMeta(response_meta);
+//				} catch (Exception e) {			
+//					e.printStackTrace();
+//				}
+//			
+//			response=response.equals("")?"<p>blank reply</p>":response;
+//		    model.clear();
+//		    model.addAttribute("content", message);
+//		    return response ;
+//		}
+//	
+//	 
 	 
-	 @ResponseBody
-	 @RequestMapping(value="admin/editTemplate",   params={"fileName"})
-	 public String editTemplateContent(
-		        final PostContent content, final BindingResult bindingResult, final ModelMap model,
-		        @RequestParam(value="fileName", required=false) String metaValue) {
-		    if (bindingResult.hasErrors()) {
-		        return "seedstartermng";
-		    }
-		    
-		    System.out.println(content.getHtmlContent());
-		        logger.info("Searching "+metaValue  );
-		        QMessage message = new QMessage();
-				message.setHandler("fetch");
-				//message.setContent(content.getHtmlContent());
-				message.setMeta(metaValue);
-				String response ="<p>blank reply</p>";
-				try {		
-					response = svc.readUpPage("templates", metaValue);
-					//response = connector.getResponse(message);
-					//TextMessage reply = sender.simpleSend(message.toString()); 
-					//response=reply.getText();
-					content.setHtmlContent(response);
-				} catch (Exception e) {			
-					e.printStackTrace();
-				}
-			
-			response=response.equals("")?"<p>blank reply</p>":response;
-		    //model.clear();
-		    //model.addAttribute("content", message);
-		    return response ;
-		}
-	
+//	 @ResponseBody
+//	 @RequestMapping(value="admin/editTemplate",   params={"fileName"})
+//	 public String editTemplateContent(
+//		        final PostContent content, final BindingResult bindingResult, final ModelMap model,
+//		        @RequestParam(value="fileName", required=false) String metaValue) {
+//		    if (bindingResult.hasErrors()) {
+//		        return "seedstartermng";
+//		    }
+//		    
+//		    System.out.println(content.getHtmlContent());
+//		        logger.info("Searching "+metaValue  );
+//		        QMessage message = new QMessage();
+//				message.setHandler("fetch");
+//				//message.setContent(content.getHtmlContent());
+//				message.setMeta(metaValue);
+//				String response ="<p>blank reply</p>";
+//				try {		
+//					response = svc.readUpPage("templates", metaValue);
+//					//response = connector.getResponse(message);
+//					//TextMessage reply = sender.simpleSend(message.toString()); 
+//					//response=reply.getText();
+//					content.setHtmlContent(response);
+//				} catch (Exception e) {			
+//					e.printStackTrace();
+//				}
+//			
+//			response=response.equals("")?"<p>blank reply</p>":response;
+//		    //model.clear();
+//		    //model.addAttribute("content", message);
+//		    return response ;
+//		}
+//	
 	 
 	@RequestMapping(value="admin/contentSubmit")
 	public String processContent(
@@ -187,7 +203,7 @@ public class CMSContentPageController {
 	    model.addAttribute("content", content);
 	     
 	   // model.clear();
-	    return "cms1/x_content";
+	    return "redirect:entry";
 	}
 	
 	@RequestMapping(value="admin/submitContentTemplate")

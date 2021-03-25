@@ -193,8 +193,8 @@ Conventions		> Scout and Scholar
 		</minor>
 	</major>
 	<major id="Ideals" nl="Ideals" lbl="Ideals">
-		<minor id="ideals_home" lbl="HOME" nl="ideals_home_dummy" >
-			<action id="ideals_home1" lbl="~/About Ideals" nl="ideals_home"></action>
+		<minor id="ideals_home" lbl="IDEALS HOME" nl="ideals_home_dummy" >
+			<action id="ideals_home1" lbl="About Ideals" nl="ideals_home"></action>
 		</minor>
 		<minor id="Science" lbl="Science" nl="Science-philosophy and metalogic">
 			<action id="pr_sc" lbl="Science as emancipatory" nl="Science_emancipates">
@@ -225,8 +225,8 @@ Conventions		> Scout and Scholar
 		</minor>
 	</major>
 	<major id="Philosophy" nl="Philosophy" lbl="Philosophy">
-		<minor id="philosophy_home" lbl="~" nl="philosophy_home_dummy" >
-			<action id="philosophy_home1" lbl="~/About Philosophy" nl="philosophy_home"></action>
+		<minor id="philosophy_home" lbl="PHILOSOPHY HOME" nl="philosophy_home_dummy" >
+			<action id="philosophy_home1" lbl="About Philosophy" nl="philosophy_home"></action>
 		</minor>
 		<minor id="Classicism" lbl="Clacissism" nl="Clacissism">
 			<action id="renaissance_now" lbl="Renaissance Now" nl="">

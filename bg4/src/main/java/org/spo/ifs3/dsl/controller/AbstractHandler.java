@@ -45,7 +45,7 @@ public abstract class AbstractHandler {
 			info.getState().taskId="01";
 			info.getState().dataId=navevent.dataId;
 			info.getState().eventId="";
-			navevent=taskChannel.get("01").initTask(navevent.dataId, info);
+			navevent=taskChannel.get("01").initTask( info);
 
 		}
 		if(navevent.getEventType().equals(EventType.FORMSUBMIT)){		
@@ -57,7 +57,7 @@ public abstract class AbstractHandler {
 
 		}
 		if(navevent.getEventType().equals(EventType.TASKSET)){
-			navevent=taskChannel.get(navevent.getTaskId()).initTask(navevent.dataId, info);
+			navevent=taskChannel.get(navevent.getTaskId()).initTask( info);
 		}
 		if(navevent.getEventType().equals(EventType.PROCESSEVENT)){
 			navevent=taskChannel.get(info.getState().taskId).processViewEvent(navevent.getEventId(),navevent.dataId, info);

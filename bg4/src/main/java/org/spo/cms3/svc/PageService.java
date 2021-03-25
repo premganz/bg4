@@ -52,23 +52,36 @@ public class PageService {
 
 	boolean testMode=false;
 	//scenario = doesDir/domainDir
-	public String readUpPage(String scenario, String pageName){
-		File f = null;
-		log.debug("attempting to read page ");
-		logger.error("attempting to read page "+constants.getRepoPath()+"/"+scenario+"/"+pageName+".txt");
-		return readUpPageUtils(f);
-	}
+//	public String readUpPage(String scenario, String pageName){
+//		File f = null;
+//		log.debug("attempting to read page ");
+//		logger.error("attempting to read page "+constants.getRepoPath()+"/"+scenario+"/"+pageName+".txt");
+//		return readUpPageUtils(f);
+//	}
 
 	public String readUpPage(ActionAssembly assem){
 		File f = null;
-		String path=constants.getRepoPath()+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+".txt";
+		String path=constants.getRepoPath()+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+"."+assem.getExtension();
 		log.debug("attempting to read page ");
 		logger.error("attempting to read page "+ path);
 		f= new File(path);
 		return readUpPageUtils(f);
 	}
 
-
+	public void createFile(ActionAssembly assem){
+		File f = null;
+		String path=constants.getRepoPath()+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+"."+assem.getExtension();
+		log.debug("attempting to read page ");
+		logger.error("attempting to create page "+ path);
+		f= new File(path);
+		if(f.exists()) return;
+		
+		try {
+			f.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 
 	public void writePage(String fileName, String content){

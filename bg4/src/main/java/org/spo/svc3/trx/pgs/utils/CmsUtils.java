@@ -1,6 +1,8 @@
 package org.spo.svc3.trx.pgs.utils;
 
 import java.io.File;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,11 +17,15 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.spo.ifs3.template.web.Constants;
 import org.spo.svc3.trx.def.ConstantsTestImpl;
+import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.sun.org.apache.xml.internal.serialize.OutputFormat;
+import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
+@Component
 public class CmsUtils {
 	public static Document doc;
 	
@@ -56,6 +62,28 @@ public class CmsUtils {
 			}
 		}
 
+		
+		public  String formatXml(String unformattedXml) {
+			String x="ERROR";
+			
+	        try {
+	        	
+	            
+	            OutputFormat format = new OutputFormat(doc);
+	            format.setLineWidth(65);
+	            format.setIndenting(true);
+	            format.setIndent(2);
+	            Writer out = new StringWriter();
+	            XMLSerializer serializer = new XMLSerializer(out, format);
+	            serializer.serialize(doc);
+
+	            x= out.toString();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        return x;
+	    }
+		
 	private  void organizeFoldersHelper1(Element node, String currentStrategyDir, String currentDomainDir, boolean isMeta) throws Exception {
 		// do something with the current node instead of System.out
 		String cmsPath = isMeta?cmsDir:cmsMetaDir;

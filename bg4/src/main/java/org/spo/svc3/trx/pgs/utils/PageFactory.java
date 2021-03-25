@@ -15,7 +15,8 @@ public class PageFactory {
 		page.setSubTitle("Welcome Page");
 
 		PageService svc = new PageService();
-		String response_content = svc.readUpPage("camp_edu/camp_website", "A_Brief_Brouchure.txt");
+		ActionAssembly aa = new ActionAssembly().setCodes("About", "About", "index");
+		String response_content = svc.readUpPage(aa);
 		page.setWelcomeContent(response_content);
 		
 		Menu sideBarMenu = new MenuFactory().homePageMenu();

@@ -14,11 +14,11 @@ import com.google.gson.reflect.TypeToken;
 public abstract class AbstractTask {
 
 	public abstract NavEvent  initView(TrxInfo info);
-	public abstract NavEvent initTask(String dataId, TrxInfo info) throws Exception;
+	public abstract NavEvent initTask(TrxInfo info) throws Exception;
 	//public abstract NavEvent initView(String dataId, ModelMap info);
-	public abstract NavEvent processViewEvent(String event, String dataId,TrxInfo info);	
-	public abstract String processAjaxEvent(String event, TrxInfo info);
-	public abstract NavEvent processViewResult(String event, String json, TrxInfo info);
+	public abstract NavEvent processViewEvent(String event, String dataId,TrxInfo info) throws Exception;	
+	public abstract String processAjaxEvent(String event, TrxInfo info) ;
+	public abstract NavEvent processViewResult(String event, String json, TrxInfo info) throws Exception;
 	
 	public Forms prepareForm(String json){
 		Gson gson = new Gson();

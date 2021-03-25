@@ -13,17 +13,16 @@ import org.spo.svc3.trx.pgs.mdl.ActionAssembly;
 import org.spo.svc3.trx.pgs.mdl.HomePage;
 import org.spo.svc3.trx.pgs.mdl.Menu;
 import org.spo.svc3.trx.pgs.utils.MenuFactory;
+import org.spo.svc3.trx.pgs.utils.SchemaQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class K0101 extends AbstractTask {
-
-
+public class K0102 extends AbstractTask {
 
 	@Autowired
 	public PageService svc ;
-	private static final Logger logger = LoggerFactory.getLogger(K0101.class);
+	private static final Logger logger = LoggerFactory.getLogger(K0102.class);
 
 	
 	private SocketConnector connector=new SocketConnector();
@@ -33,41 +32,27 @@ public class K0101 extends AbstractTask {
 		HomePage page = new HomePage();
 		page.setSubTitle("Welcome Page");
 		ActionAssembly aa = new ActionAssembly();
-		aa.setCodes("about","abt_what_why","Methods_and_Manners_augm");
+		SchemaQuery schemaQuery = new SchemaQuery();
+		aa=schemaQuery.getMinorLandingPage(K01Toolkit.getMinorCode(info));
 		String response_content = svc.readUpPage(aa);
 		page.setWelcomeContent(response_content);
-		Menu sideBarMenu = new MenuFactory().homePageMenu();
-//		page.setSubTitle("Forum for Scholarship and Exploration");
-		page.setSubTitle("A Classical Criticism of Contemproary Engineering");
+		Menu sideBarMenu = new MenuFactory().subPageMenu(K01Toolkit.getMinorCode(info));
+		page.setSubTitle(K01Toolkit.getMinorCode(info).replaceAll("_", " ").toUpperCase()+"");
 		page.setSideBarMenu(sideBarMenu);
 		info.addToModelMap("hom",page);
-		System.out.println(page.toString());
-		
-		return K01Handler.EV_INIT_01;
+		System.out.println(page.toString());	
+		return K01Handler.EV_INIT_02;
 	}
 
 	@Override
 	public NavEvent processViewEvent(String event, String dataId, TrxInfo info) {
 		if(event.startsWith("EV_action")){
 			dataId = dataId.replaceAll("action__","");
-			NavEvent navEvent = K01Handler.EV_INIT_01;
+			NavEvent navEvent = K01Handler.EV_INIT_02;
 			navEvent.dataId=dataId;
 			return navEvent;
-		}if(event.startsWith("EV_minor")) {
-			try {
-				
-				dataId = dataId.replaceAll("minor__","");
-				K01Toolkit.setMinorCode(info, dataId);
-				return K01Handler.EV_MINOR_PAGE;
-			
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-//			page.setSubTitle("hello");
-//			page.setSideBarMenu(sideBarMenu);
-		}
-		return K01Handler.EV_INIT_01;
+		}if(event.startsWith("EV_minor")) {}
+		return K01Handler.EV_INIT_02;
 	}
 
 	@Override
