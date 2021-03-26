@@ -1,10 +1,10 @@
 #!/bin/bash
-#rm -rf  master.zip.2
-#rm -rf  bg2-master/
-wget  https://github.com/premganz/bg2/archive/master.zip
+rm -rf  master.zip
+rm -rf  bg4-master/
+wget  https://github.com/premganz/bg4/archive/refs/heads/master.zip
 unzip master.zip
-cd bg2-master/
-
+cd bg4-master
+cd bg4
 if grep --quiet Y deploy.flag; then  
 	echo 'text found'
 	mvn clean install -P fatjar
