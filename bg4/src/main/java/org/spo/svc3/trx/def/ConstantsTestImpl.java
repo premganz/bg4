@@ -10,7 +10,9 @@ public class ConstantsTestImpl implements Constants {
 		if(!System.getProperty("os.name").startsWith("Windows")){
 			AppConstants.cmsDir= "/usr/local/share/data-cms/lc";
 		}else{
-			AppConstants.cmsDir= "C:\\Users\\gs1-premg\\git\\bg4-2\\bg4\\src\\main\\resources\\data-cms\\cms1";
+			String homePath = System.getenv("HOMEPATH");
+			AppConstants.cmsDir= "c:"+homePath
+					+ "\\git\\bg4-2\\bg4\\src\\main\\resources\\data-cms\\cms1";
 		}
 		return AppConstants.cmsDir;
 	}
