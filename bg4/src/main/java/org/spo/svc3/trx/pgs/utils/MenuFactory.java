@@ -30,8 +30,8 @@ public class MenuFactory {
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		//docFactory.setNamespaceAware(true);
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-//		doc = docBuilder.parse(constants.getRepoPath()+"\\templates\\Schema.xml");
-		doc = docBuilder.parse(constants.getRepoPath()+"\\content\\meta\\meta-schema\\Schema_cms.xml");
+//		doc = docBuilder.parse(constants.getRepoPath()+"/templates/Schema.xml");
+		doc = docBuilder.parse(constants.getRepoPath()+"/content/meta/meta-schema/Schema_cms.xml");
 	}
 	
 	
