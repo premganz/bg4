@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE application SYSTEM "..\schema\AppNavModel.dtd"> -->
+<!DOCTYPE application [
+<!-- nl= natural language expression id= unique id -->
+<!ELEMENT vsn (major)+>
+<!ATTLIST vsn
+  xmlns CDATA #FIXED ''
+  id CDATA #REQUIRED
+  aka CDATA #REQUIRED
+  path CDATA #REQUIRED
+  nl CDATA #REQUIRED>
+
+<!ELEMENT major (minor*) >
+<!ATTLIST major
+  id CDATA #REQUIRED
+  xmlns CDATA #FIXED ''
+  lbl CDATA #REQUIRED
+  nl CDATA #REQUIRED>
+
+
+
+<!ELEMENT minor (evidence*,(action)*)>
+<!ATTLIST minor
+  xmlns CDATA #FIXED ''
+  id CDATA #REQUIRED
+  lbl CDATA #IMPLIED
+  nl CDATA #REQUIRED>
+
+<!ELEMENT evidence EMPTY>
+<!ATTLIST evidence
+  xmlns CDATA #FIXED ''
+  nl CDATA #IMPLIED
+  type NMTOKEN #REQUIRED>
+
+<!ELEMENT article EMPTY>
+<!ATTLIST article
+  xmlns CDATA #FIXED ''
+  nl CDATA #IMPLIED
+  id CDATA #REQUIRED
+  type NMTOKEN #REQUIRED>
+
+<!ELEMENT action (article*,evidence*)>
+<!ATTLIST action
+  xmlns CDATA #FIXED ''
+  id ID #REQUIRED
+  lbl CDATA #REQUIRED
+  nl CDATA #REQUIRED
+  type NMTOKEN #IMPLIED>
+  
+]>
+
+<!-- action type c = critical publication, type t = tactical publication 
+in the role of _ in humanity, doing _ 
+The LeafyCampus Forum for Scholarship and Exploration
+
+major->minor>articles
+does>domain>action
+
+About > What this is about as a noun, its constitution, Motivation
+		Methods and Manners - Moderation and critical disposition
+
+Philosophy >    
+				 CLASSICISM, DUALISM, MYSTICISM>>
+				 Philosophy as incomplete and humble 
+				 Ultimate Mysticism, methodological dualism and contextual classicism	
+				 	As much as dualism is irreductable, the decision by the human is mystical and monistic
+				 	Inspiration - It is revealed time to time and has no continuum
+				 	
+				 	Remembering C Truesdell
+				 	Reconciling Classicism with Romanticism
+				 	Renaissance as a sensation rather than an event. 
+				 	Romanticism as a complement to Classicism
+				 	Reviving Classicism as being relevant to the moment
+				 		The Scholar: A Species Threatened by Professions C. Truesdell
+				 		An Idiot’s Fugitive Essays on Science: Methods, Criticism, Training
+
+Ideals >				 
+				 
+				 SCIENCE>>
+
+					Science as an emancipatory tool
+						Science as naturalistic, redemptive, peaceful
+						Implicit ontologies (Metaphysics) in science
+						*Undecidability, Justice and free choice in science
+						
+				  EXPLORATION>>
+				  Art as free from form and explorative and expressive
+				  Exploration as physical as Scouting
+				  Exploration or open domains
+				  		Science as Descriptive, cataloguing
+				  		Particular reference to Medicine and negative utilitarianism
+				  
+				  CRITICISM>>
+				  			  
+				  
+				  Criticism of non epistemological approaches to decision
+				  		Regression, Bayesianism, Lagrangian techniques	
+				  	
+				  Undecidability
+				  		Essential Dualism of symbols and sentiment
+				  		Recursive Dualism as applied to this organization
+		  		
+		  		  
+  
+				  		
+				  		
+Research  	> ML/AI
+				  Employing ML/AI as observational techniques
+				  Criticism of Information Theory and Control theory approaches
+				  
+				  FORMAL SYSTEMS
+				  Privacy and Explainability
+				  Efficacy of Formal Computing Architectures 
+				  Formalization of AI/ML approaches
+				  
+				  LINKS>>
+		  		  				  
+				  More Articles
+				  		Cartesian Dualism and Undecidability
+				  		Positivism- Vienna Circle
+				  		Treatment of science in eastern and western spiritualism
+				  		Criticism of Agile and digital
+				  
+				  
+Conventions		> Scout and Scholar
+					Research on Core Sciences
+					Mathematical principles of Computing
+					Conservation activities
+					
+				  Machine Intelligence Research Collaboration 	
+				  
+				 Study			> 
+				  
+
+-->
+<vsn id="root_version_3" nl="About" aka="Leafy Campus Foundation" path="Hall of Classicism">
+	<major id="About" nl="About" lbl="About">
+		<minor id="about" lbl="~ HOME" nl="about">
+			<action type="ess" lbl="Methods and Manners" id="Methods_and_Manners" nl="">
+				<article type="ess" id="Motivation, Constitution, Methods and Manners"></article>
+			</action>
+		</minor>
+	</major>
+
+
+	<major id="Studies" nl="Studies" lbl="Studies">
+		<minor id="studies_home" lbl="STUDIES HOME" nl="studies_home_dummy" >
+		<action lbl="About Studies" id="studies_home" nl=""></action>
+		</minor>
+		<minor id="classical_engineering" lbl="Classical Engineering" nl="classical_engineering">
+			<action  lbl="ML and AI" id="ML_and_AI" nl="">
+				<article type="ess" id="Employing MLAI as observational techniques"></article>
+				<article type="ess" id="Criticism of Information Theory and Control theory approaches"></article>
+			</action>
+			<action lbl="Applied Formal Systems" id="applied_formal_systems" nl="">
+				<article type="ess" id="Privacy and Explainability"></article>
+				<article type="ess" id="Efficacy of Formal Computing Architectures"></article>
+				<article type="ess" id="Formalization of AI-ML approaches"></article>
+				<article type="ess" id="PSSH and Milner"></article>
+			</action>
+		</minor>
+		<minor id="Criticism" lbl="Criticism" nl="Criticism">
+			<action id="crit_agile" lbl="Criticism of Agile-digital" nl="agile">
+			</action>
+		</minor>
+		<minor id="classical_systems" lbl="Classical Systems" nl="">
+			<action id="linguistics" lbl="linguistics" nl="linguistics">
+				<article type="ess" id="Languages and Justice"></article>
+			</action>
+			<action id="classical_systems_theory" lbl="Classical Systems theory" nl="classical_systems_theory">
+				<article type="ess" id="Conservation and Systemic Equilibrium"></article>
+				<article type="ess" id="Relevance of Classical vs Information theory"></article>
+			</action>
+			<action id="contemproary_studies" lbl="Contemproary studies" nl="contemproary_studies_in_classicism">
+
+			</action>
+		</minor>
+	</major>
+
+	<major id="Conventions" nl="Conventions" lbl="Conventions">
+		<minor id="conventions_home" lbl="CONVENTIONS HOME" nl="conventions_home_dummy" >
+			<action id="conventions_home1" lbl="About Conventions" nl="conventions_home"></action>
+		</minor>
+		<minor lbl="Scout and Scholar" id="Scout_n_Scholar" nl="">
+			<action id="scout_scholar" lbl="Scout and scholar initiative" nl="scout_scholar">
+				<article type="ess" id="Research on Core Sciences"></article>
+				<article type="ess" id="Conservation activities"></article>
+			</action>
+		</minor>
+		<minor id="work_MIRIx" lbl="MIRIx Collaboration" nl="work_MIRIx">
+			<action id="cnv_miri" lbl="Machine Intelligence Research Collaboration" nl="mirix">
+			</action>
+		</minor>
+	</major>
+	<major id="Ideals" nl="Ideals" lbl="Ideals">
+		<minor id="ideals_home" lbl="IDEALS HOME" nl="ideals_home_dummy" >
+			<action id="ideals_home1" lbl="About Ideals" nl="ideals_home"></action>
+		</minor>
+		<minor id="Science" lbl="Science" nl="Science-philosophy and metalogic">
+			<action id="pr_sc" lbl="Science as emancipatory" nl="Science_emancipates">
+				<article nl="2" type="ess" id="Science as naturalistic, redemptive, peaceful"></article>
+				<article nl="1" type="ess" id="Implicit ontologies and Metaphysics in science"></article>
+			</action>
+		</minor>
+		<minor id="Exploration" lbl="Exploration" nl="Exploration">
+			<action id="science_open_domains" lbl="Exploration or open domains" nl="science_open_domains">
+				<article type="ess" id="Science as Descriptive cataloguing"></article>
+				<article type="ess" id="Medicine and negative utilitarianism "></article>
+			</action>
+		</minor>
+		<minor id="ideal_Criticism" lbl="Criticism" nl="ideal_Criticism">
+			<action id="pr_crt" lbl="Does decision need its theory" nl="crticism">
+				<article type="ess" id="Regression, Bayesianism, Lagrangian techniques"></article>
+				<article type="ess" id="Medicine and negative utilitarianism"></article>
+			</action>
+			<action id="dualism" lbl="Undecidability" nl="dualism">
+				<article type="ess" id="Essential Dualism of symbols and sentiment"></article>
+				<article type="ess" id="Recursive Dualism as applied to this organization"></article>
+			</action>
+			<action id="critical_articles" lbl="More Articles" nl="critical_articles">
+				<article type="ess" id="Cartesian Dualism and Undecidability"></article>
+				<article type="ess" id="Positivism- Vienna Circle"></article>
+				<article type="ess" id="Treatment of science in eastern and western spiritualism"></article>
+			</action>
+		</minor>
+	</major>
+	<major id="Philosophy" nl="Philosophy" lbl="Philosophy">
+		<minor id="philosophy_home" lbl="PHILOSOPHY HOME" nl="philosophy_home_dummy" >
+			<action id="philosophy_home1" lbl="About Philosophy" nl="philosophy_home"></action>
+		</minor>
+		<minor id="Classicism" lbl="Clacissism" nl="Clacissism">
+			<action id="renaissance_now" lbl="Renaissance Now" nl="">
+				<article type="ess" id="Clacissism as the truth of the moment"></article>
+				<article type="ess" id="Remembering Clifford Trusedell"></article>
+			</action>
+			<action id="Classicism_and_romanticism" lbl="Clacissim + Romanticism" nl="Clacissim + Romanticism">
+				<article type="ess" id="Renaissance as complementing Romanticism"></article>
+				<article type="ess" id="Humanism, Artistic Freedom"></article>
+			</action>
+		</minor>
+		<minor id="epistemic_dualism" lbl="Epistemic Dualism" nl="Epistemic_Dualism">
+			<action id="Holy_Undecidability" lbl="Holy Undecidability" nl="Holy Undecidability">
+				<article type="landing" id="Dualism as irreductible for all knowledge"></article>
+				<article type="landing" id="Buddha on undecidability and moderation"></article>
+				<article type="ess" id="Descartes"></article>
+			</action>
+		</minor>
+		<minor id="mysticism" lbl="Essential Mysticism" nl="OriginDuMonde_salvadorMundi">
+			<action id="benevolent_omnipotence" lbl="Benevolent Omnipotence" nl="Benevolent Omnipotence">
+				<article type="landing" id="Essential Root as Undescribable, closest is love"></article>
+				<article type="ess" id="Confucius on Leniency"></article>
+				<article type="ess" id="Ignacius of loyola"></article>
+			</action>
+			<action id="Something_before_anything" lbl="Something before Anything" nl="Something before Anything">
+				<article type="ess" id="Always Something before Anything"></article>
+				<article type="ess" id="Rejection of Nihilism"></article>
+			</action>
+		</minor>
+	</major>
+</vsn>
