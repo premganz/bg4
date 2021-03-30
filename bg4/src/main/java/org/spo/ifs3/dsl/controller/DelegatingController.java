@@ -58,6 +58,11 @@ public class DelegatingController{
 			info.put(new ScopeVar(Scope.TRX, "stateInfo"),state);
 		}else{
 			info = (TrxInfo)session.getAttribute("info");
+			if(info==null) {
+				//means that the session has expired
+				info = new TrxInfo(session, modelMap,request);
+				session.setAttribute("info",info);
+			}
 			info.refreshModelMap(modelMap);
 			state=info.getState();
 			
