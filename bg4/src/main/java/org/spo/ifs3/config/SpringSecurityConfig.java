@@ -17,7 +17,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth
                 .inMemoryAuthentication()
-                    .withUser("admin").password("admin").roles("ADMIN")
+                    .withUser("a").password("a").roles("ADMIN")
                         .and()
                     .withUser("user").password("a").roles("USER");
 
@@ -28,7 +28,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/login**").permitAll()
-                .antMatchers("/admin1/**").hasRole("ADMIN")//TODO FIXME revert to admin later
+                .antMatchers("/admin/**").hasRole("ADMIN")//TODO FIXME revert to admin later
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
