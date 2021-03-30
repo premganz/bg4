@@ -14,7 +14,7 @@
 	$(document).ready(function(){
 	$("#fileselect1").click(function(){
 	    $.ajax({
-	    	url: "http://localhost:8089/admin/list2/"+$(this).val(),async: false, 
+	    	url: "/admin/list2/"+$(this).val(),async: false, 
 	    	dataType: 'json',
 	    	success: function(data,textStatus){
 	    		console.log(data);
@@ -48,7 +48,7 @@
 		$("#fileselect2").click(function(){
 			console.log($("#fileselect2").val());
 		    $.ajax({
-		    	url: "http://localhost:8089/admin/list3/"+$("#fileselect1").val()+"/"+$("#fileselect2").val(),
+		    	url: "/admin/list3/"+$("#fileselect1").val()+"/"+$("#fileselect2").val(),
 		    	async: false, 
 		    	dataType: 'json',
 		    	success: function(data,textStatus){
@@ -80,7 +80,7 @@
 		var fetchFunction=function(){
 			
 		    $.ajax(
-		    	{url: "http://localhost:8089/admin/content/"+$("#fileselect1").val()+"/"+$("#fileselect2").val()+"/"+$("#fileselect3").val(),async: false, 
+		    	{url: "/admin/content/"+$("#fileselect1").val()+"/"+$("#fileselect2").val()+"/"+$("#fileselect3").val(),async: false, 
 		    	success: function(result){
 		    		console.log(result);
 		    		//tinyMCE.activeEditor.setContent(result);
@@ -92,7 +92,7 @@
 		var fetchStaged=function(){
 			
 		    $.ajax(
-		    	{url: "http://localhost:8089/admin/contentStaging/"+$("#fileselect1").val()+"/"+$("#fileselect2").val()+"/"+$("#fileselect3").val(),async: false, 
+		    	{url: "/admin/contentStaging/"+$("#fileselect1").val()+"/"+$("#fileselect2").val()+"/"+$("#fileselect3").val(),async: false, 
 		    	success: function(result){
 		    		console.log(result);
 		    		//tinyMCE.activeEditor.setContent(result);
@@ -101,7 +101,7 @@
 		    	}
 		    	});
 		    $.ajax(
-			    	{url: "http://localhost:8089/admin/contentStagingMeta/"+$("#fileselect1").val()+"/"+$("#fileselect2").val()+"/"+$("#fileselect3").val(),async: false, 
+			    	{url: "/admin/contentStagingMeta/"+$("#fileselect1").val()+"/"+$("#fileselect2").val()+"/"+$("#fileselect3").val(),async: false, 
 			    	success: function(result){
 			    		console.log(result);
 			    		//tinyMCE.activeEditor.setContent(result);
@@ -119,7 +119,7 @@
 		$(document).ready(function(){
 			$("#createfile").click(function(){
 				$.ajax({
-					url:"http://localhost:8089/admin/content/createFile/"+$("#fileselect1").val()+"/"+$("#fileselect2").val()+"/"+$("#fileName").val(),
+					url:"/admin/content/createFile/"+$("#fileselect1").val()+"/"+$("#fileselect2").val()+"/"+$("#fileName").val(),
 					success:function(data, textStatus){
 						console.log(data);
 						
