@@ -42,6 +42,8 @@ public class CmsUtils {
 		
 
 	}
+	
+	
 
 	//Run once to create folders
 	public  void organizeFolders() {
@@ -199,10 +201,12 @@ public class CmsUtils {
 		CmsUtils cmsUtil = new CmsUtils();
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		//docFactory.setNamespaceAware(true);
+	
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 //		cmsUtil.doc=docBuilder.parse("C:/Users/gs1-premg/git/bg4-2/bg4/src/main/resources/data-cms/cms1/content/Schema_cms.xml");
 //				"C:/Users/premganesh/git/bg4/bg4/src/test/resources/ApplicationNavTreeModelGeneric.xml");
 		cmsUtil.organizeFolders();
+		
 //		cmsUtil.organizeFoldersMeta();
 	}
 	
