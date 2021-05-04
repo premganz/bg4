@@ -38,7 +38,7 @@ public class K0101 extends AbstractTask {
 		page.setWelcomeContent(response_content);
 		Menu sideBarMenu = new MenuFactory().homePageMenu();
 //		page.setSubTitle("Forum for Scholarship and Exploration");
-		page.setSubTitle("Classical Criticism of Contemproary Engineering");
+		page.setSubTitle("Reviving Cartesian Science");
 		page.setSideBarMenu(sideBarMenu);
 		info.addToModelMap("hom",page);
 		System.out.println(page.toString());
