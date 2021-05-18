@@ -53,6 +53,21 @@
 in the role of _ in humanity, doing _ 
 The LeafyCampus Forum for Scholarship and Exploration
 
+LC - reviving cartesian science
+=========================
+motivation -> Scepticism, past works inspirations
+exposition -> how scholastic science exists and how postmodernity/modernity is a cancelling out
+adaptation -> real life design recommendations, criticism, collaborations
+campus -> the limitations of formalism, open exploratory activities, campus before concept.
+
+
+
+
+motivation 
+index
+
+
+
 major->minor>articles
 does>domain>action
 
@@ -100,10 +115,6 @@ Ideals >
 				  		Essential Dualism of symbols and sentiment
 				  		Recursive Dualism as applied to this organization
 		  		
-		  		  
-  
-				  		
-				  		
 Research  	> ML/AI
 				  Employing ML/AI as observational techniques
 				  Criticism of Information Theory and Control theory approaches
@@ -129,55 +140,117 @@ Conventions		> Scout and Scholar
 					
 				  Machine Intelligence Research Collaboration 	
 				  
-				 Study			> 
-				  
+				 Study			>
+				 
+				 Exposition - both critical (post linguistics, occam razor, connectionism) and 
+				 			theories of computing based on empirical research. publication of empricism of computing, 
+				 construction - rules engines, continuously consistnt systems, interactive proof systems, AI applied expert systems particularly in evidence based med
+				 existence-scoutn n scholar, architects forums, collaboration boards - AI. universities.
+				 reflection - survey and pedagogical work mainly on classicism and cartesian science. Exposition on new angles to look at science,languages, aesthetics
 
 -->
-<vsn id="root_version_3" nl="About" aka="Leafy Campus Foundation" path="Hall of Classicism">
-	<major id="About" nl="About" lbl="About">
+<vsn id="root_version_4" nl="Motivation" aka="Leafy Campus Project" path="A project to put together a community of believers in cartesian science">
+	<major id="About1" nl="About" lbl="About">
 		<minor id="about" lbl="~ HOME" nl="about">
 			<action type="ess" lbl="Methods and Manners" id="Methods_and_Manners" nl="">
-				<article type="ess" id="Motivation, Constitution, Methods and Manners"></article>
+				<article type="ess" id="Motivation and Manners" nl="Motivation, Constitution, Methods and Manners"></article>
 			</action>
 		</minor>
 	</major>
 
 
-	<major id="Studies" nl="Studies" lbl="Studies">
-		<minor id="studies_home" lbl="STUDIES HOME" nl="studies_home_dummy" >
-		<action lbl="About Studies" id="studies_home" nl=""></action>
+	<major id="Exposition" lbl="Expositions" nl="Expositions - theories of computing, empirical results of computing and " >
+		<minor id="exposition_home" lbl="EXPOSITION HOME" nl="activity_home_dummy" >
+			<action id="activity_home" lbl="About Expositions" nl="activity_home"></action>
 		</minor>
-		<minor id="classical_engineering" lbl="Classical Engineering" nl="classical_engineering">
-			<action  lbl="ML and AI" id="ML_and_AI" nl="">
-				<article type="ess" id="Employing MLAI as observational techniques"></article>
-				<article type="ess" id="Criticism of Information Theory and Control theory approaches"></article>
+		<minor id="Empiricism" lbl="Empiricism of Computing" nl="Studying Computing Phenomenologically">
+			<action id="computing_engg_complex" lbl="Experiments in Computing" nl="phenomenology of agile, computing breaching domains">
+				<article type="liv" id="Phenomenon of Agile" nl="A survey of the computing economic complex, collapse of formal domains"></article>
 			</action>
-			<action lbl="Applied Formal Systems" id="applied_formal_systems" nl="">
+			<action id="computing_domain" lbl="Domain Theory" nl="science_open_domains">
+				<article type="liv" id="How Computing defines domains" nl="what is the construct of domain independent of economic signification"></article>
+				<article type="hid" id="Cross domain Rules" nl="An Adiabatic dynamical arrangement other than over power"></article>
+				<article type="hid" id="Domain level closure" nl="Moral comfort of domains"></article>
+			</action>
+			<action id="computing_theorizing" lbl="Alternate Theorizing" nl="new theories on computing">
+				<article type="liv" id="Alternate Theories of Empirical Computing" nl="A survey of the existing theories and alternate propositoins"></article>
+				<article type="hid" id="On Provable Systems" nl="Epicurean (Negative-Utilitarian) Argument on proof"></article>
+				<article type="hid" id="On Linguistic Control" nl="Languages as instruments of control, dynamically referring to an abstract center"></article>
+				<article type="hid" id="PSSH and Milner"></article>
+				<article type="hid" id="Rules and Domains"></article>
+				<article type="hid" id="Paralellized vs Serialized computing" nl="How paralell computing is a beast in itself"></article>
+				<article type="hid" id="Connectionism-Semantics"></article>
+				<article type="hid" id="Interactive Proof mechanisms- Query engines and Mock systems"></article>
+			</action>
+		</minor>
+		<minor id="Exploratory_Domain" lbl="Exploratory Domains" nl="Evidence Based medicien, meteorology, complexity">
+			<action id="evidence_based_medicine" lbl="Medical Interventions" nl="Stress on outcomes rather than epistemology">
+				<article type="ess" id="Medicine and negative utilitarianism "></article>
+				<article type="ess" id="Population based medicine"></article>
+			</action>
+		</minor>
+		<minor id="Engineering_Method" lbl="Contemproary Engineering" nl="Exploration">	
+			<action id="crit_consumer" lbl="Criticism - Contemproary Engineering" nl="agile">
+				<article type="ess" id="Fallacy of Consumerism digital agile"></article>
+				<article type="ess" id="Institutionalization of Heuristics"></article>
 				<article type="ess" id="Privacy and Explainability"></article>
-				<article type="ess" id="Efficacy of Formal Computing Architectures"></article>
+				<article type="ess" id="Digital vs Formal Computing Architectures"></article>
+			</action>
+			<action id="crit_physical" lbl="Criticism - Post Linguistic Sensibility" nl="regressive and darwinian">
+				<article type="ess" id="Control by hermeneutics- Wiener"></article>
+				<article type="ess" id="Will and Representation- Energy driven normalization information systems"></article>
+				<article type="ess" id="Modernity-Postmodernity continuum"></article>
+				<article type="ess" id="Connectionism-in its deep forms"></article>
+				<article type="ess" id="Serialization, Isolation and Science"></article>
+	  		 </action>
+	  		 <action id="Expositions_ModernMethod_canonical" lbl="Modern Engineering Method" nl="Rediscovery of modern engineering, reclaiming it from connectionism">
+				<article type="ess" id="Canonical Engineering" nl="Importance of the idea of Canons-Interpretation of canonical practices"></article>
+				<article type="ess" id="Domain level closure"></article>
+				<article type="ess" id="Redundancy vs Adaptivity"></article>
+				<article type="ess" id="Applied Formal systems" nl="Buusiness to standardize and not to normalize or be artistic"></article>
+				<article type="ess" id="Chaos, Harmony and Canonical Engineering"></article>
+				<article type="ess" id="Heart of Modern engineering" nl="Accepts dogma and dualism"></article>
+				<article type="ess" id="Continuity of Classical Engineering into Modern" nl="Accepts dogma and dualism"></article>
+			</action>
+		</minor>	
+	</major>
+	
+	
+	<major id="Construction" lbl="Construction" nl="ExpertSystems, continuously consistent systems, interactive proofs" >
+		<minor id="construction_home" lbl="EXPOSITION HOME" nl="activity_home_dummy" >
+			<action id="construction_home" lbl="About Expositions" nl="activity_home"></action>
+		</minor>
+		<minor id="Instrumentation" lbl="Instrumentation with ML" nl="Exploration">
+			<action id="science_open_domains" lbl="Complex Systems" nl="science_open_domains">
+				<article type="ess" id="Meteorological studies"></article>
+			</action>
+			<action lbl="Domian Independent Data" id="applied_formal_systems" nl="Formalization of domain independent conclusions">
 				<article type="ess" id="Formalization of AI-ML approaches"></article>
-				<article type="ess" id="PSSH and Milner"></article>
 			</action>
 		</minor>
-		<minor id="Criticism" lbl="Criticism" nl="Criticism">
-			<action id="crit_agile" lbl="Criticism of Agile-digital" nl="agile">
+		<minor id="Proof_Systems" lbl="Provable Systems" nl="Studying Computing Phenomenologically">
+			<action id="continuously_consistent" lbl="Serialized Programs" nl="continuously consistent systems">
+				<article type="ess" id="continuously consistent systems"></article>
+				<article type="ess" id="Freeing Decisions"></article>
+			</action>
+			<action id="Interactive_Proof" lbl="Interactive Proof systems" nl="science_open_domains">
+				<article type="ess" id="Domains and Proofs"></article>
+				<article type="ess" id="SPO Project"></article>				
+			</action>
+			<action id="control_domain" lbl="Domain Control Systems" nl="new theories on computing">
+				<article type="ess" id="SOA Catalogs"></article>
+				<article type="ess" id="Languages as control systems"></article>
 			</action>
 		</minor>
-		<minor id="classical_systems" lbl="Classical Systems" nl="">
-			<action id="linguistics" lbl="linguistics" nl="linguistics">
-				<article type="ess" id="Languages and Justice"></article>
-			</action>
-			<action id="classical_systems_theory" lbl="Classical Systems theory" nl="classical_systems_theory">
-				<article type="ess" id="Conservation and Systemic Equilibrium"></article>
-				<article type="ess" id="Relevance of Classical vs Information theory"></article>
-			</action>
-			<action id="contemproary_studies" lbl="Contemproary studies" nl="contemproary_studies_in_classicism">
-
+		<minor id="Expert_Systems" lbl="Expert Systems" nl="Evidence based medicine particularly, but all complex systems">
+			<action id="Expert_Systems" lbl="Medical Interventions" nl="Stress on outcomes rather than epistemology">
+				<article type="ess" id="Mathematical Oncology"></article>
+				<article type="ess" id="Black Box functions in disease control"></article>
 			</action>
 		</minor>
 	</major>
 
-	<major id="Conventions" nl="Conventions" lbl="Conventions">
+	<major id="Conventions" lbl="Conventions" nl="Interactions Conventions, Collaborations interactive forums" >
 		<minor id="conventions_home" lbl="CONVENTIONS HOME" nl="conventions_home_dummy" >
 			<action id="conventions_home1" lbl="About Conventions" nl="conventions_home"></action>
 		</minor>
@@ -187,48 +260,63 @@ Conventions		> Scout and Scholar
 				<article type="ess" id="Conservation activities"></article>
 			</action>
 		</minor>
-		<minor id="work_MIRIx" lbl="MIRIx Collaboration" nl="work_MIRIx">
-			<action id="cnv_miri" lbl="Machine Intelligence Research Collaboration" nl="mirix">
+		<minor id="conv_AI" lbl="AI Collaboration" nl="work_MIRIx">
+			<action id="conv_AI" lbl="Machine Intelligence Research Collaboration" nl="mirix">
+				<article type="ess" id="Friendliness discussions on AI"></article>
+			</action>
+		</minor>
+		<minor id="conv_Arch" lbl="Architectural Practice" nl="Proof Driven, Overarching over Agile delivery">
+			<action id="Architectural" lbl="Architectural Guidelines" nl="criticizing Agile">
+				<article type="ess" id="Why Designers ought to criticize Agile"></article>
+				<article type="ess" id="What it means to be a good designer" nl="elaborating on our studies and philosophy and enumerating"></article>
 			</action>
 		</minor>
 	</major>
-	<major id="Ideals" nl="Ideals" lbl="Ideals">
-		<minor id="ideals_home" lbl="IDEALS HOME" nl="ideals_home_dummy" >
-			<action id="ideals_home1" lbl="About Ideals" nl="ideals_home"></action>
+	
+	
+	
+	
+	
+	
+	<major id="Philosopy_Cartesian" lbl="Reflections" nl="Survey and pedagogical look at science, epistemology-particularly carteisan science, Scholastics" >
+		<minor id="philosophy_home" lbl="HOME" nl="philosophy_home_dummy" >
+			<action id="philosophy_home1" lbl="About Philosophy" nl="philosophy_home"></action>
 		</minor>
-		<minor id="Science" lbl="Science" nl="Science-philosophy and metalogic">
-			<action id="pr_sc" lbl="Science as emancipatory" nl="Science_emancipates">
-				<article nl="2" type="ess" id="Science as naturalistic, redemptive, peaceful"></article>
-				<article nl="1" type="ess" id="Implicit ontologies and Metaphysics in science"></article>
+		<minor id="Cartesian_Method" lbl="Cartesian Method" nl="">
+			<action id="linguistics" lbl="linguistics" nl="linguistics">
+				<article type="ess" id="Languages and Justice"></article>
+				<article type="ess" id="Pillars of enlightenment" nl="All look at linguistic closure of a progressive society"></article>
 			</action>
-		</minor>
-		<minor id="Exploration" lbl="Exploration" nl="Exploration">
-			<action id="science_open_domains" lbl="Exploration or open domains" nl="science_open_domains">
-				<article type="ess" id="Science as Descriptive cataloguing"></article>
-				<article type="ess" id="Medicine and negative utilitarianism "></article>
-			</action>
-		</minor>
-		<minor id="ideal_Criticism" lbl="Criticism" nl="ideal_Criticism">
-			<action id="pr_crt" lbl="Does decision need its theory" nl="crticism">
-				<article type="ess" id="Regression, Bayesianism, Lagrangian techniques"></article>
-				<article type="ess" id="Medicine and negative utilitarianism"></article>
+			<action id="classical_systems_theory" lbl="Classical Systems theory" nl="Aristotlean forms as systems">
+				<article type="ess" id="Classical Typed Systems"></article>
+				<article type="ess" id="Relevance of Classical vs Information theory"></article>
 			</action>
 			<action id="dualism" lbl="Undecidability" nl="dualism">
 				<article type="ess" id="Essential Dualism of symbols and sentiment"></article>
-				<article type="ess" id="Recursive Dualism as applied to this organization"></article>
+				<article type="ess" id="Recursive Dualism as NOT applied to this organization"></article>
 			</action>
-			<action id="critical_articles" lbl="More Articles" nl="critical_articles">
-				<article type="ess" id="Cartesian Dualism and Undecidability"></article>
-				<article type="ess" id="Positivism- Vienna Circle"></article>
-				<article type="ess" id="Treatment of science in eastern and western spiritualism"></article>
+			<action id="Method" lbl="Method" nl="Expositions on the method">
+				<article type="ess" id="A Survey of History of Science"></article>
+				<article type="ess" id="Fallacy of Succession in Sciences"></article>
+				<article type="ess" id="Modern Science as continuum of scholsatic science"></article>
+				<article type="ess" id="Dogmas in Science"></article>
+				<article type="ess" id="Naturalism and Theology"></article>
+				<article type="ess" id="Scepticism vs Critical Method"></article>
+				<article type="ess" id="Dualism as closed dynamics"></article>
+				<article type="ess" id="Classical Time and Entropy"></article>
+				<article type="ess" id="Chaos and divergence"></article>
+				<article type="ess" id="Authoritative Structures"></article>
+				<article type="ess" id="Meaning of Canonical"></article>
+			</action>
+			<action id="Method_Contemproary" lbl="Method as applied " nl="Expositions on the method">
+				<article type="ess" id="Phenomenon of Information Systems-Fuzzy sets"></article>
+				<article type="ess" id="PSSH, Milner"></article>
+				<article type="ess" id="Derrida Wittgenstien Chomsky "></article>
+				<article type="ess" id="Boltzmann Wiener Vienna Circle"></article>
 			</action>
 		</minor>
-	</major>
-	<major id="Philosophy" nl="Philosophy" lbl="Philosophy">
-		<minor id="philosophy_home" lbl="PHILOSOPHY HOME" nl="philosophy_home_dummy" >
-			<action id="philosophy_home1" lbl="About Philosophy" nl="philosophy_home"></action>
-		</minor>
-		<minor id="Classicism" lbl="Clacissism" nl="Clacissism">
+		
+		<minor id="Classicism" lbl="Clacissism and Scholasticism" nl="Clacissism">
 			<action id="renaissance_now" lbl="Renaissance Now" nl="">
 				<article type="ess" id="Clacissism as the truth of the moment"></article>
 				<article type="ess" id="Remembering Clifford Trusedell"></article>
@@ -238,23 +326,38 @@ Conventions		> Scout and Scholar
 				<article type="ess" id="Humanism, Artistic Freedom"></article>
 			</action>
 		</minor>
-		<minor id="epistemic_dualism" lbl="Epistemic Dualism" nl="Epistemic_Dualism">
+		<minor id="Dualism" lbl="Epistemic Dualism" nl="Epistemic_Dualism, essential mysticism">
 			<action id="Holy_Undecidability" lbl="Holy Undecidability" nl="Holy Undecidability">
 				<article type="landing" id="Dualism as irreductible for all knowledge"></article>
-				<article type="landing" id="Buddha on undecidability and moderation"></article>
-				<article type="ess" id="Descartes"></article>
+				<article type="landing" id="Buddha on undecidability and moderation ,confucius, Loyola"></article>
+				<article type="ess" id="Descartes Meditations"></article>
+				<article type="ess" id="Renaissance Now"></article>
+				<article type="ess" id="Stoicism and Epicureanism"></article>
+			</action>
+			<action id="Art_Science" lbl="Art and Science" nl="Art and Science as all that is (to discuss)">
+				<article type="ess" id="Science plus Romanticism-Dissipation and Truth"></article>
+				<article type="ess" id="Physical entity of the Campus-like the smithy"></article>
+				<article type="ess" id="Mysticism of the observer"></article>
+				<article type="ess" id="Public Sphere, Tribalism"></article>
+			</action>			
+			<action id="Art_Stories" lbl="Art pour l'Art" nl="Artitic retellings and stories">
+				<article type="ess" id="Deliverance and Fete at coqueville Sleepy Hollow"></article>
+				<article type="ess" id="Necessity of Metaphors and symbols-heroics"></article>
+			</action>
+			<action id="Justice" lbl="Justice and Closure" nl="Justice as definite">
+				<article type="ess" id="Closed forms of Justice"></article>
+				<article type="ess" id="origin of Injustice"></article>
+				<article type="ess" id="Finite speed of experimentation"></article>
+				<article type="ess" id="Globalism and free flow of value"></article>
+				<article type="ess" id="Public Sphere, Tribalism"></article>
 			</action>
 		</minor>
-		<minor id="mysticism" lbl="Essential Mysticism" nl="OriginDuMonde_salvadorMundi">
-			<action id="benevolent_omnipotence" lbl="Benevolent Omnipotence" nl="Benevolent Omnipotence">
-				<article type="landing" id="Essential Root as Undescribable, closest is love"></article>
-				<article type="ess" id="Confucius on Leniency"></article>
-				<article type="ess" id="Ignacius of loyola"></article>
-			</action>
-			<action id="Something_before_anything" lbl="Something before Anything" nl="Something before Anything">
-				<article type="ess" id="Always Something before Anything"></article>
-				<article type="ess" id="Rejection of Nihilism"></article>
+		<minor id="epistemic_Criticism" lbl="Theories of Knowledge" nl="epistemological criticsim about decisions, subjectivism">
+			<action id="pr_crt" lbl="Does decision need its theory" nl="crticism">
+				<article type="ess" id="Regression, Bayesianism, Lagrangian techniques"></article>
+				<article type="ess" id="Evidence Based decisions presupposes experts"></article>
 			</action>
 		</minor>
+		
 	</major>
 </vsn>

@@ -153,34 +153,34 @@ Conventions		> Scout and Scholar
 	<major id="About1" nl="About" lbl="About">
 		<minor id="about" lbl="~ HOME" nl="about">
 			<action type="ess" lbl="Methods and Manners" id="Methods_and_Manners" nl="">
-				<article type="ess" id="Motivation, Constitution, Methods and Manners"></article>
+				<article type="ess" id="Motivation and Manners" nl="Motivation, Constitution, Methods and Manners"></article>
 			</action>
 		</minor>
 	</major>
 
 
-	<major id="Exposition" lbl="Exposition" nl="Expositions - theories of computing, empirical results of computing and " >
+	<major id="Exposition" lbl="Expositions" nl="Expositions - theories of computing, empirical results of computing and " >
 		<minor id="exposition_home" lbl="EXPOSITION HOME" nl="activity_home_dummy" >
 			<action id="activity_home" lbl="About Expositions" nl="activity_home"></action>
 		</minor>
 		<minor id="Empiricism" lbl="Empiricism of Computing" nl="Studying Computing Phenomenologically">
 			<action id="computing_engg_complex" lbl="Experiments in Computing" nl="phenomenology of agile, computing breaching domains">
-				<article type="ess" id="Computing complex"></article>
+				<article type="liv" id="Phenomenon of Agile" nl="A survey of the computing economic complex, collapse of formal domains"></article>
 			</action>
 			<action id="computing_domain" lbl="Domain Theory" nl="science_open_domains">
-				<article type="ess" id="How Computing delimits domains"></article>
-				<article type="ess" id="Rules and Domains"></article>
-				<article type="ess" id="Domain level closure"></article>
+				<article type="liv" id="How Computing defines domains" nl="what is the construct of domain independent of economic signification"></article>
+				<article type="hid" id="Cross domain Rules" nl="An Adiabatic dynamical arrangement other than over power"></article>
+				<article type="hid" id="Domain level closure" nl="Moral comfort of domains"></article>
 			</action>
 			<action id="computing_theorizing" lbl="Alternate Theorizing" nl="new theories on computing">
-				<article type="ess" id="Alternate Theories of Empirical Computing"></article>
-				<article type="ess" id="Theories On Provable Systems"></article>
-				<article type="ess" id="Theories On Linguistic Control"></article>
-				<article type="ess" id="PSSH and Milner"></article>
-				<article type="ess" id="Rules and Domains"></article>
-				<article type="ess" id="Paralellized versus Serialized computing"></article>
-				<article type="ess" id="Connectionism-Semantics"></article>
-				<article type="ess" id="Interactive Proof mechanisms- Query engines and Mock systems"></article>
+				<article type="liv" id="Alternate Theories of Empirical Computing" nl="A survey of the existing theories and alternate propositoins"></article>
+				<article type="hid" id="On Provable Systems" nl="Epicurean (Negative-Utilitarian) Argument on proof"></article>
+				<article type="hid" id="On Linguistic Control" nl="Languages as instruments of control, dynamically referring to an abstract center"></article>
+				<article type="hid" id="PSSH and Milner"></article>
+				<article type="hid" id="Rules and Domains"></article>
+				<article type="hid" id="Paralellized vs Serialized computing" nl="How paralell computing is a beast in itself"></article>
+				<article type="hid" id="Connectionism-Semantics"></article>
+				<article type="hid" id="Interactive Proof mechanisms- Query engines and Mock systems"></article>
 			</action>
 		</minor>
 		<minor id="Exploratory_Domain" lbl="Exploratory Domains" nl="Evidence Based medicien, meteorology, complexity">

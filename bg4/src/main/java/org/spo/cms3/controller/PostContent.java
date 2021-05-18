@@ -9,6 +9,15 @@ public class PostContent {
 	private String path1;
 	private String path2;
 	private String path3;
+	private String path4;
+	public String getPath4() {
+		return path4;
+	}
+
+	public void setPath4(String path4) {
+		this.path4 = path4;
+	}
+
 	private boolean publishReady;
 	
 	/**MAnually Added**/

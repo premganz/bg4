@@ -60,10 +60,24 @@ public class PageService {
 //		return readUpPageUtils(f);
 //	}
 
+	private String getPath(ActionAssembly assem, String repoPath) {
+		
+		String path=repoPath+"/content/"+assem.getMajorCode()+"/";
+		
+		if (assem.getActionCode().equals("1")) {
+			path=path+"index.txt";
+		}else if (assem.getReadableMatter().equals("1")) {
+			path=path+assem.getMinorCode()+"/"+assem.getActionCode();
+		}else {
+			path=path+assem.getMinorCode()+"/"+assem.getActionCode()+"/"+assem.getReadableMatter();
+		}
+			return path;
+	}
+	
 	public String readUpPage(ActionAssembly assem){
 		File f = null;
 		String repoPath=constants.getRepoPath();
-		String path=repoPath+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+"."+assem.getExtension();
+		String path=getPath(assem,repoPath);
 		log.debug("attempting to read page ");
 		logger.error("attempting to read page "+ path);
 		f= new File(path);
@@ -79,7 +93,7 @@ public class PageService {
 	public String readUpMeta(ActionAssembly assem){
 		File f = null;
 		String repoPath=constants.getRepoPath();
-		String path=repoPath+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+"."+assem.getExtension();
+		String path=getPath(assem,repoPath);
 		log.debug("attempting to read page ");
 		logger.error("attempting to read page "+ path);
 		f= new File(path);
@@ -99,7 +113,7 @@ public class PageService {
 		File f = null;
 		String repoPath=constants.getRepoPath();
 		repoPath=constants.getRepoPath().replaceAll("cms1", "cms-staging");
-		String path=repoPath+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+"."+assem.getExtension();
+		String path=getPath(assem,repoPath);
 		log.debug("attempting to read page ");
 		logger.error("attempting to read page "+ path);
 		f= new File(path);
@@ -117,7 +131,7 @@ public class PageService {
 		File f = null;
 		String repoPath=constants.getRepoPath();
 		repoPath=constants.getRepoPath().replaceAll("cms1", "cms-staging");
-		String path=repoPath+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+"."+assem.getExtension();
+		String path=getPath(assem,repoPath);
 		log.debug("attempting to read page ");
 		logger.error("attempting to read page "+ path);
 		f= new File(path);
@@ -133,11 +147,13 @@ public class PageService {
 	
 	public void createFile(ActionAssembly assem){
 		File f = null;
-		String path=constants.getRepoPath()+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+"."+assem.getExtension();
-		String staging_path=constants.getRepoPath().replaceAll("cms1", "cms-staging")+"/content/"+assem.getMajorCode()+"/"+assem.getMinorCode()+"/"+assem.getActionCode()+"."+assem.getExtension();
+		String repoPath=constants.getRepoPath();
+		String path=getPath(assem,repoPath);
+		repoPath=constants.getRepoPath().replaceAll("cms1", "cms-staging");
+		String staging_path=getPath(assem,repoPath);
 		log.debug("attempting to read page ");
 		logger.error("attempting to create page "+ path);
-		f= new File(path);File f_staging = new File(path);
+		f= new File(path);File f_staging = new File(staging_path);
 		try {
 			if(!f.exists()) 
 			f.createNewFile();
@@ -158,7 +174,10 @@ public class PageService {
 		if(!publishNow) {
 			repoPath=constants.getRepoPath().replaceAll("cms1", "cms-staging");
 		}
-		System.out.println("writing to file "+constants.getRepoPath()+"/"+fileName+".txt");
+		if(!fileName.endsWith(".txt")) {
+			fileName=fileName+".txt";
+		}
+		System.out.println("writing to file "+constants.getRepoPath()+"/"+fileName);
 		f= new File(repoPath+"/content/"+fileName);
 		FileWriter writer;
 		try {
@@ -234,12 +253,15 @@ public class PageService {
 
 	}
 
-	public List<String> readFileCatalog(String major, String minor, String action){
+	public List<String> readFileCatalog(String major, String minor, String action, String article){
 		File f = null;
 
 		ArrayList<String> resultList = new ArrayList<String>();
 		String resourcePath="";
-		if(action!=null) {
+		if(article!=null) {
+			resourcePath=constants.getRepoPath()+"/"+major+"/"+minor+"/"+action+"/"+article;
+		}
+		else if(action!=null) {
 			resourcePath=constants.getRepoPath()+"/"+major+"/"+minor+"/"+action;
 		}
 		else if(minor!=null) {

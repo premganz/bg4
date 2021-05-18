@@ -44,15 +44,18 @@ public class CMSContentPageController {
 		PostContent content1 = new PostContent();
 		content1.setHtmlContent("hello");
 		model.addAttribute("content", content1);
-		List<String> list = svc.readFileCatalog("content",null, null);
+		List<String> list = svc.readFileCatalog("content",null, null,null);
 		Collections.sort(list);		 
 		model.addAttribute("files1",list);
 		return "cms1/x_content";
 	}
+	
+	//LISTS 
+	
 	@ResponseBody
 	@RequestMapping(value = "admin/list2/{topic}", method = RequestMethod.GET)
 	public List<String> cmsList2(Locale locale, Model model, @PathVariable String topic) {
-		List<String> list = svc.readFileCatalog("content",topic, null);
+		List<String> list = svc.readFileCatalog("content",topic, null,null);
 		Collections.sort(list);
 		return list;
 	}
@@ -60,48 +63,58 @@ public class CMSContentPageController {
 	@ResponseBody
 	@RequestMapping(value = "admin/list3/{topic}/{topic2}", method = RequestMethod.GET)
 	public List<String> cmsList3(Locale locale, Model model, @PathVariable String topic, @PathVariable String topic2) {
-		List<String> list = svc.readFileCatalog("content",topic,topic2);
-		Collections.sort(list);		 
+		List<String> list = svc.readFileCatalog("content",topic,topic2,null);
+		Collections.sort(list);
 		return list;
 	}
 
+	@ResponseBody
+	@RequestMapping(value = "admin/list4/{topic}/{topic2}/{topic3}", method = RequestMethod.GET)
+	public List<String> cmsList4(Locale locale, Model model, @PathVariable String topic, @PathVariable String topic2, @PathVariable String topic3) {
+		List<String> list = svc.readFileCatalog("content",topic,topic2, topic3);
+		Collections.sort(list);
+		return list;
+	}
+	
+	//CONTENT
 
 	@ResponseBody
-	@RequestMapping(value = "admin/content/{topic}/{topic2}/{article}", method = RequestMethod.GET)
-	public String fetchContent(Locale locale, Model model, @PathVariable String topic, @PathVariable String topic2, @PathVariable String article) {
+	@RequestMapping(value = "admin/content/{major}/{minor}/{action}/{article}", method = RequestMethod.GET)
+	public String fetchContent(Locale locale, Model model, @PathVariable String major, @PathVariable String minor, 
+			@PathVariable String action, @PathVariable String article) {
 		ActionAssembly assem = new ActionAssembly();
-		assem.setCodes(topic, topic2, article);
+		assem.setCodes(major, minor, action, article);
 		return svc.readUpPage(assem);
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "admin/contentStaging/{topic}/{topic2}/{article}", method = RequestMethod.GET)
-	public String fetchContentStaging(Locale locale, Model model, @PathVariable String topic, @PathVariable String topic2, @PathVariable String article) {
+	@RequestMapping(value = "admin/contentStaging/{major}/{minor}/{action}/{article}", method = RequestMethod.GET)
+	public String fetchContentStaging(Locale locale, Model model,  @PathVariable String major, @PathVariable String minor,@PathVariable String action, @PathVariable String article) {
 		ActionAssembly assem = new ActionAssembly();
-		assem.setCodes(topic, topic2, article);
+		assem.setCodes(major, minor, action, article);
 		return svc.readUpPageStaging(assem);
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "admin/contentStagingMeta/{topic}/{topic2}/{article}", method = RequestMethod.GET)
-	public String fetchContentStagingMeta(Locale locale, Model model, @PathVariable String topic, @PathVariable String topic2, @PathVariable String article) {
+	public String fetchContentStagingMeta(Locale locale, Model model, @PathVariable String major, @PathVariable String minor,@PathVariable String action, @PathVariable String article) {
 		ActionAssembly assem = new ActionAssembly();
-		assem.setCodes(topic, topic2, article);
+		assem.setCodes(major, minor, action, article);
 		return svc.readUpPageStagingMeta(assem);
 	}
 	@ResponseBody
 	@RequestMapping(value = "admin/content/fetchTemplate", method = RequestMethod.GET)
 	public String fetchTemplate(Locale locale, Model model) {
 		ActionAssembly assem = new ActionAssembly();
-		assem.setCodes("meta", "meta-schema", "Schema_cms").setExtension("xml");		 
+		assem.setCodes("meta", "meta-schema", "","Schema_cms").setExtension("xml");		 
 		return cmsUtils.formatXml(svc.readUpPage(assem));
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "admin/content/createFile/{topic}/{topic2}/{fileName}", method = RequestMethod.GET)
-	public String createFile(Locale locale, Model model, @PathVariable String topic, @PathVariable String topic2, @PathVariable String fileName) {
+	@RequestMapping(value = "admin/content/createFile/{major}/{minor}/{action}/{article}", method = RequestMethod.GET)
+	public String createFile(Locale locale, Model model, @PathVariable String major, @PathVariable String minor,@PathVariable String action, @PathVariable String article) {
 		ActionAssembly assem = new ActionAssembly();
-		assem.setCodes(topic, topic2, fileName);
+		assem.setCodes(major, minor, action, article+".txt");
 		svc.createFile(assem);
 		return "done";
 	}
@@ -125,8 +138,16 @@ public class CMSContentPageController {
 		message.setMeta(content.getMeta());
 		String response ="";
 		try {
-			svc.writePage(content.getPath1()+"/"+content.getPath2()+"/"+content.getPath3(),content.getHtmlContent(),
+			String pathToWrite = content.getPath1()+"/"+content.getPath2()+"/"+content.getPath3();
+			if(!content.getPath4().isEmpty()) {
+				pathToWrite =pathToWrite +"/"+content.getPath4();
+			}
+			if(!content.getPath3().isEmpty()) {
+				pathToWrite =pathToWrite +"/"+content.getPath3();
+			}
+			svc.writePage(pathToWrite,content.getHtmlContent(),
 					content.getMeta(),content.getPublishReady());
+			
 
 			//				svc.writePage(, content.getHtmlContent());
 			//				svc.writePage("posts/"+content.getId()+"_meta", content.getMeta());

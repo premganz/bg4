@@ -15,7 +15,7 @@ public class PageFactory {
 		page.setSubTitle("Welcome Page");
 
 		PageService svc = new PageService();
-		ActionAssembly aa = new ActionAssembly().setCodes("About", "About", "index");
+		ActionAssembly aa = new ActionAssembly().setCodes("About", "About",  null, "index");
 		String response_content = svc.readUpPage(aa);
 		page.setWelcomeContent(response_content);
 		

@@ -13,6 +13,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.spo.ifs3.template.web.Constants;
@@ -28,7 +29,7 @@ import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 @Component
 public class CmsUtils {
 	public static Document doc;
-	
+
 	Constants constants = new ConstantsTestImpl();
 	String cmsDir = constants.getRepoPath()+"/"+"content"+"/";
 	String cmsMetaDir = constants.getRepoPath()+"/augment/";
@@ -39,54 +40,50 @@ public class CmsUtils {
 		//docFactory.setNamespaceAware(true);
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 		doc = docBuilder.parse(constants.getRepoPath()+"/content/meta/meta-schema/Schema_cms.xml");
-		
-
 	}
-	
-	
+
 
 	//Run once to create folders
 	public  void organizeFolders() {
 		String xquery= "//vsn" ;
 		try {
-			organizeFoldersHelper1 (util_queryHelper1(xquery),"","", false);
+			organizeFoldersHelper1 (util_queryHelper1(xquery),"","","", false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	//Run once to create folders
-		public  void organizeFoldersMeta() {
-			String xquery= "//vsn" ;
-			try {
-				organizeFoldersHelper1 (util_queryHelper1(xquery),"","", true);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+	public  void organizeFoldersMeta() {
+		String xquery= "//vsn" ;
+		try {
+			organizeFoldersHelper1 (util_queryHelper1(xquery),"","", "",true);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+	}
 
-		
-		public  String formatXml(String unformattedXml) {
-			String x="ERROR";
-			
-	        try {
-	        	
-	            
-	            OutputFormat format = new OutputFormat(doc);
-	            format.setLineWidth(65);
-	            format.setIndenting(true);
-	            format.setIndent(2);
-	            Writer out = new StringWriter();
-	            XMLSerializer serializer = new XMLSerializer(out, format);
-	            serializer.serialize(doc);
 
-	            x= out.toString();
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-	        return x;
-	    }
-		
-	private  void organizeFoldersHelper1(Element node, String currentStrategyDir, String currentDomainDir, boolean isMeta) throws Exception {
+	public  String formatXml(String unformattedXml) {
+		String x="ERROR";
+
+		try {
+
+			OutputFormat format = new OutputFormat(doc);
+			format.setLineWidth(65);
+			format.setIndenting(true);
+			format.setIndent(2);
+			Writer out = new StringWriter();
+			XMLSerializer serializer = new XMLSerializer(out, format);
+			serializer.serialize(doc);
+
+			x= out.toString();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return x;
+	}
+
+	private  void organizeFoldersHelper1(Element node, String currentStrategyDir, String currentDomainDir,String currentActionDir, boolean isMeta) throws Exception {
 		// do something with the current node instead of System.out
 		String cmsPath = isMeta?cmsDir:cmsMetaDir;
 		String extn = isMeta?"_augm.txt":".txt";
@@ -119,17 +116,41 @@ public class CmsUtils {
 					}
 				}
 				if(currentNode.getNodeName().equals("action")) {
-					File file = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentNode.getAttributes().getNamedItem("id").getTextContent().replaceAll(" ", "_")+extn);
-					if(!file.exists()) {
+					currentActionDir= currentNode.getAttributes().getNamedItem("id").getTextContent().replaceAll(" ", "_");
+
+					File dir = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentActionDir);
+					if(!dir.exists()) {
+						dir.mkdirs();
+					}
+					File indexFileAction = new File(cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentActionDir+"/index.txt");
+					if(!indexFileAction.exists()) {
+						indexFileAction.createNewFile();
+					}
+				
+				}
+				if(currentNode.getNodeName().equals("article")) {
+					System.out.println("got an article ");
+					String articlePath = cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentActionDir+"/";
+					String articleName = currentNode.getAttributes().getNamedItem("id").getTextContent();
+					String actionCode= currentNode.getAttributes().getNamedItem("type").getTextContent();
+					String articleFilePath = articlePath+articleName+extn;
+					File file = new File (articleFilePath);
+					if(!file.exists() && actionCode.equals("liv")) {
 						log.debug("creating file "+file.getName());
 						file.createNewFile();
 					}
+					else if(file.exists() && actionCode.equals("del")) {
+						FileUtils.copyFile(new File(articleFilePath) , new File(articleFilePath+".bck"));
+						FileUtils.deleteQuietly(new File(articleFilePath) );
+					}
 				}
-//				if(currentNode instanceof DeferredElementImpl){
-//					continue;
-//				} 
+				
+				//				if(currentNode instanceof DeferredElementImpl){
+				//					continue;
+				//				} 
+//				
 				if(currentNode.hasChildNodes()) {
-					organizeFoldersHelper1((Element)currentNode, currentStrategyDir, currentDomainDir, isMeta);
+					organizeFoldersHelper1((Element)currentNode,  currentStrategyDir, currentDomainDir, currentActionDir, isMeta);
 				}
 			}
 		}
@@ -137,40 +158,40 @@ public class CmsUtils {
 	}
 
 
-//	private  void organizeFoldersHelper(Node node) throws Exception {
-//		// do something with the current node instead of System.out
-//		System.out.println(node.getNodeName());
-//		String currentStrategyDir="";
-//		String currentDomainDir="";
-//		NodeList nodeList = node.getChildNodes();
-//		for (int i = 0; i < nodeList.getLength(); i++) {
-//			Node currentNode = nodeList.item(i);
-//			if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
-//				if(currentNode.getNodeName().equals("major")) {
-//					currentStrategyDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
-//					File dir = new File (cmsDir+currentStrategyDir);
-//					if(!dir.exists()) {
-//						dir.mkdirs();
-//					}
-//					
-//				}
-//				if(currentNode.getNodeName().equals("minor")) {
-//					currentDomainDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
-//					File dir = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir);
-//					if(!dir.exists()) {
-//						dir.mkdirs();
-//					}
-//				}
-//				if(currentNode.getNodeName().equals("action")) {
-//					File file = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentNode.getAttributes().getNamedItem("id").getTextContent()+".txt");
-//					if(!file.exists()) {
-//						file.createNewFile();
-//					}
-//				}
-//			}
-//		}
-//
-//	}
+	//	private  void organizeFoldersHelper(Node node) throws Exception {
+	//		// do something with the current node instead of System.out
+	//		System.out.println(node.getNodeName());
+	//		String currentStrategyDir="";
+	//		String currentDomainDir="";
+	//		NodeList nodeList = node.getChildNodes();
+	//		for (int i = 0; i < nodeList.getLength(); i++) {
+	//			Node currentNode = nodeList.item(i);
+	//			if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
+	//				if(currentNode.getNodeName().equals("major")) {
+	//					currentStrategyDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
+	//					File dir = new File (cmsDir+currentStrategyDir);
+	//					if(!dir.exists()) {
+	//						dir.mkdirs();
+	//					}
+	//					
+	//				}
+	//				if(currentNode.getNodeName().equals("minor")) {
+	//					currentDomainDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
+	//					File dir = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir);
+	//					if(!dir.exists()) {
+	//						dir.mkdirs();
+	//					}
+	//				}
+	//				if(currentNode.getNodeName().equals("action")) {
+	//					File file = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentNode.getAttributes().getNamedItem("id").getTextContent()+".txt");
+	//					if(!file.exists()) {
+	//						file.createNewFile();
+	//					}
+	//				}
+	//			}
+	//		}
+	//
+	//	}
 
 
 	public NodeList util_queryHelper(String expression) throws Exception{
@@ -181,8 +202,8 @@ public class CmsUtils {
 		System.out.println("processed "+expression +"  Returned "+headerNodes.getLength());
 		return headerNodes;
 	}
-	
-	
+
+
 	public Element util_queryHelper1(String xquery) throws Exception{
 		XPathFactory factory = XPathFactory.newInstance();
 		XPath xpath = factory.newXPath();
@@ -193,7 +214,7 @@ public class CmsUtils {
 		List<Element> heirarchialElems = new ArrayList<Element>();
 		node.getChildNodes();
 		return (Element)node;
-		
+
 	}
 
 	//TODO Run with great care, will erase data.
@@ -201,14 +222,14 @@ public class CmsUtils {
 		CmsUtils cmsUtil = new CmsUtils();
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		//docFactory.setNamespaceAware(true);
-	
+
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-//		cmsUtil.doc=docBuilder.parse("C:/Users/gs1-premg/git/bg4-2/bg4/src/main/resources/data-cms/cms1/content/Schema_cms.xml");
-//				"C:/Users/premganesh/git/bg4/bg4/src/test/resources/ApplicationNavTreeModelGeneric.xml");
+		//		cmsUtil.doc=docBuilder.parse("C:/Users/gs1-premg/git/bg4-2/bg4/src/main/resources/data-cms/cms1/content/Schema_cms.xml");
+		//				"C:/Users/premganesh/git/bg4/bg4/src/test/resources/ApplicationNavTreeModelGeneric.xml");
 		cmsUtil.organizeFolders();
-		
-//		cmsUtil.organizeFoldersMeta();
+
+		//		cmsUtil.organizeFoldersMeta();
 	}
-	
-	
+
+
 }

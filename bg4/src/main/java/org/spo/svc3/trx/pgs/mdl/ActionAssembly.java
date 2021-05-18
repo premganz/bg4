@@ -5,6 +5,7 @@ public class ActionAssembly {
 	private String majorCode;
 	private String minorCode;
 	private String actionCode;
+	private String readableMatter;
 	private String extension="txt";
 	
 	
@@ -14,10 +15,11 @@ public class ActionAssembly {
 	private Menu newsLinks;
 	
 	
-	public ActionAssembly setCodes(String majorCode, String minorCode, String actionCode) {
-		this.setActionCode(actionCode);;
+	public ActionAssembly setCodes(String majorCode, String minorCode, String actionCode, String readableMatter) {
 		this.setMajorCode(majorCode);
 		this.setMinorCode(minorCode);
+		this.setActionCode(actionCode);
+		this.setReadableMatter(readableMatter);
 		return this;
 	}
 	
@@ -25,6 +27,22 @@ public class ActionAssembly {
 	
 	
 	
+	public String getReadableMatter() {
+		return readableMatter;
+	}
+
+
+
+
+
+	public void setReadableMatter(String readableMatter) {
+		this.readableMatter = readableMatter;
+	}
+
+
+
+
+
 	public String getExtension() {
 		return extension;
 	}

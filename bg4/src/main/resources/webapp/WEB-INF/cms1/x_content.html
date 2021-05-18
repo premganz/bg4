@@ -70,6 +70,9 @@
 			<tr>
 				<td>Fetch Existing Post:</td>
 				<td>
+					<button id="fetch">Fetch</button>
+				</td>
+				<td>
 					<button id="fetch1">Fetch Staged</button>
 				</td>
 				<td>Fetch Template:</td>
@@ -100,6 +103,10 @@
 							</select>
 							<select name="fileselect3" id="fileselect3"
 								th:field="${content.path3}">
+								<option value="1">Please Choose</option>
+							</select>
+							<select name="fileselect4" id="fileselect4"
+								th:field="${content.path4}">
 								<option value="1">Please Choose</option>
 							</select>
 

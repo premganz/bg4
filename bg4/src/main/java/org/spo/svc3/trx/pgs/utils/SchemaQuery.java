@@ -42,7 +42,7 @@ public class SchemaQuery extends MenuFactory{
 		ActionAssembly aa = new ActionAssembly();
 		
 		String majorCode = getSubMenuList("//minor[@id=\""+minorId+"\"]/..").get(0).getId();
-		aa.setCodes(majorCode, minorId, "index");
+		aa.setCodes(majorCode, minorId,"", "index");
 		return aa;
 	}
 	

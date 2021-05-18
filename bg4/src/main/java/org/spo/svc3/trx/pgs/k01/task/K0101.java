@@ -33,7 +33,7 @@ public class K0101 extends AbstractTask {
 		HomePage page = new HomePage();
 		page.setSubTitle("Welcome Page");
 		ActionAssembly aa = new ActionAssembly();
-		aa.setCodes("About","about","index");
+		aa.setCodes("About","about","","index");
 		String response_content = svc.readUpPage(aa);
 		page.setWelcomeContent(response_content);
 		Menu sideBarMenu = new MenuFactory().homePageMenu();
