@@ -83,7 +83,7 @@ public class CMSContentPageController {
 	public String fetchContent(Locale locale, Model model, @PathVariable String major, @PathVariable String minor, 
 			@PathVariable String action, @PathVariable String article) {
 		ActionAssembly assem = new ActionAssembly();
-		assem.setCodes(major, minor, action, article);
+		assem.setCodes(major, minor, action, article+".txt");
 		return svc.readUpPage(assem);
 	}
 
@@ -91,7 +91,7 @@ public class CMSContentPageController {
 	@RequestMapping(value = "admin/contentStaging/{major}/{minor}/{action}/{article}", method = RequestMethod.GET)
 	public String fetchContentStaging(Locale locale, Model model,  @PathVariable String major, @PathVariable String minor,@PathVariable String action, @PathVariable String article) {
 		ActionAssembly assem = new ActionAssembly();
-		assem.setCodes(major, minor, action, article);
+		assem.setCodes(major, minor, action, article+".txt");
 		return svc.readUpPageStaging(assem);
 	}
 	
@@ -99,7 +99,7 @@ public class CMSContentPageController {
 	@RequestMapping(value = "admin/contentStagingMeta/{topic}/{topic2}/{article}", method = RequestMethod.GET)
 	public String fetchContentStagingMeta(Locale locale, Model model, @PathVariable String major, @PathVariable String minor,@PathVariable String action, @PathVariable String article) {
 		ActionAssembly assem = new ActionAssembly();
-		assem.setCodes(major, minor, action, article);
+		assem.setCodes(major, minor, action, article+".txt");
 		return svc.readUpPageStagingMeta(assem);
 	}
 	@ResponseBody
@@ -138,13 +138,14 @@ public class CMSContentPageController {
 		message.setMeta(content.getMeta());
 		String response ="";
 		try {
-			String pathToWrite = content.getPath1()+"/"+content.getPath2()+"/"+content.getPath3();
-			if(!content.getPath4().isEmpty()) {
-				pathToWrite =pathToWrite +"/"+content.getPath4();
-			}
+			String pathToWrite = content.getPath1()+"/"+content.getPath2();
 			if(!content.getPath3().isEmpty()) {
 				pathToWrite =pathToWrite +"/"+content.getPath3();
 			}
+			if(!content.getPath4().isEmpty()) {
+				pathToWrite =pathToWrite +"/"+content.getPath4();
+			}
+			
 			svc.writePage(pathToWrite,content.getHtmlContent(),
 					content.getMeta(),content.getPublishReady());
 			

@@ -49,14 +49,15 @@ public class K0101 extends AbstractTask {
 	@Override
 	public NavEvent processViewEvent(String event, String dataId, TrxInfo info) {
 		if(event.startsWith("EV_action")){
-			dataId = dataId.replaceAll("action__","");
-			NavEvent navEvent = K01Handler.EV_INIT_01;
-			navEvent.dataId=dataId;
-			return navEvent;
+			dataId = dataId.replaceAll("action__","");	
+			K01Toolkit.setActionCode(info, dataId);
+			K01Toolkit.setMode(info, "action");
+			return K01Handler.EV_MINOR_PAGE;
 		}if(event.startsWith("EV_minor")) {
 			try {
 				dataId = dataId.replaceAll("minor__","");
 				K01Toolkit.setMinorCode(info, dataId);
+				K01Toolkit.setMode(info, "minor");
 				return K01Handler.EV_MINOR_PAGE;
 			
 			} catch (Exception e) {

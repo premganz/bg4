@@ -81,6 +81,30 @@ hr.small {
 	
 }
 
+.blackbody_minor{
+	color: #404040;
+	background-color:black;
+	background-image:url('https://upload.wikimedia.org/wikipedia/commons/b/b9/LightningRidgeMines.jpg');
+	background-size:contain;	
+	
+}
+
+.blackbody_action{
+	color: #404040;
+	background-color:black;
+	background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Ulu%E1%B9%9Fu_%28Ayers_Rock%29%2C_Sunset.jpg/1024px-Ulu%E1%B9%9Fu_%28Ayers_Rock%29%2C_Sunset.jpg');
+	background-size:contain;	
+	
+}
+
+.blackbody_article{
+	color: #404040;
+	background-color:black;
+	background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Skyline_de_Chicago_desde_el_centro%2C_Illinois%2C_Estados_Unidos%2C_2012-10-20%2C_DD_06.jpg/1024px-Skyline_de_Chicago_desde_el_centro%2C_Illinois%2C_Estados_Unidos%2C_2012-10-20%2C_DD_06.jpg');
+	background-size:contain;	
+	
+}
+
 @media only screen and (min-width:768px) {
 	.navbar-custom {
 		background: 0 0;

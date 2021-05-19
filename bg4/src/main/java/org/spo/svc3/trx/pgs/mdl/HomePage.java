@@ -20,9 +20,21 @@ public class HomePage extends GuidePage {
 	
 	private ExtLink homePageLink;
 	private ExtLink aboutPageLink;
+	private String styleClass;
+	
+	
+	
 	
 	
 //TODO
+
+	public String getStyleClass() {
+		return styleClass;
+	}
+
+	public void setStyleClass(String styleClass) {
+		this.styleClass = styleClass;
+	}
 
 	public boolean isExploreMoreLinkIc_1() {
 		return exploreMoreLinkIc_1;

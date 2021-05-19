@@ -58,6 +58,7 @@ public class Menu {
 	public List<Menu> getSubMenuItems() {
 		return subMenuItems;
 	}
+	
 
 	public void setSubMenuItems(List<Menu> subMenuItems) {
 		this.subMenuItems = subMenuItems;

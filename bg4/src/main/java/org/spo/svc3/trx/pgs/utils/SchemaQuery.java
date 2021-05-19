@@ -42,12 +42,26 @@ public class SchemaQuery extends MenuFactory{
 		ActionAssembly aa = new ActionAssembly();
 		
 		String majorCode = getSubMenuList("//minor[@id=\""+minorId+"\"]/..").get(0).getId();
-		aa.setCodes(majorCode, minorId,"", "index");
+		aa.setCodes(majorCode, minorId,"", "index.txt");
 		return aa;
 	}
 	
+	public  ActionAssembly getActionLandingPage(String actionId) throws Exception{
+		ActionAssembly aa = new ActionAssembly();
+		String minorId = getSubMenuList("//action[@id=\""+actionId+"\"]/..").get(0).getId();
+		String majorCode = getSubMenuList("//action[@id=\""+actionId+"\"]/../..").get(0).getId();
+		aa.setCodes(majorCode, minorId,actionId, "index.txt");
+		return aa;
+	}
 	
-	
+	public  ActionAssembly getArticlePage(String articleId) throws Exception{
+		ActionAssembly aa = new ActionAssembly();
+		String actionId = getSubMenuList("//article[@id=\""+articleId+"\"]/..").get(0).getId();
+		String minorId = getSubMenuList("//article[@id=\""+articleId+"\"]/../..").get(0).getId();
+		String majorCode = getSubMenuList("//article[@id=\""+articleId+"\"]/../../..").get(0).getId();
+		aa.setCodes(majorCode, minorId,actionId, articleId+".txt");
+		return aa;
+	}
 	
 	
 }
