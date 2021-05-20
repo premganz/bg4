@@ -96,6 +96,25 @@ public class CMSContentPageController {
 //		assem.setExtension(".txt");
 		return svc.readUpPage(assem);
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "admin/contentmeta/{major}/{minor}/{action}/{article}", method = RequestMethod.GET)
+	public String fetchContentMeta(Locale locale, Model model, @PathVariable String major, @PathVariable String minor, 
+			@PathVariable String action, @PathVariable String article) {
+		//TO fix the problem, where article extension alone does not arrive, due to the use of . dot character
+		if(!article.isEmpty() && !article.endsWith(".txt")) article=article+".txt";
+		if(minor.equals("index.txt")) {
+			minor="";action="";article="";
+		}else if("index.txt".contentEquals(action)) {
+			article="";
+			action="";
+		}
+		ActionAssembly assem = new ActionAssembly();
+		assem.setCodes(major, minor, action, article);
+		
+//		assem.setExtension(".txt");
+		return svc.readUpPageMeta(assem);
+	}
 
 	@ResponseBody
 	@RequestMapping(value = "admin/contentStaging/{major}/{minor}/{action}/{article}", method = RequestMethod.GET)
@@ -130,7 +149,6 @@ public class CMSContentPageController {
 	}
 
 
-
 	@RequestMapping(value="admin/contentSubmit")
 	public String processContent(
 			final PostContent content, final BindingResult bindingResult, final ModelMap model) {
@@ -148,14 +166,7 @@ public class CMSContentPageController {
 		message.setMeta(content.getMeta());
 		String response ="";
 		try {
-			String pathToWrite = content.getPath1()+"/"+content.getPath2();
-			if(!content.getPath3().isEmpty()) {
-				pathToWrite =pathToWrite +"/"+content.getPath3();
-			}
-			if(!content.getPath4().isEmpty()) {
-				pathToWrite =pathToWrite +"/"+content.getPath4();
-			}
-			
+			String pathToWrite = getPath(content);
 			svc.writePage(pathToWrite,content.getHtmlContent(),
 					content.getMeta(),content.getPublishReady());
 			
@@ -223,5 +234,30 @@ public class CMSContentPageController {
 			e.printStackTrace();
 		}
 		return response ;
+	}
+	
+	private String getPath(PostContent content) {
+		String path=content.getPath1();
+		if(content.getPath2().contentEquals("index.txt")) {
+			path = path+"/"+content.getPath2();
+			return path;
+		}else if(!content.getPath2().isEmpty()){
+			path=path+"/"+content.getPath2();
+		}
+		if(content.getPath3().contentEquals("index.txt")) {
+			path = path+"/"+content.getPath3();
+			return path;
+		}else if(!content.getPath3().isEmpty()){
+			path=path+"/"+content.getPath3();
+		}
+		if(content.getPath4().contentEquals("index.txt")) {
+			path = path+"/"+content.getPath4();
+			return path;
+		}else if(!content.getPath4().isEmpty()){
+			path=path+"/"+content.getPath4();
+		}	
+			
+	    return path;
+		
 	}
 }

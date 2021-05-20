@@ -100,7 +100,7 @@ public class PageService {
 		}
 		return contentToReturn;
 	}
-	public String readUpMeta(ActionAssembly assem){
+	public String readUpPageMeta(ActionAssembly assem){
 		File f = null;
 		String repoPath=constants.getRepoPath();
 		String path=getPath(assem,repoPath);
@@ -117,6 +117,7 @@ public class PageService {
 		return contentToReturn;
 	}
 
+	
 	
 	
 	public String readUpPageStaging(ActionAssembly assem){
@@ -187,6 +188,7 @@ public class PageService {
 		System.out.println("writing to file "+constants.getRepoPath()+"/"+fileName);
 		f= new File(repoPath+"/content/"+fileName);
 		FileWriter writer;
+		
 		try {
 			writer= new FileWriter(f);
 			writerBuf = new BufferedWriter(writer);

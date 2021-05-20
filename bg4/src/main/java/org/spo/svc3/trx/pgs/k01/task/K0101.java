@@ -1,5 +1,7 @@
 package org.spo.svc3.trx.pgs.k01.task;
 
+import java.lang.reflect.Type;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spo.cms3.svc.PageService;
@@ -12,9 +14,13 @@ import org.spo.svc3.trx.pgs.k01.toolkit.K01Toolkit;
 import org.spo.svc3.trx.pgs.mdl.ActionAssembly;
 import org.spo.svc3.trx.pgs.mdl.HomePage;
 import org.spo.svc3.trx.pgs.mdl.Menu;
+import org.spo.svc3.trx.pgs.mdl.PageMeta;
 import org.spo.svc3.trx.pgs.utils.MenuFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 @Component
 public class K0101 extends AbstractTask {
@@ -33,13 +39,19 @@ public class K0101 extends AbstractTask {
 		HomePage page = new HomePage();
 		page.setSubTitle("Welcome Page");
 		ActionAssembly aa = new ActionAssembly();
-		aa.setCodes("About","about","","index");
+		aa.setCodes("Campus","about","","");
 		String response_content = svc.readUpPage(aa);
 		page.setWelcomeContent(response_content);
 		Menu sideBarMenu = new MenuFactory().homePageMenu();
 //		page.setSubTitle("Forum for Scholarship and Exploration");
 		page.setSubTitle("Reviving Cartesian Science");
 		page.setSideBarMenu(sideBarMenu);
+		Gson gson = new Gson();
+		
+		Type typ = new TypeToken<PageMeta>(){}.getType();//FIXME right now only string works
+		PageMeta pagemeta= gson.fromJson(svc.readUpPageMeta(aa),typ);	
+		page.setPageMeta(pagemeta);
+		
 		info.addToModelMap("hom",page);
 		System.out.println(page.toString());
 		

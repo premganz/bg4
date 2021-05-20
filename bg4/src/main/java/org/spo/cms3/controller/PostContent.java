@@ -10,6 +10,8 @@ public class PostContent {
 	private String path2;
 	private String path3;
 	private String path4;
+	
+
 	public String getPath4() {
 		return path4;
 	}

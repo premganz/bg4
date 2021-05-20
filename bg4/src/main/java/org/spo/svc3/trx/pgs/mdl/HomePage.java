@@ -22,11 +22,19 @@ public class HomePage extends GuidePage {
 	private ExtLink aboutPageLink;
 	private String styleClass;
 	
-	
+	private PageMeta pageMeta;
 	
 	
 	
 //TODO
+
+	public PageMeta getPageMeta() {
+		return pageMeta;
+	}
+
+	public void setPageMeta(PageMeta pageMeta) {
+		this.pageMeta = pageMeta;
+	}
 
 	public String getStyleClass() {
 		return styleClass;
