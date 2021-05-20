@@ -63,13 +63,23 @@ public class PageService {
 	private String getPath(ActionAssembly assem, String repoPath) {
 		
 		String path=repoPath+"/content/"+assem.getMajorCode()+"/";
-		
-		if (assem.getActionCode().equals("1")) {
+		if (assem.getMinorCode().equals("")) {
 			path=path+"index.txt";
-		}else if (assem.getReadableMatter().equals("1")) {
-			path=path+assem.getMinorCode()+"/"+assem.getActionCode();
+			return path;
 		}else {
-			path=path+assem.getMinorCode()+"/"+assem.getActionCode()+"/"+assem.getReadableMatter();
+			path=path+assem.getMinorCode()+"/";
+		}
+		if (assem.getActionCode().equals("")) {
+			path=path+"index.txt";
+			return path;
+		}else {
+			path=path+assem.getActionCode()+"/";
+		}
+		if (assem.getReadableMatter().equals("")) {
+			path=path+"index.txt";
+			return path;
+		}else {
+			path=path+assem.getReadableMatter();
 		}
 			return path;
 	}
@@ -173,9 +183,6 @@ public class PageService {
 		String repoPath=constants.getRepoPath();
 		if(!publishNow) {
 			repoPath=constants.getRepoPath().replaceAll("cms1", "cms-staging");
-		}
-		if(!fileName.endsWith(".txt")) {
-			fileName=fileName+".txt";
 		}
 		System.out.println("writing to file "+constants.getRepoPath()+"/"+fileName);
 		f= new File(repoPath+"/content/"+fileName);

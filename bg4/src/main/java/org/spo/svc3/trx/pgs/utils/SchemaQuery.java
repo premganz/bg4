@@ -59,7 +59,7 @@ public class SchemaQuery extends MenuFactory{
 		String actionId = getSubMenuList("//article[@id=\""+articleId+"\"]/..").get(0).getId();
 		String minorId = getSubMenuList("//article[@id=\""+articleId+"\"]/../..").get(0).getId();
 		String majorCode = getSubMenuList("//article[@id=\""+articleId+"\"]/../../..").get(0).getId();
-		aa.setCodes(majorCode, minorId,actionId, articleId+".txt");
+		aa.setCodes(majorCode, minorId,actionId, articleId);
 		return aa;
 	}
 	

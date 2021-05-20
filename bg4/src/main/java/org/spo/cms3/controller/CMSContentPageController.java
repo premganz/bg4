@@ -82,8 +82,18 @@ public class CMSContentPageController {
 	@RequestMapping(value = "admin/content/{major}/{minor}/{action}/{article}", method = RequestMethod.GET)
 	public String fetchContent(Locale locale, Model model, @PathVariable String major, @PathVariable String minor, 
 			@PathVariable String action, @PathVariable String article) {
+		//TO fix the problem, where article extension alone does not arrive, due to the use of . dot character
+		if(!article.isEmpty() && !article.endsWith(".txt")) article=article+".txt";
+		if(minor.equals("index.txt")) {
+			minor="";action="";article="";
+		}else if("index.txt".contentEquals(action)) {
+			article="";
+			action="";
+		}
 		ActionAssembly assem = new ActionAssembly();
-		assem.setCodes(major, minor, action, article+".txt");
+		assem.setCodes(major, minor, action, article);
+		
+//		assem.setExtension(".txt");
 		return svc.readUpPage(assem);
 	}
 
@@ -91,7 +101,7 @@ public class CMSContentPageController {
 	@RequestMapping(value = "admin/contentStaging/{major}/{minor}/{action}/{article}", method = RequestMethod.GET)
 	public String fetchContentStaging(Locale locale, Model model,  @PathVariable String major, @PathVariable String minor,@PathVariable String action, @PathVariable String article) {
 		ActionAssembly assem = new ActionAssembly();
-		assem.setCodes(major, minor, action, article+".txt");
+		assem.setCodes(major, minor, action, article);
 		return svc.readUpPageStaging(assem);
 	}
 	
@@ -99,14 +109,14 @@ public class CMSContentPageController {
 	@RequestMapping(value = "admin/contentStagingMeta/{topic}/{topic2}/{article}", method = RequestMethod.GET)
 	public String fetchContentStagingMeta(Locale locale, Model model, @PathVariable String major, @PathVariable String minor,@PathVariable String action, @PathVariable String article) {
 		ActionAssembly assem = new ActionAssembly();
-		assem.setCodes(major, minor, action, article+".txt");
+		assem.setCodes(major, minor, action, article);
 		return svc.readUpPageStagingMeta(assem);
 	}
 	@ResponseBody
 	@RequestMapping(value = "admin/content/fetchTemplate", method = RequestMethod.GET)
 	public String fetchTemplate(Locale locale, Model model) {
 		ActionAssembly assem = new ActionAssembly();
-		assem.setCodes("meta", "meta-schema", "","Schema_cms").setExtension("xml");		 
+		assem.setCodes("meta", "meta-schema", "","Schema_cms.xml");		 
 		return cmsUtils.formatXml(svc.readUpPage(assem));
 	}
 
@@ -114,7 +124,7 @@ public class CMSContentPageController {
 	@RequestMapping(value = "admin/content/createFile/{major}/{minor}/{action}/{article}", method = RequestMethod.GET)
 	public String createFile(Locale locale, Model model, @PathVariable String major, @PathVariable String minor,@PathVariable String action, @PathVariable String article) {
 		ActionAssembly assem = new ActionAssembly();
-		assem.setCodes(major, minor, action, article+".txt");
+		assem.setCodes(major, minor, action, article);
 		svc.createFile(assem);
 		return "done";
 	}

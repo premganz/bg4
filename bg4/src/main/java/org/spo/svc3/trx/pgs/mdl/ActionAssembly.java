@@ -6,7 +6,6 @@ public class ActionAssembly {
 	private String minorCode;
 	private String actionCode;
 	private String readableMatter;
-	private String extension="txt";
 	
 	
 	private boolean showMoreInfoButton;
@@ -39,21 +38,6 @@ public class ActionAssembly {
 		this.readableMatter = readableMatter;
 	}
 
-
-
-
-
-	public String getExtension() {
-		return extension;
-	}
-
-
-
-
-
-	public void setExtension(String extension) {
-		this.extension = extension;
-	}
 
 
 

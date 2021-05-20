@@ -35,13 +35,14 @@ public class K0102 extends AbstractTask {
 		SchemaQuery schemaQuery = new SchemaQuery();
 		if(K01Toolkit.getMode(info).equals("minor")) {
 			aa=schemaQuery.getMinorLandingPage(K01Toolkit.getMinorCode(info));	
+			page.setStyleClass("blackbody_minor");
 		}
 		if(K01Toolkit.getMode(info).equals("action")) {
 			aa=schemaQuery.getActionLandingPage(K01Toolkit.getActionCode(info));	
+			page.setStyleClass("blackbody_action");
 		}
 		String response_content = svc.readUpPage(aa);
 		page.setWelcomeContent(response_content);
-		page.setStyleClass("blackbody_minor");
 		Menu sideBarMenu = new MenuFactory().subPageMenu(K01Toolkit.getMinorCode(info));
 		page.setSubTitle(K01Toolkit.getMinorCode(info).replaceAll("_", " ").toUpperCase()+"");
 		page.setSideBarMenu(sideBarMenu);
