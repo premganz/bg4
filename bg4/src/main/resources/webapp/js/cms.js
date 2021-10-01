@@ -115,6 +115,22 @@ $(document).ready(function(){
 });
 
 
+$(document).ready(function(){
+		$( "#hideTextArea" ).click(function() {  
+			$("#contentArea").hide();
+			$("#hideTextArea").hide();
+			$("#showTextArea").show();
+			});
+
+	});
+$(document).ready(function(){
+	$( "#showTextArea" ).click(function() {  
+		$("#contentArea").show();
+		$("#hideTextArea").show();
+		$("#showTextArea").hide();
+		});
+
+});
 
 var fetch=function(){
 	var path1 = $("#fileselect1").val();
@@ -205,5 +221,4 @@ function JSONstringify(json) {
 
 	return json;
 }
-
 
