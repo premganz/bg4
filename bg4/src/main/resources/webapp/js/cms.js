@@ -2,6 +2,9 @@ var greet='';
 
 var greet='';
 $(document).ready(function(){
+	$("#showTextArea").hide();
+});
+$(document).ready(function(){
 	$("#fileselect2").change(function(){
 		var msg= 'Select  '+ $(this).attr('id')+'   '+ $(this).val();
 		$("#myEdit").html(msg);
@@ -123,6 +126,7 @@ $(document).ready(function(){
 			});
 
 	});
+
 $(document).ready(function(){
 	$( "#showTextArea" ).click(function() {  
 		$("#contentArea").show();
@@ -160,9 +164,9 @@ var fetch=function(){
 	$.ajax(
 			{url: "/admin/contentmeta/"+path1+"/"+path2+"/"+path3+"/"+path4,async: false, 
 				success: function(result){
-					console.log(result);
-					//tinyMCE.activeEditor.setContent(result);
+					console.log(JSONstringify(result));
 					$("#mytextarea3").val(result);
+					//tinyMCE.activeEditor.setContent(result);
 				}
 			});
 }
@@ -186,8 +190,9 @@ var fetchStaged=function(){
 			{url: "/admin/contentStagingMeta/"+$("#fileselect1").val()+"/"+$("#fileselect2").val()+"/"+$("#fileselect3").val(),async: false, 
 				success: function(result){
 					console.log(result);
+					var json_text = JSON.stringify(result, null, 2);
 					//tinyMCE.activeEditor.setContent(result);
-					$("#mytextarea3").val(result);
+					$("#mytextarea3").val(json_text);
 				}
 			});
 

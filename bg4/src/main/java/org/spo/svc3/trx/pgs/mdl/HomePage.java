@@ -13,8 +13,6 @@ public class HomePage extends GuidePage {
 	private ActionAssembly actionPageEmbedded;
 	private List<ExtLink> newsItems=new ArrayList<ExtLink>();
 	
-	private boolean exploreMoreLinkIc_1;
-	private String exploreMoreLinkTxt_1;
 	
 	private List<ExtLink> permaLinks=new ArrayList<ExtLink>();;
 	
@@ -44,13 +42,6 @@ public class HomePage extends GuidePage {
 		this.styleClass = styleClass;
 	}
 
-	public boolean isExploreMoreLinkIc_1() {
-		return exploreMoreLinkIc_1;
-	}
-
-	public void setExploreMoreLinkIc_1(boolean exploreMoreLinkIc_1) {
-		this.exploreMoreLinkIc_1 = exploreMoreLinkIc_1;
-	}
 
 	public List<ExtLink> getNewsItems() {
 		ExtLink ext = new ExtLink();
@@ -156,14 +147,6 @@ public class HomePage extends GuidePage {
 
 	public void setWelcomeContent(String welcomeContent) {
 		this.welcomeContent = welcomeContent;
-	}
-
-	public String getExploreMoreLinkTxt_1() {
-		return exploreMoreLinkTxt_1;
-	}
-
-	public void setExploreMoreLinkTxt_1(String exploreMoreLinkTxt_1) {
-		this.exploreMoreLinkTxt_1 = exploreMoreLinkTxt_1;
 	}
 	
 	

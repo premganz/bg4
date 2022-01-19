@@ -299,6 +299,7 @@ public class PageService {
 				String line = readerBuf.readLine();
 				while(line!=null){
 					buf.append(line);
+					buf.append('\n');
 					//buf.append("</br>");
 					line = readerBuf.readLine();
 				}

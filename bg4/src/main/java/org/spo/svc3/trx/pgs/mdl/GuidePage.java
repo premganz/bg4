@@ -20,8 +20,6 @@ private List<ExtLink> actionLinks=new ArrayList<ExtLink>();
 
 
 
-private boolean exploreMoreLinkIc_1;
-private String exploreMoreLinkTxt_1;
 
 private ExtLink homePageLink;
 private ExtLink aboutPageLink;
