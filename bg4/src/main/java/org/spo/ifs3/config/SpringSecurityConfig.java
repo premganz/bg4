@@ -25,14 +25,17 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-    	String adminUrl = "admin";
-    	if(System.getProperty("os.name").startsWith("Windows")){
-    		adminUrl="admin1";
+    	String adminUrl = "admin1";
+    	String protectedFile = "randomFile.txt";
+    	if(!System.getProperty("os.name").startsWith("Windows")){
+    		adminUrl="admin";
+    		protectedFile = "static.txt";
     	}
 
         http.authorizeRequests()
                 .antMatchers("/login**").permitAll()
                 .antMatchers("/"+adminUrl+ "/**").hasRole("ADMIN")//TODO FIXME revert to admin later
+                .antMatchers("/"+protectedFile).hasRole("ADMIN")
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()

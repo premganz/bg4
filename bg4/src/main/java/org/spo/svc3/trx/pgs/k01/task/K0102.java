@@ -38,22 +38,22 @@ public class K0102 extends AbstractTask {
 	public NavEvent initTask(TrxInfo info) throws Exception {
 		HomePage page = new HomePage();
 		page.setSubTitle("Welcome Page");
-		ActionAssembly aa = new ActionAssembly();
+		ActionAssembly aa = K01Toolkit.getActionAssem(info);
 		SchemaQuery schemaQuery = new SchemaQuery();
-		String minorCode = "";
+		String minorCode = aa.getMinorCode();
+		
 		if(K01Toolkit.getMode(info).equals("minor")) {
-			aa=schemaQuery.getMinorLandingPage(K01Toolkit.getMinorCode(info));	
 			page.setStyleClass("blackbody_minor");
 			minorCode=K01Toolkit.getMinorCode(info);
 		}
 		if(K01Toolkit.getMode(info).equals("action")) {
-			aa=schemaQuery.getActionLandingPage(K01Toolkit.getActionCode(info));	
 			page.setStyleClass("blackbody_action");
 			minorCode = aa.getMinorCode();
 			K01Toolkit.setMinorCode(info, minorCode);
 		}
 		String response_content = svc.readUpPage(aa);
 		page.setWelcomeContent(response_content);
+		page.setPageTypeCode("LIST");
 		Menu sideBarMenu = new MenuFactory().subPageMenu(minorCode);
 		page.setSubTitle(minorCode.replaceAll("_", " ").toUpperCase()+"");
 		page.setSideBarMenu(sideBarMenu);
@@ -75,55 +75,42 @@ public class K0102 extends AbstractTask {
 	public NavEvent processViewEvent(String event, String dataId, TrxInfo info) {
 		HomePage page = new HomePage();
 		ActionAssembly aa = new ActionAssembly();
+		SchemaQuery schemaQuery=null;
+		try {
+			schemaQuery = new SchemaQuery();
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
 		if(event.startsWith("EV_minor")) {
 			dataId = dataId.replaceAll("minor__","");
 			K01Toolkit.setMode(info, "minor");
 			K01Toolkit.setMinorCode(info, dataId);
+			aa=schemaQuery.getMinorLandingPage(K01Toolkit.getMinorCode(info));	
+			K01Toolkit.setActionAssem(info, aa);
+			return K01Handler.EV_MINOR_PAGE;
+//			page.setStyleClass("blackbody_minor");
 		}
 		if(event.startsWith("EV_action")) {
 			dataId = dataId.replaceAll("action__","");
-			page.setStyleClass("blackbody_action");
+//			page.setStyleClass("blackbody_action");
 			K01Toolkit.setMode(info, "action");
 			K01Toolkit.setActionCode(info, dataId);
+			aa=schemaQuery.getActionLandingPage(K01Toolkit.getActionCode(info));	
+			K01Toolkit.setActionAssem(info, aa);
+			return K01Handler.EV_ACTION_PAGE;
 		}
 		if(event.startsWith("EV_article")) {
 			dataId = dataId.replaceAll("article__","");
 			dataId = dataId.replaceAll("%20"," ");
 			K01Toolkit.setMode(info, "article");
-			page.setStyleClass("blackbody_article");
+//			page.setStyleClass("blackbody_article");
 			K01Toolkit.setArticleCode(info, dataId);
+			aa=schemaQuery.getArticlePage(K01Toolkit.getArticleCode(info));
+			K01Toolkit.setActionAssem(info, aa);
+			return K01Handler.EV_ARTICLE_PAGE;
 		}
-		SchemaQuery schemaQuery;
-		try {
-			schemaQuery = new SchemaQuery();
 
-			if(K01Toolkit.getMode(info).equals("minor")) {
-				aa=schemaQuery.getMinorLandingPage(K01Toolkit.getMinorCode(info));	
-			}
-			if(K01Toolkit.getMode(info).equals("action")) {
-				aa=schemaQuery.getActionLandingPage(K01Toolkit.getActionCode(info));	
-			}
-			if(K01Toolkit.getMode(info).equals("article")) {
-				aa=schemaQuery.getArticlePage(K01Toolkit.getArticleCode(info));	
-			}
-			String response_content = svc.readUpPage(aa);
-			page.setWelcomeContent(response_content);
-			Menu sideBarMenu = new MenuFactory().subPageMenu(K01Toolkit.getMinorCode(info));
-			if(K01Toolkit.getMinorCode(info)!=null) {
-				page.setSubTitle(K01Toolkit.getMinorCode(info).replaceAll("_", " ").toUpperCase()+"");
-			}else {
-				page.setSubTitle("Article");
-			}
-			page.setSideBarMenu(sideBarMenu);
-			Gson gson = new Gson();
-			Type typ = new TypeToken<PageMeta>(){}.getType();//FIXME right now only string works
-			PageMeta pagemeta= gson.fromJson(svc.readUpPageMeta(aa),typ);	
-			page.setPageMeta(pagemeta);
-			info.addToModelMap("hom",page);
-			System.out.println(page.toString());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 		return K01Handler.EV_INIT_02;
 	}
 

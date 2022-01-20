@@ -10,6 +10,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.spo.ifs3.template.web.Constants;
@@ -49,10 +50,21 @@ public class MenuFactory {
 	
 
 	
-	public  List<Menu> getSubMenuList(String expression) throws Exception{
+	public  List<Menu> getSubMenuList(String expression) {
 		XPath xpath = XPathFactory.newInstance().newXPath();
-		XPathExpression expr = xpath.compile(expression);
-		Object result = expr.evaluate(doc, XPathConstants.NODESET);
+		XPathExpression expr=null;
+		try {
+			expr = xpath.compile(expression);
+		} catch (XPathExpressionException e) {
+			
+			e.printStackTrace();
+		}
+		Object result = null;
+		try {
+			result = expr.evaluate(doc, XPathConstants.NODESET);
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
+		}
 		NodeList headerNodes = (NodeList) result;
 		List<Menu> menuList = new ArrayList<Menu>();
 		for(int i  = 0;i <headerNodes.getLength();i++){

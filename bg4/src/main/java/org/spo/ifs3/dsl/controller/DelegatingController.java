@@ -56,6 +56,7 @@ public class DelegatingController{
 			session.setAttribute("info",info);
 			state = new StateInfo(DSLConstants.EventType.REFRESHPAGE,trxId,"","",dataId);
 			info.put(new ScopeVar(Scope.TRX, "stateInfo"),state);
+//			return "redirect:"+constants.getLandingPage(); //TODO to fix where session free url types result in bad state
 		}else{
 			info = (TrxInfo)session.getAttribute("info");
 			if(info==null) {

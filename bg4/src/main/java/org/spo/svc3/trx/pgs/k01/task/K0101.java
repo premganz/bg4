@@ -17,6 +17,7 @@ import org.spo.svc3.trx.pgs.mdl.Menu;
 import org.spo.svc3.trx.pgs.mdl.PageMeta;
 import org.spo.svc3.trx.pgs.utils.GsonUtils;
 import org.spo.svc3.trx.pgs.utils.MenuFactory;
+import org.spo.svc3.trx.pgs.utils.SchemaQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -41,6 +42,7 @@ public class K0101 extends AbstractTask {
 		logger.debug("in K0101");
 		HomePage page = new HomePage();
 		page.setSubTitle("Welcome Page");
+		page.setPageTypeCode("CONTENT");
 		ActionAssembly aa = new ActionAssembly();
 		aa.setCodes("Campus","about","","");
 		String response_content = svc.readUpPage(aa);
@@ -69,25 +71,33 @@ public class K0101 extends AbstractTask {
 
 	@Override
 	public NavEvent processViewEvent(String event, String dataId, TrxInfo info) {
-		if(event.startsWith("EV_action")){
-			dataId = dataId.replaceAll("action__","");	
-			K01Toolkit.setActionCode(info, dataId);
-			K01Toolkit.setMode(info, "action");
-			return K01Handler.EV_MINOR_PAGE;
-		}if(event.startsWith("EV_minor")) {
-			try {
-				dataId = dataId.replaceAll("minor__","");
-				K01Toolkit.setMinorCode(info, dataId);
-				K01Toolkit.setMode(info, "minor");
-				return K01Handler.EV_MINOR_PAGE;
-			
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-//			page.setSubTitle("hello");
-//			page.setSideBarMenu(sideBarMenu);
+		
+		ActionAssembly aa = new ActionAssembly();
+		SchemaQuery schemaQuery=null;
+		try {
+			schemaQuery = new SchemaQuery();
+		} catch (Exception e1) {
+			e1.printStackTrace();
 		}
+		if(event.startsWith("EV_minor")) {
+			dataId = dataId.replaceAll("minor__","");
+			K01Toolkit.setMode(info, "minor");
+			K01Toolkit.setMinorCode(info, dataId);
+			aa=schemaQuery.getMinorLandingPage(K01Toolkit.getMinorCode(info));	
+			K01Toolkit.setActionAssem(info, aa);
+//			page.setStyleClass("blackbody_minor");
+			return K01Handler.EV_MINOR_PAGE;
+		}
+		if(event.startsWith("EV_action")) {
+			dataId = dataId.replaceAll("action__","");
+//			page.setStyleClass("blackbody_action");
+			K01Toolkit.setMode(info, "action");
+			K01Toolkit.setActionCode(info, dataId);
+			aa=schemaQuery.getActionLandingPage(K01Toolkit.getActionCode(info));	
+			K01Toolkit.setActionAssem(info, aa);
+			return K01Handler.EV_MINOR_PAGE;
+		}
+		
 		return K01Handler.EV_INIT_01;
 	}
 

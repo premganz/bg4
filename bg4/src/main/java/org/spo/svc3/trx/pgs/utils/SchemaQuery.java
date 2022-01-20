@@ -38,7 +38,7 @@ public class SchemaQuery extends MenuFactory{
 		
 	
 
-	public  ActionAssembly getMinorLandingPage(String minorId) throws Exception{
+	public  ActionAssembly getMinorLandingPage(String minorId) {
 		ActionAssembly aa = new ActionAssembly();
 		
 		String majorCode = getSubMenuList("//minor[@id=\""+minorId+"\"]/..").get(0).getId();
@@ -46,7 +46,7 @@ public class SchemaQuery extends MenuFactory{
 		return aa;
 	}
 	
-	public  ActionAssembly getActionLandingPage(String actionId) throws Exception{
+	public  ActionAssembly getActionLandingPage(String actionId) {
 		ActionAssembly aa = new ActionAssembly();
 		String minorId = getSubMenuList("//action[@id=\""+actionId+"\"]/..").get(0).getId();
 		String majorCode = getSubMenuList("//action[@id=\""+actionId+"\"]/../..").get(0).getId();
@@ -54,7 +54,7 @@ public class SchemaQuery extends MenuFactory{
 		return aa;
 	}
 	
-	public  ActionAssembly getArticlePage(String articleId) throws Exception{
+	public  ActionAssembly getArticlePage(String articleId) {
 		ActionAssembly aa = new ActionAssembly();
 		String actionId = getSubMenuList("//article[@id=\""+articleId+"\"]/..").get(0).getId();
 		String minorId = getSubMenuList("//article[@id=\""+articleId+"\"]/../..").get(0).getId();

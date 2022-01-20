@@ -9,7 +9,19 @@ public class HomePage extends GuidePage {
 	private Menu sideBarMenu;
 	private String welcomeContent;
 	private String subTitle;
+	private String pageTypeCode;
+	//CONTENT, LIST, OVERVIEW
 	
+	
+
+	public String getPageTypeCode() {
+		return pageTypeCode;
+	}
+
+	public void setPageTypeCode(String pageTypeCode) {
+		this.pageTypeCode = pageTypeCode;
+	}
+
 	private ActionAssembly actionPageEmbedded;
 	
 	

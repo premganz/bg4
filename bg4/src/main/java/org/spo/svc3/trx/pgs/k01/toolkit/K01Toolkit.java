@@ -3,6 +3,7 @@ package org.spo.svc3.trx.pgs.k01.toolkit;
 import org.spo.ifs3.dsl.controller.ScopeVar;
 import org.spo.ifs3.dsl.controller.TrxInfo;
 import org.spo.ifs3.dsl.controller.TrxInfo.Scope;
+import org.spo.svc3.trx.pgs.mdl.ActionAssembly;
 
 public class K01Toolkit {
 
@@ -10,6 +11,7 @@ public class K01Toolkit {
 	public static final ScopeVar SV_K01_ACTION_CODE= new ScopeVar(Scope.TRX, "SV_K01_ACTION_CODE");
 	public static final ScopeVar SV_K01_ARTICLE_CODE= new ScopeVar(Scope.TRX, "SV_K01_ARTICLE_CODE");
 	public static final ScopeVar SV_K01_MODE= new ScopeVar(Scope.TRX, "SV_K01_MODE");
+	public static final ScopeVar SV_K01_ACTION_ASSEM= new ScopeVar(Scope.TRX, "SV_K01_ACTION_ASSEM");
 
 	public static void setMode(TrxInfo info, String modeCode){
 		info.put(SV_K01_MODE, modeCode);
@@ -48,5 +50,13 @@ public class K01Toolkit {
 		return info.get(SV_K01_ARTICLE_CODE).toString();
 	}
 
+	public static void setActionAssem(TrxInfo info, ActionAssembly aa){
+		info.put(SV_K01_ACTION_ASSEM, aa);
+	}
+
+
+	public static ActionAssembly getActionAssem(TrxInfo info){
+		return (ActionAssembly)info.get(SV_K01_ACTION_ASSEM);
+	}
 
 }
