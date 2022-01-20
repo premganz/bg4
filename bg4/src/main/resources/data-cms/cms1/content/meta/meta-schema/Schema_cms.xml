@@ -74,13 +74,14 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 				 Architecture as 
 
 -->
-<vsn id="root_version_5" nl="Motivation" aka="Leafy Campus Club" path="Minimalism and Science">
+<vsn id="root_version_6" nl="Motivation" aka="Leafy Campus Club" path="Minimalism and Science">
 	<major id="About" nl="About" lbl="About">
-		<minor id="about" lbl="~ HOME" nl="about">
-			<action type="ess" lbl="About" id="maxims_of_minimalism" nl="Who we are">
-				<article type="ess" id="maxims_and_who_we_are" nl=""></article>
-				<article type="ess" id="contact_us_feedback" nl=""></article>
-				<article type="ess" id="News" nl=""></article>
+		<minor id="about" lbl="ABOUT HOME" nl="about">
+			<action type="ess" lbl="Walking Through the Mission" id="about_step_by_step" nl="">
+				<article type="ess" id="Places" nl=""></article>
+				<article type="ess" id="Method" nl=""></article>
+				<article type="ess" id="Historical Relevance" nl=""></article>
+				<article type="ess" id="What is a Modern Decision System" nl=""></article>
 			</action>
 			<action type="ess" lbl="Conventions" id="conventions" nl="Like Longfellows blacksmith">
 				<article type="ess" id="Scout and Scholar" nl=""></article>
@@ -92,7 +93,7 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 
 	<major id="Minimalism" lbl="Minimalism" nl="" >
 		<minor id="About_Minimalism" lbl="HOME" nl="minimalism in software architecture" >
-			<action id="about_minimalism_maxims" lbl="A Summary of our Minimalism" nl="">
+			<action id="about_minimalism_maxims" lbl="A Summary" nl="">
 				<article type="ess" id="Our Maxims"></article>
 				<article type="ess" id="More On Minimalism"></article>
 			</action>	
@@ -114,8 +115,9 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 
 	<major id="MetaCriticism" lbl="Meta Criticism" nl="" >
 		<minor id="MetaCriticism" lbl="HOME" nl="criticizing contemproary practices" >
-			<action id="Simulated_Models" lbl="MetaCriticism of Simulations" nl="">
+			<action id="Simulated_Models" lbl="MetaCriticism of " nl="">
 				<article type="ess" id="Criticism on Science and metacriticism"></article>
+				
 			</action>	
 		</minor>
 	</major>

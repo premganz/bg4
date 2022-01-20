@@ -1,11 +1,35 @@
 package org.spo.svc3.trx.pgs.mdl;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class PageMeta {
 	private List<String> photoStrip;
 	private List<NewsItem> newsItems;
 
+	private List<ExtLink> linkedItems=new ArrayList<ExtLink>();
+
+
+	public List<ExtLink> getLinkedItems() {
+		if(!linkedItems.isEmpty()) {
+			return linkedItems;
+		}
+		ExtLink ext = new ExtLink();
+		ext.setHref("e://community.hortonworks.com/questions/146756/expression-language-for-concatenating.html");
+		ext.setLabel("The Mullberry Tree August 10, 2018");
+		ext.setMetaInfo(" Sourced from The website , www.leafycampus.org");
+		ext.setDescription("dfads");
+		ext.setDate(Calendar.getInstance().getTime());
+		linkedItems.add(ext);
+
+		return linkedItems;
+	}
+
+
+	public void setLinkedItems(List<ExtLink> linkedItems) {
+		this.linkedItems = linkedItems;
+	}
 
 
 	public List<NewsItem> getNewsItems() {

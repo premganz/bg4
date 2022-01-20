@@ -11,7 +11,7 @@ public class HomePage extends GuidePage {
 	private String subTitle;
 	
 	private ActionAssembly actionPageEmbedded;
-	private List<ExtLink> newsItems=new ArrayList<ExtLink>();
+	
 	
 	
 	private List<ExtLink> permaLinks=new ArrayList<ExtLink>();;
@@ -43,20 +43,9 @@ public class HomePage extends GuidePage {
 	}
 
 
-	public List<ExtLink> getNewsItems() {
-		ExtLink ext = new ExtLink();
-		ext.setHref("e://community.hortonworks.com/questions/146756/expression-language-for-concatenating.html");
-		ext.setLabel("The Mullberry Tree August 10, 2018");
-		ext.setMetaInfo(" Sourced from The website , www.leafycampus.org");
-		ext.setDescription("dfads");
-		ext.setDate(Calendar.getInstance().getTime());
-		newsItems.add(ext);
-		return newsItems;
-	}
+	
 
-	public void setNewsItems(List<ExtLink> newsItems) {
-		this.newsItems = newsItems;
-	}
+	
 
 	public ActionAssembly getActionPageEmbedded() {
 		return actionPageEmbedded;

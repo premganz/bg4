@@ -15,11 +15,13 @@ import org.spo.svc3.trx.pgs.mdl.ActionAssembly;
 import org.spo.svc3.trx.pgs.mdl.HomePage;
 import org.spo.svc3.trx.pgs.mdl.Menu;
 import org.spo.svc3.trx.pgs.mdl.PageMeta;
+import org.spo.svc3.trx.pgs.utils.GsonUtils;
 import org.spo.svc3.trx.pgs.utils.MenuFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
 
 @Component
@@ -36,6 +38,7 @@ public class K0101 extends AbstractTask {
 	
 	@Override
 	public NavEvent initTask(TrxInfo info) throws Exception {
+		logger.debug("in K0101");
 		HomePage page = new HomePage();
 		page.setSubTitle("Welcome Page");
 		ActionAssembly aa = new ActionAssembly();
@@ -46,10 +49,16 @@ public class K0101 extends AbstractTask {
 //		page.setSubTitle("Forum for Scholarship and Exploration");
 		page.setSubTitle("For Minimalism in Systems Architecture Since 2015");
 		page.setSideBarMenu(sideBarMenu);
-		Gson gson = new Gson();
+		Gson gson = GsonUtils.getGson();
 		
 		Type typ = new TypeToken<PageMeta>(){}.getType();//FIXME right now only string works
-		PageMeta pagemeta= gson.fromJson(svc.readUpPageMeta(aa),typ);	
+		PageMeta pagemeta = null;
+		try {
+			pagemeta= gson.fromJson(svc.readUpPageMeta(aa),typ);	
+		}catch (JsonParseException e) {
+			pagemeta = new PageMeta();	
+		}
+			
 		page.setPageMeta(pagemeta);
 		
 		info.addToModelMap("hom",page);

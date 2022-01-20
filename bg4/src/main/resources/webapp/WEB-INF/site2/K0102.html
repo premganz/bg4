@@ -39,7 +39,7 @@
 </head>
 
 <body>
-	<div class="blackbody">
+	<div th:classappend="${hom.styleClass}" >
 		<header class="intro-header">
 			<div class="container-fluid" style="padding-left: 0px">
 				<div class="row">
@@ -58,7 +58,7 @@
 			<div class="row" style="background-color: white;">
 				<div class="col-lg-3  col-md-3 col-sm-4 col-xs-12">
 					<div id="menu"
-						style="background: url(https :// upload.wikimedia.org/ wikipedia/ commons/ 1/ 19/ 07182012Sesion_campus_redes_sociales047 .jpg ')">
+						style="background: 647d03">
 						<div id="menu2" style="Opacity: 0.9">
 							
 
@@ -143,16 +143,16 @@
 						<hr></hr>
 							<button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#exampleModal" data-whatever="@getbootstrap">Comment</button>
 						
-						<div class="row1" th:each="link : ${hom.newsItems}">
+						<div class="row1" th:each="link : ${hom.pageMeta.linkedItems}">
 						
 							<div class="post-preview">
-								<a th:href="${link.metaInfo}">
+								<a th:href="${link.href}">
 									<h3 th:text="${link.description}" style="font-weight: bold; color: #337ab7;"></h3>
 									<h4 class="post-subtitle" th:text="${link.metaInfo}"></h4>
 								</a>
 								<p class="post-meta">
 								<h5>
-									Posted by <a th:href="${link.label}">Admin</a>
+									Posted by <a th:href="${link.href}">Admin</a>
 								</h5>
 								<p th:text="${link.date}"></p>
 								</p>

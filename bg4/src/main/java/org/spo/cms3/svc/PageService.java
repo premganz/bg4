@@ -86,14 +86,15 @@ public class PageService {
 	
 	public String readUpPage(ActionAssembly assem){
 		File f = null;
+		if(!assem.getReadableMatter().contains(".")) {
+			assem.setReadableMatter(assem.getReadableMatter()+".txt");
+		}
 		String repoPath=constants.getRepoPath();
 		String path=getPath(assem,repoPath);
 		log.debug("attempting to read page ");
 		logger.error("attempting to read page "+ path);
 		f= new File(path);
-		if(!assem.getReadableMatter().contains(".")) {
-			assem.setReadableMatter(assem.getReadableMatter()+".txt");
-		}
+		
 		String bufContent = readUpPageUtils(f);
 		String contentToReturn = "";
 		if(bufContent.contains(AppConstants.CONTENT_SEPERATOR)) {

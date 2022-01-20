@@ -76,8 +76,8 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 -->
 <vsn id="root_version_6" nl="Motivation" aka="Leafy Campus Club" path="Minimalism and Science">
 	<major id="About" nl="About" lbl="About">
-		<minor id="about" lbl="~ HOME" nl="about">
-			<action type="ess" lbl="Walkthrough" id="about_step_by_step" nl="">
+		<minor id="about" lbl="ABOUT HOME" nl="about">
+			<action type="ess" lbl="Walking Through the Mission" id="about_step_by_step" nl="">
 				<article type="ess" id="Places" nl=""></article>
 				<article type="ess" id="Method" nl=""></article>
 				<article type="ess" id="Historical Relevance" nl=""></article>

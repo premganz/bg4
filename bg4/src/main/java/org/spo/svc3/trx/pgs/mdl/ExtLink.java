@@ -2,6 +2,8 @@ package org.spo.svc3.trx.pgs.mdl;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class ExtLink {
 
 	private String href;
@@ -9,6 +11,7 @@ public class ExtLink {
 	private String label;
 	private boolean showIc;
 	private String description;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyymmdd")
 	private Date date;
 	
 	

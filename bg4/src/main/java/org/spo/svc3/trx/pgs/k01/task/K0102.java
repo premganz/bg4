@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
 
 @Component
@@ -58,7 +59,12 @@ public class K0102 extends AbstractTask {
 		page.setSideBarMenu(sideBarMenu);
 		Gson gson = new Gson();
 		Type typ = new TypeToken<PageMeta>(){}.getType();//FIXME right now only string works
-		PageMeta pagemeta= gson.fromJson(svc.readUpPageMeta(aa),typ);	
+		PageMeta pagemeta = null;
+		try {
+			pagemeta= gson.fromJson(svc.readUpPageMeta(aa),typ);	
+		}catch (JsonParseException e) {
+			pagemeta = new PageMeta();	
+		}
 		page.setPageMeta(pagemeta);
 		info.addToModelMap("hom",page);
 		System.out.println(page.toString());	
@@ -104,7 +110,7 @@ public class K0102 extends AbstractTask {
 			page.setWelcomeContent(response_content);
 			Menu sideBarMenu = new MenuFactory().subPageMenu(K01Toolkit.getMinorCode(info));
 			if(K01Toolkit.getMinorCode(info)!=null) {
-			page.setSubTitle(K01Toolkit.getMinorCode(info).replaceAll("_", " ").toUpperCase()+"");
+				page.setSubTitle(K01Toolkit.getMinorCode(info).replaceAll("_", " ").toUpperCase()+"");
 			}else {
 				page.setSubTitle("Article");
 			}
