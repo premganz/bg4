@@ -25,10 +25,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+    	String adminUrl = "admin";
+    	if(System.getProperty("os.name").startsWith("Windows")){
+    		adminUrl="admin1";
+    	}
 
         http.authorizeRequests()
                 .antMatchers("/login**").permitAll()
-                .antMatchers("/admin1/**").hasRole("ADMIN")//TODO FIXME revert to admin later
+                .antMatchers("/"+adminUrl+ "/**").hasRole("ADMIN")//TODO FIXME revert to admin later
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
