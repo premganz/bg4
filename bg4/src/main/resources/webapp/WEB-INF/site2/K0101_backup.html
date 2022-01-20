@@ -80,7 +80,7 @@
 
 										<li th:id="${majorlink.id}"><a
 											th:text="''+${majorlink.lbl}" style="cursor: pointer;"
-											th:href="${majorlink.levelCd}+'__'+${majorlink.id}+'?event=EV_'+${majorlink.levelCd}"
+											th:href="${majorlink.levelCd}+'/'+${majorlink.id}+'?event=EV_'+${majorlink.levelCd}"
 											onclick=""></a></li>
 									</h2>
 									<hr style="margin-bottom: 0px; margin-top: 0px"></hr>
@@ -88,13 +88,13 @@
 									<div th:each="sublink : ${majorlink.subMenuItems}">
 										<li th:id="${sublink.id}"><a th:text="''+${sublink.lbl}"
 											style="cursor: pointer;"
-											th:href="${sublink.levelCd}+'__'+${sublink.id}+'?event=EV_'+${sublink.levelCd}"
+											th:href="${sublink.levelCd}+'/'+${sublink.id}+'?event=EV_'+${sublink.levelCd}"
 											onclick=""></a></li>
 										<div class="subMenu"
 											th:each="sublink2 : ${sublink.subMenuItems}">
 											<li th:id="${sublink2.id}"><a
 												th:text="''+${sublink2.lbl}" style="cursor: pointer;"
-												th:href="${sublink2.levelCd}+'__'+${sublink2.id}+'?event=EV_'+${sublink2.levelCd}"
+												th:href="${sublink2.levelCd}+'/'+${sublink2.id}+'?event=EV_'+${sublink2.levelCd}"
 												onclick=""></a></li>
 										</div>
 									</div>

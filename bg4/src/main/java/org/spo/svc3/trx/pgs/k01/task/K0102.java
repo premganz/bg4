@@ -1,5 +1,7 @@
 package org.spo.svc3.trx.pgs.k01.task;
 
+import java.lang.reflect.Type;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spo.cms3.svc.PageService;
@@ -12,10 +14,14 @@ import org.spo.svc3.trx.pgs.k01.toolkit.K01Toolkit;
 import org.spo.svc3.trx.pgs.mdl.ActionAssembly;
 import org.spo.svc3.trx.pgs.mdl.HomePage;
 import org.spo.svc3.trx.pgs.mdl.Menu;
+import org.spo.svc3.trx.pgs.mdl.PageMeta;
 import org.spo.svc3.trx.pgs.utils.MenuFactory;
 import org.spo.svc3.trx.pgs.utils.SchemaQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 @Component
 public class K0102 extends AbstractTask {
@@ -33,19 +39,27 @@ public class K0102 extends AbstractTask {
 		page.setSubTitle("Welcome Page");
 		ActionAssembly aa = new ActionAssembly();
 		SchemaQuery schemaQuery = new SchemaQuery();
+		String minorCode = "";
 		if(K01Toolkit.getMode(info).equals("minor")) {
 			aa=schemaQuery.getMinorLandingPage(K01Toolkit.getMinorCode(info));	
 			page.setStyleClass("blackbody_minor");
+			minorCode=K01Toolkit.getMinorCode(info);
 		}
 		if(K01Toolkit.getMode(info).equals("action")) {
 			aa=schemaQuery.getActionLandingPage(K01Toolkit.getActionCode(info));	
 			page.setStyleClass("blackbody_action");
+			minorCode = aa.getMinorCode();
+			K01Toolkit.setMinorCode(info, minorCode);
 		}
 		String response_content = svc.readUpPage(aa);
 		page.setWelcomeContent(response_content);
-		Menu sideBarMenu = new MenuFactory().subPageMenu(K01Toolkit.getMinorCode(info));
-		page.setSubTitle(K01Toolkit.getMinorCode(info).replaceAll("_", " ").toUpperCase()+"");
+		Menu sideBarMenu = new MenuFactory().subPageMenu(minorCode);
+		page.setSubTitle(minorCode.replaceAll("_", " ").toUpperCase()+"");
 		page.setSideBarMenu(sideBarMenu);
+		Gson gson = new Gson();
+		Type typ = new TypeToken<PageMeta>(){}.getType();//FIXME right now only string works
+		PageMeta pagemeta= gson.fromJson(svc.readUpPageMeta(aa),typ);	
+		page.setPageMeta(pagemeta);
 		info.addToModelMap("hom",page);
 		System.out.println(page.toString());	
 		return K01Handler.EV_INIT_02;
@@ -89,8 +103,16 @@ public class K0102 extends AbstractTask {
 			String response_content = svc.readUpPage(aa);
 			page.setWelcomeContent(response_content);
 			Menu sideBarMenu = new MenuFactory().subPageMenu(K01Toolkit.getMinorCode(info));
+			if(K01Toolkit.getMinorCode(info)!=null) {
 			page.setSubTitle(K01Toolkit.getMinorCode(info).replaceAll("_", " ").toUpperCase()+"");
+			}else {
+				page.setSubTitle("Article");
+			}
 			page.setSideBarMenu(sideBarMenu);
+			Gson gson = new Gson();
+			Type typ = new TypeToken<PageMeta>(){}.getType();//FIXME right now only string works
+			PageMeta pagemeta= gson.fromJson(svc.readUpPageMeta(aa),typ);	
+			page.setPageMeta(pagemeta);
 			info.addToModelMap("hom",page);
 			System.out.println(page.toString());
 		} catch (Exception e) {

@@ -77,10 +77,11 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 <vsn id="root_version_6" nl="Motivation" aka="Leafy Campus Club" path="Minimalism and Science">
 	<major id="About" nl="About" lbl="About">
 		<minor id="about" lbl="~ HOME" nl="about">
-			<action type="ess" lbl="" id="maxims_of_minimalism" nl="Who we are">
-				<article type="ess" id="maxims_and_who_we_are" nl=""></article>
-				<article type="ess" id="contact_us_feedback" nl=""></article>
-				<article type="ess" id="News" nl=""></article>
+			<action type="ess" lbl="Walkthrough" id="about_step_by_step" nl="">
+				<article type="ess" id="Places" nl=""></article>
+				<article type="ess" id="Method" nl=""></article>
+				<article type="ess" id="Historical Relevance" nl=""></article>
+				<article type="ess" id="What is a Modern Decision System" nl=""></article>
 			</action>
 			<action type="ess" lbl="Conventions" id="conventions" nl="Like Longfellows blacksmith">
 				<article type="ess" id="Scout and Scholar" nl=""></article>

@@ -143,6 +143,7 @@ public class CMSContentPageController {
 	@RequestMapping(value = "admin/content/createFile/{major}/{minor}/{action}/{article}", method = RequestMethod.GET)
 	public String createFile(Locale locale, Model model, @PathVariable String major, @PathVariable String minor,@PathVariable String action, @PathVariable String article) {
 		ActionAssembly assem = new ActionAssembly();
+		if(!article.isEmpty() && !article.endsWith(".txt")) article=article+".txt";
 		assem.setCodes(major, minor, action, article);
 		svc.createFile(assem);
 		return "done";
