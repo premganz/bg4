@@ -43,11 +43,11 @@
 		<header class="intro-header">
 			<div class="container-fluid" style="padding-left: 0px">
 				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 ">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
 						<div class="site-heading">
-							<h1>leafy campus</h1>
+							<h2>leafy campus</h2>
 							<hr class="small"></hr>
-							<span class="subheading" th:text="${hom.subTitle}"></span>
+							<h3 th:text="${hom.subTitle}"></h3>
 						</div>
 					</div>
 				</div>
@@ -67,7 +67,7 @@
 									<lh> <a th:text="${link.lbl}" style="cursor: pointer;" th:href="${link.levelCd}+'__' + ${link.id}"></a> </lh>
 									<div th:each="headerLink : ${link.subMenuItems}">
 										<lh>
-										<h2 style="color: antiquewhite; font-size: 25px">
+										<h2 style="color: antiquewhite; font-size: 24px">
 										<div th:text="${headerLink.lbl}"></div>
 										</h2>
 										<hr style="margin-bottom: 0px;margin-top: 0px"></hr>
@@ -148,14 +148,14 @@
 						
 							<div class="post-preview">
 								<a th:href="${link.href}">
-									<h3 th:text="${link.description}" style="font-weight: bold; color: #337ab7;"></h3>
-									<h4 class="post-subtitle" th:text="${link.metaInfo}"></h4>
+									<h4 th:text="${link.description}" style="font-weight: bold; color: #337ab7;"></h4>
+									<h5 class="post-subtitle" th:text="${link.metaInfo}"></h5>
 								</a>
 								<p class="post-meta">
 								<h5>
 									Posted by <a th:href="${link.href}">Admin1</a>
 								</h5>
-								<p th:text="${link.date}"></p>
+								<div th:text="${link.date}"></div>
 								</p>
 
 								<hr></hr>

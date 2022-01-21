@@ -5,7 +5,7 @@
  */
 body {
 	font-family: Lora, 'Times New Roman', serif;
-	font-size: 16px;
+	font-size: 14px;
 	color: #404040;
 	background-color:white;
 }
@@ -186,7 +186,7 @@ hr.small {
 
 .intro-header .site-heading, .intro-header .post-heading, .intro-header .page-heading
 	{
-	padding: 100px 0 50px;
+	padding: 0px 0 50px;
 	color: #fff
 }
 
@@ -459,7 +459,7 @@ form .row:first-child .floating-label-form-group {
 }
 
 .footnote {
-	font-size: 15px;
+	font-size: 12px;
 	margin: 0px 0px;
 	/* color: darkgray; */
 	/* background-color: azure; */
