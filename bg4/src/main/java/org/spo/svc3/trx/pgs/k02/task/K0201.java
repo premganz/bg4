@@ -1,9 +1,12 @@
-package org.spo.svc3.trx.pgs.k01.task;
+package org.spo.svc3.trx.pgs.k02.task;
 
 import java.lang.reflect.Type;
+import java.util.Collections;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.spo.cms3.controller.PostContent;
 import org.spo.cms3.svc.PageService;
 import org.spo.cms3.svc.SocketConnector;
 import org.spo.ifs3.dsl.controller.NavEvent;
@@ -26,20 +29,28 @@ import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
 
 @Component
-public class K0101 extends AbstractTask {
+public class K0201 extends AbstractTask {
 
 
 
 	@Autowired
 	public PageService svc ;
-	private static final Logger logger = LoggerFactory.getLogger(K0101.class);
+	private static final Logger logger = LoggerFactory.getLogger(K0201.class);
 
 	
 	private SocketConnector connector=new SocketConnector();
 	
 	@Override
 	public NavEvent initTask(TrxInfo info) throws Exception {
-		logger.debug("in K0101");
+		logger.debug("in K0201");
+		
+		
+		PostContent content1 = new PostContent();
+		content1.setHtmlContent("hello");
+		info.addToModelMap("content", content1);
+		
+		
+		
 		HomePage page = new HomePage();
 		page.setSubTitle("Welcome Page");
 		page.setPageTypeCode("CONTENT");
@@ -80,16 +91,11 @@ public class K0101 extends AbstractTask {
 			e1.printStackTrace();
 		}
 		if(event.startsWith("EV_minor")) {
-			if(dataId.contains("Contact")) {
-				return K01Handler.EV_CONTACT_PAGE;
-			}
-			
 			dataId = dataId.replaceAll("minor__","");
 			K01Toolkit.setMode(info, "minor");
 			K01Toolkit.setMinorCode(info, dataId);
 			aa=schemaQuery.getMinorLandingPage(K01Toolkit.getMinorCode(info));	
 			K01Toolkit.setActionAssem(info, aa);
-			
 //			page.setStyleClass("blackbody_minor");
 			return K01Handler.EV_MINOR_PAGE;
 		}

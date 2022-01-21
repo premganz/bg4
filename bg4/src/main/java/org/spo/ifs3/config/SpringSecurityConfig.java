@@ -29,7 +29,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     	String protectedFile = "randomFile.txt";
     	if(!System.getProperty("os.name").startsWith("Windows")){
     		adminUrl="admin";
-    		protectedFile = "static.txt";
+//    		protectedFile = "static.txt";
+    		protectedFile = "**";
     	}
 
         http.authorizeRequests()

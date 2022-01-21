@@ -27,6 +27,7 @@ public class K01Handler extends AbstractHandler{
   public static final NavEvent EV_MINOR_PAGE =  NavEvent.create(EventType.TASKSET, "02");
   public static final NavEvent EV_ARTICLE_PAGE =  NavEvent.create(EventType.TASKSET, "03");
   public static final NavEvent EV_ACTION_PAGE =  NavEvent.create(EventType.TASKSET, "02");
+  public static final NavEvent EV_CONTACT_PAGE=  NavEvent.create(EventType.TRXSWITCH, "K02");
   
    @Override
    public void configureChannel() {

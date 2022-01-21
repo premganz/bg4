@@ -103,7 +103,7 @@ public class MenuFactory {
 		menu.setNl("Home");
 		menu.setLbl("Home");
 		menu.setClickable(false);
-		menu.setLevelCd("nonClickable");
+		menu.setLevelCd("home");
 		List<Menu> menuList = getSubMenuList("//major");
 		for(Menu m0:menuList) {
 			m0.setLevelCd("major");
