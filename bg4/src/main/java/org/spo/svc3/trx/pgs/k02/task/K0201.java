@@ -1,21 +1,22 @@
 package org.spo.svc3.trx.pgs.k02.task;
 
 import java.lang.reflect.Type;
-import java.util.Collections;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spo.cms3.controller.PostContent;
 import org.spo.cms3.svc.PageService;
 import org.spo.cms3.svc.SocketConnector;
+import org.spo.ifs3.dsl.controller.AbstractToolkit;
 import org.spo.ifs3.dsl.controller.NavEvent;
 import org.spo.ifs3.dsl.controller.TrxInfo;
 import org.spo.ifs3.dsl.model.AbstractTask;
 import org.spo.svc3.trx.pgs.k01.handler.K01Handler;
 import org.spo.svc3.trx.pgs.k01.toolkit.K01Toolkit;
+import org.spo.svc3.trx.pgs.k02.handler.K02Handler;
 import org.spo.svc3.trx.pgs.mdl.ActionAssembly;
 import org.spo.svc3.trx.pgs.mdl.HomePage;
+import org.spo.svc3.trx.pgs.mdl.K99Form;
 import org.spo.svc3.trx.pgs.mdl.Menu;
 import org.spo.svc3.trx.pgs.mdl.PageMeta;
 import org.spo.svc3.trx.pgs.utils.GsonUtils;
@@ -43,29 +44,22 @@ public class K0201 extends AbstractTask {
 	@Override
 	public NavEvent initTask(TrxInfo info) throws Exception {
 		logger.debug("in K0201");
-		
-		
 		PostContent content1 = new PostContent();
 		content1.setHtmlContent("hello");
 		info.addToModelMap("content", content1);
-		
-		
-		
 		HomePage page = new HomePage();
 		page.setSubTitle("Welcome Page");
-		page.setPageTypeCode("CONTENT");
-		ActionAssembly aa = new ActionAssembly();
-		aa.setCodes("Campus","about","","");
-		String response_content = svc.readUpPage(aa);
-		page.setWelcomeContent(response_content);
 		Menu sideBarMenu = new MenuFactory().homePageMenu();
-//		page.setSubTitle("Forum for Scholarship and Exploration");
 		page.setSubTitle("For Minimalism in Systems Architecture Since 2015");
 		page.setSideBarMenu(sideBarMenu);
 		Gson gson = GsonUtils.getGson();
 		
 		Type typ = new TypeToken<PageMeta>(){}.getType();//FIXME right now only string works
 		PageMeta pagemeta = null;
+		ActionAssembly aa = new ActionAssembly();
+		aa.setCodes("Campus","about","","");
+		String response_content = svc.readUpPage(aa);
+		page.setWelcomeContent(response_content);
 		try {
 			pagemeta= gson.fromJson(svc.readUpPageMeta(aa),typ);	
 		}catch (JsonParseException e) {
@@ -73,7 +67,7 @@ public class K0201 extends AbstractTask {
 		}
 			
 		page.setPageMeta(pagemeta);
-		
+		info.addToFormMap("form", new K99Form());
 		info.addToModelMap("hom",page);
 		System.out.println(page.toString());
 		
@@ -109,13 +103,19 @@ public class K0201 extends AbstractTask {
 			return K01Handler.EV_MINOR_PAGE;
 		}
 		
-		return K01Handler.EV_INIT_01;
+		return K02Handler.EV_INIT_01;
 	}
 
 	@Override
 	public NavEvent processViewResult(String event,  String json, TrxInfo info) {
 		// TODO Auto-generated method stub
-		return null;
+		K99Form form=(K99Form)(info.get(AbstractToolkit.SV_FORM));
+		if(form.getErrors()!=null && !form.getErrors().isEmpty()) {
+			form.setServerErrorMessage(form.getErrors().get(0));
+		}
+		info.addToFormMap("form", form);
+		
+		return K02Handler.EV_REFRESH_PAGE;
 	}
 	
 	@Override

@@ -1,6 +1,5 @@
 package org.spo.ifs3.dsl.controller;
 
-import java.util.LinkedHashMap;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spo.ifs3.dsl.controller.TrxInfo.Scope;
 import org.spo.ifs3.template.web.Constants;
+import org.spo.svc3.trx.pgs.mdl.K99Form;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -75,18 +76,16 @@ public class DelegatingController{
 	}
 	
 	@RequestMapping(value="/trx/{trxId}/FORM", method = RequestMethod.POST)
-	 public String submitContact(final Forms content, final Forms form, 
+	 public String submitContact(final Forms form, @ModelAttribute K99Form inputForm,
 			 final BindingResult bindingResult, HttpSession session,final ModelMap modelMap,HttpServletRequest request,
 			 @PathVariable String trxId)			
 				 {		
 		TrxInfo info = (TrxInfo)session.getAttribute("info");
 		info.updateModelMap(modelMap);
 		StateInfo state=info.getState();
-		 if (bindingResult.hasErrors()) {
-			 return "seedstartermng";
-		 }
 		 info = (TrxInfo)session.getAttribute("info");
-		 info.put(AbstractToolkit.SV_FORM,form.getForm());
+//		 info.put(AbstractToolkit.SV_FORM,form.getForm());
+		 info.put(AbstractToolkit.SV_FORM,inputForm);
 		 AbstractHandler handler = resolveHanlder(trxId);
 		 return handler.handle2(state,info,request);
 	 }

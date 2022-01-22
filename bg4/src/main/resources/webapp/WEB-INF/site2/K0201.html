@@ -140,11 +140,13 @@
         <div class="row">
                 <p>Want to get in touch with us? Fill out the form below to send me a message and I will try to get back to you within 24 hours</p> 
                 <p>or simply drop a mail at <u> the gmail identifier - lemonytreetech</u></p>
-                <form name="caa" id="ctt"  th:action="@{/contactSubmit}" method="post" novalidate='false'>
+               
+                <form name="caa" id="ctt"  th:action="@{./FORM}" th:object="${form}" method="post" novalidate='false'>
+                 <h3 th:text="${serverErrorMessage}"></h3>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>Your Name Please</label>
-                            <input type="text" class="form-control"  th:field="${content.id}" placeholder="Name" id="name" required='true' data-validation-required-message="Please enter your name."></input>
+                            <input type="text" class="form-control"  th:field="*{mailId}" placeholder="Name" id="name" required='true' data-validation-required-message="Please enter your name."></input>
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>

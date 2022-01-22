@@ -49,10 +49,11 @@ public abstract class AbstractHandler {
 
 		}
 		if(navevent.getEventType().equals(EventType.FORMSUBMIT)){		
-			Map<String,String> map= (Map<String,String>)info.get(AbstractToolkit.SV_FORM);
-			Gson gson = new Gson();
-			Type typ1 = new TypeToken<Map<String, String>>(){}.getType();
-			String json = gson.toJson(map,typ1);
+//			Map<String,String> map= (Map<String,String>)info.get(AbstractToolkit.SV_FORM);
+//			Gson gson = new Gson();
+//			Type typ1 = new TypeToken<Map<String, String>>(){}.getType();
+//			String json = gson.toJson(map,typ1);
+			String json="";
 			navevent=taskChannel.get(info.getState().taskId).processViewResult(navevent.dataId, json,info);
 
 		}

@@ -16,6 +16,7 @@ public class K02Handler extends AbstractHandler{
    K0201 k0101;
    
   public static final NavEvent EV_INIT_01 =  NavEvent.create(EventType.REFRESHPAGE);
+  public static final NavEvent EV_REFRESH_PAGE =  NavEvent.create(EventType.TASKSET, "01");
   
    @Override
    public void configureChannel() {
