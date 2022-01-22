@@ -19,7 +19,11 @@ public class ConstantsTestImpl implements Constants {
 	}
 
 	public String getLandingPage() {
+		if(!System.getProperty("os.name").startsWith("Windows")){
+			return "trx/K03/NullId";	
+		}
 		return "trx/K01/NullId";
+		
 	}
 
 	public int getPortNumber() {
