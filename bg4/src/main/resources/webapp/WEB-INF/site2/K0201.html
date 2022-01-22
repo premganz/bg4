@@ -24,7 +24,6 @@
 	rel='stylesheet' type='text/css'></link>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="true" src="https://www.googletagmanager.com/gtag/js?id=G-0GKEK75V1G"></script>
-<script src="../js/cms.js" referrerpolicy="origin"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -36,7 +35,6 @@
 <script src="../../js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="../../js/clean-blog.min.js"></script>
 </head>
 
 <body>
@@ -127,7 +125,41 @@
 					
 				
 				</div>
+				
+				
+				
+				
+				
+			
+				
+				
+				
 				<div class="col-lg-7  col-md-8 col-sm-8 col-xs-12" >
+				
+					<div class="container">
+        <div class="row">
+                <p>Want to get in touch with us? Fill out the form below to send me a message and I will try to get back to you within 24 hours</p> 
+                <p>or simply drop a mail at <u> the gmail identifier - lemonytreetech</u></p>
+                <form name="caa" id="ctt"  th:action="@{/contactSubmit}" method="post" novalidate='false'>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Your Name Please</label>
+                            <input type="text" class="form-control"  th:field="${content.id}" placeholder="Name" id="name" required='true' data-validation-required-message="Please enter your name."></input>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    
+                    <br></br>
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <button type="submit" class="btn btn-default">Send1</button>
+                        </div>
+                    </div>
+                    <div class="g-recaptcha" data-sitekey="6LcemhYTAAAAAEDlseoH5Xo_MhMW9M6_IigfcxJY"></div>
+                </form>
+        </div>
+    </div>
 					<div class="form-group">
 						<form th:action="@{../submit}" th:object="${content}" method="post">
 							<table class="table table-dark">
@@ -172,69 +204,7 @@
 					
 				</div>
 				<!-- Modal -->
-				
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name"></input>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-
-$('#exampleModal').on('show.bs.modal', function (event) {
-	  var button = $(event.relatedTarget) // Button that triggered the modal
-	  var recipient = button.data('whatever') // Extract info from data-* attributes
-	  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-	  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-	  var modal = $(this)
-	  modal.find('.modal-title').text('New message to ' + recipient)
-	  modal.find('.modal-body input').val(recipient)
-	})
-</script>
-
-				<div class="col-lg-2  col-md-1 col-sm-1 col-xs-12">
-					<!-- <div class="newsColumn" style="background-color:#b1d41a78;"> -->
-					<p>
-					<H3>News</H3>
-					</p>
-					<div class="row" th:each="link : ${hom.pageMeta.newsItems}">
-						<div class="footnote">
-							<a th:href="${link.link}" th:target="_blank">
-								<p th:text="${link.text}"></p>
-								
-							</a>
-							
-							<hr></hr>
-						</div>
-					</div>
-					<a style="cursor: pointer; font-size: 12px; text-decoration: underline;" onclick="return form_action_load('','pages','news','view',0);">More
-						News</a>
-					<!-- </div> -->
-				</div>
+			
 			</div>
 
 			<div class="row">

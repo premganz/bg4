@@ -36,6 +36,7 @@
 <!ATTLIST article
   xmlns CDATA #FIXED ''
   nl CDATA #IMPLIED
+  lbl CDATA #IMPLIED
   id CDATA #REQUIRED
   type NMTOKEN #REQUIRED>
 
@@ -76,11 +77,10 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 -->
 <vsn id="root_version_6" nl="Motivation" aka="Leafy Campus Club" path="Minimalism and Science">
 	<major id="About" nl="About" lbl="About">
-	<minor id="Contact" lbl="Contact" nl="Contact form">
-	</minor>
+	
 		<minor id="about" lbl="ABOUT HOME" nl="about">
 			<action type="ess" lbl="Walking Through the Mission" id="about_step_by_step" nl="">
-				<article type="ess" id="Places" nl=""></article>
+				<article type="ess" id="Places" lbl="On Places"></article>
 				<article type="ess" id="Method" nl=""></article>
 				<article type="ess" id="Historical Relevance" nl=""></article>
 				<article type="ess" id="What is a Modern Decision System" nl=""></article>
@@ -90,6 +90,7 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 				<article type="ess" id="Colloboration" nl=""></article>
 			</action>
 		</minor>
+		<minor id="Contact" lbl="Contact" nl="Contact form"></minor>
 	</major>
 
 
