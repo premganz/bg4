@@ -8,10 +8,30 @@ public class K99Form {
 	private String runningTextMessage;
 	private String date;
 	private String smallMessage;
+	private String nameField;
+	private String messageField;
+	
+	
+	
+	
 	private List<String> errors=new ArrayList<String>();
 	private String serverErrorMessage;
 	
 	
+	
+	
+	public String getNameField() {		
+		return nameField;
+	}
+	public void setNameField(String nameField) {
+		this.nameField = nameField;
+	}
+	public String getMessageField() {
+		return messageField;
+	}
+	public void setMessageField(String messageField) {
+		this.messageField = messageField;
+	}
 	public String getServerErrorMessage() {
 		return serverErrorMessage;
 	}

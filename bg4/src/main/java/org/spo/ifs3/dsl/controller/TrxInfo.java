@@ -68,7 +68,6 @@ public class TrxInfo {
 		((ModelMap)info_req.get(AbstractToolkit.SV_MODEL)).addAttribute(key, value);
 		
 	}
-	
 	public void addToFormMap(String key, Object value){
 		Forms forms = new Forms();
 		LinkedHashMap<String,String> formMap = new LinkedHashMap<String,String>();

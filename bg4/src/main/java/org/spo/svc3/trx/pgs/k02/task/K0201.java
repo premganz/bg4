@@ -14,6 +14,7 @@ import org.spo.ifs3.dsl.model.AbstractTask;
 import org.spo.svc3.trx.pgs.k01.handler.K01Handler;
 import org.spo.svc3.trx.pgs.k01.toolkit.K01Toolkit;
 import org.spo.svc3.trx.pgs.k02.handler.K02Handler;
+import org.spo.svc3.trx.pgs.k02.toolkit.K02Toolkit;
 import org.spo.svc3.trx.pgs.mdl.ActionAssembly;
 import org.spo.svc3.trx.pgs.mdl.HomePage;
 import org.spo.svc3.trx.pgs.mdl.K99Form;
@@ -69,6 +70,7 @@ public class K0201 extends AbstractTask {
 		page.setPageMeta(pagemeta);
 		info.addToFormMap("form", new K99Form());
 		info.addToModelMap("hom",page);
+		K02Toolkit.setHomePage(info, page);
 		System.out.println(page.toString());
 		
 		return K01Handler.EV_INIT_01;
@@ -110,12 +112,15 @@ public class K0201 extends AbstractTask {
 	public NavEvent processViewResult(String event,  String json, TrxInfo info) {
 		// TODO Auto-generated method stub
 		K99Form form=(K99Form)(info.get(AbstractToolkit.SV_FORM));
+		info.addToModelMap("hom",K02Toolkit.getHomePage(info));
 		if(form.getErrors()!=null && !form.getErrors().isEmpty()) {
 			form.setServerErrorMessage(form.getErrors().get(0));
+			info.addToFormMap("form", form);
+			
+			return K02Handler.EV_INIT_01;
 		}
-		info.addToFormMap("form", form);
 		
-		return K02Handler.EV_REFRESH_PAGE;
+		return K02Handler.EV_INIT_01;
 	}
 	
 	@Override

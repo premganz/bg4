@@ -140,59 +140,51 @@
         <div class="row">
                 <p>Want to get in touch with us? Fill out the form below to send me a message and I will try to get back to you within 24 hours</p> 
                 <p>or simply drop a mail at <u> the gmail identifier - lemonytreetech</u></p>
-               
-                <form name="caa" id="ctt"  th:action="@{./FORM}" th:object="${form}" method="post" novalidate='false'>
-                 <h3 th:text="${serverErrorMessage}"></h3>
-                    <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Your Name Please</label>
-                            <input type="text" class="form-control"  th:field="*{mailId}" placeholder="Name" id="name" required='true' data-validation-required-message="Please enter your name."></input>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                    
-                    <br></br>
+                <h3 class="alert-warning" th:text="${form.serverErrorMessage}"></h3>
+                <form name="caa" id="ctt"  th:action="@{./FORM}" th:object="${form}" method="post" >
+								<div class="row control-group">
+									<div
+										class="form-group col-xs-12 floating-label-form-group controls">
+										<label>Email Address</label> <input type="text"
+											class="form-control" th:field="*{mailId}"
+											placeholder="emailId" id="emailId" required='true'
+											data-validation-required-message="Please enter your emailId"></input>
+										<p class="help-block text-danger"></p>
+									</div>
+								</div>
+								<div class="row control-group">
+									<div
+										class="form-group col-xs-12 floating-label-form-group controls">
+										<label>Name</label> <input type="text" class="form-control"
+											th:field="*{nameField}" placeholder="Name" id="name"
+											required='true'
+											data-validation-required-message="Please enter your name."></input>
+										<p class="help-block text-danger"></p>
+									</div>
+								</div>
+
+								<div class="row control-group">
+									<div
+										class="form-group col-xs-12 floating-label-form-group controls">
+										<label>Message</label>
+										<textarea rows="3" class="form-control"
+											th:field="*{messageField}" placeholder="Message" id="message"
+											required='true'
+											data-validation-required-message="Please enter a message."></textarea>
+										<p class="help-block text-danger"></p>
+									</div>
+								</div>
                     <div id="success"></div>
                     <div class="row">
                         <div class="form-group col-xs-12">
-                            <button type="submit" class="btn btn-default">Send1</button>
+                            <button type="submit" class="btn btn-default">Send</button>
                         </div>
                     </div>
                     <div class="g-recaptcha" data-sitekey="6LcemhYTAAAAAEDlseoH5Xo_MhMW9M6_IigfcxJY"></div>
                 </form>
         </div>
     </div>
-					<div class="form-group">
-						<form th:action="@{../submit}" th:object="${content}" method="post">
-							<table class="table table-dark">
-								<tr>
-									<td>
-										<h4>Email</h4>
-									</td>
-									<td>
-									<input id="fileName" th:name="input" th:field="*{id}" maxlength="50" ></input>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<h4>Message</h4>
-									</td>
-									<td><textarea id="mytextarea3"
-											style="font-family: Consolas; line-height: initial; -webkit-font-smoothing: subpixel-anitaliased"
-											cols="40" rows="20" th:field="*{meta}" maxlength="2000"></textarea>
-									</td>
-								</tr>
-								<tr>
-									<td></td>
-									<td>
-									 <button type="submit" class="btn btn-primary">Submit</button>
-									</td>
-								</tr>
-
-							</table>
-						</form>
-
-					</div>
+				
 
 
 					<!-- Main Content -->
