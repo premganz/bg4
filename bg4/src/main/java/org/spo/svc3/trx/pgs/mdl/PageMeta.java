@@ -19,7 +19,7 @@ public class PageMeta {
 		ext.setHref("e://community.hortonworks.com/questions/146756/expression-language-for-concatenating.html");
 		ext.setLabel("The Mullberry Tree August 10, 2018");
 		ext.setMetaInfo(" Sourced from The website , www.leafycampus.org");
-		ext.setDescription("dfads");
+		ext.setDescription("Back to Home");
 		ext.setDate(Calendar.getInstance().getTime());
 		linkedItems.add(ext);
 

@@ -67,7 +67,7 @@
 									<lh> <a th:text="${link.lbl}" style="cursor: pointer;" th:href="${link.levelCd}+'__' + ${link.id}"></a> </lh>
 									<div th:each="headerLink : ${link.subMenuItems}">
 										<lh>
-										<h2 style="color: antiquewhite; font-size: 25px">
+										<h2 class="labelheadings">
 										<div th:text="${headerLink.lbl}"></div>
 										</h2>
 										<hr style="margin-bottom: 0px;margin-top: 0px"></hr>

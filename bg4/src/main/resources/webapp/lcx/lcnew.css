@@ -6,7 +6,10 @@
 	padding: 0px;
 	font-weight: bold;
 	padding-right:5px;
-	background-color: #6a843c;
+	/*background-color: #6a843c;
+	background-color: #5d7434f7
+	background-color: #465826f7*/
+	background-color: #777
 	/*background-image: url(../lcx/lanes-bg.png);
 	background-repeat: repeat-y;*/
 }
@@ -54,7 +57,8 @@
 	height: auto;
 }
 #menu li a{
-	color: #deffc5;
+	/*color: #deffc5;*/
+	color: #f5f5f5;
 	height: auto;
 	display: block;
 	padding-left: auto;
@@ -118,5 +122,12 @@ highlight{
 	padding-top: 2px;
 	padding-bottom: 2px;
 	width: auto;
+}
+
+.labelheadings {
+	/*color: #b98033;*/
+	color: #b98033;
+	font-weight: 600; 
+	/*font-size: 24px;*/
 }
 

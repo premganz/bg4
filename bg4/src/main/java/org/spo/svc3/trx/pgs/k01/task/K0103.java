@@ -44,7 +44,7 @@ public class K0103 extends AbstractTask {
 		page.setWelcomeContent(response_content);
 		page.setPageTypeCode("CONTENT");
 		Menu sideBarMenu = new MenuFactory().subPageMenu(aa.getMinorCode());
-		page.setSubTitle(aa.getMinorCode().replaceAll("_", " ").toUpperCase()+"");
+		page.setSubTitle("CONTENT");
 		page.setSideBarMenu(sideBarMenu);
 		Gson gson = new Gson();
 		Type typ = new TypeToken<PageMeta>(){}.getType();//FIXME right now only string works

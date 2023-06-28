@@ -46,7 +46,7 @@
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
 						<div class="site-heading">
 							<h2>leafy campus</h2>
-							<hr class="small"></hr>
+							
 							<h3 th:text="${hom.subTitle}"></h3>
 						</div>
 					</div>
@@ -67,7 +67,7 @@
 									<lh> <a th:text="${link.lbl}" style="cursor: pointer;" th:href="${link.levelCd}+'__' + ${link.id}"></a> </lh>
 									<div th:each="headerLink : ${link.subMenuItems}">
 										<lh>
-										<h2 style="color: antiquewhite; font-size: 24px">
+										<h2 class="labelheadings">
 										<div th:text="${headerLink.lbl}"></div>
 										</h2>
 										<hr style="margin-bottom: 0px;margin-top: 0px"></hr>
@@ -92,9 +92,6 @@
 
 						<ul>
 							<lh> <a>Perma Links</a></lh>
-							<li><a style="cursor: pointer;" onclick="return form_action_load('','pages','curriculum','view',0);">CBSE</a></li>
-							<li><a style="cursor: pointer;" href="http://www.cisce.org/" target="_blank">ICSE | ISC Syllabus</a></li>
-							<li><a style="cursor: pointer;" href="http://www.aacu.org/" target="_blank">AACU</a></li>
 							<li><a style="cursor: pointer;" href="/admin/metrics">Login</a></li>
 						</ul>
 
@@ -215,7 +212,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 				<div class="col-lg-2  col-md-1 col-sm-1 col-xs-12">
 					<!-- <div class="newsColumn" style="background-color:#b1d41a78;"> -->
 					<p>
-					<H3>News</H3>
+					<H3>External Links</H3>
 					</p>
 					<div class="row" th:each="link : ${hom.pageMeta.newsItems}">
 						<div class="footnote">

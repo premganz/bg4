@@ -36,7 +36,6 @@
 <!ATTLIST article
   xmlns CDATA #FIXED ''
   nl CDATA #IMPLIED
-  lbl CDATA #IMPLIED
   id CDATA #REQUIRED
   type NMTOKEN #REQUIRED>
 
@@ -75,55 +74,43 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 				 Architecture as 
 
 -->
-<vsn id="root_version_6" nl="Motivation" aka="Leafy Campus Club" path="Minimalism and Science">
+<vsn id="root_version_7" nl="Motivation" aka="Leafy Campus Club" path="Web Journal of Reactive Systems Engineering">
 	<major id="About" nl="About" lbl="About">
-	
 		<minor id="about" lbl="ABOUT HOME" nl="about">
-			<action type="ess" lbl="Walking Through the Mission" id="about_step_by_step" nl="">
-				<article type="ess" id="Places" lbl="On Places"></article>
-				<article type="ess" id="Method" nl=""></article>
-				<article type="ess" id="Historical Relevance" nl=""></article>
-				<article type="ess" id="What is a Modern Decision System" nl=""></article>
+			<action type="ess" lbl="Subject Matter" id="about_step_by_step" nl="">
+				<article type="ess" id="Subject Matter" nl=""></article>
 			</action>
-			<action type="ess" lbl="Conventions" id="conventions" nl="Like Longfellows blacksmith">
-				<article type="ess" id="Scout and Scholar" nl=""></article>
-				<article type="ess" id="Colloboration" nl=""></article>
+			<action type="ess" lbl="Method" id="method" nl="">
+				<article type="ess" id="Method" nl=""></article>
+			</action>
+			<action type="ess" lbl="Who we are" id="whoweare" nl="">
+				<article type="ess" id="Who are we" nl=""></article>
+			</action>
+			<action type="ess" lbl="Write to Us" id="contact" nl="">
+				<article type="ess" id="Interaction" nl=""></article>
 			</action>
 		</minor>
-		<minor id="Contact" lbl="Contact" nl="Contact form"></minor>
 	</major>
 
 
-	<major id="Minimalism" lbl="Minimalism" nl="" >
-		<minor id="About_Minimalism" lbl="HOME" nl="minimalism in software architecture" >
-			<action id="about_minimalism_maxims" lbl="A Summary" nl="">
-				<article type="ess" id="Our Maxims"></article>
-				<article type="ess" id="More On Minimalism"></article>
+	<major id="Issues" lbl="Issues" nl="" >
+		<minor id="2022-Nov" lbl="2022-NOV" nl="" >
+			<action id="IssueContents" lbl="Issue-Contents" nl="">
+				<article type="ess" id="On This Issue"></article>
+				<article type="ess" id="What is Reactive Software Engineering"></article>
 			</action>	
-			<action id="more_on_minimalism_architecture" lbl="More on Minimalism" nl="">
-				<article type="ess" id="The Idea of Spaces in Architecture"></article>
-			</action>
+		
 		</minor>
 	
 	</major>
 
-	<major id="Cartesian Science" lbl="Cartesian Science" nl="" >
+	<major id="links" lbl="Perma Links" nl="" >
 		<minor id="Classical_Sciences" lbl="HOME" nl="reviving_classical_sciences" >
-			<action id="Cartesian_Sciences" lbl="Science As Promethean" nl="">
-				<article type="ess" id="Science as Promethean"></article>
-				<article type="ess" id="Remembering Truesdell"></article>
-			</action>	
+		
 		</minor>
 	</major>
 
-	<major id="MetaCriticism" lbl="Meta Criticism" nl="" >
-		<minor id="MetaCriticism" lbl="HOME" nl="criticizing contemproary practices" >
-			<action id="Simulated_Models" lbl="MetaCriticism of " nl="">
-				<article type="ess" id="Criticism on Science and metacriticism"></article>
-				
-			</action>	
-		</minor>
-	</major>
+	
 	
 	
 </vsn>

@@ -79,17 +79,17 @@ public class HomePage extends GuidePage {
 
 	public List<ExtLink> getPermaLinks() {
 		ExtLink ext = new ExtLink();
-		ext.setHref("e://community.hortonworks.com/questions/146756/expression-language-for-concatenating.html");
+		ext.setHref("../");
 		ext.setLabel("About");
 		ext.setMetaInfo(" posted by prem");
-		ext.setDescription("dfads");
+		ext.setDescription("Back to Home");
 		ext.setDate(Calendar.getInstance().getTime());
 		permaLinks.add(ext);
 		 ext = new ExtLink();
-		ext.setHref("e://community.hortonworks.com/questions/146756/expression-language-for-concatenating.html");
+		ext.setHref("../");
 		ext.setLabel("Home");
 		ext.setMetaInfo(" posted by prem");
-		ext.setDescription("dfads");
+		ext.setDescription("Back to Home");
 		ext.setDate(Calendar.getInstance().getTime());
 		permaLinks.add(ext);
 		

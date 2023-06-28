@@ -13,7 +13,7 @@ public class ConstantsTestImpl implements Constants {
 		}else{
 			String homePath = System.getenv("HOMEPATH");
 			AppConstants.cmsDir= "c:"+homePath
-					+ "/git/bg4/bg4/src/main/resources/data-cms/cms1";
+					+ "/git/bg4-2/bg4/src/main/resources/data-cms/cms1";
 		}
 		return AppConstants.cmsDir;
 	}
