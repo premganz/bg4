@@ -63,25 +63,25 @@ public class CmsUtils {
 	}
 
 
-	public  String formatXml(String unformattedXml) {
-		String x="ERROR";
-
-		try {
-
-			OutputFormat format = new OutputFormat(doc);
-			format.setLineWidth(65);
-			format.setIndenting(true);
-			format.setIndent(2);
-			Writer out = new StringWriter();
-			XMLSerializer serializer = new XMLSerializer(out, format);
-			serializer.serialize(doc);
-
-			x= out.toString();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return x;
-	}
+//	public  String formatXml(String unformattedXml) {
+//		String x="ERROR";
+//
+//		try {
+//
+//			OutputFormat format = new OutputFormat(doc);
+//			format.setLineWidth(65);
+//			format.setIndenting(true);
+//			format.setIndent(2);
+//			Writer out = new StringWriter();
+//			XMLSerializer serializer = new XMLSerializer(out, format);
+//			serializer.serialize(doc);
+//
+//			x= out.toString();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return x;
+//	}
 
 	private  void organizeFoldersHelper1(Element node, String currentStrategyDir, String currentDomainDir,String currentActionDir, boolean isMeta) throws Exception {
 		// do something with the current node instead of System.out

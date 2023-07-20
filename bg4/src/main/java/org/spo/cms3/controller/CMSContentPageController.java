@@ -131,13 +131,13 @@ public class CMSContentPageController {
 		assem.setCodes(major, minor, action, article);
 		return svc.readUpPageStagingMeta(assem);
 	}
-	@ResponseBody
-	@RequestMapping(value = "admin/content/fetchTemplate", method = RequestMethod.GET)
-	public String fetchTemplate(Locale locale, Model model) {
-		ActionAssembly assem = new ActionAssembly();
-		assem.setCodes("meta", "meta-schema", "","Schema_cms.xml");		 
-		return cmsUtils.formatXml(svc.readUpPage(assem));
-	}
+//	@ResponseBody
+//	@RequestMapping(value = "admin/content/fetchTemplate", method = RequestMethod.GET)
+//	public String fetchTemplate(Locale locale, Model model) {
+//		ActionAssembly assem = new ActionAssembly();
+//		assem.setCodes("meta", "meta-schema", "","Schema_cms.xml");		 
+//		return cmsUtils.formatXml(svc.readUpPage(assem));
+//	}
 
 	@ResponseBody
 	@RequestMapping(value = "admin/content/createFile/{major}/{minor}/{action}/{article}", method = RequestMethod.GET)
