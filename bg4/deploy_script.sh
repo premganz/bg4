@@ -4,6 +4,7 @@ datenow=`TZ="Asia/Calcutta" date +%Y%m%d%H`
 #echo $secret$datenow
 hash=`echo -n $secret$datenow | sha256sum | cut -c1-20
 #echo $secret$datenow`
+export cmsdir=/home/ubuntu/leafycampus/data-cms
 echo $hash
 magic=7
 echo $1
