@@ -44,7 +44,7 @@ public class K0101 extends AbstractTask {
 		page.setSubTitle("Welcome Page");
 		page.setPageTypeCode("CONTENT");
 		ActionAssembly aa = new ActionAssembly();
-		aa.setCodes("Campus","about","","");
+		aa.setCodes("About","about","","");
 		String response_content = svc.readUpPage(aa);
 		page.setWelcomeContent(response_content);
 		Menu sideBarMenu = new MenuFactory().homePageMenu();
