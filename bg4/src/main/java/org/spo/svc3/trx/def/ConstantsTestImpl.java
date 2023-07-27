@@ -22,7 +22,8 @@ public class ConstantsTestImpl implements Constants {
 		if(!System.getProperty("os.name").startsWith("Windows")){
 			return "trx/K03/NullId";	
 		}
-		return "trx/K01/NullId";
+//		return "trx/K01/NullId";
+		return "trx/K03/NullId";	
 		
 	}
 
