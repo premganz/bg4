@@ -1,10 +1,13 @@
 package org.spo.ifs3.dsl.controller;
 
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spo.ifs3.dsl.controller.TrxInfo.Scope;
@@ -32,7 +35,7 @@ public class DelegatingController{
 	private ApplicationContext appContext;
 	@Autowired
 	Constants constants;
- 
+
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -50,45 +53,61 @@ public class DelegatingController{
 	public String trxSwitch(     final ModelMap modelMap,HttpServletRequest request,
 			@PathVariable String trxId, @PathVariable String dataId, HttpSession session,
 			@RequestParam(value="event", required=false) String pageEvent) {
-		TrxInfo info = null;
-		StateInfo state = null;
-		if(session.isNew()){
-			info = new TrxInfo(session, modelMap,request);
-			session.setAttribute("info",info);
-			state = new StateInfo(DSLConstants.EventType.REFRESHPAGE,trxId,"","",dataId);
-			info.put(new ScopeVar(Scope.TRX, "stateInfo"),state);
-//			return "redirect:"+constants.getLandingPage(); //TODO to fix where session free url types result in bad state
-		}else{
-			info = (TrxInfo)session.getAttribute("info");
-			if(info==null) {
-				//means that the session has expired
+
+		try {
+			TrxInfo info = null;
+			StateInfo state = null;
+			//		LocalDateTime dateTime = LocalDateTime.now();
+			//		Calendar cal = Calendar.getInstance();
+			//		long timeNow = cal.getTimeInMillis();
+			//		if(session.getLastAccessedTime()<(timeNow+4000)) {
+			//			session.invalidate();
+			//			
+			//		}
+			if(session.isNew()){
 				info = new TrxInfo(session, modelMap,request);
 				session.setAttribute("info",info);
-			}
-			info.refreshModelMap(modelMap);
-			state=info.getState();
-			
-		}
+				state = new StateInfo(DSLConstants.EventType.REFRESHPAGE,trxId,"","",dataId);
+				info.put(new ScopeVar(Scope.TRX, "stateInfo"),state);
+				//			return "redirect:"+constants.getLandingPage(); //TODO to fix where session free url types result in bad state
+			}else{
+				info = (TrxInfo)session.getAttribute("info");
+				if(info==null) {
+					//means that the session has expired
+					info = new TrxInfo(session, modelMap,request);
+					session.setAttribute("info",info);
+				}
+				info.refreshModelMap(modelMap);
+				state=info.getState();
 
-		if(pageEvent!=null && state==null){				throw new DSLException();}
-		AbstractHandler handler = resolveHanlder(trxId);
-		return handler.handle1(pageEvent,dataId,state,info,request);
+			}
+
+			if(pageEvent!=null && state==null){				throw new DSLException();}
+			AbstractHandler handler = resolveHanlder(trxId);
+			return handler.handle1(pageEvent,dataId,state,info,request);
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("++++proceeding+++++++");
+			return "redirect:http://www.leafycampus.org";
+		}
+//		return handler.handle1(pageEvent,dataId,state,info,request);
+//				return "redirect:"+constants.getLandingPage();
 	}
-	
+
 	@RequestMapping(value="/trx/{trxId}/FORM", method = RequestMethod.POST)
-	 public String submitContact(final Forms form, @ModelAttribute K99Form inputForm,
-			 final BindingResult bindingResult, HttpSession session,final ModelMap modelMap,HttpServletRequest request,
-			 @PathVariable String trxId)			
-				 {		
+	public String submitContact(final Forms form, @ModelAttribute K99Form inputForm,
+			final BindingResult bindingResult, HttpSession session,final ModelMap modelMap,HttpServletRequest request,
+			@PathVariable String trxId)			
+	{		
 		TrxInfo info = (TrxInfo)session.getAttribute("info");
 		info.updateModelMap(modelMap);
 		StateInfo state=info.getState();
-		 info = (TrxInfo)session.getAttribute("info");
-//		 info.put(AbstractToolkit.SV_FORM,form.getForm());
-		 info.put(AbstractToolkit.SV_FORM,inputForm);
-		 AbstractHandler handler = resolveHanlder(trxId);
-		 return handler.handle2(state,info,request);
-	 }
+		info = (TrxInfo)session.getAttribute("info");
+		//		 info.put(AbstractToolkit.SV_FORM,form.getForm());
+		info.put(AbstractToolkit.SV_FORM,inputForm);
+		AbstractHandler handler = resolveHanlder(trxId);
+		return handler.handle2(state,info,request);
+	}
 
 
 

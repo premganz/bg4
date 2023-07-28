@@ -102,10 +102,10 @@ public abstract class AbstractHandler {
 
 		return "";
 	}
-	public String  handle1(String pageEvent, String dataId, StateInfo state, TrxInfo info, HttpServletRequest request){
+	public String  handle1(String pageEvent, String dataId, StateInfo state, TrxInfo info, HttpServletRequest request) throws Exception{
 		configureChannel();
 		NavEvent navevent= info.getState().lastEvent;
-		try{
+	
 			if(pageEvent==null){ //First load
 				navevent=new NavEvent(EventType.TRXSWITCH,this.getClass().getSimpleName().replaceAll("Handler", ""),"01","",dataId );
 				NavEvent returnEvent= handleInBound(navevent, info);
@@ -119,10 +119,8 @@ public abstract class AbstractHandler {
 
 			}
 
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		return "";	
+		
+			
 	}
 	public String  handle2(StateInfo state, TrxInfo info, HttpServletRequest request){
 		try{			
