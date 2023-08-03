@@ -253,17 +253,35 @@ public class PageService {
 		buf.append("++++++SECTION++++++: POSTS");
 		folderName = constants.getRepoPath()+"/"+"content/";
 		folder = new File(folderName);
-		listOfFiles = folder.listFiles();
+//		listOfFiles = folder.listFiles();
+//		for (int i = 0; i < listOfFiles.length; i++) {
+//			if (listOfFiles[i].isFile()) {
+//				File f = new File(folderName+listOfFiles[i].getName());
+//				System.out.println("File " + listOfFiles[i].getName());
+//				buf.append(readUpPageUtils(f));
+//				buf.append('\n'+"++++++EOF++++++: "+f.getName()+'\n');
+//			} 
+//		}
+		buf = getListOfFiles(buf, folder.getAbsolutePath());
+		return buf.toString();
+
+	}
+	
+	private StringBuffer getListOfFiles(StringBuffer buf, String folderName) {
+		File folder = new File(folderName);
+		File[] listOfFiles = folder.listFiles();		
 		for (int i = 0; i < listOfFiles.length; i++) {
-			if (listOfFiles[i].isFile()) {
-				File f = new File(folderName+listOfFiles[i].getName());
+			if (listOfFiles[i].isFile()) {			
+				File f = new File(folderName+"/"+listOfFiles[i].getName());
 				System.out.println("File " + listOfFiles[i].getName());
 				buf.append(readUpPageUtils(f));
 				buf.append('\n'+"++++++EOF++++++: "+f.getName()+'\n');
-			} 
+			} else {
+				getListOfFiles(buf, listOfFiles[i].getAbsolutePath());
+			}
 		}
-		return buf.toString();
-
+		
+		return buf;
 	}
 
 	public List<String> readFileCatalog(String major, String minor, String action, String article){

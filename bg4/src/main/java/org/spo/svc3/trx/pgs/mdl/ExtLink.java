@@ -11,7 +11,7 @@ public class ExtLink {
 	private String label;
 	private boolean showIc;
 	private String description;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyymmdd")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyyMMdd")
 	private Date date;
 	
 	

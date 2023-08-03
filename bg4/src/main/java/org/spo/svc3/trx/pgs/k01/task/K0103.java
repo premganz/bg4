@@ -53,6 +53,7 @@ public class K0103 extends AbstractTask {
 			pagemeta= gson.fromJson(svc.readUpPageMeta(aa),typ);	
 		}catch (JsonParseException e) {
 			pagemeta = new PageMeta();	
+			e.printStackTrace();
 		}
 		page.setPageMeta(pagemeta);
 		info.addToModelMap("hom",page);

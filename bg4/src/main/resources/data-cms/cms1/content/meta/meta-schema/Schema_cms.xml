@@ -103,6 +103,17 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 		</minor>
 	
 	</major>
+	
+		<major id="Y2K25" lbl="Y2K25" nl="" >
+		<minor id="Y2K25_program" lbl="Y2K25 program" nl="" >
+			<action id="contents" lbl="About the Program" nl="">
+				<article type="ess" id="Motivating Scenarios"></article>
+			</action>	
+		
+		</minor>
+	
+	</major>
+	
 
 	<major id="links" lbl="Perma Links" nl="" >
 		<minor id="Classical_Sciences" lbl="HOME" nl="reviving_classical_sciences" >
