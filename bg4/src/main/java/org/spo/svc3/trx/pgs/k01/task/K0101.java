@@ -103,6 +103,16 @@ public class K0101 extends AbstractTask {
 			K01Toolkit.setActionAssem(info, aa);
 			return K01Handler.EV_MINOR_PAGE;
 		}
+		if(event.startsWith("EV_article")) {
+			dataId = dataId.replaceAll("article__","");
+			dataId = dataId.replaceAll("%20"," ");
+			K01Toolkit.setMode(info, "article");
+//			page.setStyleClass("blackbody_article");
+			K01Toolkit.setArticleCode(info, dataId);
+			aa=schemaQuery.getArticlePage(K01Toolkit.getArticleCode(info));
+			K01Toolkit.setActionAssem(info, aa);
+			return K01Handler.EV_ARTICLE_PAGE;
+		}
 		
 		return K01Handler.EV_INIT_01;
 	}

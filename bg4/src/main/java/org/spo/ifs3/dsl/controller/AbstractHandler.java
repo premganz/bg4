@@ -111,7 +111,15 @@ public abstract class AbstractHandler {
 				NavEvent returnEvent= handleInBound(navevent, info);
 				return handleOutBound(returnEvent,request,info);
 
-			}else{
+			}else if(navevent == null) {//direct url use
+				navevent=new NavEvent(EventType.TRXSWITCH,this.getClass().getSimpleName().replaceAll("Handler", ""),"01","",dataId );
+				NavEvent returnEvent= handleInBound(navevent, info);
+				NavEvent navevent2=NavEvent.create(EventType.PROCESSEVENT,pageEvent, dataId);
+				NavEvent navevent1 = NavEvent.blend(info.getState().lastEvent,navevent2);		
+				returnEvent= handleInBound(navevent1, info);
+				return handleOutBound(returnEvent,request,info);
+			}
+			else{
 				NavEvent navevent2=NavEvent.create(EventType.PROCESSEVENT,pageEvent, dataId);
 				NavEvent navevent1 = NavEvent.blend(info.getState().lastEvent,navevent2);		
 				NavEvent returnEvent= handleInBound(navevent1, info);
