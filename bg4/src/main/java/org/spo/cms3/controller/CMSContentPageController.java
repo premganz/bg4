@@ -1,5 +1,7 @@
 package org.spo.cms3.controller;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -148,7 +150,20 @@ public class CMSContentPageController {
 		svc.createFile(assem);
 		return "done";
 	}
-
+	@ResponseBody
+	@RequestMapping(value = "admin/content/deleteFile/{major}/{minor}/{action}/{article}", method = RequestMethod.GET)
+	public String deleteFile(Locale locale, Model model, @PathVariable String major, @PathVariable String minor,@PathVariable String action, @PathVariable String article) {
+		ActionAssembly assem = new ActionAssembly();
+		if(!article.isEmpty() && !article.endsWith(".txt")) article=article+".txt";
+		assem.setCodes(major, minor, action, article);
+		try {
+			svc.deleteFile(assem);	
+		}catch(IOException e) {
+			return "error";
+		}
+		
+		return "done";
+	}
 
 	@RequestMapping(value="admin/contentSubmit")
 	public String processContent(

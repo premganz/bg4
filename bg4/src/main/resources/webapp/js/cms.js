@@ -215,6 +215,24 @@ $(document).ready(function(){
 
 
 
+$(document).ready(function(){
+	$("#deletefile").click(function(){
+		var result = confirm("Want to delete?");
+		if (result) {
+			$.ajax({
+				url:"/admin/content/deleteFile/"+$("#fileselect1").val()+"/"+$("#fileselect2").val()+"/"+$("#fileselect3").val()+"/"+$("#fileName").val(),
+				success:function(data, textStatus){
+					console.log(data);
+
+				}
+			})
+		}
+	})
+
+});
+
+
+
 function JSONstringify(json) {
 	if (typeof json != 'string') {
 		json = JSON.stringify(json, undefined, '\t');

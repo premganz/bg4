@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -176,6 +177,27 @@ public class PageService {
 			f_staging.createNewFile();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+	public void deleteFile(ActionAssembly assem) throws IOException{
+		File f = null;
+		String repoPath=constants.getRepoPath();
+		String path=getPath(assem,repoPath);
+		repoPath=constants.getRepoPath().replaceAll("cms1", "cms-staging");
+		String staging_path=getPath(assem,repoPath);
+		log.debug("attempting to read page ");
+		logger.error("attempting to create page "+ path);
+		f= new File(path);File f_staging = new File(staging_path);
+		try {
+			if(!f.exists()) {
+				throw new FileNotFoundException();
+			}
+			
+			f.renameTo(new File(constants.getRepoPath()+"/deleted/"+f.getName()+"."+Calendar.getInstance().getTimeInMillis()+".deleted"));
+			f.delete();
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw e;
 		}
 	}
 
