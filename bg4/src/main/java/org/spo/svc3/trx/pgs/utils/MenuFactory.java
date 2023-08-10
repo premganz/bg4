@@ -74,7 +74,9 @@ public class MenuFactory {
 						itemNode.getAttributes().getNamedItem("id").getTextContent();
 			
 			String nl = itemNode.getAttributes().getNamedItem("nl")!=null?
-					itemNode.getAttributes().getNamedItem("nl").getTextContent():						"";
+					itemNode.getAttributes().getNamedItem("nl").getTextContent():"";
+			String type = itemNode.getAttributes().getNamedItem("type")!=null?
+							itemNode.getAttributes().getNamedItem("type").getTextContent():"liv";
 			String id = itemNode.getAttributes().getNamedItem("id").getTextContent();
 			String nlId = nl.replaceAll(" ", "_");
 			
@@ -83,6 +85,8 @@ public class MenuFactory {
 			subMenu.setNl(nl);
 			subMenu.setNlId(nlId);
 			subMenu.setId(id);
+			subMenu.setType(type);
+//			if(!type.equals("del"))
 			menuList.add(subMenu);
 		}
 		System.out.println("processed "+expression +"  Returned "+menuList.size());
@@ -112,6 +116,8 @@ public class MenuFactory {
 			for(Menu m1:menuList0) {
 				m1.setLevelCd("minor");
 				String minor_id = m1.getId();
+				String type = m1.getType();
+				if(type.equals("del"))continue;
 				List<Menu> menuListL2 = getSubMenuList("//minor[@id=\""+minor_id+"\"]/action");
 				for(Menu m2:menuListL2) {
 					m2.setLevelCd("action");
@@ -141,10 +147,14 @@ public class MenuFactory {
 		for(Menu m0:menuList) {
 			m0.setLevelCd("minor");
 			String lbl = m0.getId();
+			String type = m0.getType();
+			if(type.equals("del"))continue;
 			List<Menu> menuList0 = getSubMenuList("//minor[@id=\""+lbl+"\"]/action");
 			for(Menu m1:menuList0) {
 				m1.setLevelCd("action");
 				String nl = m1.getId();
+				String type1 = m1.getType();
+				if(type1.equals("del"))continue;
 				List<Menu> menuListL2 = getSubMenuList("//action[@id=\""+nl+"\"]/article");
 				for(Menu m2:menuListL2) {
 					m2.setLevelCd("article");

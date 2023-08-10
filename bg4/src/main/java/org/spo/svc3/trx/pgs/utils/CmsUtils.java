@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -103,27 +104,40 @@ public class CmsUtils {
 				if(currentNode.getNodeName().equals("minor")) {
 					currentDomainDir= currentNode.getAttributes().getNamedItem("id").getTextContent();
 					File dir = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir);
+					String actionCode= currentNode.getAttributes().getNamedItem("type").getTextContent();
 					if(!dir.exists()) {
 						dir.mkdirs();
 					}
 					File indexFileMajor = new File(cmsDir+currentStrategyDir+"/index.txt");
-					if(!indexFileMajor.exists()) {
+					File indexFileMinor = new File(cmsDir+currentStrategyDir+"/"+currentDomainDir+"/index.txt");
+					if(dir.exists() && "del".equals(actionCode)) {
+						dir.renameTo(new File(constants.getRepoPath()+"/deleted/"+dir.getName()+Calendar.getInstance().getTimeInMillis()));
+						FileUtils.deleteQuietly(dir) ;
+					}
+					
+					else if(!indexFileMajor.exists()) {
 						indexFileMajor.createNewFile();
 					}
-					File indexFileMinor = new File(cmsDir+currentStrategyDir+"/"+currentDomainDir+"/index.txt");
-					if(!indexFileMinor.exists()) {
+				
+					else if(!indexFileMinor.exists()) {
 						indexFileMinor.createNewFile();
 					}
+					
 				}
 				if(currentNode.getNodeName().equals("action")) {
 					currentActionDir= currentNode.getAttributes().getNamedItem("id").getTextContent().replaceAll(" ", "_");
-
+					String actionCode= currentNode.getAttributes().getNamedItem("type").getTextContent();
 					File dir = new File (cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentActionDir);
+					File indexFileAction = new File(cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentActionDir+"/index.txt");
 					if(!dir.exists()) {
 						dir.mkdirs();
 					}
-					File indexFileAction = new File(cmsDir+currentStrategyDir+"/"+currentDomainDir+"/"+currentActionDir+"/index.txt");
-					if(!indexFileAction.exists()) {
+					if(dir.exists() && "del".equals(actionCode)) {
+						dir.renameTo(new File(constants.getRepoPath()+"/deleted/"+dir.getName()+Calendar.getInstance().getTimeInMillis()));
+						FileUtils.deleteQuietly(dir) ;
+					}
+					
+					else if(!indexFileAction.exists()) {
 						indexFileAction.createNewFile();
 					}
 				

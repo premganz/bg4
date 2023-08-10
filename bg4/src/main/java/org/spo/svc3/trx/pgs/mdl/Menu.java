@@ -14,6 +14,7 @@ public class Menu {
 	private String levelCd;  //this is for nesting
 	private boolean isClickable=true;
 	private List<Menu> subMenuItems= new ArrayList<Menu>();
+	private String type;
 	
 	
 	//does, theme, visit
@@ -98,9 +99,14 @@ public class Menu {
 	}
 
 	
-	
-	
-	
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	@Override
 	public String toString() {
