@@ -24,6 +24,7 @@
   xmlns CDATA #FIXED ''
   id CDATA #REQUIRED
   lbl CDATA #IMPLIED
+  type NMTOKEN #REQUIRED
   nl CDATA #REQUIRED>
 
 <!ELEMENT evidence EMPTY>
@@ -45,9 +46,10 @@
   id ID #REQUIRED
   lbl CDATA #REQUIRED
   nl CDATA #REQUIRED
-  type NMTOKEN #IMPLIED>
+  type NMTOKEN #REQUIRED>
   
 ]>
+
 
 <!-- action type c = critical publication, type t = tactical publication 
 in the role of _ in humanity, doing _ 
@@ -76,7 +78,7 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 -->
 <vsn id="root_version_7" nl="Motivation" aka="Leafy Campus Club" path="Web Journal of Reactive Systems Engineering">
 	<major id="About" nl="About" lbl="About">
-		<minor id="about" lbl="ABOUT HOME" nl="about">
+		<minor id="about" lbl="ABOUT HOME" nl="about" type="liv">
 			<action type="ess" lbl="Subject Matter" id="about_step_by_step" nl="">
 				<article type="ess" id="Enterprises as Directed" nl=""></article>
 				<article type="ess" id="Philosophy" nl=""></article>
@@ -96,8 +98,8 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 
 
 	<major id="Issues" lbl="Issues" nl="" >
-		<minor id="2022-Nov" lbl="2022-NOV" nl="" >
-			<action id="IssueContents" lbl="Issue-Contents" nl="">
+		<minor id="2022-Nov" lbl="2022-NOV" nl="" type="liv">
+			<action id="IssueContents" lbl="Issue-Contents" nl="" type="liv">
 				<article type="ess" id="Parallel Cartography"></article>
 				<article type="ess" id="What is Reactive Software Engineering"></article>
 			</action>	
@@ -107,8 +109,8 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 	</major>
 	
 	<major id="Y2K25" lbl="Y2K25" nl="" >
-		<minor id="Y2K25_program" lbl="Y2K25 program" nl="" >
-			<action id="contents" lbl="About the Program" nl="">
+		<minor id="Y2K25_program" lbl="Y2K25 program" nl="" type="liv">
+			<action id="contents" lbl="About the Program" nl="" type="liv">
 				<article type="ess" id="Motivating Scenarios"></article>
 			</action>	
 		
@@ -118,7 +120,7 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 	
 
 	<major id="links" lbl="Perma Links" nl="" >
-		<minor id="Classical_Sciences" lbl="HOME" nl="reviving_classical_sciences" >
+		<minor id="Classical_Sciences" lbl="HOME" nl="reviving_classical_sciences" type="liv">
 		
 		</minor>
 	</major>
