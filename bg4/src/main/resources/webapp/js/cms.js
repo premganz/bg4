@@ -3,6 +3,7 @@ var greet='';
 var greet='';
 $(document).ready(function(){
 	$("#showTextArea").hide();
+	$("#mobilemode1").hide();
 });
 $(document).ready(function(){
 	$("#fileselect2").change(function(){
@@ -244,4 +245,28 @@ function JSONstringify(json) {
 
 	return json;
 }
+
+$(document).ready(function(){
+	$( "#mobilemode" ).click(function() {  
+		console.log("mobile mode clicked");
+		$("#mobilemode1").show();
+		$("#menubar").hide();
+		$("#maintext").css("font-size", "24px");
+		
+		});
+
+});
+
+$(document).ready(function(){
+	$( "#mobilemode1" ).click(function() {  
+		console.log("mobile mode clicked");
+		$("#mobilemode1").hide();
+		$("#menubar").show();
+		$("#maintext").css("font-size", "14px");
+		
+		});
+
+});
+
+
 
