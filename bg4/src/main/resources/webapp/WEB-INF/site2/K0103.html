@@ -36,6 +36,7 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="../../js/clean-blog.min.js"></script>
+<script src="../../../js/cms.js" referrerpolicy="origin"></script>
 </head>
 
 <body>
@@ -56,7 +57,8 @@
 
 		<div class="container-fluid" style="padding-left: 0px">
 			<div class="row" style="background-color: white;">
-				<div class="col-lg-3  col-md-3 col-sm-4 col-xs-12">
+				<div id="menubar" class="col-lg-3  col-md-3 col-sm-4 col-xs-12">
+					<button id="mobilemode" class="btn btn-primary" >EASY READ</button>
 					<div id="menu"
 						style="background: url(https :// upload.wikimedia.org/ wikipedia/ commons/ 1/ 19/ 07182012Sesion_campus_redes_sociales047 .jpg ')">
 						<div id="menu2" style="Opacity: 0.9">
@@ -129,8 +131,9 @@
 					
 				
 				</div>
-				<div class="col-lg-7  col-md-8 col-sm-8 col-xs-12">
-					<div class="container1" style="border-right-color: yellow;padding-left:10px;">
+				<div id="maintextwrapper" class="col-lg-7  col-md-8 col-sm-8 col-xs-12">
+					<div id="maintext" class="container1" style="border-right-color: yellow;padding-left:10px;">
+					<button id="mobilemode1" class="btn btn-primary" >Show Menu</button>
 						<div th:utext="${hom.welcomeContent}"></div>
 			
 					</div>

@@ -251,8 +251,8 @@ $(document).ready(function(){
 		console.log("mobile mode clicked");
 		$("#mobilemode1").show();
 		$("#menubar").hide();
-		$("#maintext").css("font-size", "24px");
-		
+		$("#maintext").css("font-size", "28px");
+		$("#maintextwrapper").css("width","75%");
 		});
 
 });
@@ -263,6 +263,7 @@ $(document).ready(function(){
 		$("#mobilemode1").hide();
 		$("#menubar").show();
 		$("#maintext").css("font-size", "14px");
+		$("#maintextwrapper").css("width","58.8%");
 		
 		});
 
