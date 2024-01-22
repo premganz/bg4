@@ -105,6 +105,13 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 			</action>	
 		
 		</minor>
+	    <minor id="2024-Jan" lbl="2024-JAN" nl="" type="liv">
+			<action id="IssueContents1" lbl="Issue-Contents" nl="" type="liv">
+				<article type="ess" id="Applying Realism to Computer Architecture"></article>
+				<article type="ess" id="Integrating Over Partial Recursive Fields"></article>
+			</action>	
+		
+		</minor>
 	
 	</major>
 	

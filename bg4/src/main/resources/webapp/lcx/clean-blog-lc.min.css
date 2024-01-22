@@ -4,8 +4,10 @@
  * Licensed under Apache 2.0 (https://github.com/IronSummitMedia/startbootstrap/blob/gh-pages/LICENSE)
  */
 body {
-	font-family: Lora, 'Times New Roman', serif;
-	font-size: 14px;
+	/*font-family: Lora, 'Times New Roman', serif;*/
+	/*font-size: 14px;*/
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 15px;
 	color: #404040;
 	background-color:white;
 }
@@ -548,3 +550,10 @@ body {
     width: 1366px;
   }
 }
+
+.btn-wide{
+		padding-bottom:7px;
+		padding-bottom:7px;
+		font-size:30px;
+		padding-right:90px;
+	}
