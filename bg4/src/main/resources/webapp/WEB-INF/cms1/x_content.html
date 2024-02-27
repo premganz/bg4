@@ -5,18 +5,21 @@
 <title>x_content1</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script
-	src="https://cdn.tiny.cloud/1/pijlljln72gb1mlk2gvsxe2d6cougamz2qopz27dtv0fa3hy/tinymce/5/tinymce.min.js"
-	referrerpolicy="origin"></script>
+<!-- Place the first <script> tag in your HTML's <head> -->
+<script src="https://cdn.tiny.cloud/1/pijlljln72gb1mlk2gvsxe2d6cougamz2qopz27dtv0fa3hy/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+
+
 <script src="../js/cms.js" referrerpolicy="origin"></script>
 <script type="text/javascript">
         tinymce.init({
-        	  plugins: "image link code table textcolor",
+        	plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
               image_list: [ 
                   {title: 'My image 1', value: 'http://www.tinymce.com/my1.gif'}, 
                   {title: 'My image 2', value: 'http://www.moxiecode.com/my2.gif'} 
               ],             
             selector: "#mytextarea",
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
             content_css : "../lcx/clean-blog-lc.min.css" 
             
         });
