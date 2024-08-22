@@ -133,6 +133,7 @@ public class JettyConfiguration {
         server.addConnector(httpConnector);
         
       //  server.addConnector(ajpConnector);
+        
 
         server.setHandler(webAppContext());
 

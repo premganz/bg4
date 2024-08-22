@@ -49,12 +49,13 @@ public class DelegatingController{
 		return "redirect:"+constants.getLandingPage();
 	}
 
-	@RequestMapping(value="/trx/{trxId}/{dataId}", method = RequestMethod.GET)
+	@RequestMapping(value="/content/{trxId}/{dataId}", method = RequestMethod.GET)
 	public String trxSwitch(     final ModelMap modelMap,HttpServletRequest request,
 			@PathVariable String trxId, @PathVariable String dataId, HttpSession session,
 			@RequestParam(value="event", required=false) String pageEvent) {
 
 		try {
+			if(trxId.equals("pages")) trxId="K01";
 			TrxInfo info = null;
 			StateInfo state = null;
 			//		LocalDateTime dateTime = LocalDateTime.now();

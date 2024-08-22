@@ -198,7 +198,13 @@ var fetchStaged=function(){
 			});
 
 }
+//To remove the hyphens in the pages
 
+$(document).ready(function() {
+	  $('a').each(function() {
+	    $(this).text($(this).text().replace(/-/g, ' '));
+	  });
+	});
 
 
 $(document).ready(function(){
@@ -264,6 +270,16 @@ $(document).ready(function(){
 		$("#menubar").show();
 		$("#maintext").css("font-size", "14px");
 		$("#maintextwrapper").css("width","58.8%");
+		
+		});
+
+});
+$(document).ready(function(){
+	$( "#fileName" ).change(function() {  
+		console.log("filename changed");
+		var valueEntered = ( "#fileName" ).val;
+		console.log(valueEntered);
+		
 		
 		});
 
