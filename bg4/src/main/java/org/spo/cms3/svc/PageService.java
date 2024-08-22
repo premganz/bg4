@@ -337,6 +337,10 @@ public class PageService {
 		FileReader reader;
 		try {
 			reader = new FileReader(f);
+			//TODO tempCode to make do with hyphenation 
+			String filePath_temp = f.getAbsolutePath();
+			if(!f.exists())f = new File(filePath_temp.replaceAll("-", " "));
+			
 			BufferedReader readerBuf = new BufferedReader(reader);
 			try {
 				System.out.println("Trying to read path : "+f.getAbsolutePath()+"name: "+f.getName());
