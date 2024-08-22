@@ -80,13 +80,13 @@ public class K0101 extends AbstractTask {
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		if(event.startsWith("EV_minor")) {
+		if(event.startsWith("EV_landing")) {
 			if(dataId.contains("Contact")) {
 				return K01Handler.EV_CONTACT_PAGE;
 			}
 			
-			dataId = dataId.replaceAll("minor__","");
-			K01Toolkit.setMode(info, "minor");
+			dataId = dataId.replaceAll("landing-","");
+			K01Toolkit.setMode(info, "landing");
 			K01Toolkit.setMinorCode(info, dataId);
 			aa=schemaQuery.getMinorLandingPage(K01Toolkit.getMinorCode(info));	
 			K01Toolkit.setActionAssem(info, aa);
@@ -94,17 +94,17 @@ public class K0101 extends AbstractTask {
 //			page.setStyleClass("blackbody_minor");
 			return K01Handler.EV_MINOR_PAGE;
 		}
-		if(event.startsWith("EV_action")) {
-			dataId = dataId.replaceAll("action__","");
+		if(event.startsWith("EV_topic")) {
+			dataId = dataId.replaceAll("topic-","");
 //			page.setStyleClass("blackbody_action");
-			K01Toolkit.setMode(info, "action");
+			K01Toolkit.setMode(info, "topic");
 			K01Toolkit.setActionCode(info, dataId);
 			aa=schemaQuery.getActionLandingPage(K01Toolkit.getActionCode(info));	
 			K01Toolkit.setActionAssem(info, aa);
 			return K01Handler.EV_MINOR_PAGE;
 		}
 		if(event.startsWith("EV_article")) {
-			dataId = dataId.replaceAll("article__","");
+			dataId = dataId.replaceAll("article-","");
 			dataId = dataId.replaceAll("%20"," ");
 			K01Toolkit.setMode(info, "article");
 //			page.setStyleClass("blackbody_article");

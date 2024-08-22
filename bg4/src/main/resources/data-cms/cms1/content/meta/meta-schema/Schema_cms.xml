@@ -78,16 +78,16 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 <vsn id="root_version_7" nl="Motivation" aka="Leafy Campus Club" path="Web Journal of Reactive Systems Engineering">
 	<major id="About" nl="About" lbl="About">
 		<minor id="about" lbl="ABOUT HOME" nl="about" type="liv" >
-			<action type="ess" lbl="Subject Matter" id="about_step_by_step" nl="">
-				<article type="ess" id="Subject Matter" nl=""></article>
+			<action type="ess" lbl="Subject-Matter" id="about_step_by_step" nl="">
+				<article type="ess" id="Subject-Matter" nl=""></article>
 			</action>
 			<action type="ess" lbl="Method" id="method" nl="">
 				<article type="ess" id="Method" nl=""></article>
 			</action>
-			<action type="ess" lbl="Who we are" id="who-we-are" nl="">
-				<article type="ess" id="Who are we" nl=""></article>
+			<action type="ess" lbl="Who-we-are" id="who-we-are" nl="">
+				<article type="ess" id="Who-are-we" nl=""></article>
 			</action>
-			<action type="ess" lbl="Write to Us" id="contact" nl="">
+			<action type="ess" lbl="Write-to-Us" id="contact" nl="">
 				<article type="ess" id="Interaction" nl=""></article>
 			</action>
 		</minor>
@@ -97,14 +97,14 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 	<major id="Issues" lbl="Issues" nl="" >
 		<minor id="2022-Nov" lbl="2022-NOV" nl="" type="del" >
 			<action id="IssueContents" lbl="Issue-Contents" nl="" type="del">
-				<article type="ess" id="On This Issue"></article>
+				<article type="ess" id="On-This-Issue"></article>
 				<article type="ess" id="What is Reactive Software Engineering"></article>
 			</action>	
 		
 		</minor>
 		<minor id="2023-Aug" lbl="2023-AUG" nl=""  type="liv">
 			<action id="IssueContents_1" lbl="Issue-Contents" nl="" type="liv" >
-				<article type="ess" id="On This Issue"></article>
+				<article type="ess" id="On-This-Issue"></article>
 				<article type="ess" id="Industry-4-and-AI"></article>
 			</action>	
 		

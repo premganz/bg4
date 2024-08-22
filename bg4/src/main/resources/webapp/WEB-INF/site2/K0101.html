@@ -67,7 +67,7 @@
 						<div id="menu2" style="Opacity: 0.9">
 							<div th:each="link : ${hom.sideBarMenu}">
 								<ul>
-									<lh> <a th:text="${link.lbl}" style="cursor: pointer;" th:href="${link.levelCd}+'__' + ${link.id}"></a> </lh>
+									<lh> <a th:text="${link.lbl}" style="cursor: pointer;" th:href="${link.levelCd}+'-' + ${link.id}"></a> </lh>
 									<div th:each="headerLink : ${link.subMenuItems}">
 										<lh>
 										<h2 class="labelheadings">
@@ -76,11 +76,11 @@
 										<hr style="margin-bottom: 0px;margin-top: 0px"></hr>
 										</lh>
 										<div th:each="sublink : ${headerLink.subMenuItems}">
-											<li th:id="${sublink.id}"><a th:text="''+${sublink.lbl}" style="cursor: pointer;" th:href="${sublink.levelCd}+'__'+${sublink.id}+'?event=EV_'+${sublink.levelCd}"
+											<li th:id="${sublink.id}"><a th:text="''+${sublink.lbl}" style="cursor: pointer;" th:href="${sublink.levelCd}+'-'+${sublink.id}+'?event=EV_'+${sublink.levelCd}"
 												onclick=""></a></li>
 											<div class="subMenu" th:each="sublink2 : ${sublink.subMenuItems}">
 												<li th:id="${sublink2.id}"><a th:text="''+${sublink2.lbl}" style="cursor: pointer;"
-													th:href="${sublink2.levelCd}+'__'+${sublink2.id}+'?event=EV_'+${sublink2.levelCd}" onclick=""></a></li>
+													th:href="${sublink2.levelCd}+'-'+${sublink2.id}+'?event=EV_'+${sublink2.levelCd}" onclick=""></a></li>
 												<!-- <div class="subMenu2" th:each="sublink3 : ${sublink2.subMenuItems}">
 													<li th:id="${sublink3.id}"><a th:text="''+${sublink3.lbl}" style="cursor: pointer;"
 														th:href="'?EVENT='+${sublink3.levelCd}+'~'+${sublink3.id}" onclick=""></a></li>

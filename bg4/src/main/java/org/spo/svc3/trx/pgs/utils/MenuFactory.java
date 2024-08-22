@@ -114,13 +114,13 @@ public class MenuFactory {
 			String id = m0.getId();
 			List<Menu> menuList0 = getSubMenuList("//major[@id=\""+id+"\"]/minor");
 			for(Menu m1:menuList0) {
-				m1.setLevelCd("minor");
+				m1.setLevelCd("landing");
 				String minor_id = m1.getId();
 				String type = m1.getType();
 				if(type.equals("del"))continue;
 				List<Menu> menuListL2 = getSubMenuList("//minor[@id=\""+minor_id+"\"]/action");
 				for(Menu m2:menuListL2) {
-					m2.setLevelCd("action");
+					m2.setLevelCd("topic");
 					String action_id = m2.getId(); //xpath is probably incorrect
 					List<Menu> menuListL3 = getSubMenuList("//major[@id=\""+minor_id+"\"]/minor[@id=\""+action_id+"\"]/article");
 					for(Menu m3:menuListL3) {
@@ -145,13 +145,13 @@ public class MenuFactory {
 		menu.setLevelCd("nonClickable");
 		List<Menu> menuList = getSubMenuList("//major/minor[@id=\""+majorId+"\"]/../minor");
 		for(Menu m0:menuList) {
-			m0.setLevelCd("minor");
+			m0.setLevelCd("landing");
 			String lbl = m0.getId();
 			String type = m0.getType();
 			if(type.equals("del"))continue;
 			List<Menu> menuList0 = getSubMenuList("//minor[@id=\""+lbl+"\"]/action");
 			for(Menu m1:menuList0) {
-				m1.setLevelCd("action");
+				m1.setLevelCd("topic");
 				String nl = m1.getId();
 				String type1 = m1.getType();
 				if(type1.equals("del"))continue;

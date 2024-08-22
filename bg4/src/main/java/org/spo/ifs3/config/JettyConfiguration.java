@@ -30,6 +30,8 @@ import java.io.IOException;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
+import org.eclipse.jetty.server.handler.ContextHandler;
+import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.webapp.WebAppContext;
 import org.slf4j.Logger;
@@ -101,7 +103,10 @@ public class JettyConfiguration {
          * attribute so the dispatcher servlet can find it. */
         GenericWebApplicationContext webApplicationContext =   new GenericWebApplicationContext();
         webApplicationContext.setParent(applicationContext);
+
         webApplicationContext.refresh();
+    
+
         ctx.setParentLoaderPriority(true);
         ctx.addEventListener(new ContextLoaderListener(webApplicationContext));
         ctx.addEventListener(new WebAppInitializerLoader(new WebApplicationInitializer[]{
@@ -134,7 +139,16 @@ public class JettyConfiguration {
         
       //  server.addConnector(ajpConnector);
         
-
+        ResourceHandler resourceHandler = new ResourceHandler();
+        ContextHandler ctx1 = new ContextHandler("/lcx");
+        server.setHandler(ctx1);
+        resourceHandler.setDirectoriesListed(true);
+//        resourceHandler.setWelcomeFiles(new String[] { "index.html" });
+        resourceHandler.setResourceBase("src/main/resources/webapp/lcx");
+        ctx1.setHandler(resourceHandler);
+//        resourceHandler.
+//        ctx1.setAllowNullPathInfo(true);
+//        resourceHandler.(true);
         server.setHandler(webAppContext());
 
         /* We can add servlets or here, or we could do it in the

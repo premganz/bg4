@@ -71,24 +71,24 @@ public class K0103 extends AbstractTask {
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		if(event.startsWith("EV_minor")) {
-			dataId = dataId.replaceAll("minor__","");
-			K01Toolkit.setMode(info, "minor");
+		if(event.startsWith("EV_landing")) {
+			dataId = dataId.replaceAll("landing-","");
+			K01Toolkit.setMode(info, "landing");
 			K01Toolkit.setMinorCode(info, dataId);
 			aa=schemaQuery.getMinorLandingPage(K01Toolkit.getMinorCode(info));	
 			K01Toolkit.setActionAssem(info, aa);
 			return K01Handler.EV_MINOR_PAGE;
 		}
-		if(event.startsWith("EV_action")) {
-			dataId = dataId.replaceAll("action__","");
-			K01Toolkit.setMode(info, "action");
+		if(event.startsWith("EV_topic")) {
+			dataId = dataId.replaceAll("topic-","");
+			K01Toolkit.setMode(info, "topic");
 			K01Toolkit.setActionCode(info, dataId);
 			aa=schemaQuery.getActionLandingPage(K01Toolkit.getActionCode(info));	
 			K01Toolkit.setActionAssem(info, aa);
 			return K01Handler.EV_MINOR_PAGE;
 		}
 		if(event.startsWith("EV_article")) {
-			dataId = dataId.replaceAll("article__","");
+			dataId = dataId.replaceAll("article-","");
 			dataId = dataId.replaceAll("%20"," ");
 			K01Toolkit.setMode(info, "article");
 			K01Toolkit.setArticleCode(info, dataId);
