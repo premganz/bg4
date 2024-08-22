@@ -198,7 +198,7 @@ var fetchStaged=function(){
 			});
 
 }
-//To remove the hyphens in the pages
+//To remove the hyphens in the pages TODO move some regular things to another js file.
 
 $(document).ready(function() {
 	  $('a').each(function() {

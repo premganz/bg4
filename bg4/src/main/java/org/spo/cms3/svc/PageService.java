@@ -336,10 +336,17 @@ public class PageService {
 		StringBuffer buf = new StringBuffer();
 		FileReader reader;
 		try {
+			if(!f.exists()) {//TODO tempCode to make do with hyphenation
+				String filePath_temp = f.getAbsolutePath();
+				String fileName_temp = f.getName();
+				String fileName_temp2 = fileName_temp.replaceAll("-", " ");
+				filePath_temp=filePath_temp.replaceAll(fileName_temp,fileName_temp2 );
+				f = new File(filePath_temp);	
+			}
+			
 			reader = new FileReader(f);
-			//TODO tempCode to make do with hyphenation 
-			String filePath_temp = f.getAbsolutePath();
-			if(!f.exists())f = new File(filePath_temp.replaceAll("-", " "));
+			 
+			
 			
 			BufferedReader readerBuf = new BufferedReader(reader);
 			try {
