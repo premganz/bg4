@@ -21,9 +21,9 @@ public class ConstantsTestImpl implements Constants {
 	public String getLandingPage() {
 		if(!System.getProperty("os.name").startsWith("Windows")){
 //			return "trx/K03/NullId";	
-			return "content/pages/NullId";
+			return "content/pages/home";
 		}
-		return "content/pages/NullId";
+		return "content/pages/home";
 		
 		
 	}
