@@ -112,6 +112,17 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 			</action>	
 		
 		</minor>
+		<minor id="2024-Aug" lbl="2024-AUG" nl="" type="liv">
+			<action id="IssueContents2a" lbl="Critical-Points" nl="" type="liv">
+				<article type="ess" id="Counterpoint-Is-Object-Oriented-Programming-really-a-disaster"></article>
+				<article type="ess" id="Essence-of-Microservice-Architecture"></article>
+				<article type="ess" id="Was-Turing-Wrong-on-the-Imitation-Game"></article>
+			</action>	
+			<action id="IssueContents2b" lbl="Environment" nl="" type="liv">
+				<article type="ess" id="Environment-Tips-on-Selecting-Bicycles-in-India"></article>
+				<article type="ess" id="Entomological-balance-and-climate-change"></article>
+			</action>	
+		</minor>
 	
 	</major>
 	

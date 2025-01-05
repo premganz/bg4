@@ -257,19 +257,22 @@ $(document).ready(function(){
 		console.log("mobile mode clicked");
 		$("#mobilemode1").show();
 		$("#menubar").hide();
+		$("#newsCol").hide();
+		$("#maintextwrapper").attr("class","col-lg-12  col-md-12 col-sm-12 col-xs-12");
 		$("#maintext").css("font-size", "28px");
-		$("#maintextwrapper").css("width","75%");
+//		$("#maintextwrapper").css("width","75%");
 		});
 
 });
 
 $(document).ready(function(){
 	$( "#mobilemode1" ).click(function() {  
-		console.log("mobile mode clicked");
+		console.log("mobile mode reverted");
 		$("#mobilemode1").hide();
+		$("#maintextwrapper").attr("class","col-lg-7  col-md-8 col-sm-8 col-xs-12");
 		$("#menubar").show();
 		$("#maintext").css("font-size", "14px");
-		$("#maintextwrapper").css("width","58.8%");
+//		$("#maintextwrapper").css("width","58.8%");
 		
 		});
 

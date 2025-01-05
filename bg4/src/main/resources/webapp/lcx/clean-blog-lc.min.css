@@ -416,6 +416,14 @@ form .row:first-child .floating-label-form-group {
 	color: #fff
 }
 
+.btn-easy-read {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  	letter-spacing: 8px;
+	font-size: 18px;
+	font-weight: 1000;
+}
 .pager {
 	margin: 20px 0 0
 }
