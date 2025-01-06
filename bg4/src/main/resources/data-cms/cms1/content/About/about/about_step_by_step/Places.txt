@@ -1,0 +1,55 @@
+<h2 style="text-align: center;">Places</h2>
+<p class="MsoNormal" style="text-align: justify;">We had always thought about the romantic world as reflected in Washington Irving&rsquo;s sleepy hollow or in O.Henry&rsquo;s New York, Zola&rsquo;s Coqueville, or the wind in the willows or Kantharvan&rsquo;s ramnad as places of peace away from the tumult of the world. The uniting thread to all these renditions of art is that in that world there is no vicious conflict. But that is not all, if we look at places like Malgudi say, there is a certain poignant warmth to it, but it is a poignancy not tragic or macabre, but rather borne of love and the necessity to loose things hoping only for the benovolence of the universe. We admit that the spirit of these places are irreductible but we could still take up a descriptive work to &lsquo;redeem places&rsquo;. But to do it outside of art, seems elusive. If these places could be made more expansive, like some campus or a leafy suburb or some familiar place made less fleeting and slightly more perfectable, then it might be a worthy pursuit.</p>
+<p class="MsoNormal" style="text-align: justify;">The work of the architect is to redeem places. If this is done, then it has in effect allowed humans to experience a taste of the immortal, of having stopped evolving and fighting. This is redemption. But it could neither be a final solution nor a lasting one when humanly rendered. We only try to address the problems at present and in the times we live in. It may be impossible to have a complete plan about it. We believe that there is no disgrace in being verbally incomplete.</p>
+<h2 class="MsoNormal" style="text-align: center;">On Architecture&nbsp;</h2>
+<p class="MsoNormal" style="text-align: justify;">Places are the fundamental pieces of our ontology. We would take upon ourselves to express certain aspects of our style with regard to the the architecture of <em>places </em>so as to bring out an immortal character to them (such as what the timeless way of building &ndash; Christopher Alexander) shows. To do this, in the present context, we believe is a need to strongly remember and remind ourselves of the principles of modernism. Modernism is more relevant now than when it reigned supreme till the 1970s. Modern thought and practices is what we will elaborate here and we would incorporate these principles into architectural design of places.</p>
+<p class="MsoNormal" style="text-align: justify;">We believe it is important for an architecture to properly <em>decide</em> questions. Some of the fundamental questions a good architecture settles is those of <em>labelling</em> the pieces of a system. In civil architecture the construction of buildings with particular labels like &lsquo;bus station&rsquo;, &lsquo;park&rsquo; attached to it, without having any complex and nested interpretations. The directness of the meaning of denotations in the architectural expression, leads to the freedom from conflict and confusion in the modernist scheme. A public space is a public space without the complex mythological interpretations. No one could be excluded or included based on marginal and grand interpretations around it. We might remember the pioneers in civil architectural modernist movement here with these quotes.</p>
+<p class="MsoNormal" style="text-align: justify;"><em>&ldquo;It is mainly our concern to liberate all building activity from aesthetic specialists. And make building again what it always has been. Building.&rdquo;</em></p>
+<p class="MsoNormal" style="text-align: justify;"><em>&ndash; Le Corbusier</em></p>
+<p class="MsoNormal" style="text-align: center;"><strong style="mso-bidi-font-weight: normal;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Josef_Hoffmann_-_An_idyllic_southern_landscape.jpg/329px-Josef_Hoffmann_-_An_idyllic_southern_landscape.jpg" alt="File:Josef Hoffmann - An idyllic southern landscape.jpg" width="345" height="189" /></strong></p>
+<h2 class="MsoNormal" style="text-align: center;">The Broad scheme of Modernist Architecture</h2>
+<p class="MsoNormal" style="text-align: justify;">Modernism is not about urban structures. All those structures that are simple and free from bigoted interpretations are modern &ndash; be them built ages ago in a village. <em>&ldquo;There is no such thing as a primitive man; there are primitive resources. The idea is constant, in full sway from the beginning&rdquo; </em>said Le Corbusier.</p>
+<p class="MsoNormal" style="text-align: justify;">But we do not concern ourselves with civil structures here. We concern ourselves with those extensions of our society that attempt to blur the impact of modernism and simplicity on places. These are the systems that administer labels to resources. They are now embodied in computing circuits. It is our principal aim here to inject the elements of modernism and minimalism into the design of these computing circuits &ndash; languages and programs.</p>
+<p class="MsoNormal" style="text-align: justify;">But when it comes to fluid tokens other than rooted buildings, it becomes difficult. We attempt to discuss here the architecture of systems in an abstract sense. We would want to discuss how static labels could be fixed (as in fix point semantics) on elements by dynamic methods. How to design those dynamic systems that converge definitely. To discuss the architecture of elements in flow is to discuss the structure around their behaviour so that one can have those structures that make sense in terms of meaningful work and solutions to well posed problems.</p>
+<p class="MsoNormal" style="text-align: justify;"><em>&ldquo;Computer science is no more about computers than astronomy is about telescopes.&rdquo; - Edsger Dijkstra</em></p>
+<p class="MsoNormal" style="text-align: justify;">The present crisis of computing architecture and in general architecture is that the modernist principles are giving way to the pressure of the flow and exchange, that shapes it to accommodate things fluidically. We would like to reinstate the principles of modernist structures, by describing principles of organization of dynamical questions concerning the truth about natural systems. If one can describe mechanistically the time evolution of a business system, then much of the speculation and tacit violence involved in determining the path synthetically is avoided.</p>
+<h2 class="MsoNormal" style="text-align: center;">The Minimalist Scheme</h2>
+<p class="MsoNormal" style="text-align: justify;">Modernism has been the path of modern engineering since the Industrial revolution. But it also resulted in side effects, such that the presence of technology generated conflict and schemes around it. This had in fact resulted in tragic conflicts in the 20<sup>th</sup> century. One way to solve this is to use technology without any grand future promises, which accurately fits the problem at hand, has no decorations or grand schemes &ndash; also called <em>minimalism</em>. Then, defining a machine in a closed interval such that it specifies the best way of doing things in that closed &lsquo;space&rsquo; and &lsquo;time&rsquo; makes it possible for people to agree on &lsquo;repetitive&rsquo; artifacts around which they can strike equilibrium without the need for forward looking statements.</p>
+<p class="MsoNormal" style="text-align: justify;">That is to say, a problem should be decidable and is dynamical only as explained by the parameters and there is a possibility for periodic reduction of problems into such closed blocks. We understand that this is an incomplete method, but it is workable without drastic side effects.&nbsp;</p>
+<ul class="pager">
+<li class="next">
+<div style="text-align: right;">&nbsp;</div>
+</li>
+</ul>
+<p style="text-align: right;"><a class="btn btn-warning active" role="button" href="article/Method?event=EV_article" aria-pressed="true">Continue Reading</a></p>
+<table style="border-collapse: collapse; width: 73.6348%; height: 171px;" border="0">
+<tbody>
+<tr>
+<td style="width: 32.6946%;"><img style="text-align: center; float: left;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Chennai_Lighthouse%2C_Marina_beach_silhouette.jpg/320px-Chennai_Lighthouse%2C_Marina_beach_silhouette.jpg" alt="File:Chennai Lighthouse, Marina beach silhouette.jpg" width="270" height="152" /><br /><br /></td>
+<td style="width: 33.5329%;"><img style="text-align: center; float: left;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Mumbai_03-2016_77_sunset_at_Marine_Drive.jpg/320px-Mumbai_03-2016_77_sunset_at_Marine_Drive.jpg" alt="File:Mumbai 03-2016 77 sunset at Marine Drive.jpg" width="277" height="156" /></td>
+<td style="width: 18.3234%;"><img style="text-align: center; text-indent: 0px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Descartes2.jpg/150px-Descartes2.jpg" alt="Descartes2.jpg" /></td>
+<td style="width: 15.4491%;"><img style="text-align: center; text-indent: 0px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Nicolas_de_Largilli%C3%A8re%2C_Fran%C3%A7ois-Marie_Arouet_dit_Voltaire_adjusted.png/220px-Nicolas_de_Largilli%C3%A8re%2C_Fran%C3%A7ois-Marie_Arouet_dit_Voltaire_adjusted.png" alt="Portrait by Nicolas de Largilli&egrave;re, c. 1724" width="126" height="158" /></td>
+</tr>
+</tbody>
+</table>
+<p class="MsoNormal"><span style="text-align: center;">&nbsp; &nbsp; &nbsp;</span></p>998762342090093189779{"photoStrip":
+
+ ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/CICB%27s_Laboratory.jpg/220px-CICB%27s_Laboratory.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Model_of_a_Turing_machine.jpg/220px-Model_of_a_Turing_machine.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Oxford_-_Balliol_College_-_geograph.org.uk_-_1329613.jpg/220px-Oxford_-_Balliol_College_-_geograph.org.uk_-_1329613.jpg",
+
+"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Philippine-stock-market-board.jpg/200px-Philippine-stock-market-board.jpg" , 
+
+"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/220px-Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg" , 
+
+"https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Late_model_Ford_Model_T.jpg/220px-Late_model_Ford_Model_T.jpg" , "https://upload.wikimedia.org/wikipedia/commons/5/5d/Konigsberg_bridges.png" , 
+
+"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Hike_fire_trail.jpg/300px-Hike_fire_trail.jpg"],
+
+"newsItems":[
+
+{"text":"On Le Corbusier - An Introduction", "link":"https://whc.unesco.org/en/list/1321/"},
+{"text":"Djisktra on Computer Science and Computer Industry", "link":"https://www.cs.utexas.edu/users/EWD/transcriptions/EWD09xx/EWD920.html"}
+
+]
+
+
+}

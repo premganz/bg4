@@ -41,20 +41,21 @@ public class Main {
              * fails we'll listen for ContextRefreshEvents and set a flag when
              * we see one.
              */
-            applicationContext
-                    .addApplicationListener(new ApplicationListener<ContextRefreshedEvent>() {
-                       
-                        public void onApplicationEvent(
-                                ContextRefreshedEvent event) {
-                            ApplicationContext ctx = event.getApplicationContext();
-                            if (ctx instanceof AnnotationConfigWebApplicationContext) {
-                                webApplicationContextInitialized = true;
-                            }
-                        }
-                    });
+//            applicationContext
+//                    .addApplicationListener(new ApplicationListener<ContextRefreshedEvent>() {
+//                       
+//                        public void onApplicationEvent(
+//                                ContextRefreshedEvent event) {
+//                            ApplicationContext ctx = event.getApplicationContext();
+//                            if (ctx instanceof AnnotationConfigWebApplicationContext) {
+//                                webApplicationContextInitialized = true;
+//                            }
+//                        }
+//                    });
 
             applicationContext.registerShutdownHook();
             applicationContext.register(RootConfiguration.class);
+            applicationContext.register(org.spo.ifs3.config.RootConfiguration.class);
             applicationContext.refresh();
          
             /*In case you want to start a  second container and jetty instance on a seperate port
@@ -68,7 +69,7 @@ public class Main {
             
             
             
-//            AnnotationConfigApplicationContext applicationContext1 = new AnnotationConfigApplicationContext();
+            AnnotationConfigApplicationContext applicationContext1 = new AnnotationConfigApplicationContext();
 //            applicationContext1.addApplicationListener(new ApplicationListener<ContextRefreshedEvent>() {
 //               
 //                public void onApplicationEvent(
@@ -79,16 +80,12 @@ public class Main {
 //                    }
 //                }
 //            });
-//
-//    applicationContext1.registerShutdownHook();
-//    
-//            applicationContext1.register(org.spo.ifs3.config.RootConfiguration.class);
-//            applicationContext1.refresh();
-            if (!webApplicationContextInitialized) {
-                logger.error("Web application context not initialized. Exiting.");
-                System.exit(1);
-            }
 
+    applicationContext1.registerShutdownHook();
+    
+            applicationContext1.register(org.spo.ifs4.config.RootConfiguration.class);
+            applicationContext1.refresh();
+           
             logger.info("Running.");
         } catch (Exception e) {
             logger.error("Error starting application", e);

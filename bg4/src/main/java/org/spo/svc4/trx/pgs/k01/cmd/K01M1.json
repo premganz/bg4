@@ -1,0 +1,20 @@
+{
+	"id": "K01M1",
+	"cont_path": "",
+	"ttl": "",
+	"sub_ttl": "",
+	"side_menu_dyna_lnk_lst": [
+		{
+			"lnk_typ_grp": "",
+			"lnk_typ_actn": "",
+			"lnk_focu_ic": ""
+		}
+	],
+	"side_menu_stat_lnk_zn": [
+		{
+			"lnk_hom": "",
+			"lnk_abt": "",
+			"lnk_cont_info": ""
+		}
+	]
+}
