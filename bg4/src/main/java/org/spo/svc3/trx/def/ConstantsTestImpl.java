@@ -30,7 +30,7 @@ public class ConstantsTestImpl implements Constants {
 
 	public int getPortNumber() {
 		if(!System.getProperty("os.name").startsWith("Windows")){
-			return 80;
+			return 8089;
 		}	
 		return 8089;
 	}
