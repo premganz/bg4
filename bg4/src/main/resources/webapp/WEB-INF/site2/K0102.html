@@ -40,12 +40,12 @@
 </head>
 
 <body>
-	<div th:classappend="${hom.styleClass}" >
+	<div class="blackbody_action" >
 		<header class="intro-header">
 			<div class="container-fluid" style="padding-left: 0px">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 ">
-						<div class="site-heading">
+						<div class="site-heading" style="text-shadow: 2px 2px black">
 							<h1>On Manifolds</h1>
 							<hr class="small"></hr>
 							<span class="subheading" th:text="${hom.subTitle}"></span>
@@ -144,24 +144,7 @@
 						<hr></hr>
 						
 						
-						<div class="row1" th:each="link : ${hom.pageMeta.linkedItems}">
 						
-							<div class="post-preview">
-								<a th:href="${link.href}">
-									<h3 th:text="${link.description}" style="font-weight: bold; color: #337ab7;"></h3>
-									<h4 class="post-subtitle" th:text="${link.metaInfo}"></h4>
-								</a>
-								<p class="post-meta">
-								<h5>
-									Posted by <a th:href="${link.href}">Admin</a>
-								</h5>
-								<p th:text="${link.date}"></p>
-								</p>
-
-								<hr></hr>
-
-							</div>
-						</div>
 						
 					
 					</div>
@@ -195,7 +178,7 @@
 				<div id="footer">
 					<!-- Footer start -->
 					<p class="footnote">
-						<br></br> &copy; Leafy Campus Organization, Chennai <br></br> Powered by Bootstrap, supports most devices. Feel free to Zoomin/out and see
+						<br></br> &copy; Manifold Studies, Chennai <br></br> Powered by Bootstrap, supports most devices. Feel free to Zoomin/out and see
 						page respond with appropriate styles.<br></br> Image Credits:Wikimedia Foundation.
 					</p>
 					<!-- Footer end -->

@@ -52,7 +52,7 @@ public class AdminController {
         logger.info("Welcome home! the client locale is " + locale.toString());
         
 
-        return "cms1/home";
+        return "cms2/home";
     }
     
     @RequestMapping(value = "/login1", method = RequestMethod.GET)

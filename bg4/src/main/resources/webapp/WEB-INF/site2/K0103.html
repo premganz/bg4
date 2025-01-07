@@ -143,9 +143,7 @@
 
 						<h2></h2>
 						<hr></hr>
-						<div th:if="${hom.pageTypeCode=='CONTENT'}">
-							<button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#exampleModal" data-whatever="@getbootstrap">Comment</button>
-						</div>
+					
 						<div class="row1" th:each="link : ${hom.pageMeta.linkedItems}">
 						
 							<div class="post-preview">
@@ -239,7 +237,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 				<div id="footer">
 					<!-- Footer start -->
 					<p class="footnote">
-						<br></br> &copy; Leafy Campus Organization, Chennai <br></br> Powered by Bootstrap, supports most devices. Feel free to Zoomin/out and see
+						<br></br> &copy; Manifold Studies, Chennai <br></br> Powered by Bootstrap, supports most devices. Feel free to Zoomin/out and see
 						page respond with appropriate styles.<br></br> Image Credits:Wikimedia Foundation.
 					</p>
 					<!-- Footer end -->
