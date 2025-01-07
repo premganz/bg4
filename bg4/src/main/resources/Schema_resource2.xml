@@ -83,10 +83,7 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 				<article type="ess" id="Enterprises-as-Directed" nl=""></article>
 				<article type="ess" id="Philosophy" nl=""></article>
 			</action>
-			<action type="ess" lbl="Method" id="method" nl="">
-				<article type="ess" id="Process-as-First-Class" nl=""></article>
-				<article type="ess" id="The-Idea-of-Compilation" nl=""></article>
-			</action>
+		
 			<action type="ess" lbl="Who we are" id="whoweare" nl="">
 				<article type="ess" id="Who are we" nl=""></article>
 			</action>
