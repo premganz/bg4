@@ -106,6 +106,7 @@ public class MenuFactory {
 		Menu menu = new Menu();
 		menu.setNl("Home");
 		menu.setLbl("Home");
+		menu.setId("../../");
 		menu.setClickable(false);
 		menu.setLevelCd("home");
 		List<Menu> menuList = getSubMenuList("//major");
@@ -141,6 +142,7 @@ public class MenuFactory {
 		Menu menu = new Menu();
 		menu.setNl("Home");
 		menu.setLbl("Home");
+		menu.setId("../../");
 		menu.setClickable(false);
 		menu.setLevelCd("nonClickable");
 		List<Menu> menuList = getSubMenuList("//major/minor[@id=\""+majorId+"\"]/../minor");

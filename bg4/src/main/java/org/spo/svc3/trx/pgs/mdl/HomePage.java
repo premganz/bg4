@@ -86,7 +86,7 @@ public class HomePage extends GuidePage {
 		ext.setDate(Calendar.getInstance().getTime());
 		permaLinks.add(ext);
 		 ext = new ExtLink();
-		ext.setHref("../");
+		ext.setHref("www.google.com");
 		ext.setLabel("Home");
 		ext.setMetaInfo(" posted by prem");
 		ext.setDescription("Back to Home");

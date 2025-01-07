@@ -38,7 +38,7 @@ public class K0102 extends AbstractTask {
 	@Override
 	public NavEvent initTask(TrxInfo info) throws Exception {
 		HomePage page = new HomePage();
-		page.setSubTitle("Welcome Page");
+		page.setSubTitle("Designing for A.I");
 		ActionAssembly aa = K01Toolkit.getActionAssem(info);
 		SchemaQuery schemaQuery = new SchemaQuery();
 		String minorCode = aa.getMinorCode();

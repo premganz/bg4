@@ -81,6 +81,17 @@ hr.small {
 	/*background: no-repeat center center;*/
 	
 }
+.blackbody_s2 {	
+		color: #404040;
+	background-color:black;
+	background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Silicon_chip_from_a_computer_laser_mouse_under_a_microscope_50%D1%85.jpg/2560px-Silicon_chip_from_a_computer_laser_mouse_under_a_microscope_50%D1%85.jpg');
+	background-size: contain;
+	background-repeat: repeat-y;]
+	peat;
+	background-blend-mode: luminosity;
+	/* background: no-repeat center center; another option is running chicken nebula*/
+	
+}
 
 .blackbody_minor{
 	color: #404040;
@@ -199,7 +210,8 @@ hr.small {
 }
 
 .intro-header .site-heading, .intro-header .page-heading {
-	text-align: center
+	text-align: center;
+	text-shadow: 2px 2px orange;
 }
 
 .intro-header .site-heading h1, .intro-header .page-heading h1 {
