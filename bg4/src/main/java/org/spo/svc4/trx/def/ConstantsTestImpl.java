@@ -8,7 +8,7 @@ public class ConstantsTestImpl implements Constants2 {
 
 	public String getRepoPath() {
 		if(!System.getProperty("os.name").startsWith("Windows")){
-			AppConstants.cmsDir= System.getenv("cmsdir");
+			AppConstants.cmsDir= System.getenv("cmsdir2");
 			//"/home/ubuntu/data-cms/cms1"
 		}else{
 			String homePath = System.getenv("HOMEPATH");

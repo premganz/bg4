@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE application SYSTEM "..\schema\AppNavModel.dtd"> -->
+<!DOCTYPE application [
+<!-- nl= natural language expression id= unique id -->
+<!ELEMENT vsn (major)+>
+<!ATTLIST vsn
+  xmlns CDATA #FIXED ''
+  id CDATA #REQUIRED
+  aka CDATA #REQUIRED
+  path CDATA #REQUIRED
+  nl CDATA #REQUIRED>
+
+<!ELEMENT major (minor*) >
+<!ATTLIST major
+  id CDATA #REQUIRED
+  xmlns CDATA #FIXED ''
+  lbl CDATA #REQUIRED
+  nl CDATA #REQUIRED>
+
+
+
+<!ELEMENT minor (evidence*,(action)*)>
+<!ATTLIST minor
+  xmlns CDATA #FIXED ''
+  id CDATA #REQUIRED
+  lbl CDATA #IMPLIED
+  type NMTOKEN #REQUIRED
+  nl CDATA #REQUIRED>
+
+<!ELEMENT evidence EMPTY>
+<!ATTLIST evidence
+  xmlns CDATA #FIXED ''
+  nl CDATA #IMPLIED
+  type NMTOKEN #REQUIRED>
+
+<!ELEMENT article EMPTY>
+<!ATTLIST article
+  xmlns CDATA #FIXED ''
+  nl CDATA #IMPLIED
+  id CDATA #REQUIRED
+  type NMTOKEN #REQUIRED>
+
+<!ELEMENT action (article*,evidence*)>
+<!ATTLIST action
+  xmlns CDATA #FIXED ''
+  id ID #REQUIRED
+  lbl CDATA #REQUIRED
+  nl CDATA #REQUIRED
+  type NMTOKEN #REQUIRED>
+  
+]>
+
+
+<!-- action type c = critical publication, type t = tactical publication 
+in the role of _ in humanity, doing _ 
+The LeafyCampus Forum for Scholarship and Exploration
+
+LC - reviving cartesian science
+=========================
+motivation -> Scepticism, past works inspirations
+exposition -> how scholastic science exists and how postmodernity/modernity is a cancelling out
+adaptation -> real life design recommendations, criticism, collaborations
+campus -> the limitations of formalism, open exploratory activities, campus before concept.
+	
+				  
+				 Study			>
+				 
+				 Exposition - both critical (post linguistics, occam razor, connectionism) and 
+				 			theories of computing based on empirical research. publication of empricism of computing, 
+				 construction - rules engines, continuously consistnt systems, interactive proof systems, AI applied expert systems particularly in evidence based med
+				 existence-scoutn n scholar, architects forums, collaboration boards - AI. universities.
+				 reflection - survey and pedagogical work mainly on classicism and cartesian science. Exposition on new angles to look at science,languages, aesthetics
+				 
+				 
+				 One Issue >
+				 Architecture as 
+
+-->
+<vsn id="root_version_7" nl="Motivation" aka="Leafy Campus Club" path="Web Journal of Reactive Systems Engineering">
+	<major id="About" nl="About" lbl="About">
+		<minor id="about" lbl="ABOUT HOME" nl="about" type="liv">
+			<action type="ess" lbl="Subject Matter" id="about_step_by_step" nl="">
+				<article type="ess" id="Enterprises-as-Directed" nl=""></article>
+				<article type="ess" id="Philosophy" nl=""></article>
+			</action>
+			<action type="ess" lbl="Method" id="method" nl="">
+				<article type="ess" id="Process-as-First-Class" nl=""></article>
+				<article type="ess" id="The-Idea-of-Compilation" nl=""></article>
+			</action>
+			<action type="ess" lbl="Who we are" id="whoweare" nl="">
+				<article type="ess" id="Who are we" nl=""></article>
+			</action>
+			<action type="ess" lbl="Write to Us" id="contact" nl="">
+				<article type="ess" id="Interaction" nl=""></article>
+			</action>
+		</minor>
+	</major>
+
+
+	<major id="Issues" lbl="Issues" nl="" >
+		<minor id="2022-Nov" lbl="2022-NOV" nl="" type="liv">
+			<action id="IssueContents" lbl="Issue-Contents" nl="" type="liv">
+				<article type="ess" id="Parallel Cartography"></article>
+				<article type="ess" id="What is Reactive Software Engineering"></article>
+			</action>	
+		
+		</minor>
+	    <minor id="2024-Jan" lbl="2024-JAN" nl="" type="liv">
+			<action id="IssueContents1" lbl="Issue-Contents" nl="" type="liv">
+				<article type="ess" id="Applying Realism to Computer Architecture"></article>
+				<article type="ess" id="Integrating Over Partial Recursive Fields"></article>
+			</action>	
+		
+		</minor>
+		<minor id="2024-Aug" lbl="2024-AUG" nl="" type="liv">
+			<action id="IssueContents2a" lbl="Critical-Points" nl="" type="liv">
+				<article type="ess" id="Counterpoint-Is-Object-Oriented-Programming-really-a-disaster"></article>
+				<article type="ess" id="Essence-of-Microservice-Architecture"></article>
+				<article type="ess" id="Was-Turing-Wrong-on-the-Imitation-Game"></article>
+			</action>	
+			<action id="IssueContents2b" lbl="Environment" nl="" type="liv">
+				<article type="ess" id="Environment-Tips-on-Selecting-Bicycles-in-India"></article>
+				<article type="ess" id="Entomological-balance-and-climate-change"></article>
+			</action>	
+		</minor>
+	
+	</major>
+	
+	<major id="Y2K25" lbl="Y2K25" nl="" >
+		<minor id="Y2K25_program" lbl="Y2K25 program" nl="" type="liv">
+			<action id="contents" lbl="About the Program" nl="" type="liv">
+				<article type="ess" id="Motivating Scenarios"></article>
+			</action>	
+		
+		</minor>
+	
+	</major>
+	
+
+	<major id="links" lbl="Perma Links" nl="" >
+		<minor id="Classical_Sciences" lbl="HOME" nl="reviving_classical_sciences" type="liv">
+		
+		</minor>
+	</major>
+
+	
+	
+	
+</vsn>

@@ -49,7 +49,7 @@ public class CMSContentPageController {
 		List<String> list = svc.readFileCatalog("content",null, null,null);
 		Collections.sort(list);		 
 		model.addAttribute("files1",list);
-		return "cms1/x_content";
+		return "cms2/x_content";
 	}
 	
 	//LISTS 

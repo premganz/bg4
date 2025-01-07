@@ -77,13 +77,13 @@ public abstract class AbstractHandler {
 
 		if(navevent.getEventType().equals(EventType.REFRESHPAGE)){
 			String taskName = taskChannel.get(info.getState().taskId).getClass().getSimpleName();				
-			return "site2/"+taskName;
+			return "site1/"+taskName;
 		}else if(navevent.getEventType().equals(EventType.TASKSET)){			
 			NavEvent navevent1=handleInBound(navevent, info);
 			info.getState().lastEvent=navevent1;
 			if(navevent1.getEventType().equals(EventType.REFRESHPAGE)){
 				String taskName = taskChannel.get(navevent.getTaskId()).getClass().getSimpleName();				
-				return "site2/"+taskName;
+				return "site1/"+taskName;
 			}
 		}else if(navevent.getEventType().equals(EventType.TRXSWITCH)){
 			info.getState().trxId=navevent.getTrxId();

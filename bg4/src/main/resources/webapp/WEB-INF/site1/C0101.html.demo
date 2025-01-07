@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+
+<title>The Leafy Campus</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="lcx/InnerAccordion.js"></script>
+<link href="../../lcx/lcnew.css" rel="stylesheet" type="text/css" media="all"></link>
+<link href="../../lcx/InnerAccordion.css" rel="stylesheet" type="text/css" media="screen"></link>
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"></link>
+<!-- Bootstrap Core CSS -->
+<link href="../../lcx/bootstrap.css" rel="stylesheet"></link>
+
+<!-- Custom CSS -->
+<link href="../../lcx/clean-blog-lc.min.css" rel="stylesheet"></link>
+
+<!-- Custom Fonts -->
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"></link>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'></link>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+	rel='stylesheet' type='text/css'></link>
+<!-- 
+<script	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+-->
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<!-- jQuery
+<script src="js/jquery.js"></script>
+ -->
+<!-- Bootstrap Core JavaScript -->
+<script src="../../js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../../js/clean-blog.min.js"></script>
+</head>
+
+<body>
+	<div class="blackbody">
+	<header class="intro-header">
+		<div class="container-fluid" style="padding-left:0px">
+			<div class="row" >
+				<div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 ">
+					<div class="site-heading">
+						<h1>leafy campus</h1>
+						<hr class="small"></hr>
+						<span class="subheading" th:text="${message.page_sub_title}"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<div class="container-fluid" style="padding-left:0px">
+		<div class="row" style="background-color:white;">
+			<div class="col-lg-3  col-md-3 col-sm-4 col-xs-12">
+				<div id="menu" style="background:url(https://upload.wikimedia.org/wikipedia/commons/1/19/07182012Sesion_campus_redes_sociales047.jpg')">
+				<div id="menu2" style="Opacity:0.9">
+				
+				
+						<ul>
+							<lh> <a th:text="Home" style="cursor: pointer;" th:href= "${menu.home_link_ref}"></a> </lh>	
+							<lh> <a th:text="About" style="cursor: pointer;" th:href= "${menu.about_link_ref}"></a> </lh>
+						</ul>
+						
+						<ul>
+							<lh> <h2 style="color:antiquewhite">The Idea1</h2> <hr></hr></lh>
+						</ul>
+						
+						<div th:each="link : ${menu.MENU_LINKS_IDEA_ZN}">
+							<ul>	
+								<lh> <a th:text="${link.link_title}" style="cursor: pointer;" href="/home/A01T"></a> </lh>					
+								<div th:each="sublink : ${link.MENU_SUBLINKS_ZN}">
+								<li  th:id="${sublink.link_id}"><a th:text="${sublink.link_title}" style="cursor: pointer;" th:href="${sublink.link_href}" onclick=""></a></li>						
+								</div>
+							</ul>
+						</div>
+					
+						<ul>
+							<lh> <h2 style="color:antiquewhite">Audience</h2> <hr></hr></lh>
+						</ul>
+						<div th:each="link : ${menu.MENU_LINKS_AUDIENCE_ZN}">
+							<ul>	
+								<lh> <a th:text="${link.link_title}" style="cursor: pointer;" href="/home/A01T"></a> </lh>					
+								<div th:each="sublink : ${link.MENU_SUBLINKS_ZN}">
+								<li  th:id="${sublink.link_id}"><a th:text="${sublink.link_title}" style="cursor: pointer;" th:href="${sublink.link_href}" onclick=""></a></li>						
+								</div>
+							</ul>
+						</div>
+					
+										
+						<ul>
+							<lh> <h2 style="color:antiquewhite">Getting Involved</h2> <hr></hr></lh>
+						</ul>
+						<div th:each="link : ${menu.MENU_LINKS_INVOLVED_ZN}">
+							<ul>	
+								<lh> <a th:text="${link.link_title}" style="cursor: pointer;" href="/home/A01T"></a> </lh>					
+								<div th:each="sublink : ${link.MENU_SUBLINKS_ZN}">
+								<li  th:id="${sublink.link_id}"><a th:text="${sublink.link_title}" style="cursor: pointer;" th:href="${sublink.link_href}" onclick=""></a></li>						
+								</div>
+							</ul>
+						</div>
+						<ul>
+							<lh> <h2 style="color:antiquewhite">Resources</h2> <hr></hr></lh>
+						</ul>
+						
+						<div th:each="link : ${menu.MENU_LINKS_RESOURCES_ZN}">
+							<ul>	
+								<lh> <a th:text="${link.link_title}" style="cursor: pointer;" href="/home/A01T"></a> </lh>					
+								<div th:each="sublink : ${link.MENU_SUBLINKS_ZN}">
+								<li  th:id="${sublink.link_id}"><a th:text="${sublink.link_title}" style="cursor: pointer;" th:href="${sublink.link_href}" onclick=""></a></li>						
+								</div>
+							</ul>
+						</div>
+							
+						<ul>
+							<lh>
+							<a>Links</a></lh>
+							<li><a style="cursor: pointer;" onclick="return form_action_load('','pages','curriculum','view',0);">CBSE</a></li>
+							<li><a style="cursor: pointer;" href="http://www.cisce.org/" target="_blank">ICSE | ISC Syllabus</a></li>
+							<li><a style="cursor: pointer;" href="http://www.aacu.org/" target="_blank">AACU</a></li>
+							<li><a style="cursor: pointer;" href="/admin/metrics">Login</a></li>
+						</ul>
+					
+						<ul><lh> </lh></ul>
+						<ul><lh> </lh></ul>
+						<ul><lh> </lh></ul>
+						<ul><lh> </lh></ul>
+						<ul><lh> </lh></ul>
+						<ul><lh> </lh></ul>
+						<ul><lh> </lh></ul>
+						<ul><lh> </lh></ul>
+						<ul><lh> </lh></ul><ul><lh> </lh></ul><ul><lh> </lh></ul><ul><lh> </lh></ul>
+					</div>
+					</div>
+ 				<div id="pageId" th:utext="${message.page_id}"> 				
+ 				</div>
+ 				<div th:utext="${message.contentObject.metaMap['contentid']}"></div>
+				<div th:switch="${message.page_id}">
+					<p th:case='A01T'><a href="http://info.flagcounter.com/fhT3"><img src="http://s01.flagcounter.com/count2/fhT3/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></img></a></p>					
+				</div>
+				</div>
+				<div class="col-lg-7  col-md-8 col-sm-8 col-xs-12">
+					<div class="container1" style="border-right-color: yellow;">
+						<div th:utext="${message.page_description_text}"></div>
+						<div th:utext="${message.page_content_text}"></div>
+					</div>
+
+					<ul class="pager">
+						<li class="next"><a th:href="${message.list_pagination_link}" style="background-color: gold;">
+								<div th:utext="${message.list_pagination_txt}"></div>
+						</a></li>
+					</ul>
+					<!-- Main Content -->
+					<div class="container1">
+						<hr></hr>
+						<h2>
+							
+						</h2>
+						<hr></hr>
+						<div class="row1" th:each="link : ${message.SECTION_LINKS_ZN}">
+
+							<div class="post-preview">
+								<a th:href="${link.link_id}">
+									<h3 th:text="${link.link_title}"></h3>
+									<h4 class="post-subtitle" th:text="${link.link_sub_title}"></h4>
+								</a>
+								<p class="post-meta">
+								<h5>
+									Posted by <a th:href="${message.page_description_text}">Admin</a>
+								</h5>
+								<p th:text="${link.link_date}"></p>
+								</p>
+
+								<hr></hr>
+
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+				<div class="col-lg-2  col-md-1 col-sm-12  col-xs-12">
+						<H3>News</H3>
+						<div class="row" th:each="link : ${message.SECTION_NEWS_ZN}">
+		
+				<div class="footnote" >	
+					<a th:href="${link.link_id}"	 target="_blank">
+						<p  th:text="${link.link_title}"></p>
+						<p class="post-subtitle" th:text="${link.link_sub_title}"></p>
+					</a>
+					<p class="post-meta">
+						Posted by <a th:href="${message.page_description_text}">Admin</a>
+						
+					</p>
+				
+				<hr></hr>			
+				
+			</div>
+		</div>
+						<a style="cursor: pointer; font-size: 12px; text-decoration: underline;" onclick="return form_action_load('','pages','news','view',0);">More
+							News</a>
+				</div>
+			
+		</div>
+		
+		<div class="row">		
+		<div id="footer">
+			<!-- Footer start -->
+			<p class="footnote">
+			<br></br>
+				&copy; Leafy Campus Organization, Chennai <br></br> Powered by Bootstrap, supports most devices. Feel free to Zoomin/out and see page respond with appropriate styles.<br></br>
+				Image Credits:Wikimedia Foundation. 
+			</p>
+			<!-- Footer end -->
+		</div>
+		</div>
+	</div>
+	
+	
+		<script type="text/javascript">
+				
+		$(document).ready(function() {
+			var pageId = $('#pageId').text();
+			$('#'+pageId).css(
+				{
+					'background-color':'#f6aa00',
+					'color':'#9ffd06'
+					
+				}	
+				);	
+		});
+		
+		
+			
+				</script>
+				<style type="text/css" media="screen">
+#quotes {
+	margin: 0;
+	position: relative;
+}
+
+.textItem {
+	position: absolute;
+	display: none;
+	width: 100%;
+}
+
+.textItem p {
+	font-weight: bold;
+}
+
+.fr {
+	font-weight: normal !important;
+	margin-right: 10px;
+}
+</style>
+	
+	</div>
+</body>
+
+</html>
