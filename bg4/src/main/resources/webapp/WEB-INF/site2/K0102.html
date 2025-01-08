@@ -5,7 +5,7 @@
 <head>
 
 
-<title>The Leafy Campus-page2</title>
+<title>Manifolds-page2</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="lcx/InnerAccordion.js"></script>
 <link href="../../lcx/lcnew.css" rel="stylesheet" type="text/css" media="all"></link>
@@ -16,6 +16,7 @@
 
 <!-- Custom CSS -->
 <link href="../../lcx/clean-blog-lc.min.css" rel="stylesheet"></link>
+<link href="../../lcx/clean-blog.css" rel="stylesheet"></link>
 
 <!-- Custom Fonts -->
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"></link>
@@ -143,7 +144,29 @@
 						<h2></h2>
 						<hr></hr>
 						
+						<div class="row1" th:each="link : ${hom.pageMeta.linkedItems}">
 						
+							<div class="post-preview">
+							<h3  >
+								<a th:href="${link.href}" class="post-title" th:text="${link.description}">
+								
+									
+								</a>
+							</h3>
+							<h4 class="post-subtitle" th:text="${link.metaInfo}">
+								
+							</h4>	
+								<p class="post-meta">
+								<h5>
+									Posted by <a th:href="${link.href}">Admin1</a>
+								</h5>
+								<div th:text="${link.date}"></div>
+								</p>
+
+								<hr></hr>
+
+							</div>
+						</div>
 						
 						
 					
