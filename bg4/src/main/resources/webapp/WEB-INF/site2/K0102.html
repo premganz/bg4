@@ -145,16 +145,12 @@
 						<hr></hr>
 						
 						<div class="row1" th:each="link : ${hom.pageMeta.linkedItems}">
-						
 							<div class="post-preview">
 							<h3  >
 								<a style="color:#0085a1;text-decoration: underline;" th:href="${link.href}" class="post-title" th:text="${link.description}">
-								
-									
 								</a>
 							</h3>
 							<h4 class="post-subtitle" th:text="${link.metaInfo}">
-								
 							</h4>	
 								<p class="post-meta">
 								<h5>
@@ -162,16 +158,10 @@
 								</h5>
 								<div th:text="${link.date}"></div>
 								</p>
-
 								<hr></hr>
-
 							</div>
 						</div>
-						
-						
-					
 					</div>
-					
 				</div>
 				<!-- Modal -->
 				

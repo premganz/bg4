@@ -145,21 +145,20 @@
 						<hr></hr>
 					
 						<div class="row1" th:each="link : ${hom.pageMeta.linkedItems}">
-						
 							<div class="post-preview">
-								<a th:href="${link.href}">
-									<h3 th:text="${link.description}" style="font-weight: bold; color: #337ab7;"></h3>
-									<h4 class="post-subtitle" th:text="${link.metaInfo}"></h4>
+							<h3  >
+								<a style="color:#0085a1;text-decoration: underline;" th:href="${link.href}" class="post-title" th:text="${link.description}">
 								</a>
+							</h3>
+							<h4 class="post-subtitle" th:text="${link.metaInfo}">
+							</h4>	
 								<p class="post-meta">
 								<h5>
 									Posted by <a th:href="${link.href}">Admin1</a>
 								</h5>
-								<p th:text="${link.date}"></p>
+								<div th:text="${link.date}"></div>
 								</p>
-
 								<hr></hr>
-
 							</div>
 						</div>
 						
