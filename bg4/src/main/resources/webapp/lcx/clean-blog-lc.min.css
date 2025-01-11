@@ -219,7 +219,9 @@ hr.small {
 
 .intro-header .site-heading, .intro-header .page-heading {
 	text-align: center;
-	text-shadow: 1px 1px orange;
+	/*text-shadow: 1px 1px orange;*/
+	color:orange;
+		
 }
 
 .intro-header .site-heading h1, .intro-header .page-heading h1 {
