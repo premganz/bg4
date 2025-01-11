@@ -38,7 +38,7 @@ public class K0101 extends AbstractTask {
 	private SocketConnector connector=new SocketConnector();
 	
 	@Override
-	public NavEvent init Task(TrxInfo info) throws Exception {
+	public NavEvent initTask(TrxInfo info) throws Exception {
 		logger.debug("in K0101");
 		HomePage page = new HomePage();
 		page.setSubTitle("Welcome Page");
