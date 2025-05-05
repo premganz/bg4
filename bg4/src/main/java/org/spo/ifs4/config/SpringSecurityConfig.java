@@ -19,13 +19,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .inMemoryAuthentication()
                     .withUser("azetec").password("indian").roles("ADMIN")
                         .and()
-                    .withUser("user").password("a").roles("USER");
+                    .withUser("a").password("a").roles("USER");
 
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-    	String adminUrl = "admin1";
+    	String adminUrl = "admin";
     	String protectedFile = "randomFile.txt";
     	if(!System.getProperty("os.name").startsWith("Windows")){
     		adminUrl="admin";
@@ -36,7 +36,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/login**").permitAll()
                 .antMatchers("/"+adminUrl+ "/**").hasRole("ADMIN")//TODO FIXME revert to admin later
-                .antMatchers("/"+protectedFile).hasRole("ADMIN")
+                .antMatchers("/**/Agile-as-a-study-in-the-absurd*").hasRole("ADMIN")//TODO FIXME revert to admin later
+                .antMatchers("/"+protectedFile).hasRole("ADMIN")               
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
