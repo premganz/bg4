@@ -66,6 +66,7 @@ public class DelegatingController{
 			//			
 			//		}
 			if(session.isNew()){
+				session.setMaxInactiveInterval(60*60);
 				info = new TrxInfo(session, modelMap,request);
 				session.setAttribute("info",info);
 				state = new StateInfo(DSLConstants.EventType.REFRESHPAGE,trxId,"","",dataId);
@@ -89,7 +90,7 @@ public class DelegatingController{
 		}catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("++++proceeding+++++++");
-			return "redirect:http://www.leafycampus.org";
+			return "redirect:http://www.manifoldstudies.com";
 		}
 //		return handler.handle1(pageEvent,dataId,state,info,request);
 //				return "redirect:"+constants.getLandingPage();

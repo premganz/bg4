@@ -32,6 +32,7 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ResourceHandler;
+import org.eclipse.jetty.server.session.SessionHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.webapp.WebAppContext;
 import org.slf4j.Logger;
@@ -156,10 +157,7 @@ public class JettyConfiguration {
         addMetricsServlet(webAppContext());
 
 	        /* Get the SessionHandler and set the session timeout (in seconds) */
-    SessionHandler sessionHandler = webAppContext.getSessionHandler();
-    sessionHandler.setMaxInactiveInterval(3600); // Example: 3600 seconds = 1 hour
-
-
+    
         return server;
     }
 
