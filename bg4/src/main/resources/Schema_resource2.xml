@@ -90,8 +90,10 @@ campus -> the limitations of formalism, open exploratory activities, campus befo
 				<article type="ess" id="Interaction" nl=""></article>
 			</action>
 		</minor>
-		<minor id="Issues" lbl="ISSUES HOME" nl="issues" type="liv">
-			<action type="ess" lbl="May 25" id="issue_may_25" nl="">
+		</major>
+		<major id="Issues" nl="Issues" lbl="Issues">
+		<minor id="May 25" lbl="May 25" nl="issues" type="liv">
+			<action type="ess" lbl="Contents" id="issue_may_25-contents" nl="">
 				<article type="ess" id="Agile-as-a-study-in-the-absurd" nl=""></article>
 			</action>
 		</minor>
