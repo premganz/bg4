@@ -155,6 +155,11 @@ public class JettyConfiguration {
          * SpringWebAppInitializer. */
         addMetricsServlet(webAppContext());
 
+	        /* Get the SessionHandler and set the session timeout (in seconds) */
+    SessionHandler sessionHandler = webAppContext.getSessionHandler();
+    sessionHandler.setMaxInactiveInterval(3600); // Example: 3600 seconds = 1 hour
+
+
         return server;
     }
 
