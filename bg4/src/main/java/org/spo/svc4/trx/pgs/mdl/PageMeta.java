@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import org.joda.time.DateTime;
+
 public class PageMeta {
 	private List<String> photoStrip;
 	private List<NewsItem> newsItems;
@@ -20,7 +22,7 @@ public class PageMeta {
 		ext.setLabel("The Mullberry Tree August 10, 2018");
 		ext.setMetaInfo(" Sourced from The website , www.leafycampus.org");
 		ext.setDescription("Back to Home");
-		ext.setDate(Calendar.getInstance().getTime());
+		ext.setDateString("2025-01-01");
 		linkedItems.add(ext);
 
 		return linkedItems;

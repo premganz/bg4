@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import org.joda.time.DateTime;
+
 public class HomePage extends GuidePage {
 
 	private Menu sideBarMenu;
@@ -83,14 +85,14 @@ public class HomePage extends GuidePage {
 		ext.setLabel("About");
 		ext.setMetaInfo(" posted by prem");
 		ext.setDescription("Back to Home");
-		ext.setDate(Calendar.getInstance().getTime());
+		ext.setDate(DateTime.now());
 		permaLinks.add(ext);
 		 ext = new ExtLink();
 		ext.setHref("../");
 		ext.setLabel("Home");
 		ext.setMetaInfo(" posted by prem");
 		ext.setDescription("Back to Home");
-		ext.setDate(Calendar.getInstance().getTime());
+		ext.setDate(DateTime.now());
 		permaLinks.add(ext);
 		
 		return permaLinks;
@@ -106,7 +108,7 @@ public class HomePage extends GuidePage {
 		homePageLink.setLabel("Home");
 		homePageLink.setMetaInfo(" posted by prem");
 		homePageLink.setDescription("dfads");
-		homePageLink.setDate(Calendar.getInstance().getTime());
+		homePageLink.setDate(DateTime.now());
 		return homePageLink;
 	}
 
@@ -120,7 +122,7 @@ public class HomePage extends GuidePage {
 		abtPageLink.setLabel("Home");
 		abtPageLink.setMetaInfo(" posted by prem");
 		abtPageLink.setDescription("dfads");
-		abtPageLink.setDate(Calendar.getInstance().getTime());
+		abtPageLink.setDate(DateTime.now());
 		return abtPageLink;
 	}
 
