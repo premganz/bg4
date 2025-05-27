@@ -14,7 +14,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth)
             throws Exception {
-
         auth
                 .inMemoryAuthentication()
                     .withUser("azetec").password("indian").roles("ADMIN")
@@ -36,16 +35,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/login**").permitAll()
                 .antMatchers("/"+adminUrl+ "/**").hasRole("ADMIN")//TODO FIXME revert to admin later
-                .antMatchers("/**/Agile-as-a-study-in-the-absurd*").hasRole("ADMIN")//TODO FIXME revert to admin later
                 .antMatchers("/"+protectedFile).hasRole("ADMIN")               
-                .anyRequest().permitAll()
                 .and()
-                .formLogin()
+                .formLogin();
                 // Example portMapper() configuration
                 //.portMapper()
                     //.http(8082).mapsTo(80)
-                    
-                ;
+        http.authorizeRequests().antMatchers("/**/Agile-as-a-study-in-the-absurd*").hasRole("ADMIN");           
+         http.authorizeRequests().anyRequest().permitAll();    
 
       
         

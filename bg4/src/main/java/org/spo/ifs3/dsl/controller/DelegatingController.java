@@ -89,7 +89,7 @@ public class DelegatingController{
 		}catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("++++proceeding+++++++");
-			return "redirect:http://www.leafycampus.org";
+			return "redirect:http://www.manfoldstudies.com";
 		}
 //		return handler.handle1(pageEvent,dataId,state,info,request);
 //				return "redirect:"+constants.getLandingPage();

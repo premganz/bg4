@@ -20,7 +20,7 @@ public class PageMeta {
 		ExtLink ext = new ExtLink();
 		ext.setHref("e://community.hortonworks.com/questions/146756/expression-language-for-concatenating.html");
 		ext.setLabel("The Mullberry Tree August 10, 2018");
-		ext.setMetaInfo(" Sourced from The website , www.leafycampus.org");
+		ext.setMetaInfo(" Sourced from The website , www.manifoldstudies.com");
 		ext.setDescription("Back to Home");
 		ext.setDateString("2025-01-01");
 		linkedItems.add(ext);
